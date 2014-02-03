@@ -6,9 +6,9 @@ var screenSize
 var boxSize
 
 if (screenWidth < screenHeight) {
-	screenSize = screenWidth - 110;
+	screenSize = screenWidth;
 } else {
-	screenSize = screenHeight - 110;
+	screenSize = screenHeight;
 }
 
 boxSize = Math.floor(screenSize / 20);

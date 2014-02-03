@@ -37,8 +37,8 @@ body {
 	width:400px;
 	height:100px;
 	position:fixed;
-	bottom:0px;
 	left:calc(50% - 200px);
+	padding-top:10px;
 }
 
 #gameCanvas {
@@ -57,4 +57,39 @@ body {
 #blue {
 	background-color:blue;
 }
-	
+
+#buttonsWrapper {
+	height:100px;
+}
+
+.slideUp {
+	bottom: -0px;
+	animation: ease 0.5s slideUp;
+	-webkit-animation: ease 0.5s slideUp;
+}
+
+.slideDown {
+	bottom: -100px;
+	animation: ease 0.5s slideDown;
+	-webkit-animation: ease 0.5s slideDown;
+}
+
+@keyframes slideUp {
+	from {bottom: -100px;}
+	to {bottom: 0px;}
+}
+
+@-webkit-keyframes slideUp {
+	from {bottom: -100px;}
+	to {bottom: 0px;}
+}
+
+@keyframes slideDown {
+	from {bottom: 0px;}
+	to {bottom: -100px;}
+}
+
+@-webkit-keyframes slideDown {
+	from {bottom: 0px;}
+	to {bottom: -100px;}
+}

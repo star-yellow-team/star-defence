@@ -5,8 +5,15 @@ var boxY;
 
 $(document).ready(function() {
 	$("#blue").hide();
+	$("#ui-menu").hover(function(){
+  		$("#ui-menu").addClass("slideUp");
+  		$("#ui-menu").removeClass("slideDown");
+  	},
+  	function(){
+  		$("#ui-menu").removeClass("slideUp");
+  		$("#ui-menu").addClass("slideDown");
+	});
 })
-
 var currentMousePos = { x: -1, y: -1 };
 
 $(document).mousemove(function(event) {
