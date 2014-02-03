@@ -1,7 +1,7 @@
 ﻿star-defence
 ============
 
-Daca vedeti asta sunteti bossi!
+Daca vedeti asta cu GitHub Desktop sunteti bossi!
 
 Andrei Ștefănescu
 Adrian Claudiu Covaci
