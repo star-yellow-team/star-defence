@@ -21,3 +21,8 @@ Map.prototype.removeElement = function(x, y)
 {
 	matrix[x][y] = 0;
 }
+
+Map.prototype.takeElement = function(x, y)
+{
+	return matrix[x][y];
+}
