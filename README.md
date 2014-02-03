@@ -2,4 +2,4 @@ star-defence
 ============
 
 Andrei Ștefănescu
-Adrian Claudiu Covaci
+Adrian ClaudiuCovaci
