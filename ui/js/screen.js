@@ -47,6 +47,6 @@ sizeScreen();
 
 // o setam ca handler pentru evenimentul de resize
 $(window).resize(function() {
-    size()
+    sizeScreen()
 });
 
