@@ -7,9 +7,9 @@
 
 var screenWidth  = $(window).width();
 var screenHeight = $(window).height();
-var screenSize   = 0
-var boxSize      = 0
-
+var screenSize   = 0;
+var boxSize      = 0;
+var bodyLeftMargin = 0;
 
 
 function sizeScreen() {
@@ -37,7 +37,7 @@ function sizeScreen() {
     $(".ghostImage").css("height",boxSize);
     $(".ghostImage").css("width",boxSize);
 
-    var bodyLeftMargin = parseInt($("body").css("marginLeft")) + 8;
+    bodyLeftMargin = parseInt($("body").css("marginLeft")) + 8;
     
 }
 
@@ -47,6 +47,6 @@ sizeScreen();
 
 // o setam ca handler pentru evenimentul de resize
 $(window).resize(function() {
-    sizeScreen()
+    sizeScreen();
 });
 
