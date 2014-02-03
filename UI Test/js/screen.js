@@ -21,4 +21,4 @@ $("body").css("width",screenSize);
 $(".ghostImage").css("height",boxSize);
 $(".ghostImage").css("width",boxSize);
 
-var bodyLeftMargin = parseInt($("body").css("marginLeft"));
+var bodyLeftMargin = parseInt($("body").css("marginLeft")) + 8;

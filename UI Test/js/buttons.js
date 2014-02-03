@@ -46,7 +46,7 @@ function unstick() {
 }
 
 function second() {
-	alert(p)
+	alert(bodyLeftMargin)
 }
 
 function third() {
