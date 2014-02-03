@@ -1,5 +1,4 @@
 // JavaScript Document
-var blueHover = 0;
 
 $(document).ready(function() {
 	$("#blue").hide();
@@ -8,7 +7,7 @@ $(document).ready(function() {
 var currentMousePos = { x: -1, y: -1 };
 
 $(document).mousemove(function(event) {
-	if (blueHover == 1) {
+	if (blueHover = 1) {
 		$("#blue").show();
         $("#blue").css("left",event.pageX - 50);
        	$("#blue").css("top",event.pageY - 50);
@@ -17,7 +16,7 @@ $(document).mousemove(function(event) {
 	
 
 function stick() {
-	blueHover = 1;
+	var blueHover = 1;
 }
 
 function unstick() {
