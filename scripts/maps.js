@@ -6,6 +6,9 @@
 		1: pozitii pe care vor circula monstruletii
 		2: pozitie spawn monstruleti
 		3: pozitia bazei atacate de monstruleti
+		
+	ultima parte a sursei este pentru a vedea cum arata harta 
+	in acest moment partea in care trebuie creat vectorul de harti esueaza... va rog sa va uitati si voi pe sursa, poate gasiti greseala
 */
 
 
@@ -53,6 +56,7 @@ function clearMap()
 
 function createMaps()
 {
+	alert("createMps");
 	auxMap =[ 
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
 			   [ 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
@@ -75,8 +79,8 @@ function createMaps()
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] , 
 			];
-		 
-	map = Map(1,0, 15,15,auxMap);
+
+	map =new Map(1,0, 15,15,auxMap);
 	maps.push(map);
 	clearMap();
 	
@@ -102,8 +106,8 @@ function createMaps()
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] , 
 			];
-		 
-	map = Map(1,0, 19,8,auxMap);
+
+	map =new Map(1,0, 19,8,auxMap);
 	maps.push(map);
 	clearMap();
 	
@@ -129,8 +133,62 @@ function createMaps()
 			   [ 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,  
 			];
-		 
-	map = Map(5,6, 15,0,auxMap);
+
+	map =new Map(5,6, 15,0,auxMap);
 	maps.push(map);
-	clearMap();
+}
+
+
+//pentru testarea hartilor
+auxMap =[ 
+			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
+			   [ 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
+			   [ 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
+			   [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
+			   [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 ] ,
+			   [ 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ] ,
+			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ] ,
+			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ] ,
+			   [ 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 ] ,
+			   [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
+			   [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 ] ,
+			   [ 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0 ] ,
+			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ] ,
+			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0 ] ,
+			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
+			   [ 3, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
+			   [ 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
+			   [ 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
+			   [ 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
+			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,  
+			];
+
+function drawMap()
+{
+	var i,j;
+	var canvas = document.getElementById('game');
+	var context = canvas.getContext('2d');
+	var rectWidth = 40;
+	var rectHeight = 30;
+	var x = maps[0];
+	for(i = 0; i < 20; i++)
+		for(j = 0; j < 20; j++)
+			{
+				if(auxMap[i][j] == 1)
+				{
+					context.beginPath();
+					context.rect(i * rectWidth, j * rectHeight, 40, 30);
+					context.fillStyle = 'blue';
+					context.fill();
+				}
+				
+				if(auxMap[i][j] == 0)
+				{
+					context.beginPath();
+					context.rect(i * rectWidth, j * rectHeight, 40, 30);
+					context.fillStyle = 'red';
+					context.fill();
+				}
+					
+			}
 }

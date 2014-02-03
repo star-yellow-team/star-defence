@@ -1,1 +1,1 @@
-createMaps();
+drawMap();
