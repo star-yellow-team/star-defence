@@ -32,13 +32,3 @@ initMap();
 map = Map(1,0, 6,9,auxMap);
 maps.push(map);
 
-//restul
-var canvas = document.getElementById('myCanvas');
-var context = canvas.getContext('2d');
-var img = new Image();
-if(map.matrix[1][0] == 2)
-{
-	img.src = '1.jpg';
-	context.drawImage(img,0,0);
-}
-
