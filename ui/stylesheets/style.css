@@ -1,0 +1,95 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	padding: 0px;
+	width:100%;
+	height:100%;
+	margin:auto;
+}
+
+.button {
+	background:none;
+	border:none;
+	width:100px;
+	height:100px;
+	margin:0px;
+	padding:0px;
+	display: inline-block;
+}
+
+#first {
+	background-color:blue;
+	margin-right:46px;
+}
+
+#second {
+	background-color:red;
+	margin-right:46px;
+}
+
+#third {
+	background-color:green;
+}
+
+#ui-menu {
+	background-color:grey;
+	width:400px;
+	height:100px;
+	position:fixed;
+	left:calc(50% - 200px);
+	padding-top:10px;
+}
+
+#gameCanvas {
+	width:100%;
+	height:100%;
+	background-color:lightpink;
+}
+
+.ghostImage {
+	width:100px;
+	height:100px;
+	opacity:0.5;
+	position:absolute;
+}
+
+#blue {
+	background-color:blue;
+}
+
+#buttonsWrapper {
+	height:100px;
+}
+
+.slideUp {
+	bottom: -0px;
+	animation: ease 0.5s slideUp;
+	-webkit-animation: ease 0.5s slideUp;
+}
+
+.slideDown {
+	bottom: -100px;
+	animation: ease 0.5s slideDown;
+	-webkit-animation: ease 0.5s slideDown;
+}
+
+@keyframes slideUp {
+	from {bottom: -100px;}
+	to {bottom: 0px;}
+}
+
+@-webkit-keyframes slideUp {
+	from {bottom: -100px;}
+	to {bottom: 0px;}
+}
+
+@keyframes slideDown {
+	from {bottom: 0px;}
+	to {bottom: -100px;}
+}
+
+@-webkit-keyframes slideDown {
+	from {bottom: 0px;}
+	to {bottom: -100px;}
+}
