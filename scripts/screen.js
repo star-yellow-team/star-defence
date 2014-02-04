@@ -56,9 +56,6 @@ function sizeScreen() {
     canvasWidth   = $("#gameCanvas").width();
     canvasHeight  = $("#gameCanvas").height();
 
-    boxWidth      = canvasWidth  / numberOfBoxesX;
-    boxHeight     = canvasHeight / numberOfBoxesY; 
-
     $("#gameCanvas").attr({"width":String(canvasWidth)+'px', "height":String(canvasHeight)+'px'})
 }
 // o apelam pentru prima oara

@@ -28,7 +28,7 @@ $(document).mousemove(function(event) {
 		$("#blue").show();
 		if (event.pageX < bodyLeftMargin) {
 			boxX = bodyLeftMargin;
-		} else if (event.pageX > bodyLeftMargin + screenSize) {
+		} else if (event.pageX > bodyLeftMargin + canvasWidth) {
 			boxX = bodyLeftMargin + screenSize - boxSize;
 		} else {
 			boxX = bodyLeftMargin + Math.round((event.pageX - bodyLeftMargin - boxSize / 2) / boxSize) * boxSize;
