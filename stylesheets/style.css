@@ -34,7 +34,7 @@ body {
 
 #ui-menu {
 	background-color:grey;
-	width:400px;
+	width:405px;
 	height:100px;
 	position:fixed;
 	left:calc(50% - 200px);
