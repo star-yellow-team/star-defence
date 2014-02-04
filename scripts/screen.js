@@ -38,9 +38,9 @@ function sizeScreen() {
     $(".ghostImage").css("height",boxSize);
     $(".ghostImage").css("width",boxSize);
 
-	// ??? AICI SUNT PROBLEME LA RESIZE - NEEDZ HALP
-	// Cand margin left e 520 -> bodyLeft margin e 512
+	// bodyLeftMargin la unele browsere are o valoare reziduala care se scade din cea reala, asa ca resetam margin-left la acea valoare
     bodyLeftMargin = parseInt($("body").css("marginLeft"));
+    $("body").css("marginLeft",bodyLeftMargin);
 }
 
 // o apelam pentru prima oara
