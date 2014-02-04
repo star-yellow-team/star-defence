@@ -35,17 +35,17 @@ var Pointsy = new Array();
 
 
 //initializarea mitricelor matrix si auxMap
-for(var i=0; i < MAX_Y; i++) { 
+for(var i=0; i < 20; i++) { 
 		auxMap[i] = [];
-		for(var j=0; j < MAX_X; j++) {
+		for(var j=0; j < 30; j++) {
 			auxMap[i][j] = 0;
 		}
 	}
 
-for(var i = 0; i < MAX_Y; i++)
+for(var i = 0; i < 20; i++)
 	{
 		matrix[i] = [];
-		for(var j = 0; j < MAX_X; j++)
+		for(var j = 0; j < 30; j++)
 			{
 				matrix[i][j] = [];
 				for(var k = 0; k < 5; k++)
@@ -161,9 +161,9 @@ function deleteElement(x, y, harta)
 
 function getElement(x, y, harta)
 {
-	if(x < 0 || x >= MAX_Y)
+	if(x < 0 || x >= 20)
 		return false;
-	if(y < 0 || y >= MAX_X)
+	if(y < 0 || y >= 30)
 		return false;
 	return matrix[x][y][harta];
 }
