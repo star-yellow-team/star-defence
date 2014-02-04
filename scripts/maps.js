@@ -24,7 +24,6 @@
 			coordonatele se gasesc in cei 2 vectori
 */
 
-// dimensiunile matrice
 var MAX_X  = 30;
 var MAX_Y  = 20;
 
