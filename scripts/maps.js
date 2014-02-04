@@ -198,10 +198,10 @@ function drawMap(x)
 	var context = canvas.getContext('2d');
 	var rectWidth = 40;
 	var rectHeight = 30;
-	for(i = 0; i < MAX_Y; i++)
-		for(j = 0; j < MAX_X; j++)
+	for(i = 0; i < MAX_X; i++)
+		for(j = 0; j < MAX_Y; j++)
 			{
-				if(matrix[i][j][x]== 1)
+				if(matrix[j][i][x]== 1)
 				{
 					context.beginPath();
 					context.rect(i * rectWidth, j * rectHeight, 40, 30);
@@ -209,7 +209,7 @@ function drawMap(x)
 					context.fill();
 				}
 				
-				if(matrix[i][j][x] == 0)
+				if(matrix[j][i][x] == 0)
 				{
 					context.beginPath();
 					context.rect(i * rectWidth, j * rectHeight, 40, 30);
