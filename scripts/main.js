@@ -9,7 +9,6 @@
 
 // Intervalul dintre loop
 var loopInterval  = 50;
-var numberOfBoxes = MAX_X; 
 
 
 // luam obiectele canvas si context
