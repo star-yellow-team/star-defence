@@ -1,0 +1,105 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Canvas Test Javascript</title>
+        
+        <script type="text/Javascript" > 
+            function draw() {
+                var canvas    = document.getElementById("canvas")
+
+                canvas.width  =  document.body.getBoundingClientRect().width
+                canvas.height =  document.body.getBoundingClientRect().width
+
+
+                var context   = canvas.getContext("2d")
+                context.fillStyle = "#000000"
+                context.fillRect(0, 0, canvas.width, canvas.height)
+                
+                context.strokeStyle = "white"
+                context.beginPath();
+                context.moveTo(110,330);
+                context.lineTo(400,100);
+                context.moveTo(0,0)
+                context.stroke();
+
+
+
+                context.fillStyle="white"
+                context.font="30px Arial";
+                context.fillText("Hello World",10,50);
+    
+                
+                var grd=context.createLinearGradient(300,10,500,80);
+                grd.addColorStop(0,"red");
+                grd.addColorStop(1,"white");
+
+               context.fillStyle=grd;
+               context.fillRect(300,10,500,80);
+        
+                context.strokeStyle="#ffffff"
+                context.beginPath() 
+               context. arc(300,375,50,0*Math.PI,1.5*Math.PI) 
+                context.stroke()
+
+                context.fillRect(500,500,502,502)
+                context.save()
+                context.rotate(20*Math.PI/180)
+                context.fillStyle="white"
+                context.fillRect(590,590,600,600)
+                context.restore()
+    
+                context.fillRect(700,700,720,720)
+            }
+        
+            // clasa animal
+            function Animal(name) {
+                this.name = name
+                this.type = 0
+            }
+            
+            
+            Animal.prototype.sayHello = function() {
+                alert("Hi from: " + this.name)
+            }
+
+
+            // clasa Dog
+            function Dog(name) {
+                // chemam si constructorul parinte
+                Animal.call(this, name)
+                this.type = 1
+            }
+
+            // mostenirea
+            // Dog e un animal la baza
+            // constructorul lui Dog e Dog
+            Dog.prototype = new Animal()
+            Dog.prototype.constructor = Dog;
+            Dog.prototype.sayHello    = function() {
+                Animal.prototype.sayHello.call(this)
+                alert("hi also from dog:" + this.name)
+    
+            }
+
+
+
+            animal = new Animal("Animal")
+            animal.sayHello()
+            alert(animal.type) 
+    
+            dog = new Dog("Caine")
+            dog.sayHello()
+            alert(dog.type)
+        
+        </script>    
+    </head>
+
+
+    <body onload="draw();">
+        <canvas id="canvas" />
+    </body>
+
+
+</html>
