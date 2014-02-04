@@ -139,9 +139,9 @@ auxMap =[
 			];
 addMaps();
 
-function addElement(element, x,y, harta)
+function addElement(element, x, y, harta)
 {
-	if(matrix[x][y][harta] != 0)
+	if(matrix[y][x][harta] != 0)
 		return false;
 	if(y < 0 || y >= MAX_Y)
 		return false;
