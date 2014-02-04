@@ -40,6 +40,16 @@ for(var i = 0; i < 20; i++)
 			}
 	}
 
+function addMaps()
+{
+	for(var i = 0; i < 20; i++)
+		for(var j = 0; j < 20; j++)
+			{
+				matrix[i][j][nrMaps] = auxMap[i][j];
+			}
+	nrMaps++;
+}
+
 //adaugarea hartilor predefinite in matrix
 auxMap =[ 
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
@@ -63,13 +73,7 @@ auxMap =[
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] , 
 			];
-
-for(var i = 0; i < 20; i++)
-	for(var j = 0; j < 20; j++)
-		{
-			matrix[i][j][nrMaps] = auxMap[i][j];
-		}
-nrMaps++;
+addMaps();
 
 auxMap =[ 
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
@@ -93,13 +97,7 @@ auxMap =[
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] , 
 			];
-
-for(var i = 0; i < 20; i++)
-	for(var j = 0; j < 20; j++)
-		{
-			matrix[i][j][nrMaps] = auxMap[i][j];
-		}
-nrMaps++;
+addMaps();
 
 auxMap =[ 
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
@@ -123,13 +121,7 @@ auxMap =[
 			   [ 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,  
 			];
-
-for(var i = 0; i < 20; i++)
-	for(var j = 0; j < 20; j++)
-		{
-			matrix[i][j][nrMaps] = auxMap[i][j];
-		}
-nrMaps++;
+addMaps();
 
 function addElement(element, x,y, harta)
 {
@@ -171,7 +163,6 @@ function drawMap(x)
 	for(i = 0; i < 20; i++)
 		for(j = 0; j < 20; j++)
 			{
-				alert("aa");
 				if(matrix[i][j][x]== 1)
 				{
 					context.beginPath();
