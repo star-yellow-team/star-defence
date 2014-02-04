@@ -57,7 +57,7 @@ function sizeScreen() {
     boxWidth      = canvasWidth  / numberOfBoxes;
     boxHeight     = canvasHeight / numberOfBoxes; 
 
-
+    $("#gameCanvas").attr({"width":String(canvasWidth)+'px', "height":String(canvasHeight)+'px'})
 }
 // o apelam pentru prima oara
 sizeScreen();
