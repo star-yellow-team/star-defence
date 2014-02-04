@@ -139,6 +139,8 @@ addMaps();
 
 function addElement(element, x,y, harta)
 {
+	if(matrix[x][y][harta] != 0)
+		return false;
 	if(x < 0 || x >= MAX_Y)
 		return false;
 	if(y < 0 || y >= MAX_X)
