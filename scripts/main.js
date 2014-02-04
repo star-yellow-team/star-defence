@@ -33,8 +33,8 @@ function drawBackground() {
     var j = 0;
     
     // desenam fiecare celula
-    for( ; i < numberOfBoxes; ++ i) {
-        for(j = 0; j < numberOfBoxes; ++ j) {
+    for( ; i < numberOfBoxesY; ++ i) {
+        for(j = 0; j < numberOfBoxesX; ++ j) {
             // determinam tipul celulei
             //  0 = spatiu liber
 	    //	1 = traseu monstruleti
@@ -62,7 +62,7 @@ function drawBackground() {
             }
 
             // umplem casuta de pe randul i si coloana j
-            context.fillRect(i*boxWidth, j*boxHeight, boxWidth, boxHeight);
+            context.fillRect(i*boxSize, j*boxSize, boxSize, boxSize);
         }
     }
 }
