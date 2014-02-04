@@ -38,8 +38,8 @@ $(document).mousemove(function(event) {
 		} else {
 			boxY = Math.round((event.pageY - boxSize / 2) / boxSize) * boxSize;
 		}
-        $("#blue").css("left",boxX);
-       	$("#blue").css("top",boxY);
+        $("#blue").css("left",boxX+5);
+       	$("#blue").css("top",boxY+5);
 	}
 });
 	
