@@ -35,7 +35,6 @@ function drawBackground() {
     // desenam fiecare celula
     for( ; i < numberOfBoxes; ++ i) {
         for(j = 0; j < numberOfBoxes; ++ j) {
-            
             // determinam tipul celulei
             //  0 = spatiu liber
 	    //	1 = traseu monstruleti
