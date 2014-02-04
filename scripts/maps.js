@@ -23,6 +23,10 @@
 			coordonatele se gasesc in cei 2 vectori
 */
 
+// dimensiunile matrice
+var MAX_X  = 20;
+var MAX_Y  = 20;
+
 var matrix = [];
 var nrMaps = 0;
 var auxMap = [];
