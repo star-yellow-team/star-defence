@@ -34,7 +34,7 @@ $(document).mousemove(function(event) {
 		} else {
 			boxX = bodyLeftMargin + Math.round((event.pageX - bodyLeftMargin - boxSize / 2) / boxSize) * boxSize;
 		}
-		if (event.pageY > screenSize) {
+		if (event.pageY >= screenSize) {
 			boxY = screenSize - boxSize;
 		} else {
 			boxY = Math.round((event.pageY - boxSize / 2) / boxSize) * boxSize;
