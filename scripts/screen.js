@@ -1,15 +1,23 @@
 /**
- * @author Adrian, Andrei
- * Defineste functia size() care va redimensiona body-ul documentului HTML la prima incarcare si de fiecare data cand se modifica 
+ * @author Adrian, AndreiRo
+ * Defineste functia size() care va 
+ * redimensiona body-ul documentului 
+ * HTML la prima incarcare si de 
+ * fiecare data cand se modifica 
  * lungimea si inaltimea documentului.
  */
 
 
-var screenWidth  = 0;
-var screenHeight = 0;
-var screenSize   = 0;
-var boxSize      = 0;
+var screenWidth    = 0;
+var screenHeight   = 0;
+var screenSize     = 0;
+var boxSize        = 0;
 var bodyLeftMargin = 0;
+var canvasWidth    = 0;
+var canvasHeight   = 0; 
+var boxWidth       = 0;
+var boxHeight      = 0; 
+var numberOfBoxes  = MAX_X;
 
 
 function sizeScreen() {
@@ -41,8 +49,15 @@ function sizeScreen() {
 	// ??? AICI SUNT PROBLEME LA RESIZE - NEEDZ HALP
 	// Cand margin left e 520 -> bodyLeft margin e 512
     bodyLeftMargin = parseInt($("body").css("marginLeft"));
-}
 
+    canvasWidth   = $("#gameCanvas").width();
+    canvasHeight  = $("#gameCanvas").height();
+
+    boxWidth      = canvasWidth  / numberOfBoxes;
+    boxHeight     = canvasHeight / numberOfBoxes; 
+
+
+}
 // o apelam pentru prima oara
 sizeScreen();
 

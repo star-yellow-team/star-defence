@@ -17,6 +17,10 @@
 		3 = base
 */
 
+// numarul de linii si coloane al hartii
+var MAX_X  = 20;
+var MAX_Y  = 20; 
+
 var matrix = [];
 var nrMaps = 0;
 var auxMap = [];
