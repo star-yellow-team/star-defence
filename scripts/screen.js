@@ -39,6 +39,7 @@ function sizeScreen() {
     $(".ghostImage").css("width",boxSize);
 
 	// bodyLeftMargin la unele browsere are o valoare reziduala care se scade din cea reala, asa ca resetam margin-left la acea valoare
+    $("body").css("margin","auto");
     bodyLeftMargin = parseInt($("body").css("marginLeft"));
     $("body").css("marginLeft",bodyLeftMargin);
 }
