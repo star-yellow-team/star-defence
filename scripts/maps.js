@@ -1,4 +1,6 @@
 /*
+	FUNCTIA drawMap() A FOST FACUTA PROVIZORIU PENTRU A TESTA DACA AU FOST MEMORATE CORECT HARTILE
+	
 	am renuntat la scriptul maps.js deoarece nu functiona vaectorul de harti
 	acum am facut o matrice cu 3 dimensiuni care are urmatoarea semnificatie: matrix[linie harta][coloana harta][numarul hartii dorite]
 	
@@ -15,15 +17,18 @@
 		1 = traseu monstruleti
 		2 = spawn 
 		3 = base
+		
+	vectorii Pointsx si Pointsy retin linia si coloana pe care se afla un punct cu o anumita valuare
+		EX: pot fi folositi pentru a afla unde se afla toate punctele de spawn din harta 0 astfel: searchPoints(0, 2);
+			coordonatele se gasesc in cei 2 vectori
 */
-
-// numarul de linii si coloane al hartii
-var MAX_X  = 20;
-var MAX_Y  = 20; 
 
 var matrix = [];
 var nrMaps = 0;
 var auxMap = [];
+var Pointsx = new Array();
+var Pointsy = new Array();
+
 
 //initializarea mitricelor matrix si auxMap
 for(var i=0; i < 20; i++) {
@@ -46,6 +51,7 @@ for(var i = 0; i < 20; i++)
 
 function addMaps()
 {
+	//adauga o harta in 'vectorul de harit' matrix
 	for(var i = 0; i < 20; i++)
 		for(var j = 0; j < 20; j++)
 			{
@@ -154,6 +160,28 @@ function getElement(x, y, harta)
 	if(y < 0 || y >= 20)
 		return false;
 	return matrix[x][y][harta];
+}
+
+function deletePoints(ok)
+{
+	if(ok == true) 
+	{
+		Pointsx.length = 0;
+		Pointsy.length = 0;
+	}
+}
+
+function searchPoints(harta, element)
+{
+	deletePoints(true);
+	for( var i = 0; i < 20; i++)
+		for( var j = 0; j < 20; j++)
+			if( matrix[i][j][harta] == element )
+			{
+				Pointsx.push(i);
+				Pointsy.push(j);
+			}
+	alert(Pointsx.length);
 }
 
 //deseneaza o harta 
