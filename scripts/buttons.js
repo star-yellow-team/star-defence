@@ -1,10 +1,15 @@
-// JavaScript Document
+/**
+ * @author Adrian
+ * Animeaza meniul si se ocupa de ghostImage-ul turetei pe care o plasez
+ * lungimea si inaltimea documentului.
+ */
 var blueHover = 0;
 var boxX;
 var boxY;
 
+// Ascundem ghostImageul si ne ocupam de animatia meniului
 $(document).ready(function() {
-	$("#blue").hide();
+	$(".ghostImage").hide();
 	$("#ui-menu").hover(function(){
   		$("#ui-menu").addClass("slideUp");
   		$("#ui-menu").removeClass("slideDown");
@@ -14,8 +19,11 @@ $(document).ready(function() {
   		$("#ui-menu").addClass("slideDown");
 	});
 })
+
 var currentMousePos = { x: -1, y: -1 };
 
+// Aducem ghostImageul albastru la mouse, stickuit pe grid
+// ??? AICI SUNT PROBLEME LA RESIZE - NEEDZ HALP 
 $(document).mousemove(function(event) {
 	if (blueHover == 1) {
 		$("#blue").show();

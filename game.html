@@ -5,23 +5,29 @@
         <title>Tower Defense</title>
         
         <link href="stylesheets/style.css" rel="stylesheet" type="text/css">
+        
+        <!-- Importing jQuery from Google as it probably already is cached in the browser memory -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
     </head>
 
     <body>
-
+		
+		<!-- Game Canvas is set to 100% of body -->
         <canvas id="gameCanvas">
         </canvas>
+        
+        <!-- The menu is fixed on the bottom of the screen -->
         <div id="ui-menu" class="slideDown">
                 <div class="button" id="first" onClick="stick()"></div>
                 <div class="button" id="second" onClick="second()"></div>
                 <div class="button" id="third" onClick="third()"></div>
         </div>
-
+		
+        <!-- This is hidden prior to clicking the blue box and after clicking it -->
         <div class="ghostImage" id="blue" onClick="unstick()"></div>
 
-
+		<!-- Scripts are loading after page load to avoid changing unexisting objects -->
         <script type="text/javascript" src="scripts/screen.js"></script>
         <script type="text/javascript" src="scripts/buttons.js"></script>
     </body>

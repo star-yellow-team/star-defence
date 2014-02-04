@@ -1,12 +1,12 @@
 /**
- *@author Adrian, Andrei
+ * @author Adrian, Andrei
  * Defineste functia size() care va redimensiona body-ul documentului HTML la prima incarcare si de fiecare data cand se modifica 
  * lungimea si inaltimea documentului.
  */
 
 
-var screenWidth  = $(window).width();
-var screenHeight = $(window).height();
+var screenWidth  = 0;
+var screenHeight = 0;
 var screenSize   = 0;
 var boxSize      = 0;
 var bodyLeftMargin = 0;
@@ -24,9 +24,10 @@ function sizeScreen() {
             screenSize = screenHeight;
     }
 
-    // setam dimesniunea unei celule
+    // setam dimesniunea unei celule prin rotunjire la cea mai mica unitate
     boxSize = Math.floor(screenSize / 20);
-
+	
+	// recalculam marimea body ca un numar divizibil cu 20
     screenSize = 20 * boxSize;
     
     // redimensionam
@@ -37,8 +38,9 @@ function sizeScreen() {
     $(".ghostImage").css("height",boxSize);
     $(".ghostImage").css("width",boxSize);
 
-    bodyLeftMargin = parseInt($("body").css("marginLeft")) + 8;
-    
+	// ??? AICI SUNT PROBLEME LA RESIZE - NEEDZ HALP
+	// Cand margin left e 520 -> bodyLeft margin e 512
+    bodyLeftMargin = parseInt($("body").css("marginLeft"));
 }
 
 // o apelam pentru prima oara
