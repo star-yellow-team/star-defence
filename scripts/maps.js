@@ -35,17 +35,17 @@ var Pointsy = new Array();
 
 
 //initializarea mitricelor matrix si auxMap
-for(var i=0; i < MAX_X; i++) { 
+for(var i=0; i < MAX_Y; i++) { 
 		auxMap[i] = [];
-		for(var j=0; j < MAX_Y; j++) {
+		for(var j=0; j < MAX_X; j++) {
 			auxMap[i][j] = 0;
 		}
 	}
 
-for(var i = 0; i < MAX_X; i++)
+for(var i = 0; i < MAX_Y; i++)
 	{
 		matrix[i] = [];
-		for(var j = 0; j < MAX_Y; j++)
+		for(var j = 0; j < MAX_X; j++)
 			{
 				matrix[i][j] = [];
 				for(var k = 0; k < 5; k++)
