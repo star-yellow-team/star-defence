@@ -53,6 +53,9 @@ function drawBackground() {
                 case 3:
                         context.fillStyle = "blue"
                         break;
+				case 10:
+						context.fillStyle = "cyan"
+						break;
                 default:
                         // o eroare in harta
                         context.fillStyle = "black";

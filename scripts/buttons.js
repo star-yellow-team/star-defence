@@ -51,6 +51,7 @@ function stick() {
 
 function unstick() {
 	blueHover = 0;
+	$("#blue").hide();
 }
 
 function second() {
@@ -59,4 +60,9 @@ function second() {
 
 function third() {
 	alert("You've clicked the third button!")
+}
+
+function drawTurret() {
+	addElement(10, Math.round(boxX / boxSize), Math.round(boxY / boxSize), mapNumber);
+	unstick();
 }

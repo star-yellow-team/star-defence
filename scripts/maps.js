@@ -17,6 +17,7 @@
 		1 = traseu monstruleti
 		2 = spawn 
 		3 = base
+		10 - 19 = turnuri
 		
 	vectorii Pointsx si Pointsy retin linia si coloana pe care se afla un punct cu o anumita valuare
 		EX: pot fi folositi pentru a afla unde se afla toate punctele de spawn din harta 0 astfel: searchPoints(0, 2);
