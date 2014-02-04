@@ -32,13 +32,14 @@ function drawBackground() {
     var j = 0;
     
     // desenam fiecare celula
-    for( ; i < numberOfBoxesY; ++ i) {
-        for(j = 0; j < numberOfBoxesX; ++ j) {
+    for(i = 0 ; i < numberOfBoxesX; ++ i) {
+        for(j = 0; j < numberOfBoxesY; ++ j) {
             // determinam tipul celulei
             //  0 = spatiu liber
 	    //	1 = traseu monstruleti
 	    //	2 = spawn 
 	    //	3 = base
+			alert();
              switch(getElement(i,j,mapNumber)) {
                 case 0:
                         context.fillStyle = "green";       
