@@ -26,17 +26,17 @@ var currentMousePos = { x: -1, y: -1 };
 $(document).mousemove(function(event) {
 	if (blueHover == 1) {
 		$("#blue").show();
-		if (event.pageX < bodyLeftMargin) {
+		if (event.pageX-5 < bodyLeftMargin) {
 			boxX = bodyLeftMargin;
-		} else if (event.pageX >= bodyLeftMargin + canvasWidth) {
+		} else if (event.pageX-5 >= bodyLeftMargin + canvasWidth) {
 			boxX = bodyLeftMargin + canvasWidth - boxSize;
 		} else {
-			boxX = bodyLeftMargin + Math.round((event.pageX - bodyLeftMargin - boxSize / 2) / boxSize) * boxSize;
+			boxX = bodyLeftMargin + Math.round((event.pageX-5 - bodyLeftMargin - boxSize / 2) / boxSize) * boxSize;
 		}
-		if (event.pageY >= canvasHeight) {
+		if (event.pageY-5 >= canvasHeight) {
 			boxY = canvasHeight - boxSize;
 		} else {
-			boxY = Math.round((event.pageY - boxSize / 2) / boxSize) * boxSize;
+			boxY = Math.round((event.pageY-5 - boxSize / 2) / boxSize) * boxSize;
 		}
         $("#blue").css("left",boxX+5);
        	$("#blue").css("top",boxY+5);
