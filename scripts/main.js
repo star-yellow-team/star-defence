@@ -39,7 +39,6 @@ function drawBackground() {
 	    //	1 = traseu monstruleti
 	    //	2 = spawn 
 	    //	3 = base
-			alert();
              switch(getElement(i,j,mapNumber)) {
                 case 0:
                         context.fillStyle = "green";       
