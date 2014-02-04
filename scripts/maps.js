@@ -22,6 +22,8 @@
 	vectorii Pointsx si Pointsy retin linia si coloana pe care se afla un punct cu o anumita valuare
 		EX: pot fi folositi pentru a afla unde se afla toate punctele de spawn din harta 0 astfel: searchPoints(0, 2);
 			coordonatele se gasesc in cei 2 vectori
+			
+	MATRICEA SI AUX MAP E MATRIX[Y][X]
 */
 
 var MAX_X  = 30;
@@ -35,17 +37,17 @@ var Pointsy = new Array();
 
 
 //initializarea mitricelor matrix si auxMap
-for(var i=0; i < 20; i++) { 
+for(var i=0; i < MAX_Y; i++) { 
 		auxMap[i] = [];
-		for(var j=0; j < 30; j++) {
+		for(var j=0; j < MAX_X; j++) {
 			auxMap[i][j] = 0;
 		}
 	}
 
-for(var i = 0; i < 20; i++)
+for(var i = 0; i < MAX_Y; i++)
 	{
 		matrix[i] = [];
-		for(var j = 0; j < 30; j++)
+		for(var j = 0; j < MAX_X; j++)
 			{
 				matrix[i][j] = [];
 				for(var k = 0; k < 5; k++)
@@ -141,31 +143,31 @@ function addElement(element, x,y, harta)
 {
 	if(matrix[x][y][harta] != 0)
 		return false;
-	if(x < 0 || x >= MAX_X)
+	if(y < 0 || y >= MAX_X)
 		return false;
-	if(y < 0 || y >= MAX_Y)
+	if(x < 0 || x >= MAX_Y)
 		return false;
-	matrix[x][y][harta] = element;
+	matrix[y][x][harta] = element;
 	return true;
 }
 
 function deleteElement(x, y, harta)
 {
-	if(x < 0 || x >= MAX_Y)
+	if(y < 0 || y >= MAX_Y)
 		return false;
-	if(y < 0 || y >= MAX_X)
+	if(x < 0 || x >= MAX_X)
 		return false;
-	matrix[x][y][harta] = 0;
+	matrix[y][x][harta] = 0;
 	return true;
 }
 
 function getElement(x, y, harta)
 {
-	if(x < 0 || x >= 20)
+	if(y < 0 || y >= MAX_Y)
 		return false;
-	if(y < 0 || y >= 30)
+	if(x < 0 || x >= MAX_X)
 		return false;
-	return matrix[x][y][harta];
+	return matrix[y][x][harta];
 }
 
 function deletePoints(ok)
@@ -180,8 +182,8 @@ function deletePoints(ok)
 function searchPoints(harta, element)
 {
 	deletePoints(true);
-	for( var i = 0; i < 20; i++)
-		for( var j = 0; j < 20; j++)
+	for( var i = 0; i < MAX_Y; i++)
+		for( var j = 0; j < MAX_X; j++)
 			if( matrix[i][j][harta] == element )
 			{
 				Pointsx.push(i);
