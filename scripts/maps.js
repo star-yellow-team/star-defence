@@ -1,63 +1,47 @@
 /*
-	functia getElement() returnneaza -1 daca s-au depasit limitele matricei
+	am renuntat la scriptul maps.js deoarece nu functiona vaectorul de harti
+	acum am facut o matrice cu 3 dimensiuni care are urmatoarea semnificatie: matrix[linie harta][coloana harta][numarul hartii dorite]
 	
-	valori utilizate in matrice:
-		0: pozitie libera unde se poate adauga orice
-		1: pozitii pe care vor circula monstruletii
-		2: pozitie spawn monstruleti
-		3: pozitia bazei atacate de monstruleti
-		
-	ultima parte a sursei este pentru a vedea cum arata harta 
-	in acest moment partea in care trebuie creat vectorul de harti esueaza... va rog sa va uitati si voi pe sursa, poate gasiti greseala
+	functiile addElement() si deleteElement() returneaza false daca este depasita limita hartii altfel returneaza true
+	functia getElement() intoarce false daca este depasita limita hartii sau valuarea elementului de pe pozitia ceruta
+	
+	pentru apelurile functiilor:
+		addElement(element, x, y, harta): x = linie harta, y = coloana harta, harta = numarul hartii pe care se va adauga un element, element = numar adaugat.
+		deleteElement(x,y,harta):  x = linie harta, y = coloana harta, harta = numarul hartii din care se va sterge elementul.
+		getElement( x, y, harta): returneaza elementul de pe pozitia x,y din harta.
+	
+	semnificatie valori matrix[][][]:
+		0 = spatiu liber
+		1 = traseu monstruleti
+		2 = spawn 
+		3 = base
 */
 
-
-function Map(sx, sy, bx, by, m)
-{
-	This.spawnx = sx;
-	This.spawny = sy;
-	This.basex = bx;
-	This.basey = by;
-	This.matrix = m;
-}
-
-Map.prototype.addElement = function(x, y, element)
-{
-	matrix[x][y] = element;
-}
-
-Map.prototype.removeElement = function(x, y)
-{
-	matrix[x][y] = 0;
-}
-
-Map.prototype.getElement = function(x, y)
-{
-	if(x < 0 && x >= 20)
-		return -1;
-	if(y < 0 && y >= 20)
-		return -1;
-	return matrix[x][y];
-}
-
-var maps = new Array();
-var map;
+var matrix = [];
+var nrMaps = 0;
 var auxMap = [];
 
-function clearMap()
-{
-	for(var i=0; i < 20; i++) {
+//initializarea mitricelor matrix si auxMap
+for(var i=0; i < 20; i++) {
 		auxMap[i] = [];
-		for(var j=0; j < 20; j++) {
+		for(var j=0; j < 5; j++) {
 			auxMap[i][j] = 0;
 		}
 	}
-}
 
-function createMaps()
-{
-	alert("createMps");
-	auxMap =[ 
+for(var i = 0; i < 20; i++)
+	{
+		matrix[i] = [];
+		for(var j = 0; j < 20; j++)
+			{
+				matrix[i][j] = [];
+				for(var k = 0; k < 5; k++)
+					matrix[i][j][k] = 0;
+			}
+	}
+
+//adaugarea hartilor predefinite in matrix
+auxMap =[ 
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
 			   [ 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
 			   [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
@@ -80,11 +64,14 @@ function createMaps()
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] , 
 			];
 
-	map =new Map(1,0, 15,15,auxMap);
-	maps.push(map);
-	clearMap();
-	
-	auxMap =[ 
+for(var i = 0; i < 20; i++)
+	for(var j = 0; j < 20; j++)
+		{
+			matrix[i][j][nrMaps] = auxMap[i][j];
+		}
+nrMaps++;
+
+auxMap =[ 
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
 			   [ 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
 			   [ 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
@@ -107,39 +94,13 @@ function createMaps()
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] , 
 			];
 
-	map =new Map(1,0, 19,8,auxMap);
-	maps.push(map);
-	clearMap();
-	
-	auxMap =[ 
-			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
-			   [ 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
-			   [ 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
-			   [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
-			   [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 ] ,
-			   [ 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ] ,
-			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ] ,
-			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ] ,
-			   [ 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 ] ,
-			   [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
-			   [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 ] ,
-			   [ 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0 ] ,
-			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 ] ,
-			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0 ] ,
-			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
-			   [ 3, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
-			   [ 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
-			   [ 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
-			   [ 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
-			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,  
-			];
+for(var i = 0; i < 20; i++)
+	for(var j = 0; j < 20; j++)
+		{
+			matrix[i][j][nrMaps] = auxMap[i][j];
+		}
+nrMaps++;
 
-	map =new Map(5,6, 15,0,auxMap);
-	maps.push(map);
-}
-
-
-//pentru testarea hartilor
 auxMap =[ 
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
 			   [ 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,
@@ -163,18 +124,55 @@ auxMap =[
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,  
 			];
 
-function drawMap()
+for(var i = 0; i < 20; i++)
+	for(var j = 0; j < 20; j++)
+		{
+			matrix[i][j][nrMaps] = auxMap[i][j];
+		}
+nrMaps++;
+
+function addElement(element, x,y, harta)
+{
+	if(x < 0 || x >= 20)
+		return false;
+	if(y < 0 || y >= 20)
+		return false;
+	matrix[x][y][harta] = element;
+	return true;
+}
+
+function deleteElement(x, y, harta)
+{
+	if(x < 0 || x >= 20)
+		return false;
+	if(y < 0 || y >= 20)
+		return false;
+	matrix[x][y][harta] = 0;
+	return true;
+}
+
+function getElement(x, y, harta)
+{
+	if(x < 0 || x >= 20)
+		return false;
+	if(y < 0 || y >= 20)
+		return false;
+	return matrix[x][y][harta];
+}
+
+//deseneaza o harta 
+function drawMap(x)
 {
 	var i,j;
 	var canvas = document.getElementById('game');
 	var context = canvas.getContext('2d');
 	var rectWidth = 40;
 	var rectHeight = 30;
-	var x = maps[0];
 	for(i = 0; i < 20; i++)
 		for(j = 0; j < 20; j++)
 			{
-				if(auxMap[i][j] == 1)
+				alert("aa");
+				if(matrix[i][j][x]== 1)
 				{
 					context.beginPath();
 					context.rect(i * rectWidth, j * rectHeight, 40, 30);
@@ -182,7 +180,7 @@ function drawMap()
 					context.fill();
 				}
 				
-				if(auxMap[i][j] == 0)
+				if(matrix[i][j][x] == 0)
 				{
 					context.beginPath();
 					context.rect(i * rectWidth, j * rectHeight, 40, 30);
