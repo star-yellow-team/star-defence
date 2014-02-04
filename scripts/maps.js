@@ -25,8 +25,8 @@
 */
 
 // dimensiunile matrice
-var MAX_X  = 20;
-var MAX_Y  = 30;
+var MAX_X  = 30;
+var MAX_Y  = 20;
 
 var matrix = [];
 var nrMaps = 0;

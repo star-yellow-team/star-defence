@@ -62,6 +62,6 @@ function third() {
 }
 
 function drawTurret(turretNumber) {
-	addElement(turretNumber, Math.round(boxX - bodyLeftMargin / boxSize), Math.round(boxY - bodyLeftMargin / boxSize), mapNumber);
+	addElement(turretNumber, Math.round((boxX - bodyLeftMargin) / boxSize), Math.round(boxY / boxSize), mapNumber);
 	unstick();
 }
