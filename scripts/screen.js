@@ -12,7 +12,7 @@ var screenWidth    = 0;
 var screenHeight   = 0;
 var screenSize     = 0;
 var boxSize        = 0;
-var bodyLeftMargin;
+var bodyLeftMargin = 0;
 var canvasWidth    = 0;
 var canvasHeight   = 0; 
 var boxWidth       = 0;
@@ -23,8 +23,8 @@ var numberOfBoxesY  = MAX_Y;
 
 function sizeScreen() {
     // preia dimensiunile documentului
-    screenWidth = $(window).width() - 10;
-    screenHeight = $(window).height() - 10;
+    screenWidth = $(window).width();
+    screenHeight = $(window).height();
    
     // o selectam pe cea mai mica
     if (screenWidth < screenHeight) {
@@ -41,17 +41,17 @@ function sizeScreen() {
     bodyHeight = 20 * boxSize;
     
     // redimensionam
-    $("canvas").css("height",bodyHeight);
-    $("canvas").css("width",bodyWidth);
+    $("body").css("height",bodyHeight);
+    $("body").css("width",bodyWidth);
 
     // redimensionam
     $(".ghostImage").css("height",boxSize);
     $(".ghostImage").css("width",boxSize);
 
 	// bodyLeftMargin la unele browsere are o valoare reziduala care se scade din cea reala, asa ca resetam margin-left la acea valoare
-    $("canvas").css("margin-left","auto");
-    bodyLeftMargin = parseInt($("body").css("marginLeft").replace("px",""));
-    $("canvas").css("margin-left",bodyLeftMargin);
+    $("body").css("margin-left","auto");
+    bodyLeftMargin = parseInt($("body").css("margin-left"));
+    $("body").css("margin-left",bodyLeftMargin);
 
     canvasWidth   = $("#gameCanvas").width();
     canvasHeight  = $("#gameCanvas").height();
