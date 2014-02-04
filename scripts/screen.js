@@ -23,8 +23,8 @@ var numberOfBoxesY  = MAX_Y;
 
 function sizeScreen() {
     // preia dimensiunile documentului
-    screenWidth = $(window).width();
-    screenHeight = $(window).height();
+    screenWidth = $(window).width() - 10;
+    screenHeight = $(window).height() - 10;
    
     // o selectam pe cea mai mica
     if (screenWidth < screenHeight) {
