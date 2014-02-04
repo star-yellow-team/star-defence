@@ -48,6 +48,7 @@ function drawBackground() {
                         break;
                 case 2:
                         context.fillStyle = "red";
+						break;
                 case 3:
                         context.fillStyle = "blue"
                         break;
