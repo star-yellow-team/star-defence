@@ -28,7 +28,7 @@ $(document).mousemove(function(event) {
 		$("#blue").show();
 		if (event.pageX < bodyLeftMargin) {
 			boxX = bodyLeftMargin;
-		} else if (event.pageX > bodyLeftMargin + screenSize) {
+		} else if (event.pageX > bodyLeftMargin + canvasWidth) {
 			boxX = bodyLeftMargin + screenSize - boxSize;
 		} else {
 			boxX = bodyLeftMargin + Math.round((event.pageX - bodyLeftMargin - boxSize / 2) / boxSize) * boxSize;
@@ -62,6 +62,6 @@ function third() {
 }
 
 function drawTurret(turretNumber) {
-	addElement(turretNumber, Math.round(boxX / boxSize), Math.round(boxY / boxSize), mapNumber);
+	addElement(turretNumber, Math.round((boxX - bodyLeftMargin) / boxSize), Math.round(boxY / boxSize), mapNumber);
 	unstick();
 }
