@@ -16,7 +16,7 @@ var numberOfBoxes = MAX_X;
 var canvas  = document.getElementById("gameCanvas");
 var context = canvas.getContext("2d");
 
-
+$(".ghostImage").hide();
 
 var mapNumber = prompt("Numarul hărții:", 0) % nrMaps;
 

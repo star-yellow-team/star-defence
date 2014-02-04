@@ -9,7 +9,6 @@ var boxY;
 
 // Ascundem ghostImageul si ne ocupam de animatia meniului
 $(document).ready(function() {
-	$(".ghostImage").hide();
 	$("#ui-menu").hover(function(){
   		$("#ui-menu").addClass("slideUp");
   		$("#ui-menu").removeClass("slideDown");
