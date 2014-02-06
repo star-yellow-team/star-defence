@@ -1,14 +1,16 @@
 @charset "utf-8";
 /* CSS Document */
 
+html {
+	height: 100%;
+}
+
 body {
 	padding: 0px;
 	width:100%;
 	height:100%;
-	margin:auto;
-	margin-left:auto;
-	margin-right:auto;
 	background-color:gray;
+	margin:auto;
 }
 
 .button {
@@ -65,6 +67,17 @@ body {
 
 #buttonsWrapper {
 	height:100px;
+}
+
+#wrapper {
+	margin:auto;
+	height:100%;
+	display:table;
+}
+
+#innerWrapper {
+	display:table-cell;
+	vertical-align:middle;
 }
 /*
 .slideUp {

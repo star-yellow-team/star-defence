@@ -19,6 +19,7 @@ var boxWidth       = 0;
 var boxHeight      = 0; 
 var numberOfBoxesX  = MAX_X;
 var numberOfBoxesY  = MAX_Y;
+var maxNumberOfBoxes = 0;
 
 
 function sizeScreen() {
@@ -27,36 +28,31 @@ function sizeScreen() {
     screenHeight = $(window).height();
    
     // o selectam pe cea mai mica
-    if (screenWidth < screenHeight) {
-            screenSize = screenWidth;
+    if (screenWidth / numberOfBoxesX < screenHeight / numberOfBoxesY) {
+       	screenSize = screenWidth - 15;
+		maxNumberOfBoxes = numberOfBoxesX;
     } else {
-            screenSize = screenHeight;
+        screenSize = screenHeight - 15;
+		maxNumberOfBoxes = numberOfBoxesY;
     }
 
     // setam dimesniunea unei celule prin rotunjire la cea mai mica unitate
-    boxSize = Math.floor(screenSize / 20);
+    boxSize = Math.floor(screenSize / maxNumberOfBoxes);
 	
 	// recalculam marimea body ca un numar divizibil cu 20
-    bodyWidth = 30 * boxSize;
-    bodyHeight = 20 * boxSize;
-    
-    // redimensionam
-    $("body").css("height",bodyHeight);
-    $("body").css("width",bodyWidth);
+    canvasWidth = numberOfBoxesX * boxSize;
+    canvasHeight = numberOfBoxesY * boxSize;
 
     // redimensionam
     $(".ghostImage").css("height",boxSize);
     $(".ghostImage").css("width",boxSize);
 
-	// bodyLeftMargin la unele browsere are o valoare reziduala care se scade din cea reala, asa ca resetam margin-left la acea valoare
-    $("body").css("margin-left","auto");
-    bodyLeftMargin = parseInt($("body").css("margin-left"));
-    $("body").css("margin-left",bodyLeftMargin);
-
-    canvasWidth   = $("#gameCanvas").width();
-    canvasHeight  = $("#gameCanvas").height();
+    $("#gameCanvas").css("width",canvasWidth);
+    $("#gameCanvas").css("height",canvasHeight);
 
     $("#gameCanvas").attr({"width":String(canvasWidth)+'px', "height":String(canvasHeight)+'px'})
+	
+	$("#wrapper").css("width",canvasWidth + 10);
 }
 // o apelam pentru prima oara
 sizeScreen();

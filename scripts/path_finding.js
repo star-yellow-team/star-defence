@@ -1,38 +1,28 @@
-//LECTIE (de tinut minte) : daca spui de exemplu 'vector.length=0', dar 'vector' NU E declarat, nu stiu exact ce se intampla, dar se pare ca se intra in memoria celorlalte variabile, dand drumul la haos. 
 
-/*
-DE CITIT:
+// Algoritmul de pathfinding pentru monstrii 
+// pentru HARTA SIMPLA, fara nici o bifurcatie, CU UN SINGUR SPAWN POINT / BAZA. 
+// Update imediat.
 
-Functia findPath(harta) trebuie apelata pentru a scoate matricea path_matrix[][] la respectiva harta.
 
-IN LEGATURA CU PROBLEMA NOASTRA DE X si Y.
-Avand in vedere ca atunci cand se apeleaza addMaps, functia majora care pune hartile, matricea 'matrix' este conceputa ca [i][j] si nu [j][i], automat findPath va verifica matrix[i][j] si va scoate o matrice path_matrix tot de forma [i][j]. Simt nevoia sa mentionez asta pentru ca m-am incurcat la inceput. 
+// In acesti 2 vectori se tin minte pozitiile pe unde un monstru trebuie sa mearga.
 
-Acest fisier contine:
-1.Functia principala findPath(harta);
-2.Functia secundara drawPath(harta) pentru verificare.
+var path_x = new Array();
+var path_y = new Array();
 
-Functia findPath scoate matricea drumului pe care monstrii trebuie sa il urmeze pentru a ajunge la baza in cel mai scurt timp.
-
-*/
-
-var path_matrix = [];
-
-//SE CONTRUIESTE path_matrix, O MATRICE PLINA DE 0-uri.
-for( var i = 0; i <= 20; i++) //Consider harta de joc de maxim 20.
-{
-	path_matrix[i] = [];  
-	for( var j = 0; j <= 20; j++)
-			path_matrix[i][j]=0;
-}
-
-function findPath (harta) 
+function findPath (harta ) //Se construieste druml pentru harta respectiva. Se face o singura data / harta.
 { 
+	path_x.length = 0; // Ma asigur ca vectorii
+	path_y.length = 0; // pentru pozitiile drumului sunt resetati.
 	
-	//findPath gaseste automat punctul de Spawn, respectiv Base.
-
-	var spawn_x = -1, base_x = -1;
-	var spawn_y = -1, base_y = -1;
+	// Pentru simplitatea utilizatorului de PathFinding,
+	// functia aceasta va gasi automat SpawnPointul, respectiv Baza. 
+	
+	
+//Gasirea SpawnPoint-ului, respectiv a Bazei
+//_________________________________________________________
+	
+	var spawn_x = -1; var base_x = -1;
+	var spawn_y = -1; var base_y = -1;
 	
 	for( var i = 0; i < 20; i++)
 		for( var j = 0; j < 20; j++)
@@ -50,87 +40,102 @@ function findPath (harta)
 				}
 		}
 	
-	//ALGORITMUL DE CAUTARE. 
-
-	var coada_x = new Array(), coada_y = new Array();
-	var p = 1, u = 1, x = 0, y = 0;     
-	 
-	coada_x[p] = spawn_x; //Punctul de plecare initial, respectiv Spawnul.
-	coada_y[p] = spawn_y;    
+//Algoritmul pentru, ma repet, un singur Spawn Point, respectiv o singura Baza, fara nici o bifurcatie.
+//_____________________________________________________________________________________________________
 	
-	path_matrix[spawn_x][spawn_y] = 1; //Se pleaca de la 1.
-
+	var dimensiune = 20; //Pt cand o sa facem harti de dimensiuni diferite.
 	
-	while( p <= u )
-	{
+	for( var i = 0; i < dimensiune; i++){
+		path_matrix[i] = [];  
+			for( var j = 0; j < dimensiune; j++)
+				path_matrix[i][j]=0;
+	}
+	//Am facut o noua matrice, plina de 0-uri, pentru path. 
+	
+	//Acum - Lee Algorithm. 
+	
+	var coada_x = new Array();     var coada_y = new Array();
+	
+	var p = 1, u = 1;       coada_x[p] = spawn_x; coada_y[p] = spawn_y;     path_matrix[spawn_x][spawn_y] = 1;
+	var x = 0,y = 0;
+	
+	//In mod normal, e nevoie de o bordura. Dar noi incepem matrix-ul de la 0. So trebuie sa pun mult mai multe conditii.
+	
+	while( p < = u && x!=base_x && y!=base_y){
 		
 		x = coada_x[p];
-		y = coada_y[p]; 
+		y = coada_y[p];
 		
-		if( x+1 >= 0 && y >= 0 && x+1 <= 20 && y <= 20 )
-		if( matrix[x+1][y][harta] == 1 && path_matrix[x+1][y] == 0)
+		if( x+1 > 0 && y > 0 && x+1 < dimensiune && y <dimensiune )
+		if( matrix[x+1][y][harta] == 1 && path_matrix[x+1][y] == 0) //Cu alte cuvinte, daca in matrix este drum (=1) si nu s-a mai mers pe acolo. 
 		{
 			u++; coada_x[u]=x+1; coada_y[u]=y; path_matrix[x+1][y] = path_matrix[x][y] + 1;
-			//alert("Sudul a fost taguit.")
-			//Da, x+1, cu notatiile noastre, inseamna in jos.
 		}
 		
-		if( x-1 >= 0 && y >= 0 && x-1 <= 20 && y <= 20 )
+		if( x-1 > 0 && y > 0 && x-1 < dimensiune && y < dimensiune )
 		if( matrix[x-1][y][harta] == 1 && path_matrix[x-1][y] == 0 )
 		{
 			u++; coada_x[u]=x-1; coada_y[u]=y; path_matrix[x-1][y] = path_matrix[x][y] + 1;
-			//alert("Nordul a fost taguit.")
 		}
 		
-		if( x >= 0 && y+1 >= 0 && x <= 20 && y+1 <= 20 )
+		if( x > 0 && y+1 > 0 && x < dimensiune && y+1 < dimensiune )
 		if( matrix[x][y+1][harta] == 1 && path_matrix[x][y+1] == 0 )
 		{
 			u++; coada_x[u]=x; coada_y[u]=y+1; path_matrix[x][y+1] = path_matrix[x][y] + 1;
-			//alert("Estul a fost taguit.")
 		}
 		
-		if( x >= 0 && y-1 >= 0 && x <= 20 && y-1 <= 20 )
+		if( x > 0 && y-1 > 0 && x < dimensiune && y-1 < dimensiune )
 		if( matrix[x][y-1][harta] == 1 && path_matrix[x][y-1] == 0 )
 		{
 			u++; coada_x[u]=x; coada_y[u]=y-1; path_matrix[x][y-1] = path_matrix[x][y] + 1;
-			//alert("Vestul a fost taguit.")
 		}
 		
 		p++;
 	}
 	
-//Aici se termina findPath.
-}
-
-function drawPath(x)
-{
-	var i,j;
-	var canvas = document.getElementById('game');
-	var context = canvas.getContext('2d');
-	var rectWidth = 40;
-	var rectHeight = 30;
-	for(i = 0; i <= 20; i++)
-		for(j = 0; j <= 20; j++)
+	// Acum drumul se gaseste in matricea path_matrix.
+	// Trebuie sa dam ca output vectorii path_x si path_y.
+	// Atunci:
+	
+	var k = 1;
+	
+	path_x[k] = spawn_x;
+	path_y[k] = spawn_y;
+	
+	x = path_x[k];
+	y = path_y[k];
+	
+	while( x!=base_x && y!=base_y )
+	{
+		if( path_matrix[x+1][y] == path_matrix[x][y] + 1)
+		{
+			k++;
+			path_x[k] = x+1;
+			path_y[k] = y;
+		}
+		else if( path_matrix[x-1][y] == path_matrix[x][y] + 1 )
 			{
-				if(path_matrix[j][i] != 0)
-				{
-					//alert(path_matrix[j][i]);
-					context.beginPath();
-					context.rect(i * rectWidth, j * rectHeight, 40, 30);
-					context.fillStyle = 'blue';
-					context.fill();
-				}
-				
-				if(path_matrix[j][i] == 0)
-				{
-					//alert(path_matrix[j][i]);
-					context.beginPath();
-					context.rect(i * rectWidth, j * rectHeight, 40, 30);
-					context.fillStyle = 'red';
-					context.fill();
-				}
-					
+				k++;
+				path_x[k] = x-1;
+				path_y[k] = y;
 			}
-}
+			else if( path_matrix[x][y+1] == path_matrix[x][y] + 1 )
+				{
+					k++;
+					path_x[k] = x;
+					path_y[k] = y+1;
+				}
+				else if( path_matrix[x][y-1] == path_matrix[x][y] + 1 )
+					{
+						k++;
+						path_x[k] = x;
+						path_y[k] = y-1;
+					}
+					
+		x = path_x[k];
+		y = path_y[k];
+	}
 
-//Versiunea 2.0
+}
+//In path_x/y se gaseste cel mai scurt drum al monstrului din spawn point pana la baza.
+//Versiunea 1.0
