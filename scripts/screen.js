@@ -20,7 +20,18 @@ var boxHeight      = 0;
 var numberOfBoxesX  = MAX_X;
 var numberOfBoxesY  = MAX_Y;
 var maxNumberOfBoxes = 0;
+var xMin;
+var xMax;
+var yMin;
+var yMax;
 
+function x() {
+	
+}
+
+function y() {
+	
+}
 
 function sizeScreen() {
     // preia dimensiunile documentului
@@ -31,9 +42,11 @@ function sizeScreen() {
     if (screenWidth / numberOfBoxesX < screenHeight / numberOfBoxesY) {
        	screenSize = screenWidth - 15;
 		maxNumberOfBoxes = numberOfBoxesX;
+		x()
     } else {
         screenSize = screenHeight - 15;
 		maxNumberOfBoxes = numberOfBoxesY;
+		y()
     }
 
     // setam dimesniunea unei celule prin rotunjire la cea mai mica unitate
@@ -53,10 +66,15 @@ function sizeScreen() {
     $("#gameCanvas").attr({"width":String(canvasWidth)+'px', "height":String(canvasHeight)+'px'})
 	
 	$("#wrapper").css("width",canvasWidth + 10);
+	
+	$("#wrapper").css("margin-left","auto");
+	xMin = $("#wrapper").offset().left + 5;
+	xMax = xMin + canvasWidth - boxSize;
+	$("#wrapper").css("margin-left",xMin - 5);
 }
+
 // o apelam pentru prima oara
 sizeScreen();
-
 
 // o setam ca handler pentru evenimentul de resize
 $(window).resize(function() {

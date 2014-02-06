@@ -19,6 +19,9 @@ $(document).ready(function() {
 	});
 })
 
+yMin = 5;
+yMax = yMin + canvasHeight - boxSize;
+
 var currentMousePos = { x: -1, y: -1 };
 
 // Aducem ghostImageul albastru la mouse, stickuit pe grid
@@ -26,20 +29,22 @@ var currentMousePos = { x: -1, y: -1 };
 $(document).mousemove(function(event) {
 	if (blueHover == 1) {
 		$("#blue").show();
-		if (event.pageX < bodyLeftMargin) {
-			boxX = bodyLeftMargin;
-		} else if (event.pageX >= bodyLeftMargin + canvasWidth) {
-			boxX = bodyLeftMargin + canvasWidth - boxSize;
+		if (event.pageX < xMin) {
+			boxX = xMin;
+		} else if (event.pageX >= xMax) {
+			boxX = xMax;
 		} else {
-			boxX = bodyLeftMargin + Math.round((event.pageX - bodyLeftMargin - boxSize / 2) / boxSize) * boxSize;
+			boxX = xMin + Math.round((event.pageX - xMin - boxSize / 2) / boxSize) * boxSize;
 		}
-		if (event.pageY >= canvasHeight) {
-			boxY = canvasHeight - boxSize;
+		if (event.pageY < yMin) {
+			boxY = yMin;
+		} else if (event.pageY >= yMax) {
+			boxY = yMax;
 		} else {
-			boxY = Math.round((event.pageY - boxSize / 2) / boxSize) * boxSize;
+			boxY = yMin + Math.round((event.pageY - yMin - boxSize / 2) / boxSize) * boxSize;
 		}
-        $("#blue").css("left",boxX+5);
-       	$("#blue").css("top",boxY+5);
+        $("#blue").css("left",boxX);
+       	$("#blue").css("top",boxY);
 	}
 });
 	
@@ -62,6 +67,6 @@ function third() {
 }
 
 function drawTurret(turretNumber) {
-	addElement(turretNumber, Math.round((boxX - bodyLeftMargin) / boxSize), Math.round(boxY / boxSize), mapNumber);
+	addElement(turretNumber, Math.round((boxX - xMin) / boxSize), Math.round(boxY / boxSize), mapNumber);
 	unstick();
 }

@@ -78,6 +78,7 @@ body {
 #innerWrapper {
 	display:table-cell;
 	vertical-align:middle;
+	padding:auto;
 }
 /*
 .slideUp {
