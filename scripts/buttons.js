@@ -19,13 +19,9 @@ $(document).ready(function() {
 	});
 })
 
-yMin = 5;
-yMax = yMin + canvasHeight - boxSize;
-
 var currentMousePos = { x: -1, y: -1 };
 
 // Aducem ghostImageul albastru la mouse, stickuit pe grid
-// ??? AICI SUNT PROBLEME LA RESIZE - NEEDZ HALP 
 $(document).mousemove(function(event) {
 	if (blueHover == 1) {
 		$("#blue").show();

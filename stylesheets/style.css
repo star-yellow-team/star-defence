@@ -39,10 +39,12 @@ body {
 #ui-menu {
 	background-color:darkgrey;
 	width:100px;
-	height:400px;
+	height:100%;
 	position:fixed;
 	right:0px;
-	top:calc(50% - 200px);
+	top:0px;
+	display:table;
+	
 }
 
 #gameCanvas {
@@ -67,12 +69,13 @@ body {
 
 #buttonsWrapper {
 	height:100px;
+	display:table-cell;
+	vertical-align:central;
 }
 
 #wrapper {
 	margin:auto;
 	height:100%;
-	display:table;
 }
 
 #innerWrapper {
@@ -80,36 +83,3 @@ body {
 	vertical-align:middle;
 	padding:auto;
 }
-/*
-.slideUp {
-	bottom: -0px;
-	animation: ease 0.5s slideUp;
-	-webkit-animation: ease 0.5s slideUp;
-}
-
-.slideDown {
-	bottom: -100px;
-	animation: ease 0.5s slideDown;
-	-webkit-animation: ease 0.5s slideDown;
-}
-
-@keyframes slideUp {
-	from {bottom: -100px;}
-	to {bottom: 0px;}
-}
-
-@-webkit-keyframes slideUp {
-	from {bottom: -100px;}
-	to {bottom: 0px;}
-}
-
-@keyframes slideDown {
-	from {bottom: 0px;}
-	to {bottom: -100px;}
-}
-
-@-webkit-keyframes slideDown {
-	from {bottom: 0px;}
-	to {bottom: -100px;}
-}
-*/

@@ -71,6 +71,9 @@ function sizeScreen() {
 	xMin = $("#wrapper").offset().left + 5;
 	xMax = xMin + canvasWidth - boxSize;
 	$("#wrapper").css("margin-left",xMin - 5);
+
+	yMin = 5;
+	yMax = yMin + canvasHeight - boxSize;
 }
 
 // o apelam pentru prima oara
