@@ -37,6 +37,32 @@ var SPEEDY_MONSTER = {
 
 }
 
+// monstru zburator
+var FLYING_MONSTER={
+    id :  2,
+    health: 12,
+    speed: 15,
+    damage: 0
+}
+
+// cel mai puternic monstru
+var POWERFUL_MONSTER={
+    id : 3,
+    health: 25,
+    speed: 30,
+    damage:0
+}
+
+// monstrul echipei , RAMSI=RADU,ANDREI,ADRIAN,MIRUNA,STEFAN,IONUT :)
+var RAMSI_MONSTER={
+    id :4,
+    health: 40,
+    speed: 20,
+    damage:0
+}
+
+
+
 /**
  *  Constructorul clasei Monster
  *  @param x pozitia pe Ox a mosntrului
@@ -63,6 +89,25 @@ function Monster(x, y, type) {
             this.speed  = SPEEDY_MONSTER.speed;
             this.damage = SPEEDY_MONSTER.damage;  
             break;
+
+		case FLYING_MONSTER.id:
+			this.health = FLYING_MONSTER.health;
+			this.speed  = FLYING_MONSTER.speed;
+			this.damage = FLYING_MONSTER.damage;
+            break;
+
+		case POWERFUL_MONSTER.id:
+			this.health = POWERFUL_MONSTER.health;
+			this.speed  = POWERFUL_MONSTER.speed;
+            this.damage = POWERFUL_MONSTER.damage;
+            break;
+
+		case RAMSI_MONSTER.id:
+			this.health = RAMSI_MONSTER.health;
+			this.speed  = RAMSI_MONSTER.speed;
+            this.damage = RAMSI_MONSTER.damage;
+            break;
+	    
 
         default:
             console.log("Invalid monster type....!");
