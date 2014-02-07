@@ -189,7 +189,6 @@ function searchPoints(harta, element)
 				Pointsx.push(i);
 				Pointsy.push(j);
 			}
-	alert(Pointsx.length);
 }
 
 //deseneaza o harta 
