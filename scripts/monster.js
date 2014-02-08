@@ -15,6 +15,10 @@
  *
  * */
 
+// Numarul total de tipuri de monstri
+
+var NUMBER_OF_MONSTER_TYPES = 5;
+
 
 /**
  *  Tipurile posibile de monstri.
