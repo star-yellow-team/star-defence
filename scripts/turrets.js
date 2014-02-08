@@ -132,21 +132,32 @@ function turret(type)
 			break;
 }
 // Aici nu stiu inca cum vom face sa atace turnul.
-function attack()
+function attack(i, tureta)
 {
-
+	waves[i].health -= tureta.damage;	
 }
-/* Cred ca atacul va depinde de o functie de detectat cand inamicul intra in range */
-function detect_enemy()
+
+function distanta(i, tureta)
 {
+	return(Math.sqrt( (i.x-tureta.x)*(i.x-tureta.x) + (i.y-tureta.y)*(i.y-tureta.y) ) );
+}
+
+/* Cred ca atacul va depinde de o functie de detectat cand inamicul intra in range */
+function detect_enemy(tureta)
+{
+	for(var i = 0; i < waves.length; i++)
+		if(distanta(i, tureta) <= tureta.range)
+			{
+				//pot lovi monstrul
+				attack(i,tureta);
+			}
 
 }
 
 /* Aici mai modificam pentru ca imi trebuie variabila in care stocam banii, skin-urile pe care le va avea fiecare turret la fiecare nivel */
-function upgrade()
+function upgrade(tureta)
 {
-money=money-price;
-upgradeLevel++;
-}
-
+	
+	money=money-price;
+	upgradeLevel++;
 }
