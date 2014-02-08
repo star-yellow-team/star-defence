@@ -4,6 +4,10 @@
 * daca lipseste ceva va rog spuneti
 */
 
+
+var NUMBER_OF_TURRET_TYPES = 5;
+
+
 //Tipuri de turete
 var MACHINEGUN_TURRET = {
 	id:	0,
