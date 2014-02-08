@@ -64,7 +64,7 @@ function fillWaves()
 		{
 			while(nrMonsters[i] > 0)
 				{
-					waves[k++] = new Monster(Pointsx[0], Pointsy[0], map);
+					waves[k++] = new Monster(Pointsx[0], Pointsy[0], i);
 					nrMonsters[i]--;
 				}
 		}
@@ -78,14 +78,18 @@ function initVct()
 }
 
 /**
- *	functia gameOver returneaza true daca jucatorul nu mai are viata si false daca inca mai are viata
- *
+ *	functia gameOver returneaza:
+ *		0: jucatorul nu mai are viata
+ *		1: jucatorul a terminat toate rundele, A CASTIGAT
+ *		-1: jucatorul mai are viata si nu a terminat toate rundele
  **/
 function gameOver()
 {
-	if(life > 0)
-		return false;
-	return true;	
+	if(life <= 0)
+		return 0;
+	if(curentRound > nrRounds)
+		return 1;
+	return -1;
 }
 
 
