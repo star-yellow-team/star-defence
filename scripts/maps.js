@@ -220,3 +220,5 @@ function drawMap(x)
 					
 			}
 }
+
+mapNumber = mapNumber % nrMaps;
