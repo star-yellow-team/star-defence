@@ -7,8 +7,6 @@
  *
  * */
 
-// Intervalul dintre loop
-var loopInterval  = 50;
 
 
 // luam obiectele canvas si context
@@ -17,7 +15,6 @@ var context = canvas.getContext("2d");
 
 $(".ghostImage").hide();
 
-var mapNumber = prompt("Numarul hărții:", 0) % nrMaps;
 
 /**
  *  Deseneaza background-ul(harta)
