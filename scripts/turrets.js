@@ -130,6 +130,7 @@ function turret(type)
 		default:
 			console.log("Invalid turret type!");
 			break;
+	}
 }
 // Aici nu stiu inca cum vom face sa atace turnul.
 function attack(i, tureta)
