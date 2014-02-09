@@ -116,7 +116,7 @@ function gameLoop() {
 	for(var m = 0; m < waves.length; ++ m) {
 		var monster = waves[m];
 	        
-        	if(monster.reachedDestination()) {
+        	if(monster.reachedDestination() && monster.current < path_x.length-1) {
 		        console.log('gere')
                 	monster.moveTo(path_y[monster.current+1], path_x[monster.current+1])
 		} else {
