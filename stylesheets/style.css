@@ -20,8 +20,6 @@ body {
 	height:100px;
 	margin:0px;
 	padding:0px;
-	display: inline-block;
-	margin-bottom:50px;
 }
 
 #first {
@@ -38,13 +36,14 @@ body {
 
 #ui-menu {
 	background-color:darkgrey;
-	width:100px;
-	height:100%;
-	position:fixed;
-	right:0px;
-	top:0px;
-	display:table;
-	
+	position:relative;
+	float:right;
+}
+
+#ui-submenu {
+	background-color:darkgrey;
+	position:relative;
+	float:right;
 }
 
 #gameCanvas {
@@ -54,6 +53,16 @@ body {
 	border: 5px solid white;
 	border-radius: 10px;
 	box-shadow: 0px 0px 25px black;
+	position:relative;
+	float:left;
+}
+
+#menuWrapper {
+	height:100%;
+	display:table-cell;
+	vertical-align:central;
+	position:relative;
+	float:right;
 }
 
 .ghostImage {
@@ -76,6 +85,7 @@ body {
 #wrapper {
 	margin:auto;
 	height:100%;
+	display:table;
 }
 
 #innerWrapper {
