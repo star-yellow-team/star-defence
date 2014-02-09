@@ -71,7 +71,15 @@ function drawBackground() {
  * */
 function draw() {
     drawBackground();
-
+    /*
+ *  var size = 5;
+    var i = 0;
+    for(; i < waves.length; ++ i) {
+        monster = waves[i];
+        context.fillStyle = 'orange';
+        context.fillRect(monster.x, monster.y, size, size)
+    }
+    */
 }
 
 
@@ -80,8 +88,43 @@ function draw() {
  *  Are grija de logica jocului
  * */
 function gameLoop() {
-    //intai desenam harta
-    drawBackground();
+    // game logic
+    /*
+ *  if(waveFinished()) {
+ *      generateNewWave();
+ *  } else {
+ *      // verifica ce monstri au ajuns la baza si ii scoate
+ *      takeLife();  
+ *
+ *      //verifica daca mai are vieti
+ *      if(gameOver()) {
+ *          alert("Bye-bye");
+ *      } else{
+ *          // luam fiecare monstru. waves e vectorul pentru monstri
+ *          for(var i = 0; i < waves.length; ++ i) {
+ *              monster = waves[i];
+ *              if(monster.reachedDestination()) {
+ *                  //assign new path for monster
+ *              }
+ *              else {
+ *                  monster.moveTo(monster.destinationX, monster.destinationY);
+ *              }
+ *              
+ *          }
+ *
+ *
+ *
+ *      }
+ *  
+ *
+ *  }
+ *
+ *
+ *
+ * */    
+
+    // desenam
+    draw();
 
 
     setTimeout(gameLoop, loopInterval);

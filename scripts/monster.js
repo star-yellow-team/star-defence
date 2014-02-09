@@ -73,10 +73,11 @@ var RAMSI_MONSTER={
  * */
 function Monster(x, y, type) {
 
-    this.x      = x;
-    this.y      = y;
-    this.type   = type;
-
+    this.x              = x;
+    this.y              = y;
+    this.type           = type;
+    this.destinationX   = 0;
+    this.destinationY   = 0;
     
     switch(type) {
 
@@ -156,7 +157,32 @@ Monster.prototype.isAlive       = function() {
  *  Exemplu: monster.moveTo(0,0);
  * */
 Monster.prototype.moveTo        = function(newX,newY) {
-    this.x = newX;
-    this.y = newY;
+    //this.x = newX;
+    //this.y = newY;
+    //
+    var pace = boxSize / this.speed;
+
+    if(newX != this.destinationX || newY == this.destinationY) {
+        this.destinationX = newX;
+        this.destinationY = newY;
+    }
+
+    if(this.x < this.destinationX) {
+        this.x += pace;
+    }
+
+    if(this.y < this.destinationY) {
+        this.x += pace
+    }  
+
+}
+
+/**
+ *  Functia reachedDestination()
+ *  @return true daca a ajuns la destinatie
+ *  @return false daca nu a ajuns la destinatie
+ * */
+Monster.prototype.reachedDestination = function() {
+    return (this.x == this.destinationX && this.y == this.destinationY) ? true : false;
 }
 

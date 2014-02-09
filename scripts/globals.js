@@ -11,4 +11,5 @@ var loopInterval    = 50;
 var waves           = [];
 var path_matrix     = [];
 var curentRound     = -1;
+var boxSize         =  0;
 var totalScore      =  0;

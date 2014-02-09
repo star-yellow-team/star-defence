@@ -11,7 +11,6 @@
 var screenWidth    = 0;
 var screenHeight   = 0;
 var screenSize     = 0;
-var boxSize        = 0;
 var bodyLeftMargin = 0;
 var canvasWidth    = 0;
 var canvasHeight   = 0; 
