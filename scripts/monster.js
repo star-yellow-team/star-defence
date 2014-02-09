@@ -172,7 +172,7 @@ Monster.prototype.moveTo        = function(newX,newY) {
         this.destinationX   = newX;
         this.destinationY   = newY;
         this.current        += 1;
-        this.pace           = ((this.destinationX - this.x) + (this.destinationY - this.y));
+        this.pace           = ((this.destinationX - this.x) + (this.destinationY - this.y)) / loopInterval;
     
    // console.log("DEstination:"+String(this.destinationX) + String(this.destinationY))
     }
