@@ -45,13 +45,13 @@ function drawBackground() {
                         break;
                 case 2:
                         context.fillStyle = "red";
-						break;
+			break;
                 case 3:
                         context.fillStyle = "blue"
                         break;
-				case 10:
-						context.fillStyle = "cyan"
-						break;
+		case 10:
+        		context.fillStyle = "cyan"
+			break;
                 default:
                         // o eroare in harta
                         context.fillStyle = "black";
@@ -89,11 +89,11 @@ function gameSetup() {
 	for(var m = 0; m < waves.length; ++ m) {
 		//moveTo(spawnPointX, spawnPointY)
 		var monster = waves[m];
-                //temporar
+             //temporar
 		monster.x = path_y[1];
         	monster.y = path_x[1];
 	
-		monster.moveTo(0,1);		
+		monster.moveTo(path_y[monster.current+1],path_x[monster.current+1]);		
 	}
 }
 

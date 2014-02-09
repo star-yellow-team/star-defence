@@ -184,14 +184,26 @@ Monster.prototype.moveTo        = function(newX,newY) {
         if(this.x > this.destinationX) {
             this.x = this.destinationX;
         }
+    } else if(this.x > this.destinationX) {
+        this.x += this.pace*this.speed;
+        if(this.x < this.destinationX) {
+            this.x = this.destinationX;
+        }
     }
 
     if(this.y < this.destinationY) {
         this.y += this.pace*this.speed
-        if(this.y > this.destinationY){
+        if(this.y > this.destinationY) {
             this.y = this.destinationY;
         }
-    }  
+    }   else if(this.y > this.destinationY) {
+        this.y -= this.pace*this.speed;
+        if(this.y < this.destinationY) {
+            this.y = this.destinationY;
+        }
+    }
+
+      
 
 }
 
