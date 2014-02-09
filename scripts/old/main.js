@@ -71,31 +71,17 @@ function drawBackground() {
  * */
 function draw() {
     drawBackground();
-    for(var m = 0; m < waves.length; ++ m) {
-		var monster = waves[m]
-		
-		context.fillStyle = monsters[monster.type].color;
-		context.fillRect(boxSize * monster.x, boxSize * monster.y, boxSize/3, boxSize/3);
-	}
-    
- 
+    /*
+ *  var size = 5;
+    var i = 0;
+    for(; i < waves.length; ++ i) {
+        monster = waves[i];
+        context.fillStyle = 'orange';
+        context.fillRect(monster.x, monster.y, size, size)
+    }
+    */
 }
 
-// se apeleaza inaintea tuturor functiilor
-function gameSetup() {
-	findPath(mapNumber)
-	generateWave()
-
-	for(var m = 0; m < waves.length; ++ m) {
-		//moveTo(spawnPointX, spawnPointY)
-		var monster = waves[m];
-                //temporar
-		monster.x = path_y[1];
-        	monster.y = path_x[1];
-	
-		monster.moveTo(0,1);		
-	}
-}
 
 /**
  *  Este chemata la fiecare loop
@@ -103,30 +89,39 @@ function gameSetup() {
  * */
 function gameLoop() {
     // game logic
-    if(waveFinished()){
-		generateWave();
-	}
-	
-	//takeLife()
-	if(gameOver()) {
-		alert("Finished!");
-		return 0;
-	}
-	
-	for(var m = 0; m < waves.length; ++ m) {
-		var monster = waves[m];
-	        
-        	if(monster.reachedDestination()) {
-		        console.log('gere')
-                	monster.moveTo(path_y[monster.current+1], path_x[monster.current+1])
-		} else {
-			monster.moveTo(monster.destinationX, monster.destinationY)
-		}
-		
-		
-	}
-	
-	 
+    /*
+ *  if(waveFinished()) {
+ *      generateNewWave();
+ *  } else {
+ *      // verifica ce monstri au ajuns la baza si ii scoate
+ *      takeLife();  
+ *
+ *      //verifica daca mai are vieti
+ *      if(gameOver()) {
+ *          alert("Bye-bye");
+ *      } else{
+ *          // luam fiecare monstru. waves e vectorul pentru monstri
+ *          for(var i = 0; i < waves.length; ++ i) {
+ *              monster = waves[i];
+ *              if(monster.reachedDestination()) {
+ *                  //assign new path for monster
+ *              }
+ *              else {
+ *                  monster.moveTo(monster.destinationX, monster.destinationY);
+ *              }
+ *              
+ *          }
+ *
+ *
+ *
+ *      }
+ *  
+ *
+ *  }
+ *
+ *
+ *
+ * */    
 
     // desenam
     draw();
@@ -141,8 +136,7 @@ function gameLoop() {
  *  Ea incepe jocul
  * */
 function main() {
-	gameSetup()
-        gameLoop();
+    gameLoop();
 
 }
 

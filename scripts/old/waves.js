@@ -7,20 +7,13 @@ var k = 0;
 var life = 100;
 var x = [];
 
-//temporar
-var map = mapNumber
-
 /**
  *	functia generateWave se apeleaza cu numarul de tipuri de monstri si dificultatea aleasa de jucator
  *	si construieste vectorul nrMonsters unde pe pozitia i se retine numarul monstrilor de tipul i care trebuie pusi pe harta 
  *	nrM = numarul de tipuri de monstri, 
  **/
-function generateWave()
+function generateWave(nrM, difficulty, map)
 {
-	
-	//temporar
-	var nrM = 3
-	
 	if(curentRound < 1 || curentRound > 10)
 		curentRound = 1;
 	else
@@ -28,12 +21,12 @@ function generateWave()
 	for(var i = 0; i < nrM; i++)
 		{
 			var x;
-			switch (curentRound)
+			switch (curentRounds)
 				{
 					case (1):
 						x = 1;
 						break;
-					case (curentRound < 5):
+					case (curentRounds < 5):
 						x = Math.round( Math.random() * (5 - 1)) + i * (difficulty - 1);
 						break;
 					default:
@@ -42,10 +35,8 @@ function generateWave()
 					
 			nrMonsters[i] = x;
 		}
-		console.log('d')
-	fillWaves(nrM);
-	console.log('f')
-	//deleteWave();
+	fillWaves();
+	deleteWave();
 }
 
 
@@ -53,7 +44,7 @@ function generateWave()
  *	functia deleteWave primeste ca parametru numarul de tipuri de monstri si sterge continutul vectorului nrMonsters
  *	
  **/
-function deleteWave(nrM)
+function deleteWave()
 {
 	for(var i = 0; i < nrM; i++)
 		nrMonsters[i] = 0;
@@ -65,9 +56,8 @@ function deleteWave(nrM)
  *	la inceput toti monstrii sunt generati pe pozitia de spawn(deocamdata nu functioneaza pentru mai multe puncte de spawn)
  *	DACA SUNT PROBLEME CU FUNCTIA... VERIFICATI COORDONATA X SI Y A UNUI MONSTRU!!!
  **/
-function fillWaves(nrM)
+function fillWaves()
 {
-	console.log('e')
 	k = 0;
 	searchPoints(map, 2);
 	for(var i = 0; i < nrM; i++)
@@ -87,13 +77,7 @@ function initVct()
 		x[i] = 0;	
 }
 
-// documentati
-function waveFinished() {
-	return waves.length > 0 ? false : true;
-}
-
 /**
- * !! DOCUMENTATI
  *	functia gameOver returneaza:
  *		0: jucatorul nu mai are viata
  *		1: jucatorul a terminat toate rundele, A CASTIGAT
@@ -102,9 +86,10 @@ function waveFinished() {
 function gameOver()
 {
 	if(life <= 0)
-		return true;
-
-	return false;
+		return 0;
+	if(curentRound > nrRounds)
+		return 1;
+	return -1;
 }
 
 

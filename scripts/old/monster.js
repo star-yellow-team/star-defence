@@ -26,18 +26,16 @@ var NUMBER_OF_MONSTER_TYPES = 5;
 var SIMPLE_MONSTER = {
     id :    0,
     health: 10,
-    speed:  1,
-    damage: 0, 
-    color:  'orange'
+    speed:  5,
+    damage: 0
 }
 
 //  monstru rapid
 var SPEEDY_MONSTER = {
     id :    1,
     health: 7,
-    speed:  2,
-    damage: 0,
-    color:  'blue'
+    speed:  10,
+    damage: 0
 
 }
 
@@ -45,30 +43,27 @@ var SPEEDY_MONSTER = {
 var FLYING_MONSTER={
     id :  2,
     health: 12,
-    speed: 3,
-    damage: 0,
-    color:  'purple'
+    speed: 15,
+    damage: 0
 }
 
 // cel mai puternic monstru
 var POWERFUL_MONSTER={
     id : 3,
     health: 25,
-    speed: 4,
-    damage:0,
-    color: 'pink'
+    speed: 30,
+    damage:0
 }
 
 // monstrul echipei , RAMSI=RADU,ANDREI,ADRIAN,MIRUNA,STEFAN,IONUT :)
 var RAMSI_MONSTER={
     id :4,
     health: 40,
-    speed: 2,
-    damage:0,
-    color: 'magenta'
+    speed: 20,
+    damage:0
 }
 
-var monsters = [SIMPLE_MONSTER, SPEEDY_MONSTER, FLYING_MONSTER, POWERFUL_MONSTER, RAMSI_MONSTER]
+
 
 /**
  *  Constructorul clasei Monster
@@ -83,8 +78,6 @@ function Monster(x, y, type) {
     this.type           = type;
     this.destinationX   = 0;
     this.destinationY   = 0;
-    this.current	= 0;
-    this.pace           = 0;
     
     switch(type) {
 
@@ -166,31 +159,20 @@ Monster.prototype.isAlive       = function() {
 Monster.prototype.moveTo        = function(newX,newY) {
     //this.x = newX;
     //this.y = newY;
-    
+    //
+    var pace = boxSize / this.speed;
 
-    if(newX != this.destinationX || newY != this.destinationY) {
-        this.destinationX   = newX;
-        this.destinationY   = newY;
-        this.current        += 1;
-        this.pace           = ((this.destinationX - this.x) + (this.destinationY - this.y));
-    
-   // console.log("DEstination:"+String(this.destinationX) + String(this.destinationY))
+    if(newX != this.destinationX || newY == this.destinationY) {
+        this.destinationX = newX;
+        this.destinationY = newY;
     }
 
-
-
     if(this.x < this.destinationX) {
-        this.x += this.pace*this.speed;
-        if(this.x > this.destinationX) {
-            this.x = this.destinationX;
-        }
+        this.x += pace;
     }
 
     if(this.y < this.destinationY) {
-        this.y += this.pace*this.speed
-        if(this.y > this.destinationY){
-            this.y = this.destinationY;
-        }
+        this.x += pace
     }  
 
 }

@@ -161,9 +161,8 @@ function deleteElement(x, y, harta)
 	return true;
 }
 
-function getElement(x, y)
+function getElement(x, y, harta)
 {
-	var harta = mapNumber
 	if(y < 0 || y >= MAX_Y)
 		return false;
 	if(x < 0 || x >= MAX_X)
