@@ -40,13 +40,11 @@ function sizeScreen() {
    
     // o selectam pe cea mai mica
     if (screenWidth / numberOfBoxesX < screenHeight / numberOfBoxesY) {
-       	screenSize = screenWidth - 15;
+       	screenSize = screenWidth - 15 - 2 * boxSize;
 		maxNumberOfBoxes = numberOfBoxesX;
-		x()
     } else {
-        screenSize = screenHeight - 15;
+        screenSize = screenHeight - 15 - 2 * boxSize;
 		maxNumberOfBoxes = numberOfBoxesY;
-		y()
     }
 
     // setam dimesniunea unei celule prin rotunjire la cea mai mica unitate
@@ -59,13 +57,16 @@ function sizeScreen() {
     // redimensionam
     $(".ghostImage").css("height",boxSize);
     $(".ghostImage").css("width",boxSize);
+	
+    $(".button").css("height",boxSize);
+    $(".button").css("width",boxSize);
 
     $("#gameCanvas").css("width",canvasWidth);
     $("#gameCanvas").css("height",canvasHeight);
 
-    $("#gameCanvas").attr({"width":String(canvasWidth)+'px', "height":String(canvasHeight)+'px'})
-	
-	$("#wrapper").css("width",canvasWidth + 10);
+	$("#ui-menu").css("margin-top",(canvasHeight - $("#ui-menu").height()) / 2 + 5); 
+
+    $("#gameCanvas").attr({"width":String(canvasWidth)+'px', "height":String(canvasHeight)+'px'});
 	
 	$("#wrapper").css("margin-left","auto");
 	xMin = $("#wrapper").offset().left + 5;
