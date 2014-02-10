@@ -5,11 +5,11 @@ var curentRound = -1;
 var waves = [];
 var k = 0;
 var life = 100;
-var x = [];
+var x = monsters.length;
 
 //temporar
 var map = mapNumber
-
+var nrM = 5;
 /**
  *	functia generateWave se apeleaza cu numarul de tipuri de monstri si dificultatea aleasa de jucator
  *	si construieste vectorul nrMonsters unde pe pozitia i se retine numarul monstrilor de tipul i care trebuie pusi pe harta 
@@ -18,8 +18,6 @@ var map = mapNumber
 function generateWave()
 {
 	
-	//temporar
-	var nrM = 3
 	
 	if(curentRound < 1 || curentRound > 10)
 		curentRound = 1;

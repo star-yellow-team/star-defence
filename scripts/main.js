@@ -71,14 +71,17 @@ function drawBackground() {
  * */
 function draw() {
     drawBackground();
-    var offset = boxSize / waves.length;
+    var dimension = boxSize / 3;
+    var offset = (boxSize) / (waves.length);
     var currentOffset = 0
     for(var m = 0; m < waves.length; ++ m) {
-	    var monster = waves[m]
-		
+	    var monster = waves[m];
 	    context.fillStyle = monsters[monster.type].color;
-	    context.fillRect(boxSize * monster.x, boxSize * monster.y + currentOffset, boxSize/3, boxSize/3);
+	    context.fillRect(boxSize * monster.x + dimension, boxSize * monster.y + currentOffset, dimension, dimension);
             currentOffset += offset;
+            if(currentOffset > (boxSize-dimension)) {
+                currentOffset = 0;
+            } 
 	}
     
  

@@ -15,9 +15,6 @@
  *
  * */
 
-// Numarul maxim de tipuri de monstri
-var NUMBER_OF_MONSTER_TYPES = 5;
-
 /**
  *  Tipurile posibile de monstri.
  *  E un obiect care contine informatii despre tip, viata, viteza, damage propriu in caz ca poate ataca
@@ -35,7 +32,7 @@ var SIMPLE_MONSTER = {
 var SPEEDY_MONSTER = {
     id :    1,
     health: 7,
-    speed:  2,
+    speed:  2.5,
     damage: 0,
     color:  'blue'
 
@@ -69,6 +66,9 @@ var RAMSI_MONSTER={
 }
 
 var monsters = [SIMPLE_MONSTER, SPEEDY_MONSTER, FLYING_MONSTER, POWERFUL_MONSTER, RAMSI_MONSTER]
+// Numarul maxim de tipuri de monstri
+var NUMBER_OF_MONSTER_TYPES = 5;
+
 
 /**
  *  Constructorul clasei Monster
