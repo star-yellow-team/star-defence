@@ -4,16 +4,6 @@
 * daca lipseste ceva va rog spuneti
 */
 
-//functia sleep
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
-}
-
 var turrets = [MACHINEGUN_TURRET, SLOW_TURRET, PLASMA_TURRET, LASER_TURRET, DETECTOR_TURRET]
 //numar maxim de tipuri de turete
 var NUMBER_OF_TURRET_TYPES = 5;
@@ -31,7 +21,8 @@ var MACHINEGUN_TURRET = {
 	kills:	0,
 	requirement:	"None",
 	description:	"Fast attacking turret",
-	isAttacking:	0
+	isAttacking:	false
+	contor:	0
 }
 
 var SLOW_TURRET = {
@@ -42,7 +33,8 @@ var SLOW_TURRET = {
 	requirement:	"None",
 	description:	"Slows enemies in their path",
 	slow:	"Yes",
-	isAttacking:	0
+	isAttacking:	false
+	contor:	0
 }
 
 var PLASMA_TURRET = {
@@ -56,7 +48,8 @@ var PLASMA_TURRET = {
 	kills:	0,
 	requirement:	"None",
 	description:	"Strong turret against swarms of small units",
-	isAttacking:	0
+	isAttacking:	false
+	contor:	0
 }
 
 var LASER_TURRET = {
@@ -70,7 +63,8 @@ var LASER_TURRET = {
 	kills:	0,
 	requirement:	"Pass level 6",
 	description:	"Fires laser beams at enemy targets",
-	isAttacking:	0
+	isAttacking:	false
+	contor:	0
 }
 
 var DETECTOR_TURRET = {
@@ -81,7 +75,8 @@ var DETECTOR_TURRET = {
 	detection: "Yes",
 	requirement:	"Pass level 8",
 	description:	"Reveals invisible enemies within range",
-	isAttacking:	0
+	isAttacking:	false
+	contor:	0
 }
 
 function Turret(type)
@@ -99,6 +94,7 @@ function Turret(type)
 			this.requirement=MACHINEGUN_TURRET.requirement;
 			this.description=MACHINEGUN_TURRET.description;
 			this.isAttacking=MACHINEGUN_TURRET.isAttacking;
+			this.contor=MACHINEGUN_TURRET.contor;
 			break;
 		
 		
@@ -109,6 +105,7 @@ function Turret(type)
 			this.requirement=SLOW_TURRET.requirement;
 			this.description=SLOW_TURRET.description;
 			this.slow=SLOW_TURRET.slow;
+			this.contor=SLOW_TURRET.contor;
 			break;
 
 		case PLASMA_TURRET.id:
@@ -122,6 +119,7 @@ function Turret(type)
 			this.requirement=PLASMA_TURRET.requirement;
 			this.description=PLASMA_TURRET.description;
 			this.isAttacking=PLASMA_TURRET.isAttacking;
+			this.contor=PLASMA_TURRET.contor;
 			break;
 
 		case LASER_TURRET.id:
@@ -135,6 +133,7 @@ function Turret(type)
 			this.requirement=LASER_TURRET.requirement;
 			this.description=LASER_TURRET.description;
 			this.isAttacking=LASER_TURRET.isAttacking;
+			this.contor=LASER_TURRET.contor;
 			break;
 
 		case DETECTOR_TURRET.id:
@@ -144,6 +143,7 @@ function Turret(type)
 			this.detection=DETECTOR_TURRET.detection;
 			this.requirement=DETECTOR_TURRET.requirement;
 			this.description=DETECTOR_TURRET.description;
+			this.contor=DETECTOR_TURRET.contor;
 			break;
 
 		default:
@@ -151,11 +151,15 @@ function Turret(type)
 			break;
 	}
 }
+
+Turret.prototype.canAttack = function() {
+if(this.contor % (18*this.attackSpeed/0.8) == 0) {return true;}
+this.contor = (this.contor +1)%(18*this.attackSpeed/0.8);
+return false;}
+
+//2.25=1 sec
+
 // Aici nu stiu inca cum vom face sa atace turnul.
-function attack(i, tureta)
-{
-	waves[i].health -= tureta.damage;	
-}
 
 function distanta(i, tureta)
 {
@@ -169,21 +173,21 @@ function detect_enemy(tureta)
 	{	while(distanta(waves[i], tureta) <= tureta.range)
 			{
 				//pot lovi monstrul
-				tureta.isAttacking=1;
-				if (waves[i].protoype.doDamage(tureta.damage)==false);
+				tureta.isAttacking=true;
+				if (waves[i].doDamage(tureta.damage)==false);
 				{
-					tureta.isAttacking=0;
+					tureta.isAttacking=false;
 					break;
 				}
 				if (tureta.slow==SLOW_TURRET.slow)
 					waves[i].speed=waves[i].speed/2;
 				if (tureta.detection==DETECTOR_TURRET.detection)
-					waves[i].isVisible==1;
-				sleep(tureta.attackSpeed*1000);
+					waves[i].isVisible==true;
+				
 			}
 		waves[i].speed=waves[i].speed*2;
-		tureta.isAttacking=0;
-		waves[i].isVisible==0;
+		tureta.isAttacking=false;
+		waves[i].isVisible==false;
 	}
 }
 
@@ -192,5 +196,5 @@ function upgrade(tureta)
 {
 	
 	money=money-price;
-	upgradeLevel++;
+	tureta.upgradeLevel++;
 }
