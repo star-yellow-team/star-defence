@@ -69,7 +69,7 @@ var LASER_TURRET = {
 	price:	50,
 	kills:	0,
 	requirement:	"Pass level 6",
-	description:	"Fires laser beams at enemy targets"
+	description:	"Fires laser beams at enemy targets",
 	isAttacking:	0
 }
 
@@ -80,7 +80,7 @@ var DETECTOR_TURRET = {
 	price:	20,
 	detection: "Yes",
 	requirement:	"Pass level 8",
-	description:	"Reveals invisible enemies within range"
+	description:	"Reveals invisible enemies within range",
 	isAttacking:	0
 }
 
@@ -174,6 +174,7 @@ function detect_enemy(tureta)
 				{
 					tureta.isAttacking=0;
 					break;
+				}
 				if (tureta.slow==SLOW_TURRET.slow)
 					waves[i].speed=waves[i].speed/2;
 				if (tureta.detection==DETECTOR_TURRET.detection)
