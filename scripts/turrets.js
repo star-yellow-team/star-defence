@@ -41,7 +41,7 @@ var SLOW_TURRET = {
 	price:	20,
 	requirement:	"None",
 	description:	"Slows enemies in their path",
-	slow:	"Yes"
+	slow:	"Yes",
 	isAttacking:	0
 }
 
