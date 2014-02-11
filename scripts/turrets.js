@@ -4,7 +4,18 @@
 * daca lipseste ceva va rog spuneti
 */
 
+//functia sleep
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
 
+var turrets = [MACHINEGUN_TURRET, SLOW_TURRET, PLASMA_TURRET, LASER_TURRET, DETECTOR_TURRET]
+//numar maxim de tipuri de turete
 var NUMBER_OF_TURRET_TYPES = 5;
 
 
@@ -19,7 +30,8 @@ var MACHINEGUN_TURRET = {
 	price:	10,
 	kills:	0,
 	requirement:	"None",
-	description:	"Fast attacking turret"
+	description:	"Fast attacking turret",
+	isAttacking:	0
 }
 
 var SLOW_TURRET = {
@@ -30,6 +42,7 @@ var SLOW_TURRET = {
 	requirement:	"None",
 	description:	"Slows enemies in their path",
 	slow:	"Yes"
+	isAttacking:	0
 }
 
 var PLASMA_TURRET = {
@@ -43,6 +56,7 @@ var PLASMA_TURRET = {
 	kills:	0,
 	requirement:	"None",
 	description:	"Strong turret against swarms of small units",
+	isAttacking:	0
 }
 
 var LASER_TURRET = {
@@ -56,6 +70,7 @@ var LASER_TURRET = {
 	kills:	0,
 	requirement:	"Pass level 6",
 	description:	"Fires laser beams at enemy targets"
+	isAttacking:	0
 }
 
 var DETECTOR_TURRET = {
@@ -66,9 +81,10 @@ var DETECTOR_TURRET = {
 	detection: "Yes",
 	requirement:	"Pass level 8",
 	description:	"Reveals invisible enemies within range"
+	isAttacking:	0
 }
 
-function turret(type)
+function Turret(type)
 {
 	this.type=type;
 	switch(type)	{
@@ -82,6 +98,7 @@ function turret(type)
 			this.kills=MACHINEGUN_TURRET.kills;
 			this.requirement=MACHINEGUN_TURRET.requirement;
 			this.description=MACHINEGUN_TURRET.description;
+			this.isAttacking=MACHINEGUN_TURRET.isAttacking;
 			break;
 		
 		
@@ -104,6 +121,7 @@ function turret(type)
 			this.kills=PLASMA_TURRET.kills;
 			this.requirement=PLASMA_TURRET.requirement;
 			this.description=PLASMA_TURRET.description;
+			this.isAttacking=PLASMA_TURRET.isAttacking;
 			break;
 
 		case LASER_TURRET.id:
@@ -116,6 +134,7 @@ function turret(type)
 			this.kills=LASER_TURRET.kills;
 			this.requirement=LASER_TURRET.requirement;
 			this.description=LASER_TURRET.description;
+			this.isAttacking=LASER_TURRET.isAttacking;
 			break;
 
 		case DETECTOR_TURRET.id:
@@ -147,12 +166,24 @@ function distanta(i, tureta)
 function detect_enemy(tureta)
 {
 	for(var i = 0; i < waves.length; i++)
-		if(distanta(i, tureta) <= tureta.range)
+	{	while(distanta(waves[i], tureta) <= tureta.range)
 			{
 				//pot lovi monstrul
-				attack(i,tureta);
+				tureta.isAttacking=1;
+				if (waves[i].protoype.doDamage(tureta.damage)==false);
+				{
+					tureta.isAttacking=0;
+					break;
+				if (tureta.slow==SLOW_TURRET.slow)
+					waves[i].speed=waves[i].speed/2;
+				if (tureta.detection==DETECTOR_TURRET.detection)
+					waves[i].isVisible==1;
+				sleep(tureta.attackSpeed*1000);
 			}
-
+		waves[i].speed=waves[i].speed*2;
+		tureta.isAttacking=0;
+		waves[i].isVisible==0;
+	}
 }
 
 /* Aici mai modificam pentru ca imi trebuie variabila in care stocam banii, skin-urile pe care le va avea fiecare turret la fiecare nivel */
