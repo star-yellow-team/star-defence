@@ -21,7 +21,7 @@ var MACHINEGUN_TURRET = {
 	kills:	0,
 	requirement:	"None",
 	description:	"Fast attacking turret",
-	isAttacking:	false
+	isAttacking:	false,
 	contor:	0
 }
 
@@ -33,7 +33,7 @@ var SLOW_TURRET = {
 	requirement:	"None",
 	description:	"Slows enemies in their path",
 	slow:	"Yes",
-	isAttacking:	false
+	isAttacking:	false,
 	contor:	0
 }
 
@@ -48,7 +48,7 @@ var PLASMA_TURRET = {
 	kills:	0,
 	requirement:	"None",
 	description:	"Strong turret against swarms of small units",
-	isAttacking:	false
+	isAttacking:	false,
 	contor:	0
 }
 
@@ -63,7 +63,7 @@ var LASER_TURRET = {
 	kills:	0,
 	requirement:	"Pass level 6",
 	description:	"Fires laser beams at enemy targets",
-	isAttacking:	false
+	isAttacking:	false,
 	contor:	0
 }
 
@@ -75,7 +75,7 @@ var DETECTOR_TURRET = {
 	detection: "Yes",
 	requirement:	"Pass level 8",
 	description:	"Reveals invisible enemies within range",
-	isAttacking:	false
+	isAttacking:	false,
 	contor:	0
 }
 
