@@ -17,18 +17,29 @@
         <div id="wrapper">
         	<canvas id="gameCanvas" >
         	</canvas>
-            <div id="menuWrapper">
-            <div id="ui-menu" class="slideDown">
-                <div class="button" id="first" onClick="stick()"></div>
-                <div class="button" id="second" onClick="alert(xMin)"></div>
-                <div class="button" id="third" onClick="third()"></div>
-        	</div>
+            <div id="turret-menu">
+                	<div class="button" id="machinegun_turret" onClick="stick(11)"></div>
+                	<div class="button" id="slow_turret" onClick="stick(12)"></div>
+                	<div class="button" id="laser_turret" onClick="stick(13)"></div>
+                	<div class="button" id="plasma_turret" onClick="stick(14)"></div>
+                	<div class="button" id="detector_turret" onClick="stick(15)"></div>
+                	<div class="button" id="remove_turret" onClick="stick(0)"></div>
             </div>
+            <div id="ui-menu">
+                	<div class="button" id="turret" onClick="stick()"></div>
+                	<div class="button" id="second" onClick="alert(xMin)"></div>
+                	<div class="button" id="third" onClick="third()"></div>
+        	</div>
         </div>
         
 		
         <!-- This is hidden prior to clicking the blue box and after clicking it -->
-        <div class="ghostImage" id="blue" onClick="drawTurret(10)"></div>
+        <div class="ghostImage" id="machinegun" onClick="drawTurret(11)"></div>
+        <div class="ghostImage" id="slow" onClick="drawTurret(12)"></div>
+        <div class="ghostImage" id="laser" onClick="drawTurret(13)"></div>
+        <div class="ghostImage" id="plasma" onClick="drawTurret(14)"></div>
+        <div class="ghostImage" id="detector" onClick="drawTurret(15)"></div>
+        <div class="ghostImage" id="remove" onClick="drawTurret(0)"></div>
 
 	<!-- Scripts are loading after page load to avoid changing unexisting objects -->
         <script type="text/javascript" src="scripts/globals.js"></script>
