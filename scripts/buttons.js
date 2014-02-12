@@ -45,6 +45,7 @@ $(document).mousemove(function(event) {
 
 // Determina care ghost image se ataseaza cursorului
 function stick(x) {
+	unstick();
 	switch (x) {
 		case 11:
 			hover = "#machinegun";
@@ -76,10 +77,10 @@ function unstick() {
 function drawTurret(turretNumber) {
 	if (turretNumber == 0) {
 		deleteElement(Math.round((boxX - xMin) / boxSize), Math.round(boxY / boxSize), mapNumber);
-		unstick();
 	} else if (addElement(turretNumber, Math.round((boxX - xMin) / boxSize), Math.round(boxY / boxSize), mapNumber) == true) {
-                console.log(turretNumber);
-    	        switch(turretNumber) {
+
+    		unstick();
+	        switch(turretNumber) {
                     case 11:
                         var turret = new Turret(MACHINEGUN_TURRET.id);
                         turret.x = Math.round((boxX-xMin) / boxSize);
@@ -115,6 +116,5 @@ function drawTurret(turretNumber) {
                         console.log("Invalid turret!!"+String(turretNumber));
                         break;
                 }
-        	unstick();
 	}
 }
