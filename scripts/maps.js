@@ -153,6 +153,8 @@ function addElement(element, x, y, harta)
 
 function deleteElement(x, y, harta)
 {
+	if(matrix[y][x][harta] < 3)
+		return false;
 	if(y < 0 || y >= MAX_Y)
 		return false;
 	if(x < 0 || x >= MAX_X)
