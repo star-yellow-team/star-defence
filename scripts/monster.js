@@ -85,6 +85,7 @@ function Monster(x, y, type) {
     this.destinationY   = 0;
     this.current	= 0;
     this.pace           = 0;
+    this.isVisible      = true;
     
     switch(type) {
 
