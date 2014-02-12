@@ -178,6 +178,7 @@ function distanta(i, tureta)
 /* Cred ca atacul va depinde de o functie de detectat cand inamicul intra in range */
 function detect_enemy(tureta)
 {
+        console.log("dsds");
 	var ok;
 	for(var i = 0; i < waves.length; i++)
 	{	
