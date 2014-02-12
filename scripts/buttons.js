@@ -78,40 +78,41 @@ function drawTurret(turretNumber) {
 		deleteElement(Math.round((boxX - xMin) / boxSize), Math.round(boxY / boxSize), mapNumber);
 		unstick();
 	} else if (addElement(turretNumber, Math.round((boxX - xMin) / boxSize), Math.round(boxY / boxSize), mapNumber) == true) {
-	        switch(turretNumber) {
+                console.log(turretNumber);
+    	        switch(turretNumber) {
                     case 11:
-                        var turret = Turret(MACHINEGUN_TURRET);
+                        var turret = new Turret(MACHINEGUN_TURRET.id);
                         turret.x = Math.round((boxX-xMin) / boxSize);
                         turret.y = Math.round(boxY/boxSize);
                         turrets.push(turret); 
                         break;
                     case 12:
-                        var turret = Turret(SLOW_TURRET);
+                        var turret = new Turret(SLOW_TURRET.id);
                         turret.x = Math.round((boxX-xMin) / boxSize);
                         turret.y = Math.round(boxY/boxSize);
                         turrets.push(turret); 
                         break;
                     case 13:
-                        var turret = Turret(PLASMA_TURRET);
+                        var turret = new Turret(PLASMA_TURRET.id);
                         turret.x = Math.round((boxX-xMin) / boxSize);
                         turret.y = Math.round(boxY/boxSize);
                         turrets.push(turret);
                         break;  
                     case 14:
-                        var turret = Turret(LASER_TURRET);
+                        var turret = new Turret(LASER_TURRET.id);
                         turret.x = Math.round((boxX-xMin) / boxSize);
                         turret.y = Math.round(boxY/boxSize);
                         turrets.push(turret);
                         break;
                     case 15:
-                        var turret = Turret(DETECTOR_TURRET);
+                        var turret = new Turret(DETECTOR_TURRET.id);
                         turret.x = Math.round((boxX-xMin) / boxSize);
                         turret.y = Math.round(boxY/boxSize);
                         turrets.push(turret);
                         break;
 
                     default:
-                        console.log("Invalid turret!!");
+                        console.log("Invalid turret!!"+String(turretNumber));
                         break;
                 }
         	unstick();
