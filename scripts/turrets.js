@@ -35,7 +35,7 @@ var SLOW_TURRET = {
 	description:	"Slows enemies in their path",
 	slow:	"Yes",
 	isAttacking:	false,
-	contor:	0
+	contor:	0,
 	x:	0,
 	y:	0
 }
@@ -52,7 +52,7 @@ var PLASMA_TURRET = {
 	requirement:	"None",
 	description:	"Strong turret against swarms of small units",
 	isAttacking:	false,
-	contor:	0
+	contor:	0,
 	x:	0,
 	y:	0
 }
@@ -69,7 +69,7 @@ var LASER_TURRET = {
 	requirement:	"Pass level 6",
 	description:	"Fires laser beams at enemy targets",
 	isAttacking:	false,
-	contor:	0
+	contor:	0,
 	x:	0,
 	y:	0
 }
@@ -83,7 +83,7 @@ var DETECTOR_TURRET = {
 	requirement:	"Pass level 8",
 	description:	"Reveals invisible enemies within range",
 	isAttacking:	false,
-	contor:	0
+	contor:	0,
 	x:	0,
 	y:	0
 }
@@ -176,7 +176,7 @@ function distanta(i, tureta)
 }
 
 /* Cred ca atacul va depinde de o functie de detectat cand inamicul intra in range */
-function detect_enemy(tureta)
+function detectEnemy(tureta)
 {
         console.log("dsds");
 	var ok;
