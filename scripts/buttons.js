@@ -76,6 +76,42 @@ function drawTurret(turretNumber) {
 		deleteElement(Math.round((boxX - xMin) / boxSize), Math.round(boxY / boxSize), mapNumber);
 		unstick();
 	} else if (addElement(turretNumber, Math.round((boxX - xMin) / boxSize), Math.round(boxY / boxSize), mapNumber) == true) {
-		unstick();
-		}
+	        switch(turretNumber) {
+                    case 11:
+                        var turret = Turret(MACHINEGUN_TURRET);
+                        turret.x = Math.round((boxX-xMin) / boxSize);
+                        turret.y = Math.round(boxY/boxSize);
+                        turrets.push(turret); 
+                        break;
+                    case 12:
+                        var turret = Turret(SLOW_TURRET);
+                        turret.x = Math.round((boxX-xMin) / boxSize);
+                        turret.y = Math.round(boxY/boxSize);
+                        turrets.push(turret); 
+                        break;
+                    case 13:
+                        var turret = Turret(PLASMA_TURRET);
+                        turret.x = Math.round((boxX-xMin) / boxSize);
+                        turret.y = Math.round(boxY/boxSize);
+                        turrets.push(turret);
+                        break;  
+                    case 14:
+                        var turret = Turret(LASER_TURRET);
+                        turret.x = Math.round((boxX-xMin) / boxSize);
+                        turret.y = Math.round(boxY/boxSize);
+                        turrets.push(turret);
+                        break;
+                    case 15:
+                        var turret = Turret(DETECTOR_TURRET);
+                        turret.x = Math.round((boxX-xMin) / boxSize);
+                        turret.y = Math.round(boxY/boxSize);
+                        turrets.push(turret);
+                        break;
+
+                    default:
+                        console.log("Invalid turret!!");
+                        break;
+                }
+        	unstick();
+	}
 }
