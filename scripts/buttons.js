@@ -43,6 +43,7 @@ $(document).mousemove(function(event) {
        	$(hover).css("top",boxY);
 });
 
+// Determina care ghost image se ataseaza cursorului
 function stick(x) {
 	switch (x) {
 		case 11:
@@ -71,6 +72,7 @@ function unstick() {
 	hover = "";
 }
 
+//Functia de desenare turete
 function drawTurret(turretNumber) {
 	if (turretNumber == 0) {
 		deleteElement(Math.round((boxX - xMin) / boxSize), Math.round(boxY / boxSize), mapNumber);
