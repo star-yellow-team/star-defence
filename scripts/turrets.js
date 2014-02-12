@@ -4,7 +4,6 @@
 * daca lipseste ceva va rog spuneti
 */
 
-var turrets = [MACHINEGUN_TURRET, SLOW_TURRET, PLASMA_TURRET, LASER_TURRET, DETECTOR_TURRET]
 //numar maxim de tipuri de turete
 var NUMBER_OF_TURRET_TYPES = 5;
 
@@ -22,7 +21,9 @@ var MACHINEGUN_TURRET = {
 	requirement:	"None",
 	description:	"Fast attacking turret",
 	isAttacking:	false,
-	contor:	0
+	contor:	0,
+	x:	0,
+	y:	0
 }
 
 var SLOW_TURRET = {
@@ -35,6 +36,8 @@ var SLOW_TURRET = {
 	slow:	"Yes",
 	isAttacking:	false,
 	contor:	0
+	x:	0,
+	y:	0
 }
 
 var PLASMA_TURRET = {
@@ -50,6 +53,8 @@ var PLASMA_TURRET = {
 	description:	"Strong turret against swarms of small units",
 	isAttacking:	false,
 	contor:	0
+	x:	0,
+	y:	0
 }
 
 var LASER_TURRET = {
@@ -65,6 +70,8 @@ var LASER_TURRET = {
 	description:	"Fires laser beams at enemy targets",
 	isAttacking:	false,
 	contor:	0
+	x:	0,
+	y:	0
 }
 
 var DETECTOR_TURRET = {
@@ -77,6 +84,8 @@ var DETECTOR_TURRET = {
 	description:	"Reveals invisible enemies within range",
 	isAttacking:	false,
 	contor:	0
+	x:	0,
+	y:	0
 }
 
 function Turret(type)
@@ -180,6 +189,7 @@ function detect_enemy(tureta)
 				if (waves[i].doDamage(tureta.damage)==false);
 				{
 					tureta.isAttacking=false;
+					waves.splice(waves.indexOf(waves[i]), 1)
 					break;
 				}
 				if (tureta.slow==SLOW_TURRET.slow)
