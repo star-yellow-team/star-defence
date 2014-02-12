@@ -109,6 +109,7 @@ function gameSetup() {
  * */
 function gameLoop() {
     // game logic
+	takeLife();
     if(waveFinished()){
 		generateWave();
 	}
