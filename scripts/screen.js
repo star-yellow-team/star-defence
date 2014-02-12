@@ -65,6 +65,8 @@ function sizeScreen() {
 
 	$("#ui-menu").css("margin-top",(canvasHeight - $("#ui-menu").height()) / 2 + 5); 
 
+	$("#turret-menu").css("margin-top",(canvasHeight - $("#turret-menu").height()) / 2 + 5); 
+
     $("#gameCanvas").attr({"width":String(canvasWidth)+'px', "height":String(canvasHeight)+'px'});
 	
 	$("#wrapper").css("margin-left","auto");

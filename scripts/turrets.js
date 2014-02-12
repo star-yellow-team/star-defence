@@ -169,8 +169,11 @@ function distanta(i, tureta)
 /* Cred ca atacul va depinde de o functie de detectat cand inamicul intra in range */
 function detect_enemy(tureta)
 {
+	var ok;
 	for(var i = 0; i < waves.length; i++)
-	{	while(distanta(waves[i], tureta) <= tureta.range)
+	{	
+		ok=false;
+		while(distanta(waves[i], tureta) <= tureta.range)
 			{
 				//pot lovi monstrul
 				tureta.isAttacking=true;
@@ -181,13 +184,16 @@ function detect_enemy(tureta)
 				}
 				if (tureta.slow==SLOW_TURRET.slow)
 					waves[i].speed=waves[i].speed/2;
-				if (tureta.detection==DETECTOR_TURRET.detection)
+				if (tureta.detection==DETECTOR_TURRET.detection && waves[i].isVisible==false)
+				{
 					waves[i].isVisible==true;
-				
+					ok=true;
+				}
 			}
 		waves[i].speed=waves[i].speed*2;
 		tureta.isAttacking=false;
-		waves[i].isVisible==false;
+		if (ok==true)
+			waves[i].isVisible==false;
 	}
 }
 

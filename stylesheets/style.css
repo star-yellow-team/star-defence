@@ -22,7 +22,7 @@ body {
 	padding:0px;
 }
 
-#first {
+#turret {
 	background-color:blue;
 }
 
@@ -40,7 +40,7 @@ body {
 	float:right;
 }
 
-#ui-submenu {
+#turret-menu {
 	background-color:darkgrey;
 	position:relative;
 	float:right;
@@ -72,8 +72,28 @@ body {
 	position:absolute;
 }
 
-#blue {
-	background-color:blue;
+#machinegun, #machinegun_turret {
+	background-color:gold;
+}
+
+#slow, #slow_turret {
+	background-color:cyan;
+}
+
+#laser, #laser_turret {
+	background-color:darkred;
+}
+
+#plasma, #plasma_turret {
+	background-color:darkturquoise;
+}
+
+#detector, #detector_turret {
+	background-color:darkslateblue;
+}
+
+#remove, #remove_turret {
+	background-color:green;
 }
 
 #buttonsWrapper {
