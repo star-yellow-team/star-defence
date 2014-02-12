@@ -69,7 +69,7 @@ function stick(x) {
 }
 
 function unstick() {
-	$(".ghostImage").hide();
+	$(hover).hide();
 	hover = "";
 }
 
@@ -77,8 +77,8 @@ function unstick() {
 function drawTurret(turretNumber) {
 	if (turretNumber == 0) {
 		deleteElement(Math.round((boxX - xMin) / boxSize), Math.round(boxY / boxSize), mapNumber);
-		unstick();
 	} else if (addElement(turretNumber, Math.round((boxX - xMin) / boxSize), Math.round(boxY / boxSize), mapNumber) == true) {
+    		unstick();
 	        switch(turretNumber) {
                     case 11:
                         var turret = Turret(MACHINEGUN_TURRET);
@@ -115,6 +115,5 @@ function drawTurret(turretNumber) {
                         console.log("Invalid turret!!");
                         break;
                 }
-        	unstick();
 	}
 }
