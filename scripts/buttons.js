@@ -45,6 +45,7 @@ $(document).mousemove(function(event) {
 
 // Determina care ghost image se ataseaza cursorului
 function stick(x) {
+	unstick();
 	switch (x) {
 		case 11:
 			hover = "#machinegun";
@@ -68,7 +69,7 @@ function stick(x) {
 }
 
 function unstick() {
-	$(hover).hide();
+	$(".ghostImage").hide();
 	hover = "";
 }
 
