@@ -110,7 +110,7 @@ function gameOver()
  *	functia takeLife la apel verifica daca a mai ajuns inca un monstru la baza
  *	DACA SUNT PROBLEME CU FUNCTIA... VERIFICATI COORDONATA X SI Y A UNUI MONSTRU!!!
  **/
-function takeLife(map)
+function takeLife()
 {
 	searchPoints(map, 3);
 	for(var i = 0; i < k; i++)
