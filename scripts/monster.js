@@ -25,7 +25,8 @@ var SIMPLE_MONSTER = {
     health: 10,
     speed:  1,
     damage: 0, 
-    color:  'orange'
+    color:  'orange',
+    visible: true
 }
 
 //  monstru rapid
@@ -34,8 +35,8 @@ var SPEEDY_MONSTER = {
     health: 7,
     speed:  2.5,
     damage: 0,
-    color:  'blue'
-
+    color:  'blue',
+    visible: true
 }
 
 // monstru zburator
@@ -44,7 +45,8 @@ var FLYING_MONSTER={
     health: 12,
     speed: 3,
     damage: 0,
-    color:  'purple'
+    color:  'purple',
+    visible: true
 }
 
 // cel mai puternic monstru
@@ -53,7 +55,8 @@ var POWERFUL_MONSTER={
     health: 25,
     speed: 4,
     damage:0,
-    color: 'pink'
+    color: 'pink',
+    visible: true
 }
 
 // monstrul echipei , RAMSI=RADU,ANDREI,ADRIAN,MIRUNA,STEFAN,IONUT :)
@@ -62,7 +65,8 @@ var RAMSI_MONSTER={
     health: 40,
     speed: 2,
     damage:0,
-    color: 'magenta'
+    color: 'magenta',
+    visible: true
 }
 
 var monsters = [SIMPLE_MONSTER, SPEEDY_MONSTER, FLYING_MONSTER, POWERFUL_MONSTER, RAMSI_MONSTER]
@@ -85,38 +89,42 @@ function Monster(x, y, type) {
     this.destinationY   = 0;
     this.current	= 0;
     this.pace           = 0;
-    this.isVisible      = true;
     
     switch(type) {
 
         case SIMPLE_MONSTER.id:
-            this.health = SIMPLE_MONSTER.health;
-            this.speed  = SIMPLE_MONSTER.speed;
-            this.damage = SIMPLE_MONSTER.damage;           
+            this.health     = SIMPLE_MONSTER.health;
+            this.speed      = SIMPLE_MONSTER.speed;
+            this.damage     = SIMPLE_MONSTER.damage;           
+            this.isVisible  = SIMPLE_MONSTER.visible;
             break; 
        
         case SPEEDY_MONSTER.id:
-            this.health = SPEEDY_MONSTER.health;
-            this.speed  = SPEEDY_MONSTER.speed;
-            this.damage = SPEEDY_MONSTER.damage;  
+            this.health     = SPEEDY_MONSTER.health;
+            this.speed      = SPEEDY_MONSTER.speed;
+            this.damage     = SPEEDY_MONSTER.damage;  
+            this.isVisible  = SPEEDY_MONSTER.visible;
             break;
 
-		case FLYING_MONSTER.id:
-			this.health = FLYING_MONSTER.health;
-			this.speed  = FLYING_MONSTER.speed;
-			this.damage = FLYING_MONSTER.damage;
+	case FLYING_MONSTER.id:
+	    this.health     = FLYING_MONSTER.health;
+	    this.speed      = FLYING_MONSTER.speed;
+	    this.damage     = FLYING_MONSTER.damage;
+            this.isVisible  = FLYING_MONSTER.visible;
+            break;
+        
+        case POWERFUL_MONSTER.id:
+	    this.health     = POWERFUL_MONSTER.health;
+	    this.speed      = POWERFUL_MONSTER.speed;
+            this.damage     = POWERFUL_MONSTER.damage;
+            this.isVisible  = POWERFUL_MONSTER.visible;
             break;
 
-		case POWERFUL_MONSTER.id:
-			this.health = POWERFUL_MONSTER.health;
-			this.speed  = POWERFUL_MONSTER.speed;
-            this.damage = POWERFUL_MONSTER.damage;
-            break;
-
-		case RAMSI_MONSTER.id:
-			this.health = RAMSI_MONSTER.health;
-			this.speed  = RAMSI_MONSTER.speed;
+	case RAMSI_MONSTER.id:
+	    this.health = RAMSI_MONSTER.health;
+	    this.speed  = RAMSI_MONSTER.speed;
             this.damage = RAMSI_MONSTER.damage;
+            this.isVisible  = RAMSI_MONSTER.visible;
             break;
 	    
 
