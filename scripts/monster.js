@@ -71,7 +71,8 @@ var RAMSI_MONSTER={
 
 var monsters = [SIMPLE_MONSTER, SPEEDY_MONSTER, FLYING_MONSTER, POWERFUL_MONSTER, RAMSI_MONSTER]
 // Numarul maxim de tipuri de monstri
-var NUMBER_OF_MONSTER_TYPES = 5;
+var NUMBER_OF_MONSTER_TYPES = monsters.length;
+
 
 
 /**

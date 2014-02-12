@@ -9,7 +9,7 @@ var x = monsters.length;
 
 //temporar
 var map = mapNumber
-var nrM = 5;
+var nrM = NUMBER_OF_MONSTER_TYPES;
 /**
  *	functia generateWave se apeleaza cu numarul de tipuri de monstri si dificultatea aleasa de jucator
  *	si construieste vectorul nrMonsters unde pe pozitia i se retine numarul monstrilor de tipul i care trebuie pusi pe harta 
