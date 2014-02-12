@@ -38,24 +38,36 @@ function drawBackground() {
 	    //	3 = base
              switch(getElement(i, j, mapNumber)) {
                 case 0:
-                        context.fillStyle = "green";       
-                        break;
+                    context.fillStyle = "green";       
+                    break;
                 case 1:
-                        context.fillStyle = "brown";
-                        break;
+                    context.fillStyle = "brown";
+                    break;
                 case 2:
-                        context.fillStyle = "red";
-			break;
+                    context.fillStyle = "red";
+					break;
                 case 3:
-                        context.fillStyle = "blue"
-                        break;
-		case 10:
-        		context.fillStyle = "cyan"
-			break;
+                    context.fillStyle = "blue"
+                    break;
+				case 11:
+        			context.fillStyle = "gold"
+					break;
+				case 12:
+        			context.fillStyle = "cyan"
+					break;
+				case 13:
+        			context.fillStyle = "darkred"
+					break;
+				case 14:
+        			context.fillStyle = "darkturquoise"
+					break;
+				case 15:
+        			context.fillStyle = "darkslateblue"
+					break;
                 default:
-                        // o eroare in harta
-                        context.fillStyle = "black";
-                        break;
+                    // o eroare in harta
+                    context.fillStyle = "black";
+                    break;
             }
 
             // umplem casuta de pe randul i si coloana j

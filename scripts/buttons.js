@@ -72,9 +72,10 @@ function unstick() {
 }
 
 function drawTurret(turretNumber) {
-	if (turretNumber == 0)
+	if (turretNumber == 0) {
 		deleteElement(Math.round((boxX - xMin) / boxSize), Math.round(boxY / boxSize), mapNumber);
-	else if (addElement(turretNumber, Math.round((boxX - xMin) / boxSize), Math.round(boxY / boxSize), mapNumber) == true) {
+		unstick();
+	} else if (addElement(turretNumber, Math.round((boxX - xMin) / boxSize), Math.round(boxY / boxSize), mapNumber) == true) {
 		unstick();
 		}
 }
