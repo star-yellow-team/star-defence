@@ -179,12 +179,13 @@ function distanta(i, tureta)
 function detectEnemy(tureta)
 {
         console.log("dsds");
-	var ok;
+	var ok, k;
 	for(var i = 0; i < waves.length; i++)
 	{	
 		ok=false;
 		while(distanta(waves[i], tureta) <= tureta.range)
 			{
+				k=true;
 				//pot lovi monstrul
 				tureta.isAttacking=true;
 				if (waves[i].doDamage(tureta.damage)==false);
@@ -201,10 +202,12 @@ function detectEnemy(tureta)
 					ok=true;
 				}
 			}
-		waves[i].speed=waves[i].speed*2;
-		tureta.isAttacking=false;
-		if (ok==true)
-			waves[i].isVisible==false;
+		if (k==true)
+		{	waves[i].speed=waves[i].speed*2;
+			tureta.isAttacking=false;
+			if (ok==true)
+				waves[i].isVisible==false;
+		}
 	}
 }
 
