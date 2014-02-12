@@ -185,7 +185,7 @@ function detectEnemy(tureta)
 		ok=false;
 		while(distanta(waves[i], tureta) <= tureta.range)
 			{
-				k=true;
+				k=false;
 				//pot lovi monstrul
 				tureta.isAttacking=true;
 				if (waves[i].doDamage(tureta.damage)==false);
@@ -195,7 +195,11 @@ function detectEnemy(tureta)
 					break;
 				}
 				if (tureta.slow==SLOW_TURRET.slow)
-					waves[i].speed=waves[i].speed/2;
+					{
+						waves[i].speed=waves[i].speed/2;
+						k = true;
+					}
+					
 				if (tureta.detection==DETECTOR_TURRET.detection && waves[i].isVisible==false)
 				{
 					waves[i].isVisible==true;
@@ -203,11 +207,13 @@ function detectEnemy(tureta)
 				}
 			}
 		if (k==true)
-		{	waves[i].speed=waves[i].speed*2;
+		{
+			waves[i].speed=waves[i].speed*2;
+		}
 			tureta.isAttacking=false;
 			if (ok==true)
 				waves[i].isVisible==false;
-		}
+		
 	}
 }
 

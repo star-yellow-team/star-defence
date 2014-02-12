@@ -132,7 +132,7 @@ function gameLoop() {
         detectEnemy(turret);
     }    
 
-    takeLife();
+    //takeLife();
     if(waveFinished()){
 		generateWave();
 	}
