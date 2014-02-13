@@ -11,8 +11,8 @@ var NUMBER_OF_TURRET_TYPES = 5;
 //Tipuri de turete
 var MACHINEGUN_TURRET = {
 	id:	0,
-	damage:	6,
-	range:	5,
+	damage:	1,
+	range:	1,
 	attackSpeed:	0.8,
 	damageType:	"Single",
 	upgradeLevel:	0,
@@ -28,7 +28,8 @@ var MACHINEGUN_TURRET = {
 
 var SLOW_TURRET = {
 	id:	1,
-	range:	5,
+	damage:	0,
+	range:	1,
 	upgradeLevel:	0,
 	price:	20,
 	requirement:	"None",
@@ -42,8 +43,8 @@ var SLOW_TURRET = {
 
 var PLASMA_TURRET = {
 	id:	2,
-	damage:	20,
-	range:	6,
+	damage:	3,
+	range:	2,
 	attackSpeed:	1.5,
 	damageType:	"Splash",
 	upgradeLevel:	0,
@@ -59,8 +60,8 @@ var PLASMA_TURRET = {
 
 var LASER_TURRET = {
 	id:	3,
-	damage:	2,
-	range:	5,
+	damage:	0.4,
+	range:	2,
 	attackSpeed:	0.2,
 	damageType:	"Single",
 	upgradeLevel:	0,
@@ -76,7 +77,8 @@ var LASER_TURRET = {
 
 var DETECTOR_TURRET = {
 	id:	4,
-	range:	7,
+	damage:	0,
+	range:	2,
 	upgradeLevel:	0,
 	price:	20,
 	detection: "Yes",
@@ -190,7 +192,8 @@ function detectEnemy(tureta)
 				if (waves[i].doDamage(tureta.damage)==false);
 				{
 					tureta.isAttacking=false;
-					waves.splice(waves.indexOf(waves[i]), 1)
+					waves.splice(waves.indexOf(waves[i]), 1);
+					i--;
 					break;
 				}
 				if (tureta.slow==SLOW_TURRET.slow)
