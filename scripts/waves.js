@@ -19,7 +19,7 @@ function generateWave()
 {
 	
 	
-	if(curentRound < 1 || curentRound > 10)
+	if(curentRound < 1)
 		curentRound = 1;
 	else
 		curentRound++;
@@ -37,12 +37,9 @@ function generateWave()
 					default:
 						x = Math.round( Math.random() * (numbers.length - 1) + 5) + i * (difficulty - 1);
 				}
-					
 			nrMonsters[i] = x;
 		}
-		console.log('d')
 	fillWaves(nrM);
-	console.log('f')
 	//deleteWave();
 }
 
@@ -65,17 +62,26 @@ function deleteWave(nrM)
  **/
 function fillWaves(nrM)
 {
-	console.log('e')
 	k = 0;
 	searchPoints(map, 2);
 	for(var i = 0; i < nrM; i++)
 		{
 			while(nrMonsters[i] > 0)
 				{
-					waves[k++] = new Monster(Pointsx[0], Pointsy[0], i);
+					waves[k++] = new Monster(Pointsy[0], Pointsx[0], i);
 					nrMonsters[i]--;
 				}
 		}
+
+        for(var m = 0; m < waves.length; ++ m) {
+		//moveTo(spawnPointX, spawnPointY)
+		var monster = waves[m];
+             //temporar
+		monster.x = path_y[1];
+        	monster.y = path_x[1];
+	
+		monster.moveTo(path_y[monster.current+1],path_x[monster.current+1]);		
+	}
 }
 
 

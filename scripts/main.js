@@ -106,17 +106,7 @@ function draw() {
 // se apeleaza inaintea tuturor functiilor
 function gameSetup() {
 	findPath(mapNumber)
-	generateWave()
-
-	for(var m = 0; m < waves.length; ++ m) {
-		//moveTo(spawnPointX, spawnPointY)
-		var monster = waves[m];
-             //temporar
-		monster.x = path_y[1];
-        	monster.y = path_x[1];
-	
-		monster.moveTo(path_y[monster.current+1],path_x[monster.current+1]);		
-	}
+	generateWave()	
 }
 
 /**
@@ -135,7 +125,7 @@ function gameLoop() {
     //takeLife();
     if(waveFinished()){
 		generateWave();
-	}
+    }
 	
 	//takeLife()
 	if(gameOver()) {
