@@ -11,8 +11,8 @@ var NUMBER_OF_TURRET_TYPES = 5;
 //Tipuri de turete
 var MACHINEGUN_TURRET = {
 	id:	0,
-	damage:	1,
-	range:	1,
+	damage:	200,
+	range:	100,
 	attackSpeed:	0.8,
 	damageType:	"Single",
 	upgradeLevel:	0,
@@ -29,7 +29,7 @@ var MACHINEGUN_TURRET = {
 var SLOW_TURRET = {
 	id:	1,
 	damage:	0,
-	range:	1,
+	range:	3,
 	upgradeLevel:	0,
 	price:	20,
 	requirement:	"None",
@@ -60,8 +60,8 @@ var PLASMA_TURRET = {
 
 var LASER_TURRET = {
 	id:	3,
-	damage:	0.4,
-	range:	2,
+	damage:	10,
+	range:	3,
 	attackSpeed:	0.2,
 	damageType:	"Single",
 	upgradeLevel:	0,
@@ -182,7 +182,11 @@ function detectEnemy(tureta)
 {
 	var ok, k;
 	if(tureta.isAttacking == false)
-		return;
+		{
+			console.log("monstrii");
+			return;
+		}
+	console.log("for");
 	for(var i = 0; i < waves.length; i++)
 	{	
 		ok=false;
@@ -219,6 +223,7 @@ function detectEnemy(tureta)
 				waves[i].isVisible==false;
 		
 	}
+	turret.isAttaking = false;
 }
 
 /* Aici mai modificam pentru ca imi trebuie variabila in care stocam banii, skin-urile pe care le va avea fiecare turret la fiecare nivel */

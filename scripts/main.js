@@ -117,11 +117,18 @@ function gameLoop() {
     // game logic
     
 	takeLife();
-    for(var turretIndex in turrets) {
+    /*for(var turretIndex in turrets) {
         var turret = turrets[turretIndex];
-        detectEnemy(turret);
-    }    
-
+		console.log("tureta: " + turretIndex.id);
+        detectEnemy(turretIndex);
+    }
+	*/
+	    
+	for(var i = 0; i < turrets.length; i++)
+	{
+		console.log(turrets[i].type);
+		detectEnemy(turrets[i]);
+	}
 
     if(waveFinished()){
 		generateWave();
