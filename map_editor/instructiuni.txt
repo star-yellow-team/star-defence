@@ -1,0 +1,6 @@
+pt cei cu windows x64 intrati in application.windows64 si rulati executabilul .bat
+
+pentru ceilalti:
+ descarcati processing 
+ deschideti sursa(map_editor.pde)
+ apasati pe triunghi
