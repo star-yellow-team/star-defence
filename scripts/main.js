@@ -116,18 +116,17 @@ function gameSetup() {
 function gameLoop() {
     // game logic
     
-
+	takeLife();
     for(var turretIndex in turrets) {
         var turret = turrets[turretIndex];
         detectEnemy(turret);
     }    
 
-    //takeLife();
+
     if(waveFinished()){
 		generateWave();
     }
 	
-	//takeLife()
 	if(gameOver()) {
 		alert("Finished!");
 		return 0;

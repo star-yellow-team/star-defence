@@ -119,7 +119,7 @@ function gameOver()
 function takeLife()
 {
 	searchPoints(map, 3);
-	for(var i = 0; i < k; i++)
+	for(var i = 0; i < waves.length; i++)
 		if(waves[i].x == Pointsx[0] && waves[i].y == Pointsy[0])
 			if(x[i] == 0)
 				{

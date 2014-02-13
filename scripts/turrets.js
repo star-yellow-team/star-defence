@@ -181,6 +181,8 @@ function distanta(i, tureta)
 function detectEnemy(tureta)
 {
 	var ok, k;
+	if(tureta.isAttacking == false)
+		return;
 	for(var i = 0; i < waves.length; i++)
 	{	
 		ok=false;
