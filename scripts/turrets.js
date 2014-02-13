@@ -11,7 +11,7 @@ var NUMBER_OF_TURRET_TYPES = 5;
 //Tipuri de turete
 var MACHINEGUN_TURRET = {
 	id:	0,
-	damage:	7,
+	damage:	700,
 	range:	3,
 	attackSpeed:	0.8,
 	damageType:	"Single",
@@ -190,7 +190,7 @@ function detectEnemy(tureta)
 	for(var i = 0; i < waves.length; i++)
 	{	
 		ok=false;
-		while(distanta(waves[i], tureta) <= tureta.range)
+		if(distanta(waves[i], tureta) <= tureta.range)
 			{
 				k=false;
 				//pot lovi monstrul
@@ -213,17 +213,18 @@ function detectEnemy(tureta)
 					waves[i].isVisible==true;
 					ok=true;
 				}
-			}
-		if (k==true)
-		{
-			waves[i].speed=waves[i].speed*2;
-		}
-			tureta.isAttacking=false;
-			if (ok==true)
-				waves[i].isVisible==false;
+				if (k==true)
+				{
+					waves[i].speed=waves[i].speed*2;
+				}
+					tureta.isAttacking=false;
+					if (ok==true)
+						waves[i].isVisible==false;
+					}
+		break;
 		
 	}
-	turret.isAttaking = false;
+
 }
 
 /* Aici mai modificam pentru ca imi trebuie variabila in care stocam banii, skin-urile pe care le va avea fiecare turret la fiecare nivel */

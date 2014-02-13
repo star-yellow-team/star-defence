@@ -126,6 +126,7 @@ function gameLoop() {
         var turret = turrets[turretIndex];
 		console.log("tureta: " + turret.type);
         detectEnemy(turret);
+		turret.isAttaking = false;
     }
 	
 
