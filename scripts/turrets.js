@@ -11,8 +11,8 @@ var NUMBER_OF_TURRET_TYPES = 5;
 //Tipuri de turete
 var MACHINEGUN_TURRET = {
 	id:	0,
-	damage:	200,
-	range:	100,
+	damage:	7,
+	range:	3,
 	attackSpeed:	0.8,
 	damageType:	"Single",
 	upgradeLevel:	0,
@@ -181,7 +181,7 @@ function distanta(i, tureta)
 function detectEnemy(tureta)
 {
 	var ok, k;
-	if(tureta.isAttacking == false)
+	if(tureta.canAttack() == false)
 		{
 			console.log("monstrii");
 			return;

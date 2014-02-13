@@ -32,7 +32,7 @@ var SIMPLE_MONSTER = {
 //  monstru rapid
 var SPEEDY_MONSTER = {
     id :    1,
-    health: 7,
+    health: 21,
     speed:  2.5,
     damage: 0,
     color:  'blue',

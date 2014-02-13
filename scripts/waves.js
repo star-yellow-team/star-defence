@@ -2,9 +2,7 @@ var nrRounds = 10;
 var nrMonsters = [];
 var numbers = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71];
 var curentRound = -1;
-var waves = [];
 var k = 0;
-var life = 100;
 var x = monsters.length;
 
 //temporar
@@ -105,8 +103,12 @@ function waveFinished() {
  **/
 function gameOver()
 {
+	console.log("life = " + life);
 	if(life <= 0)
-		return true;
+		{
+
+			return true;
+		}
 
 	return false;
 }
