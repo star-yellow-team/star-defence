@@ -22,7 +22,7 @@ harta, care acum este mapNumber.
  
 */
 
-
+var k=1;
 
 //SE CONTRUIESTE path_matrix, O MATRICE PLINA DE 0-uri.
 for( var i = 0; i <= 30; i++) //Consider harta de joc de maxim 30. 
