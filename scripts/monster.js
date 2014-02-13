@@ -22,7 +22,7 @@
 //  monstru de baza
 var SIMPLE_MONSTER = {
     id :    0,
-    health: 10,
+    health: 100,
     speed:  1,
     damage: 0, 
     color:  'orange',
@@ -32,7 +32,7 @@ var SIMPLE_MONSTER = {
 //  monstru rapid
 var SPEEDY_MONSTER = {
     id :    1,
-    health: 7,
+    health: 70,
     speed:  2.5,
     damage: 0,
     color:  'blue',
@@ -42,7 +42,7 @@ var SPEEDY_MONSTER = {
 // monstru zburator
 var FLYING_MONSTER={
     id :  2,
-    health: 12,
+    health: 120,
     speed: 3,
     damage: 0,
     color:  'purple',
@@ -52,7 +52,7 @@ var FLYING_MONSTER={
 // cel mai puternic monstru
 var POWERFUL_MONSTER={
     id : 3,
-    health: 25,
+    health: 250,
     speed: 4,
     damage:0,
     color: 'pink',
@@ -62,7 +62,7 @@ var POWERFUL_MONSTER={
 // monstrul echipei , RAMSI=RADU,ANDREI,ADRIAN,MIRUNA,STEFAN,IONUT :)
 var RAMSI_MONSTER={
     id :4,
-    health: 40,
+    health: 400,
     speed: 2,
     damage:0,
     color: 'magenta',

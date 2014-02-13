@@ -120,6 +120,42 @@ function findPath ()
 			path_y[nr]=j;	
 		}
 		
+		
+	/*
+		Inca in teste pentru e elimina problema sriturilor prin harta
+		
+	while(x != base_x && y != base_y)
+	{
+		switch(path_matrix[x][y] + 1)
+		{
+			case path_matrix[x][y + 1]:
+				path_x[ path_matrix[x][y + 1] ] = x;
+				path_y[ path_matrix[x][y + 1] ] = y + 1;
+				y++;
+				break;
+			case path_matrix[x][y - 1]:
+				path_x[ path_matrix[x][y - 1] ] = x;
+				path_y[ path_matrix[x][y - 1] ] = y - 1;
+				y--;
+				break;
+			case path_matrix[x + 1][y]:
+				path_x[ path_matrix[x + 1][y] ] = x + 1;
+				path_y[ path_matrix[x + 1][y] ] = y;
+				x++;
+				break;
+			case path_matrix[x - 1][y]:
+				path_x[ path_matrix[x - 1][y] ] = x - 1;
+				path_y[ path_matrix[x - 1][y] ] = y;
+				x--;
+				break;
+			default:
+				console.log("construire vector drum");
+		}
+		
+		
+	}
+	*/
+		
 //Aici se termina findPath.
 }
 
