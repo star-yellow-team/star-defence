@@ -2,7 +2,6 @@ var nrRounds = 10;
 var nrMonsters = [];
 var numbers = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71];
 var curentRound = -1;
-var k = 0;
 var x = monsters.length;
 
 //temporar
@@ -35,7 +34,7 @@ function generateWave()
 					default:
 						x = Math.round( Math.random() * (numbers.length - 1) + 5) + i * (difficulty - 1);
 				}
-			nrMonsters[i] = x;
+			nrMonsters[i] = 1;
 		}
 	fillWaves(nrM);
 	//deleteWave();
@@ -60,6 +59,7 @@ function deleteWave(nrM)
  **/
 function fillWaves(nrM)
 {
+	var k = 0;
 	k = 0;
 	searchPoints(map, 2);
 	for(var i = 0; i < nrM; i++)
