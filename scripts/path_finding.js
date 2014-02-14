@@ -41,7 +41,7 @@ function findPath ()
 	var spawn_y = -1, base_y = -1;
 	
 	for( var i = 0; i < 20; i++)
-		for( var j = 0; j < 20; j++)
+		for( var j = 0; j < 30; j++)
 		{
 				if(matrix[i][j][harta] == 2) //2 inseamna spawn.
 				{
@@ -112,49 +112,58 @@ function findPath ()
 	var x = path_x[k]; 
 	var y = path_y[k]; var nr=0;
 	
-	for(var i=0; i<20; i++)
+	/*for(var i=0; i<20; i++)
 		for(var j=0; j<20; j++)
 		{
 			nr=path_matrix[i][j]; if(nr>nrmax_path)nrmax_path=nr;
 			path_x[nr]=i;
 			path_y[nr]=j;	
 		}
+		*/
 		
-		
-	/*
-		Inca in teste pentru e elimina problema sriturilor prin harta
-		
-	while(x != base_x && y != base_y)
+	
+		//Inca in teste pentru e elimina problema sriturilor prin harta
+	
+	var auxX = spawn_x;
+	var auxY = spawn_y;
+	
+	while(auxX != base_x && auxY != base_y)
 	{
-		switch(path_matrix[x][y] + 1)
+		switch(path_matrix[auxX][auxY] + 1)
 		{
-			case path_matrix[x][y + 1]:
-				path_x[ path_matrix[x][y + 1] ] = x;
-				path_y[ path_matrix[x][y + 1] ] = y + 1;
-				y++;
+			case path_matrix[auxX][auxY + 1]:
+				path_x[ path_matrix[auxX][auxY + 1] ] = auxX;
+				path_y[ path_matrix[auxX][auxY + 1] ] = auxY + 1;
+				auxY++;
 				break;
-			case path_matrix[x][y - 1]:
-				path_x[ path_matrix[x][y - 1] ] = x;
-				path_y[ path_matrix[x][y - 1] ] = y - 1;
-				y--;
+			case path_matrix[auxX][auxY - 1]:
+				path_x[ path_matrix[auxX][auxY - 1] ] = auxX;
+				path_y[ path_matrix[auxX][auxY - 1] ] = auxY - 1;
+				auxY--;
 				break;
-			case path_matrix[x + 1][y]:
-				path_x[ path_matrix[x + 1][y] ] = x + 1;
-				path_y[ path_matrix[x + 1][y] ] = y;
-				x++;
+			case path_matrix[auxX + 1][auxY]:
+				path_x[ path_matrix[auxX + 1][auxY] ] = auxX + 1;
+				path_y[ path_matrix[auxX + 1][auxY] ] = auxY;
+				auxX++;
 				break;
-			case path_matrix[x - 1][y]:
-				path_x[ path_matrix[x - 1][y] ] = x - 1;
-				path_y[ path_matrix[x - 1][y] ] = y;
-				x--;
+			case path_matrix[auxX - 1][auxY]:
+				path_x[ path_matrix[auxX - 1][auxY] ] = auxX - 1;
+				path_y[ path_matrix[auxX - 1][auxY] ] = auxY + 1;
+				auxY--;
 				break;
 			default:
 				console.log("construire vector drum");
 		}
 		
-		
+	console.log("baza: " + base_x + " " + base_y);
+
+	console.log("vector traseu");
+	for(var i = 1; i < path_x.length; i++)
+		{
+			console.log(path_x[i] + " " + path_y[i]);	
+		}
 	}
-	*/
+	
 		
 //Aici se termina findPath.
 }
