@@ -127,7 +127,7 @@ function findPath ()
 	var auxX = spawn_x;
 	var auxY = spawn_y;
 	
-	while(auxX != base_x && auxY != base_y)
+	while(auxX != base_x || auxY != base_y)
 	{
 		switch(path_matrix[auxX][auxY] + 1)
 		{
@@ -148,23 +148,22 @@ function findPath ()
 				break;
 			case path_matrix[auxX - 1][auxY]:
 				path_x[ path_matrix[auxX - 1][auxY] ] = auxX - 1;
-				path_y[ path_matrix[auxX - 1][auxY] ] = auxY + 1;
-				auxY--;
+				path_y[ path_matrix[auxX - 1][auxY] ] = auxY;
+				auxX--;
 				break;
 			default:
-				console.log("construire vector drum");
+				console.log("eroare construire vector drum");		
 		}
-		
-	console.log("baza: " + base_x + " " + base_y);
 
+		console.log("aux: " + auxX + " " + auxY);			
+	}
+	
+	
 	console.log("vector traseu");
 	for(var i = 1; i < path_x.length; i++)
 		{
 			console.log(path_x[i] + " " + path_y[i]);	
-		}
-	}
-	
-		
+		}	
 //Aici se termina findPath.
 }
 
