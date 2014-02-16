@@ -37,7 +37,6 @@ function generateWave()
 			nrMonsters[i] = 1;
 		}
 	fillWaves(nrM);
-	//deleteWave();
 }
 
 
@@ -83,12 +82,6 @@ function fillWaves(nrM)
 }
 
 
-function initVct()
-{
-	for(var i = 0; i < waves.length; i++)
-		x[i] = 0;	
-}
-
 // documentati
 function waveFinished() {
 	return waves.length > 0 ? false : true;
@@ -121,11 +114,11 @@ function gameOver()
 function takeLife()
 {
 	searchPoints(map, 3);
+	console.log(Pointsx[0] + " " + Pointsy[0]);
 	for(var i = 0; i < waves.length; i++)
 		if(waves[i].x == Pointsx[0] && waves[i].y == Pointsy[0])
-			if(x[i] == 0)
 				{
 					life--;
-					x[i] = 1;
+					waves.splice(i,1);
 				}
 }

@@ -6,7 +6,7 @@
 
 var mapNumber       = prompt("Numarul hartii", 0);
 var difficulty      = prompt("Dificultatea", 0) % 3;
-var life            =  1;
+var life            =  5;
 var loopInterval    = 50;
 var waves           = [];
 var path_matrix     = [];
