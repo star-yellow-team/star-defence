@@ -1,5 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
+@import url(http://fonts.googleapis.com/css?family=Share+Tech);
 
 html {
 	height: 100%;
@@ -54,18 +55,41 @@ body {
 	height: 100%;
     margin: auto;
 	border: 5px solid #4C4C4C;
+	border-right: none;
 	border-radius: 15px;
+	border-top-right-radius:0px;
+	border-bottom-right-radius:0px;
 	box-shadow: 0px 0px 250px black;
 	position:relative;
 	float:left;
 }
 
-#menuWrapper {
-	height:100%;
-	display:table-cell;
-	vertical-align:central;
+#menu-wrapper {
+	border: 5px solid #4C4C4C;
+	border-top-right-radius:15px;
+	border-bottom-right-radius:15px;
+	border-left: none;
 	position:relative;
 	float:right;
+	background-color:#003D00;
+}
+
+#bar-wrapper {
+	background-color:#002B00;
+	vertical-align:central;
+	font-family: 'Share Tech', sans-serif;
+	font-size:20px;
+}
+
+#health-wrapper {
+	border-bottom: 2px solid #005C00;
+	color:white;
+	text-align:center;
+}
+
+#money-wrapper {
+	color:white;
+	text-align:center;
 }
 
 .ghostImage {

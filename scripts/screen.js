@@ -63,9 +63,9 @@ function sizeScreen() {
     $("#gameCanvas").css("width",canvasWidth);
     $("#gameCanvas").css("height",canvasHeight);
 
-	$("#ui-menu").css("margin-top",(canvasHeight - $("#ui-menu").height()) / 2 + 5); 
+	$("#ui-menu").css("margin-top",(canvasHeight - $("#ui-menu").height()) / 2 + 5 - 2 * boxSize); 
 
-	$("#turret-menu").css("margin-top",(canvasHeight - $("#turret-menu").height()) / 2 + 5); 
+	$("#turret-menu").css("margin-top",(canvasHeight - $("#turret-menu").height()) / 2 + 5 - 2 * boxSize); 
 
     $("#gameCanvas").attr({"width":String(canvasWidth)+'px', "height":String(canvasHeight)+'px'});
 	
@@ -73,6 +73,19 @@ function sizeScreen() {
 	yMin = (screenHeight - canvasHeight) / 2;
 	$("#wrapper").css("margin-left",xMin - 5);
 	$("#gameCanvas").css("margin-top",yMin - 5);
+	
+	$("#bar-wrapper").css("height",2 * boxSize); 
+	$("#bar-wrapper").css("width",2 * boxSize); 
+	
+	$("#health-wrapper").css("height",boxSize); 
+	$("#health-wrapper").css("width",2 * boxSize); 
+	
+	$("#money-wrapper").css("height",boxSize); 
+	$("#money-wrapper").css("width",2 * boxSize); 
+	
+	$("#menu-wrapper").css("width",2 * boxSize); 
+	$("#menu-wrapper").css("margin-top",yMin - 5);
+	$("#menu-wrapper").css("height",canvasHeight);  
 	
 	yMax = yMin + canvasHeight - boxSize;
 	xMax = xMin + canvasWidth - boxSize;
