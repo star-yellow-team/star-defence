@@ -109,21 +109,7 @@ function findPath ()
 	path_x[k] = spawn_x;
 	path_y[k] = spawn_y;
 	
-	var x = path_x[k]; 
-	var y = path_y[k]; var nr=0;
-	
-	/*for(var i=0; i<20; i++)
-		for(var j=0; j<20; j++)
-		{
-			nr=path_matrix[i][j]; if(nr>nrmax_path)nrmax_path=nr;
-			path_x[nr]=i;
-			path_y[nr]=j;	
-		}
-		*/
-		
-	
-		//Inca in teste pentru e elimina problema sriturilor prin harta
-	
+
 	var auxX = spawn_x;
 	var auxY = spawn_y;
 	
