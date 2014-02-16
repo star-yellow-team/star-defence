@@ -9,7 +9,10 @@ body {
 	padding: 0px;
 	width:100%;
 	height:100%;
-	background-color:gray;
+	background: -webkit-linear-gradient(#191919, #333333, #191919); /* For Safari */
+	background: -o-linear-gradient(#191919, #333333, #191919); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#191919, #333333, #191919); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#191919, #333333, #191919); /* Standard syntax */
 	margin:auto;
 }
 
@@ -50,9 +53,9 @@ body {
     width:  100%;
 	height: 100%;
     margin: auto;
-	border: 5px solid white;
-	border-radius: 10px;
-	box-shadow: 0px 0px 25px black;
+	border: 5px solid #4C4C4C;
+	border-radius: 15px;
+	box-shadow: 0px 0px 250px black;
 	position:relative;
 	float:left;
 }
@@ -70,6 +73,7 @@ body {
 	height:100px;
 	opacity:0.5;
 	position:absolute;
+	box-shadow: 0px 0px 25px green inset;
 }
 
 #machinegun, #machinegun_turret {
