@@ -2,6 +2,7 @@
                             |PROTOCOL PENTRU TRANSMITEREA DATELOR DE LA CLIENT LA SERVER SI VICEVERSA|
                             +========================================================================+
 
+// in dezvoltare 
 
 Principalele trebuinte {
 
