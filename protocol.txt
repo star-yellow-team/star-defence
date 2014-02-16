@@ -1,0 +1,63 @@
+                            +========================================================================+
+                            |PROTOCOL PENTRU TRANSMITEREA DATELOR DE LA CLIENT LA SERVER SI VICEVERSA|
+                            +========================================================================+
+
+
+Principalele trebuinte {
+
+-Logarea utilizatorului prin {
+    * Inscriere, unde utilizatorul isi creeaza un cont cu un 
+        username unic(se vor face verificari) si o parola.
+   
+     * Logarea la un cont deja existent
+    
+    * Participare pe un cont de guest unic, 
+        furnizat de catre server
+}
+
+-Trimiterea unei cereri de joc {
+    *Un utilizator va vedea o lista cu jucatori ce nu 
+        se joaca in acel moment si va putea trimite o 
+        cerere catre unul sau mai multi dintre acestia 
+        si va astepta raspunsul. Daca "adversarul" accepta, 
+        se va incepe un nou joc, altfel se va afisa un mesaj
+        ca jucatorul nu a acceptat.
+}
+
+-Raspunderea la o cerere de joc {
+    *Un utilizator ce nu se afla in momentul respectiv 
+        intr-un joc, poate primi o cerere. Daca raspunde 
+        cu da, se va incepe un nou joc, altfel nu vor 
+        surveni modificari.
+}
+
+-Postarea unui mesaj in chat {
+    *Un utilizator poate sa posteze mesaje pe un chat 
+        din cadrul jocului sau pe unul din cadrul listei
+         de asteptare.
+}
+
+-Primirea mesajelor din chat {
+    *Un utilizator poate sa primeasca mesajele altor jucatori 
+        din chat.
+}
+
+-Trimiterea modificarilor hartii {
+    *Un utilizator poate plasa turete, le poate face upgrade, 
+        poate folosi spell-uri, iar aceasta informatie trebuie
+        transmisa oponentului.
+}
+
+-Primirea modificarilor hartii {
+    *Un utilizator trebuie sa primeasca modificarile hartii 
+        efectuate de celalalt jucator.
+}
+}
+
++========+
+|PROTOCOL|
++========+
+
+
+
+
