@@ -1,7 +1,7 @@
                             +========================================================================+
                             |PROTOCOL PENTRU TRANSMITEREA DATELOR DE LA CLIENT LA SERVER SI VICEVERSA|
                             +========================================================================+
-
+                                            NUME:                       RAMSI V0.1
 
 Principalele trebuinte {
 
@@ -58,6 +58,70 @@ Principalele trebuinte {
 |PROTOCOL|
 +========+
 
+Fiecare jucator are o lista de notificari pe care o acceseaza 
+pentru a isi prelua notificarile. Lista e o structura de tip FIFO.
+Totodata, un jucator va trimite notificari server-ului care va trebui
+sa le puna in listele jucatorilor carora le sunt destinate.
+
+Astfel, un client va face cereri server-ului, avand grija sa trimita
+parametrii necesari. 
+
+Fiecare cerere trebuie sa aiba un parametru(cod) care semnifica operatia ce trebuie
+executata.
+
+Dupa unele operatii, jucatorul ar putea primi o notificare ce va spune daca 
+operatia s-a executat cu succes. Ea va avea parametrii:  success(true/false dupa caz) 
+si message(un mesaj mai detaliat in caz de eroare), code(codul unei notificari) 
+si response(in cazul in care se vor returna date de la server).
 
 
+Cereri:
+#COD        Descriere                       Parametrii suplimentari/
+                                            Primire notificare daca e cazul                                                
+--------------------------------------------------------------------------
+0           Preia notificarile de la server 
+--------------------------------------------------------------------------
+1           Inscriere utilizator            user; password;
+                                            Primire notificare.                                     
+--------------------------------------------------------------------------
+2           Logare utilizator               user; password;
+                                            Primire notificare. 
+--------------------------------------------------------------------------
+3           Logare ca guest                 Primire notificare.
+--------------------------------------------------------------------------
+4           Trimitere cerere de joc         Primire notificare
+--------------------------------------------------------------------------
+5           Acceptare cerere de joc         oponent;
+                                            Primire notificare cu harta.
+----------------------------------------------------------------------------
+6           Alegere harta                   map;
+---------------------------------------------------------------------------
+7           Trimitere modificare harta      data={turrets:[],spells:[] etc.}
+---------------------------------------------------------------------------
+8           Trimitere mesaj                 data={message:"...blabla..."}
+---------------------------------------------------------------------------
+
+CONVENTIE!
+-----------
+    Codul operatiei pentru cerere va fi un intreg pozitiv mereu.
+    
+
+Notificari:
+#COD        Descriere                       Parametrii importanti
+--------------------------------------------------------------------------------
+-1          Rezultatul autentificarii       success=true/false; 
+                                            message=daca e cazul;
+--------------------------------------------------------------------------------
+-2          Primire cerere de joc           response={oponent:''}
+--------------------------------------------------------------------------------
+-3          Primire harta                   response={map:}
+---------------------------------------------------------------------------------
+-4          Primite modificare harta        response={turrets:[],spells:[] etc.}
+--------------------------------------------------------------------------------
+-5          Primire mesaj                   response={author:'', message:''}
+-------------------------------------------------------------------------------
+
+CONVENTIE!
+----------
+    Codul notificarii va fi mereu un intreg negativ.
 
