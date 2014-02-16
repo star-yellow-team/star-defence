@@ -51,24 +51,22 @@ function drawBackground() {
                     context.fillStyle = "blue"
                     break;
 
-		case 11:
-        	    context.fillStyle = "gold"
-    		    break;
-		case 12:
+				case 11:
+        		    context.fillStyle = "gold"
+    			    break;
+				case 12:
                     context.fillStyle = "cyan"
-		    break;
-	    	case 13:
+			 	   break;
+	  	  		case 13:
                     context.fillStyle = "darkred"
-		    break;
-		case 14:
-        	    context.fillStyle = "darkturquoise"
-		    break;
-		case 15:
-        	    context.fillStyle = "darkslateblue"
-		    break;
-
-
-                default:
+				    break;
+				case 14:
+        		    context.fillStyle = "darkturquoise"
+				    break;
+				case 15:
+        	   		context.fillStyle = "darkslateblue"
+		 		   	break;
+ 				default:
                     // o eroare in harta
                     context.fillStyle = "black";
                     break;

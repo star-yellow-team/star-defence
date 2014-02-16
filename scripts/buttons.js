@@ -8,18 +8,6 @@ var boxX;
 var boxY;
 var hover;
 
-// Ascundem ghostImageul si ne ocupam de animatia meniului
-$(document).ready(function() {
-	$("#ui-menu").hover(function(){
-  		$("#ui-menu").addClass("slideUp");
-  		$("#ui-menu").removeClass("slideDown");
-  	},
-  	function(){
-  		$("#ui-menu").removeClass("slideUp");
-  		$("#ui-menu").addClass("slideDown");
-	});
-})
-
 var currentMousePos = { x: -1, y: -1 };
 
 // Aducem ghostImageul albastru la mouse, stickuit pe grid

@@ -69,13 +69,13 @@ function sizeScreen() {
 
     $("#gameCanvas").attr({"width":String(canvasWidth)+'px', "height":String(canvasHeight)+'px'});
 	
-	$("#wrapper").css("margin-left","auto");
-	xMin = $("#wrapper").offset().left + 5;
-	xMax = xMin + canvasWidth - boxSize;
+	xMin = (screenWidth - canvasWidth - 2 * boxSize) / 2;
+	yMin = (screenHeight - canvasHeight) / 2;
 	$("#wrapper").css("margin-left",xMin - 5);
-
-	yMin = 5;
+	$("#gameCanvas").css("margin-top",yMin - 5);
+	
 	yMax = yMin + canvasHeight - boxSize;
+	xMax = xMin + canvasWidth - boxSize;
 }
 
 // o apelam pentru prima oara
