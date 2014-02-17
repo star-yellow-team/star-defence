@@ -1,0 +1,22 @@
+<html>
+   <head>
+      <script type="text/javascript">
+            var webSocket = new WebSocket("ws://localhost:9001");
+            if(webSocket == undefined) {
+                webSocket = new MozWebSocket("ws://localhost:9001");
+            }
+                    
+            webSocket.onmessage = function(e) {
+            
+               alert("Got echo: " + e.data);
+            }
+
+      </script>
+   </head>
+   <body onload="loaded()">
+      <h1>WebSocket Echo Client</h1>
+      <button onclick='webSocket.send("Hello, world!");'>
+         Send Hello
+      </button>
+   </body>
+</html>
