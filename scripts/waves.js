@@ -96,7 +96,6 @@ function waveFinished() {
  **/
 function gameOver()
 {
-	console.log("life = " + life);
 	if(life <= 0)
 		{
 
@@ -114,7 +113,6 @@ function gameOver()
 function takeLife()
 {
 	searchPoints(map, 3);
-	console.log(Pointsx[0] + " " + Pointsy[0]);
 	for(var i = 0; i < waves.length; i++)
 		if(waves[i].x == Pointsy[0] && waves[i].y == Pointsx[0])
 				{

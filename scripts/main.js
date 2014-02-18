@@ -91,8 +91,18 @@ function draw() {
     for(var m = 0; m < waves.length; ++ m) {
 	    var monster = waves[m];
 	    context.fillStyle = monsters[monster.type].color;
-	    context.fillRect(boxSize * monster.x + dimension, boxSize * monster.y + currentOffset, dimension, dimension);
+	    context.fillRect(boxSize * monster.x + dimension, boxSize * monster.y + currentOffset, dimension, dimension); 
+            context.strokeStyle = "black"
+            context.strokeRect(boxSize * monster.x + dimension, 
+                            boxSize * monster.y - boxSize/3 + currentOffset,
+                            boxSize/2, 2*dimension/3 );
+            context.fillStyle = "red"
+            var health = monster.health * (boxSize/2) / monsters[monster.type].health;
+            context.fillRect(boxSize * monster.x + dimension, 
+                            boxSize * monster.y - boxSize/3 + currentOffset, 
+                            health, 2*dimension/3 );
             currentOffset += offset;
+
             if(currentOffset > (boxSize-dimension)) {
                 currentOffset = 0;
             } 
