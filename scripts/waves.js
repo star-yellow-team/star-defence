@@ -114,9 +114,8 @@ function gameOver()
 function takeLife()
 {
 	searchPoints(map, 3);
-	console.log(Pointsx[0] + " " + Pointsy[0]);
 	for(var i = 0; i < waves.length; i++)
-		if(waves[i].x == Pointsx[0] && waves[i].y == Pointsy[0])
+		if(waves[i].x == Pointsy[0] && waves[i].y == Pointsx[0])
 				{
 					life--;
 					waves.splice(i,1);
