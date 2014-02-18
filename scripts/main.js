@@ -122,7 +122,6 @@ function gameLoop() {
 	
     for(var turretIndex in turrets) {
         var turret = turrets[turretIndex];
-		console.log("tureta: " + turret.type);
         detectEnemy(turret);
 		turret.isAttaking = false;
     }

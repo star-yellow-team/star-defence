@@ -11,7 +11,7 @@ var NUMBER_OF_TURRET_TYPES = 5;
 //Tipuri de turete
 var MACHINEGUN_TURRET = {
 	id:	0,
-	damage:	700,
+	damage:	2,
 	range:	3,
 	attackSpeed:	0.8,
 	damageType:	"Single",
@@ -60,7 +60,7 @@ var PLASMA_TURRET = {
 
 var LASER_TURRET = {
 	id:	3,
-	damage:	10,
+	damage:	1,
 	range:	3,
 	attackSpeed:	0.2,
 	damageType:	"Single",
@@ -160,13 +160,18 @@ function Turret(type)
 		default:
 			console.log("Invalid turret type!");
 			break;
-	}
+                this.contor = 0;	
+    }
 }
 
 Turret.prototype.canAttack = function() {
-if(this.contor % (18*this.attackSpeed/0.8) == 0) {return true;}
-this.contor = (this.contor +1)%(18*this.attackSpeed/0.8);
-return false;}
+    if(this.contor % (18*this.attackSpeed/0.8) == 0) {
+        return true;
+    }
+
+    this.contor = (this.contor +1)%(18*this.attackSpeed/0.8);
+    return false;
+}
 
 //2.25=1 sec
 
@@ -180,24 +185,19 @@ function distanta(i, tureta)
 /* Cred ca atacul va depinde de o functie de detectat cand inamicul intra in range */
 function detectEnemy(tureta)
 {
-	var ok, k;
-	if(tureta.canAttack() == false)
-		{
-			console.log("monstrii");
+        
+	
+	if(tureta.canAttack() == false) {
 			return;
-		}
-	console.log("for");
-	for(var i = 0; i < waves.length; i++)
+	}
+	
+        for(var i = 0; i < waves.length; i++)
 	{	
-		ok=false;
 		if(distanta(waves[i], tureta) <= tureta.range)
 			{
-				k=false;
 				//pot lovi monstrul
-				tureta.isAttacking=true;
 				if (waves[i].doDamage(tureta.damage)==false);
 				{
-					tureta.isAttacking=false;
 					waves.splice(waves.indexOf(waves[i]), 1);
 					i--;
 					break;
@@ -205,26 +205,17 @@ function detectEnemy(tureta)
 				if (tureta.slow==SLOW_TURRET.slow)
 					{
 						waves[i].speed=waves[i].speed/2;
-						k = true;
 					}
 					
 				if (tureta.detection==DETECTOR_TURRET.detection && waves[i].isVisible==false)
 				{
 					waves[i].isVisible==true;
-					ok=true;
 				}
-				if (k==true)
-				{
-					waves[i].speed=waves[i].speed*2;
-				}
-					tureta.isAttacking=false;
-					if (ok==true)
-						waves[i].isVisible==false;
-					}
-		break;
+				
 		
-	}
+	                }
 
+        }
 }
 
 /* Aici mai modificam pentru ca imi trebuie variabila in care stocam banii, skin-urile pe care le va avea fiecare turret la fiecare nivel */
