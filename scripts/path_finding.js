@@ -141,15 +141,10 @@ function findPath ()
 				console.log("eroare construire vector drum");		
 		}
 
-		console.log("aux: " + auxX + " " + auxY);			
 	}
 	
 	
-	console.log("vector traseu");
-	for(var i = 1; i < path_x.length; i++)
-		{
-			console.log(path_x[i] + " " + path_y[i]);	
-		}	
+		
 //Aici se termina findPath.
 }
 

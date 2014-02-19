@@ -10,9 +10,9 @@
 
 
 // luam obiectele canvas si context
-var canvas  = document.getElementById("gameCanvas");
-var context = canvas.getContext("2d");
-
+var canvas          = document.getElementById("gameCanvas");
+var context         = canvas.getContext("2d");
+var startMonsters   = 0
 
 $(".ghostImage").hide();
 
@@ -86,7 +86,7 @@ function drawBackground() {
 function draw() {
     drawBackground();
     var dimension = boxSize / 3;
-    var offset = (boxSize) / (waves.length);
+    var offset = (boxSize) / (startMonsters);
     var currentOffset = 0
     for(var m = 0; m < waves.length; ++ m) {
 	    var monster = waves[m];
@@ -94,7 +94,7 @@ function draw() {
 	    //deseneaza monstrul
             context.fillStyle = monsters[monster.type].color;
 	    context.fillRect(boxSize * monster.x + dimension, boxSize * monster.y + currentOffset, dimension, dimension); 
-        
+     
             context.strokeStyle = "black"
             context.strokeRect(boxSize * monster.x + dimension / 2, 
                             boxSize * monster.y - boxSize/3 + currentOffset,
@@ -108,6 +108,7 @@ function draw() {
             context.fillRect(boxSize * monster.x + dimension / 2, 
                             boxSize * monster.y - boxSize/3 + currentOffset, 
                             health, 2*dimension/3 );
+            
             currentOffset += offset;
 
             if(currentOffset > (boxSize-dimension)) {
@@ -145,7 +146,8 @@ function gameLoop() {
 	
 
     if(waveFinished()){
-		generateWave();
+        generateWave();
+        startMonsters = waves.length;        
     }
 	
 	

@@ -111,7 +111,8 @@ function gameOver()
  *	DACA SUNT PROBLEME CU FUNCTIA... VERIFICATI COORDONATA X SI Y A UNUI MONSTRU!!!
  **/
 function takeLife()
-{
+{       
+        // ia monstrii care au ajuns la destinatie
 	searchPoints(map, 3);
 	for(var i = 0; i < waves.length; i++)
 		if(waves[i].x == Pointsy[0] && waves[i].y == Pointsx[0])
@@ -119,4 +120,14 @@ function takeLife()
 					life--;
 					waves.splice(i,1);
 				}
+
+        //ia monstrii care nu mai au viata
+        for(var i = 0; i < waves.length; ++ i) {
+            // daca monstrul e mort
+            if(!waves[i].isAlive()) {
+                waves.splice(i,1)
+                -- i
+            }
+        
+        }
 }
