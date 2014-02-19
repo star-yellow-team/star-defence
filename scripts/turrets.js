@@ -11,9 +11,9 @@ var NUMBER_OF_TURRET_TYPES = 5;
 //Tipuri de turete
 var MACHINEGUN_TURRET = {
 	id:	0,
-	damage:	2,
+	damage:	0.6,
 	range:	3,
-	attackSpeed:	0.8,
+	attackSpeed:	4,
 	damageType:	"Single",
 	upgradeLevel:	0,
 	price:	10,
@@ -43,9 +43,9 @@ var SLOW_TURRET = {
 
 var PLASMA_TURRET = {
 	id:	2,
-	damage:	3,
+	damage:	1.0,
 	range:	2,
-	attackSpeed:	1.5,
+	attackSpeed:    4,
 	damageType:	"Splash",
 	upgradeLevel:	0,
 	price:	40,
@@ -60,9 +60,9 @@ var PLASMA_TURRET = {
 
 var LASER_TURRET = {
 	id:	3,
-	damage:	1,
+	damage:	1.1,
 	range:	3,
-	attackSpeed:	0.2,
+	attackSpeed:	4,
 	damageType:	"Single",
 	upgradeLevel:	0,
 	price:	50,
@@ -92,7 +92,8 @@ var DETECTOR_TURRET = {
 
 function Turret(type)
 {
-	this.type=type;
+	this.type       = type;
+        this.isSlowed   = false
 	switch(type)	{
 		case MACHINEGUN_TURRET.id:
 			this.damage=MACHINEGUN_TURRET.damage;
@@ -165,11 +166,13 @@ function Turret(type)
 }
 
 Turret.prototype.canAttack = function() {
-    if(this.contor % (18*this.attackSpeed/0.8) == 0) {
+    
+    this.contor = (this.contor +1)%(this.attackSpeed);
+   
+     if(this.contor == 0) {
         return true;
     }
 
-    this.contor = (this.contor +1)%(18*this.attackSpeed/0.8);
     return false;
 }
 
@@ -186,19 +189,19 @@ function distanta(i, tureta)
 function detectEnemy(tureta)
 {
         
-	
 	if(tureta.canAttack() == false) {
-			return;
+            return;
 	}
 	
         for(var i = 0; i < waves.length; i++)
 	{	
 		if(distanta(waves[i], tureta) <= tureta.range)
 			{
-				//pot lovi monstrul
-				if (waves[i].doDamage(tureta.damage)==false);
+            			//pot lovi monstrul
+            			waves[i].doDamage(tureta.damage)
+				if(!waves[i].isAlive())
 				{
-					waves.splice(waves.indexOf(waves[i]), 1);
+					waves.splice(i, 1);
 					i--;
 					break;
 				}
