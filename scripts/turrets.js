@@ -7,13 +7,31 @@
 //numar maxim de tipuri de turete
 var NUMBER_OF_TURRET_TYPES = 5;
 
+//functia slow
+function Slow(monster)
+{
+	switch(monster.id) {
+        case SIMPLE_MONSTER.id:
+            monster.speed      = 0.5;	break;
+        case SPEEDY_MONSTER.id:
+            monster.speed      = 1.25;	break;
+		case FLYING_MONSTER.id:
+			monster.speed      = 1.5;	break;
+        case POWERFUL_MONSTER.id:
+			monster.speed      = 2;		break;
+		case RAMSI_MONSTER.id:
+			monster.speed	   = 1;		break;
+        default:
+            console.log("Invalid monster type!");	break;
+    }
+}
 
 //Tipuri de turete
 var MACHINEGUN_TURRET = {
 	id:	0,
-	damage:	700,
+	damage:	0.6,
 	range:	3,
-	attackSpeed:	0.8,
+	attackSpeed:	4,
 	damageType:	"Single",
 	upgradeLevel:	0,
 	price:	10,
@@ -43,9 +61,9 @@ var SLOW_TURRET = {
 
 var PLASMA_TURRET = {
 	id:	2,
-	damage:	3,
+	damage:	1.0,
 	range:	2,
-	attackSpeed:	1.5,
+	attackSpeed:    4,
 	damageType:	"Splash",
 	upgradeLevel:	0,
 	price:	40,
@@ -60,9 +78,9 @@ var PLASMA_TURRET = {
 
 var LASER_TURRET = {
 	id:	3,
-	damage:	10,
+	damage:	1.1,
 	range:	3,
-	attackSpeed:	0.2,
+	attackSpeed:	4,
 	damageType:	"Single",
 	upgradeLevel:	0,
 	price:	50,
@@ -92,7 +110,8 @@ var DETECTOR_TURRET = {
 
 function Turret(type)
 {
-	this.type=type;
+	this.type       = type;
+        this.isSlowed   = false
 	switch(type)	{
 		case MACHINEGUN_TURRET.id:
 			this.damage=MACHINEGUN_TURRET.damage;
@@ -160,13 +179,20 @@ function Turret(type)
 		default:
 			console.log("Invalid turret type!");
 			break;
-	}
+                this.contor = 0;	
+    }
 }
 
 Turret.prototype.canAttack = function() {
-if(this.contor % (18*this.attackSpeed/0.8) == 0) {return true;}
-this.contor = (this.contor +1)%(18*this.attackSpeed/0.8);
-return false;}
+    
+    this.contor = (this.contor +1)%(this.attackSpeed);
+   
+     if(this.contor == 0) {
+        return true;
+    }
+
+    return false;
+}
 
 //2.25=1 sec
 
@@ -180,51 +206,57 @@ function distanta(i, tureta)
 /* Cred ca atacul va depinde de o functie de detectat cand inamicul intra in range */
 function detectEnemy(tureta)
 {
-	var ok, k;
-	if(tureta.canAttack() == false)
-		{
-			console.log("monstrii");
-			return;
-		}
-	console.log("for");
-	for(var i = 0; i < waves.length; i++)
+    for (var i = 0; i < waves.length; i++)
+	{
+		if ((distanta(waves[i], tureta))>tureta.range && waves[i].isSlowed == true)
+		{	switch(waves[i].id) {
+				case SIMPLE_MONSTER.id:
+					waves[i].speed      = 1;	break;
+				case SPEEDY_MONSTER.id:
+					waves[i].speed      = 2.5;	break;
+				case FLYING_MONSTER.id:
+					waves[i].speed      = 3;	break;
+				case POWERFUL_MONSTER.id:
+					waves[i].speed      = 4;	break;
+				case RAMSI_MONSTER.id:
+					waves[i].speed  	= 2;	break;
+				default:
+					console.log("Invalid monster type!");	break;
+			}
+    }
+	if(tureta.canAttack() == false) {
+            return;
+	}
+	
+    for(var i = 0; i < waves.length; i++)
 	{	
-		ok=false;
 		if(distanta(waves[i], tureta) <= tureta.range)
 			{
-				k=false;
-				//pot lovi monstrul
-				tureta.isAttacking=true;
-				if (waves[i].doDamage(tureta.damage)==false);
+            	//pot lovi monstrul
+				if (tureta.damage>0 && waves[i].visible == true)
+					waves[i].doDamage(tureta.damage)
+				else
 				{
-					tureta.isAttacking=false;
-					waves.splice(waves.indexOf(waves[i]), 1);
+				if(!waves[i].isAlive())
+				{
+					waves.splice(i, 1);
 					i--;
 					break;
 				}
 				if (tureta.slow==SLOW_TURRET.slow)
 					{
-						waves[i].speed=waves[i].speed/2;
-						k = true;
+						Slow(waves[i]);
 					}
 					
 				if (tureta.detection==DETECTOR_TURRET.detection && waves[i].isVisible==false)
 				{
 					waves[i].isVisible==true;
-					ok=true;
 				}
-				if (k==true)
-				{
-					waves[i].speed=waves[i].speed*2;
 				}
-					tureta.isAttacking=false;
-					if (ok==true)
-						waves[i].isVisible==false;
-					}
-		break;
 		
-	}
+	        }
 
+        }
 }
 
 /* Aici mai modificam pentru ca imi trebuie variabila in care stocam banii, skin-urile pe care le va avea fiecare turret la fiecare nivel */
