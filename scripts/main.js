@@ -90,15 +90,22 @@ function draw() {
     var currentOffset = 0
     for(var m = 0; m < waves.length; ++ m) {
 	    var monster = waves[m];
-	    context.fillStyle = monsters[monster.type].color;
+
+	    //deseneaza monstrul
+            context.fillStyle = monsters[monster.type].color;
 	    context.fillRect(boxSize * monster.x + dimension, boxSize * monster.y + currentOffset, dimension, dimension); 
+        
             context.strokeStyle = "black"
-            context.strokeRect(boxSize * monster.x + 2*dimension/3, 
+            context.strokeRect(boxSize * monster.x + dimension / 2, 
                             boxSize * monster.y - boxSize/3 + currentOffset,
-                            boxSize/2, 2*dimension/3 );
+                            2*dimension, 2*dimension/3 );
+            
+            //determina viata
             context.fillStyle = "red"
-            var health = monster.health * (boxSize/2) / monsters[monster.type].health;
-            context.fillRect(boxSize * monster.x + 2*dimension/3, 
+            var health = monster.health * (2*dimension) / monsters[monster.type].health;
+    
+            //deseneaza partea rosie
+            context.fillRect(boxSize * monster.x + dimension / 2, 
                             boxSize * monster.y - boxSize/3 + currentOffset, 
                             health, 2*dimension/3 );
             currentOffset += offset;
