@@ -15,5 +15,8 @@ var path_y          = [];
 var nrmax_path      =  0;
 var curentRound     = -1;
 var boxSize         =  0;
+
 var totalScore      =  0; //Se refera la scorul total per batalie. NU total per tot jocul.
+var totalCredits    =  0; //Se refera la banii pe care ii are jucatorul per batalie.
+
 var turrets         = [];
