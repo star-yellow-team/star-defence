@@ -217,15 +217,6 @@ Monster.prototype.moveTo        = function(newX,newY) {
 
 }
 
-/**
- *
- *
- * */
-Monster.prototype.updateSpeed = function(newSpeed){
-    this.pace = (Math.abs(this.destinationX - this.x) + 
-                Math.abs(this.destinationY - this.y)) / loopInterval;
-}
-
 
 /**
  *  Functia reachedDestination()
