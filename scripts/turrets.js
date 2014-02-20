@@ -7,6 +7,24 @@
 //numar maxim de tipuri de turete
 var NUMBER_OF_TURRET_TYPES = 5;
 
+//functia slow
+function Slow(monster)
+{
+	switch(monster.id) {
+        case SIMPLE_MONSTER.id:
+            monster.speed      = SIMPLE_MONSTER.speed/2;	break;
+        case SPEEDY_MONSTER.id:
+            monster.speed      = SPEEDY_MONSTER.speed/2;	break;
+		case FLYING_MONSTER.id:
+			monster.speed      = FLYING_MONSTER.speed/2;	break;
+        case POWERFUL_MONSTER.id:
+			monster.speed      = POWERFUL_MONSTER.speed/2;		break;
+		case RAMSI_MONSTER.id:
+			monster.speed	   = RAMSI_MONSTER.speed/2;		break;
+        default:
+            console.log("Invalid monster type!");	break;
+    }
+}
 
 //Tipuri de turete
 var MACHINEGUN_TURRET = {
@@ -188,14 +206,31 @@ function distanta(i, tureta)
 /* Cred ca atacul va depinde de o functie de detectat cand inamicul intra in range */
 function detectEnemy(tureta)
 {
-        
+      for (var i = 0; i < waves.length; i++)
+		{
+			if ((distanta(waves[i], tureta))>tureta.range && waves[i].isSlowed == true)
+			{	switch(waves[i].id) {
+					case SIMPLE_MONSTER.id:
+						waves[i].speed      = SIMPLE_MONSTER.speed;	break;
+					case SPEEDY_MONSTER.id:
+						waves[i].speed      = SPEEDY_MONSTER.speed;	break;
+					case FLYING_MONSTER.id:
+						waves[i].speed      = FLYING_MONSTER.speed;	break;
+					case POWERFUL_MONSTER.id:
+						waves[i].speed      = POWERFUL_MONSTER.speed;	break;
+					case RAMSI_MONSTER.id:
+						waves[i].speed  	= RAMSI_MONSTER.speed;	break;
+					default:
+						console.log("Invalid monster type!");	break;
+			}
+		}  
 	if(tureta.canAttack() == false) {
             return;
 	}
 	
-        for(var i = 0; i < waves.length; i++)
+        for(var i = waves.length-1; i >= 0; i--)
 	{	
-		if(distanta(waves[i], tureta) <= tureta.range)
+		if((distanta(waves[i], tureta) <= tureta.range) && waves[i].visible == true)
 			{
             			//pot lovi monstrul
            			waves[i].doDamage(tureta.damage)
@@ -207,20 +242,18 @@ function detectEnemy(tureta)
 				}
 				if (tureta.slow==SLOW_TURRET.slow)
 					{
-						waves[i].speed=waves[i].speed/2;
+						Slow(waves[i]);
 					}
 					
 				if (tureta.detection==DETECTOR_TURRET.detection && waves[i].isVisible==false)
 				{
 					waves[i].isVisible==true;
 				}
-				
-		                break;
-	                }
-
+				break;
+			}
         }
+		}
 }
-
 /* Aici mai modificam pentru ca imi trebuie variabila in care stocam banii, skin-urile pe care le va avea fiecare turret la fiecare nivel */
 function upgrade(tureta)
 {
