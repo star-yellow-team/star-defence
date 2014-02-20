@@ -90,7 +90,7 @@ function Monster(x, y, type) {
     this.destinationY   = 0;
     this.current	= 0;
     this.pace           = 0;
-    this.isSlowed       = 0;    
+    
     switch(type) {
 
         case SIMPLE_MONSTER.id:
@@ -216,6 +216,16 @@ Monster.prototype.moveTo        = function(newX,newY) {
     }
 
 }
+
+/**
+ *
+ *
+ * */
+Monster.prototype.updateSpeed = function(newSpeed){
+    this.pace = (Math.abs(this.destinationX - this.x) + 
+                Math.abs(this.destinationY - this.y)) / loopInterval;
+}
+
 
 /**
  *  Functia reachedDestination()
