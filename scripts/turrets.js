@@ -198,7 +198,7 @@ function detectEnemy(tureta)
 		if(distanta(waves[i], tureta) <= tureta.range)
 			{
             			//pot lovi monstrul
-            			waves[i].doDamage(tureta.damage)
+           			waves[i].doDamage(tureta.damage)
 				if(!waves[i].isAlive())
 				{
 					waves.splice(i, 1);
@@ -215,7 +215,7 @@ function detectEnemy(tureta)
 					waves[i].isVisible==true;
 				}
 				
-		
+		                break;
 	                }
 
         }

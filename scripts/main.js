@@ -84,10 +84,14 @@ function drawBackground() {
  *
  * */
 function draw() {
+    //deseneaza background-ul
     drawBackground();
+
+
     var dimension = boxSize / 3;
     var offset = (boxSize) / (startMonsters);
     var currentOffset = 0
+
     for(var m = 0; m < waves.length; ++ m) {
 	    var monster = waves[m];
 
