@@ -1,41 +1,36 @@
 from twisted.internet import reactor, threads
 from autobahn.twisted.websocket import WebSocketServerFactory, WebSocketServerProtocol, listenWS
-import threading
-from threading import Thread
-import time
+from player import Player
 
-clients = [] 
+# vector containing all players
+players = []
 
 
-class EchoThread(Thread):
-    def run(self):
-        i = 0
-        while True:
-            for client in clients:
-                print "Sending to client: " + str(client)
-                message = 'Hello'+str(i)
-                threads.deferToThread(client.sendMessage, payload=message)
-            i += 1
-            time.sleep(3);
+"""Called to send a notification to a player"""
+def send_notifications(player):
+    pass
 
-class EchoServerProtocol(WebSocketServerProtocol):
+
+
+
+class PlayerProtocol(WebSocketServerProtocol):
  
     def onOpen(self):
-        clients.append(self)
+        players.append(self)
 
     def onMessage(self, msg, binary):
         self.sendMessage(msg, binary)
- 
+
+    def onClose(self, wasClean, code, reason):
+        players.remove(self)
  
 if __name__ == '__main__':
     factory = WebSocketServerFactory("ws://localhost:9000", debug = False)
-    factory.protocol = EchoServerProtocol
-
-    thread = EchoThread()    
-    thread.start()
+    factory.protocol = PlayerProtocol
 
     listenWS(factory)
     reactor.run()
 
-    
+
+
 
