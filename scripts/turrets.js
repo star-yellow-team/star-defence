@@ -12,15 +12,15 @@ function Slow(monster)
 {
 	switch(monster.id) {
         case SIMPLE_MONSTER.id:
-            monster.speed      = 0.5;	break;
+            monster.speed      = SIMPLE_MONSTER.speed/2;	break;
         case SPEEDY_MONSTER.id:
-            monster.speed      = 1.25;	break;
+            monster.speed      = SPEEDY_MONSTER.speed/2;	break;
 		case FLYING_MONSTER.id:
-			monster.speed      = 1.5;	break;
+			monster.speed      = FLYING_MONSTER.speed/2;	break;
         case POWERFUL_MONSTER.id:
-			monster.speed      = 2;		break;
+			monster.speed      = POWERFUL_MONSTER.speed/2;		break;
 		case RAMSI_MONSTER.id:
-			monster.speed	   = 1;		break;
+			monster.speed	   = RAMSI_MONSTER.speed/2;		break;
         default:
             console.log("Invalid monster type!");	break;
     }
@@ -211,15 +211,15 @@ function detectEnemy(tureta)
 		if ((distanta(waves[i], tureta))>tureta.range && waves[i].isSlowed == true)
 		{	switch(waves[i].id) {
 				case SIMPLE_MONSTER.id:
-					waves[i].speed      = 1;	break;
+					waves[i].speed      = SIMPLE_MONSTER.speed;	break;
 				case SPEEDY_MONSTER.id:
-					waves[i].speed      = 2.5;	break;
+					waves[i].speed      = SPEEDY_MONSTER.speed;	break;
 				case FLYING_MONSTER.id:
-					waves[i].speed      = 3;	break;
+					waves[i].speed      = FLYING_MONSTER.speed;	break;
 				case POWERFUL_MONSTER.id:
-					waves[i].speed      = 4;	break;
+					waves[i].speed      = POWERFUL_MONSTER.speed;	break;
 				case RAMSI_MONSTER.id:
-					waves[i].speed  	= 2;	break;
+					waves[i].speed  	= RAMSI_MONSTER.speed;	break;
 				default:
 					console.log("Invalid monster type!");	break;
 			}
