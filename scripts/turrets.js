@@ -206,7 +206,7 @@ function distanta(i, tureta)
 /* Cred ca atacul va depinde de o functie de detectat cand inamicul intra in range */
 function detectEnemy(tureta)
 {
-      for (var i = 0; i < waves.length; i++)
+    for (var i = waves.length-1; i >= 0; i--)
 		{
 			if ((distanta(waves[i], tureta))>tureta.range && waves[i].isSlowed == true)
 			{	switch(waves[i].id) {
@@ -223,14 +223,15 @@ function detectEnemy(tureta)
 					default:
 						console.log("Invalid monster type!");	break;
 			}
-		}  
+		}
+	}	
 	if(tureta.canAttack() == false) {
             return;
 	}
 	
-        for(var i = waves.length-1; i >= 0; i--)
-	{	
-		if((distanta(waves[i], tureta) <= tureta.range) && waves[i].visible == true)
+        for (var i = waves.length-1; i >= 0; i--)
+		{	
+		if(distanta(waves[i], tureta) <= tureta.range)
 			{
             			//pot lovi monstrul
            			waves[i].doDamage(tureta.damage)
@@ -249,11 +250,13 @@ function detectEnemy(tureta)
 				{
 					waves[i].isVisible==true;
 				}
-				break;
-			}
+				
+		        break;
+	        }
+
         }
-		}
 }
+
 /* Aici mai modificam pentru ca imi trebuie variabila in care stocam banii, skin-urile pe care le va avea fiecare turret la fiecare nivel */
 function upgrade(tureta)
 {
