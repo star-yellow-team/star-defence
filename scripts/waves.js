@@ -118,14 +118,16 @@ function takeLife()
 
             // ia monstrii care sunt morti
             if(!waves[i].isAlive()) {
-                waves.splice(i,1)
+                userScore = waves[i].type;
+				waves.splice(i,1)
                 -- i
                 
                 //ia monstrii care au ajuns la destinatie
              } else if(waves[i].x == Pointsy[0] && waves[i].y == Pointsx[0]) {
 		life--;
+		userScore = waves[i].type;
 		waves.splice(i,1);
-                -- i
+                -- i;
 	    } // end else if
 
 
