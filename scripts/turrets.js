@@ -201,7 +201,7 @@ function detectEnemy(tureta)
            			waves[i].doDamage(tureta.damage)
 				if(!waves[i].isAlive())
 				{
-					userScore  = waves[i].type;
+					userScore  += (waves[i].type + 5)*(waves[i].type + 5)*(waves[i].type + 5);
 					waves.splice(i, 1);
 					i--;
 					break;
