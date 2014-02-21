@@ -34,14 +34,6 @@ class Player(object):
     def quit_game(self):
         self.is_playing = False
 
-
-    """
-    @return Returns True if player is currently playing
-                    False if not
-    """
-    def is_playing(self):
-        return self.is_playing
-
     """
     @return Returns a representation of the player.
             Good for debugging
