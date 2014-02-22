@@ -6,11 +6,13 @@ from threading import Thread
 # vector containing all players
 players = []
 
+# returneaza un jucator dupa numele sau
 def get_player_by_name(_name):
     for player in players:
         if player.name == _name:
             return player
 
+# returneaza un jucator dupa socket
 def get_player_by_socket(ws):
     for player in players:
         if player.ws is ws:
@@ -29,30 +31,53 @@ def get_players_by_game(game):
     return _players
 
 
-def handle_notification(ws):
+def handle_notification(ws, notification):
     player = get_player_by_socket(ws)
-    # process notification
-    # create notification
-    # add player notification
 
+    # TODO -> proceseaza notificatia corespunzator
+    # TODO -> trimite cerere daca e cazul
 
+    if notification['code'] == 0:
+        # clientul cere sa preia notificarile
+        # de la server
+        # nu se intampla nimic pentru ca 
+        # server-ul automat trimite 
+        # notificarile
+        pass
+    elif notification['code'] == 1:
+        pass
+    elif notification['code'] == 2:
+        pass
+    elif notification['code'] == 3:
+        pass
+    elif notification['code'] == 4:
+        pass
+    elif notification['code'] == 5:
+        pass
+    elif notification['code'] == 6:
+        pass
+    elif notification['code'] == 7:
+        pass
+    elif notification['code'] == 8:
+        pass
+    else:
+        pass
 
 
 class PlayerProtocol(WebSocketServerProtocol):
  
     def onOpen(self):
+        # creeaza un nou jucator
         players.append(Player(self))
 
 
     def onMessage(self, msg, binary):
-        self.sendMessage(msg, binary)
-        mess = json.loads(msg)
-
-        notification = Notification(mess)
-
-        # process notification for player accordingly
+        _msg = json.loads(msg)
+        notification = Notification(_msg)
+        handle_notification(self, notification)
 
 
+    # DONE. TODO -- TEST
     def onClose(self, wasClean, code, reason):
         #check if player is playing, announce opponent
         #remove player
@@ -74,9 +99,9 @@ class StatusUpdater(Thread):
     
     def run(self):
         while True:
-            #reactor.deferToThread(...)
 
             for player in players:
+                # if sau while?!
                 if len(player.notifications > 0):
                     reactor.deferToThread(player.ws.sendMessage, payload=player.notifications.pop().to_json())
 

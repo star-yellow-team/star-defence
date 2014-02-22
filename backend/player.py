@@ -39,7 +39,7 @@ class Player(object):
             Good for debugging
     """
     def __str__(self):
-        return "<class Player: %s>" % self.name
+        return "<type Player: %s>" % self.name
  
     """
     @return Returns a representation of the player.
