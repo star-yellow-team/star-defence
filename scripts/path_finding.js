@@ -140,7 +140,20 @@ function findPath ()
 			default:
 				console.log("eroare construire vector drum");		
 		}
-
+		/*
+		console.log(auxX + " " + auxY);
+		deletePoints();
+		searchPoints(mapNumber,path_matrix[auxX][auxY] + 1);
+		console.log("lungime puncte:" + Pointsx.length);
+		var rand = Math.random()*Pointsx.length;
+		rand = Math.round(rand);
+		console.log(rand);
+		path_x[path_matrix[auxX][auxY] + 1] = Pointsy[rand];
+		path_y[path_matrix[auxX][auxY] + 1] = Pointsx[rand];
+		console.log("puncte " + Pointsx[rand] + " " + Pointsy[rand]);
+		auxX = Pointsy[rand];
+		auxY = Pointsx[rand];
+		*/
 	}
 	
 	

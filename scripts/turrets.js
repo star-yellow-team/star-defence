@@ -53,6 +53,7 @@ var SLOW_TURRET = {
 	requirement:	"None",
 	description:	"Slows enemies in their path",
 	slow:	"Yes",
+	slowValue: 10,
 	isAttacking:	false,
 	contor:	0,
 	x:	0,
@@ -244,7 +245,7 @@ function detectEnemy(tureta)
 				}
 				if (tureta.type==SLOW_TURRET.type)
 					{
-						Slow(waves[i]);
+						waves[i].slowMonster(100);
 					}
 					
 				if (tureta.detection==DETECTOR_TURRET.detection && waves[i].isVisible==false)

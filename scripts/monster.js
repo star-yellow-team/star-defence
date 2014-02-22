@@ -158,7 +158,12 @@ Monster.prototype.doDamage      = function(amount) {
     return this.isAlive()
 }
 
-
+Monster.prototype.slowMonster = function(amount)
+{
+	amount = Math.abs(amount);
+	this.speed -= amount;
+	alert("slow");
+}
 
 /**
  *  Functia isAlive()
@@ -168,8 +173,6 @@ Monster.prototype.doDamage      = function(amount) {
 Monster.prototype.isAlive       = function() {
     return (this.health > 0) ? true : false;
 }
-
-
 
 /**
  *  Functia moveTo()
