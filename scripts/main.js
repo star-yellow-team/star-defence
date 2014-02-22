@@ -46,27 +46,27 @@ function drawBackground() {
                     break;
                 case 2:
                     context.fillStyle = "red";
-					break;
+                    break;
                 case 3:
                     context.fillStyle = "blue"
                     break;
 
-				case 11:
-        		    context.fillStyle = "gold"
-    			    break;
-				case 12:
-                    context.fillStyle = "cyan"
-			 	   break;
-	  	  		case 13:
-                    context.fillStyle = "darkred"
-				    break;
-				case 14:
-        		    context.fillStyle = "darkturquoise"
-				    break;
-				case 15:
-        	   		context.fillStyle = "darkslateblue"
-		 		   	break;
- 				default:
+		case 11:
+        	    context.fillStyle = "gold"
+    		    break;
+		case 12:
+                   context.fillStyle = "cyan"
+		   break;
+	  	case 13:
+                   context.fillStyle = "darkred"
+		   break;
+		case 14:
+        	   context.fillStyle = "darkturquoise"
+		   break;
+		case 15:
+        	    context.fillStyle = "darkslateblue"
+		    break;
+ 		default:
                     // o eroare in harta
                     context.fillStyle = "black";
                     break;
@@ -92,6 +92,7 @@ function draw() {
     var offset = (boxSize) / (startMonsters);
     var currentOffset = 0
 
+    // bug: monstrii "sar" cand moare unul dintre ei
     for(var m = 0; m < waves.length; ++ m) {
 	    var monster = waves[m];
 
