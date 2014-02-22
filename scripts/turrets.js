@@ -10,16 +10,16 @@ var NUMBER_OF_TURRET_TYPES = 5;
 //functia slow
 function Slow(monster)
 {
-	switch(monster.id) {
-        case SIMPLE_MONSTER.id:
+	switch(monster.type) {
+        case SIMPLE_MONSTER.type:
             monster.speed      = SIMPLE_MONSTER.speed/2;	break;
-        case SPEEDY_MONSTER.id:
+        case SPEEDY_MONSTER.type:
             monster.speed      = SPEEDY_MONSTER.speed/2;	break;
-		case FLYING_MONSTER.id:
+		case FLYING_MONSTER.type:
 			monster.speed      = FLYING_MONSTER.speed/2;	break;
-        case POWERFUL_MONSTER.id:
+        case POWERFUL_MONSTER.type:
 			monster.speed      = POWERFUL_MONSTER.speed/2;		break;
-		case RAMSI_MONSTER.id:
+		case RAMSI_MONSTER.type:
 			monster.speed	   = RAMSI_MONSTER.speed/2;		break;
         default:
             console.log("Invalid monster type!");	break;
@@ -47,7 +47,7 @@ var MACHINEGUN_TURRET = {
 var SLOW_TURRET = {
 	id:	1,
 	damage:	0,
-	range:	3,
+	range:	300,
 	upgradeLevel:	0,
 	price:	20,
 	requirement:	"None",
@@ -209,16 +209,16 @@ function detectEnemy(tureta)
     for (var i = waves.length-1; i >= 0; i--)
 		{
 			if ((distanta(waves[i], tureta))>tureta.range && waves[i].isSlowed == true)
-			{	switch(waves[i].id) {
-					case SIMPLE_MONSTER.id:
+			{	switch(waves[i].type) {
+					case SIMPLE_MONSTER.type:
 						waves[i].speed      = SIMPLE_MONSTER.speed;	break;
-					case SPEEDY_MONSTER.id:
+					case SPEEDY_MONSTER.type:
 						waves[i].speed      = SPEEDY_MONSTER.speed;	break;
-					case FLYING_MONSTER.id:
+					case FLYING_MONSTER.type:
 						waves[i].speed      = FLYING_MONSTER.speed;	break;
-					case POWERFUL_MONSTER.id:
+					case POWERFUL_MONSTER.type:
 						waves[i].speed      = POWERFUL_MONSTER.speed;	break;
-					case RAMSI_MONSTER.id:
+					case RAMSI_MONSTER.type:
 						waves[i].speed  	= RAMSI_MONSTER.speed;	break;
 					default:
 						console.log("Invalid monster type!");	break;
@@ -242,7 +242,7 @@ function detectEnemy(tureta)
 					i--;
 					break;
 				}
-				if (tureta.slow==SLOW_TURRET.slow)
+				if (tureta.type==SLOW_TURRET.type)
 					{
 						Slow(waves[i]);
 					}
