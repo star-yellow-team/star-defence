@@ -26,6 +26,7 @@ var SIMPLE_MONSTER = {
     speed:  1,
     damage: 0, 
     color:  'orange',
+	point: 2,
     visible: true
 }
 
@@ -36,6 +37,7 @@ var SPEEDY_MONSTER = {
     speed:  2.5,
     damage: 0,
     color:  'blue',
+	point: 3,
     visible: true
 }
 
@@ -46,6 +48,7 @@ var FLYING_MONSTER={
     speed: 3,
     damage: 0,
     color:  'purple',
+	point: 4,	
     visible: true
 }
 
@@ -56,6 +59,7 @@ var POWERFUL_MONSTER={
     speed: 4,
     damage:0,
     color: 'pink',
+	point: 5,
     visible: true
 }
 
@@ -66,6 +70,7 @@ var RAMSI_MONSTER={
     speed: 2,
     damage:0,
     color: 'magenta',
+	point: 6,
     visible: true
 }
 
