@@ -1,18 +1,19 @@
 var nrRounds = 10;
 var nrMonsters = [];
 var numbers = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71];
-var curentRound = -1;
+var curentRound = 1;
 var x = monsters.length;
 
 //temporar
 var map = mapNumber
 var nrM = NUMBER_OF_MONSTER_TYPES;
+nrM =0;
 /**
  *	functia generateWave se apeleaza cu numarul de tipuri de monstri si dificultatea aleasa de jucator
  *	si construieste vectorul nrMonsters unde pe pozitia i se retine numarul monstrilor de tipul i care trebuie pusi pe harta 
  *	nrM = numarul de tipuri de monstri, 
  **/
-function generateWave()
+function generateWave2()
 {
 	
 	
@@ -39,6 +40,67 @@ function generateWave()
 	fillWaves(nrM);
 }
 
+
+function generateWave()
+{
+	var total = 0;
+	if(curentRound == 1)
+		{
+			for(var i = 0; i <= NUMBER_OF_MONSTER_TYPES; i++)
+				nrMonsters[i] = 0;
+		}
+	else
+		curentRound++;
+	console.log("runda" + curentRound);
+	if(curentRound % 2 == 0 || curentRound == 1)
+	{
+		if( nrM < NUMBER_OF_MONSTER_TYPES)
+			nrM++;	
+	}
+	
+	console.log("numar tipuri monstrii: " + nrM);
+	/*if(curentRound > 1)
+		nrMonsters[0] = nrMonsters[0] + 1;
+	else
+		nrMonsters[0] = 1;
+		*/
+	//nrMonsters[0] = curentRound;
+	//console.log("runda: " + curentRound);
+	
+	nrMonsters[0]++;
+	for(var i = 1; i < nrM; i++)
+	{
+		
+		/*
+			in acest for completez vectorul nrMonsters care reprezinta cati monstri te tipul i subt in wave...
+			nrMonsters[0] creste cu o unitate la fiecare apel al functiei(sau asa ar trebui :D) iar ceilalti au valuarea anteriorului -1(teoretic:D)
+			desi totul pare sumplu nu se intampla nimic din ceea ce am explicat
+			MULT NOROC LA DEBUGING... ADRIAN, WE NEED YOU!!!!!!
+		*/
+		//if(i > 0)
+			nrMonsters[i] = nrMonsters[i-1] - 1;	
+			console.log("anteriorul lui " + i + " este: " + nrMonsters[i-1]);
+		//else
+			//nrMonsters[i] ++;
+		total += nrMonsters[i]; 
+	}
+	console.log("monstrii: " + nrMonsters);
+	
+	
+	
+	fillWaves(nrM);
+	
+	//fill v2 in lucru
+	/*var aux = 0;
+	while(aux < nrM)
+	{
+		for(var i = 0; i < total; i++)	
+			waves[i] = new Monster(Pointsy[0], Pointsx[0], aux);
+		aux++;
+	}
+	*/
+	
+}
 
 /**
  *	functia deleteWave primeste ca parametru numarul de tipuri de monstri si sterge continutul vectorului nrMonsters
