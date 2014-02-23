@@ -238,25 +238,6 @@ function distanta(i, tureta)
 /* Cred ca atacul va depinde de o functie de detectat cand inamicul intra in range */
 function detectEnemy(tureta)
 {
-    for (var i = waves.length-1; i >= 0; i--)
-		{
-			if ((distanta(waves[i], tureta))>tureta.range && waves[i].isSlowed == true)
-			{	switch(waves[i].type) {
-					case SIMPLE_MONSTER.type:
-						waves[i].speed      = SIMPLE_MONSTER.speed;	break;
-					case SPEEDY_MONSTER.type:
-						waves[i].speed      = SPEEDY_MONSTER.speed;	break;
-					case FLYING_MONSTER.type:
-						waves[i].speed      = FLYING_MONSTER.speed;	break;
-					case POWERFUL_MONSTER.type:
-						waves[i].speed      = POWERFUL_MONSTER.speed;	break;
-					case RAMSI_MONSTER.type:
-						waves[i].speed  	= RAMSI_MONSTER.speed;	break;
-					default:
-						console.log("Invalid monster type!");	break;
-			}
-		}
-	}	
 	if(tureta.canAttack() == false && tureta.damage > 0) {
             return;
 	}
@@ -270,8 +251,7 @@ function detectEnemy(tureta)
 						if(tureta.type != 1)
 		           			waves[i].doDamage(tureta.damage)
 						else
-							waves[i].slowMonster();
-								
+							waves[i].slowMonster();	
 				if(!waves[i].isAlive())
 				{
 					userScore  += (waves[i].type + 5)*(waves[i].type + 5)*(waves[i].type + 5);
@@ -288,7 +268,8 @@ function detectEnemy(tureta)
 				//alert("tuasfga");
 		        break;
 	        }
-
+		if(distanta(waves[i], tureta) > tureta.range)
+			waves[i].redoMonster();
         }
 }
 
