@@ -162,8 +162,29 @@ Monster.prototype.doDamage      = function(amount) {
 Monster.prototype.slowMonster = function(amount)
 {
 	amount = Math.abs(amount);
-	if(this.speed - 1 >= 0)
-		this.speed -= 1;
+	switch(this.type)
+	{
+		case 0:
+			this.speed = 0.5;
+			break;
+		case 1:
+			this.speed = 1.25;
+			break;
+		case 2:
+			this.speed = 1.5;
+			break;
+		case 3:
+			this.speed = 2;
+			break;
+		case 4:
+			this.speed = 1;
+			break;
+		default:
+			console.log("ai grija");
+	}
+	
+	if(this.speed - 0.05 >= 0)
+		this.speed -= 0.05;
 	else
 		this.speed = 0;
 	//alert("slow");
