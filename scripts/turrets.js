@@ -44,16 +44,36 @@ var MACHINEGUN_TURRET = {
 	y:	0
 }
 
-var SLOW_TURRET = {
+/*var SLOW_TURRET = {
 	id:	1,
 	damage:	1,
 	range:	300,
+	attackSpeed:	0,
+	damageType:	"Single",
 	upgradeLevel:	0,
 	price:	20,
+	kills:	0,
 	requirement:	"None",
 	description:	"Slows enemies in their path",
 	slow:	"Yes",
 	slowValue: 10,
+	isAttacking:	false,
+	contor:	0,
+	x:	0,
+	y:	0
+}*/
+
+var SLOWING_TURRET = {
+	id:	0,
+	damage:	0.00001,
+	range:	3,
+	attackSpeed:	0,
+	damageType:	"Single",
+	upgradeLevel:	0,
+	price:	10,
+	kills:	0,
+	requirement:	"None",
+	description:	"Fast attacking turret",
 	isAttacking:	false,
 	contor:	0,
 	x:	0,
@@ -98,8 +118,11 @@ var DETECTOR_TURRET = {
 	id:	4,
 	damage:	0,
 	range:	2,
+	attackSpeed:	0,
+	damageType:	"Single",
 	upgradeLevel:	0,
 	price:	20,
+	kills:	0,
 	detection: "Yes",
 	requirement:	"Pass level 8",
 	description:	"Reveals invisible enemies within range",
@@ -129,14 +152,18 @@ function Turret(type)
 			break;
 		
 		
-		case SLOW_TURRET.id:
-			this.range=SLOW_TURRET.range;
-			this.upgradeLevel=SLOW_TURRET.upgradeLevel;
-			this.price=SLOW_TURRET.price;
-			this.requirement=SLOW_TURRET.requirement;
-			this.description=SLOW_TURRET.description;
-			this.slow=SLOW_TURRET.slow;
-			this.contor=SLOW_TURRET.contor;
+		case SLOWING_TURRET.id:
+			this.damage=SLOWING_TURRET.damage;
+			this.range=SLOWING_TURRET.range;
+			this.attackSpeed=SLOWING_TURRET.attackSpeed;
+			this.damageType=SLOWING_TURRET.damageType;
+			this.upgradeLevel=SLOWING_TURRET.upgradeLevel;
+			this.price=SLOWING_TURRET.price;
+			this.kills=SLOWING_TURRET.kills;
+			this.requirement=SLOWING_TURRET.requirement;
+			this.description=SLOWING_TURRET.description;
+			this.isAttacking=SLOWING_TURRET.isAttacking;
+			this.contor=SLOWING_TURRET.contor;
 			break;
 
 		case PLASMA_TURRET.id:
@@ -168,12 +195,16 @@ function Turret(type)
 			break;
 
 		case DETECTOR_TURRET.id:
+			this.damage=DETECTOR_TURRET.damage;
 			this.range=DETECTOR_TURRET.range;
+			this.attackSpeed=DETECTOR_TURRET.attackSpeed;
+			this.damageType=DETECTOR_TURRET.damageType;
 			this.upgradeLevel=DETECTOR_TURRET.upgradeLevel;
 			this.price=DETECTOR_TURRET.price;
-			this.detection=DETECTOR_TURRET.detection;
+			this.kills=DETECTOR_TURRET.kills;
 			this.requirement=DETECTOR_TURRET.requirement;
 			this.description=DETECTOR_TURRET.description;
+			this.isAttacking=DETECTOR_TURRET.isAttacking;
 			this.contor=DETECTOR_TURRET.contor;
 			break;
 
