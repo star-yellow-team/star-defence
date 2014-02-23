@@ -80,12 +80,12 @@ function generateWave()
 			MULT NOROC LA DEBUGING... ADRIAN, WE NEED YOU!!!!!!
 		*/
 		//if(i > 0)
-			nrMonsters[i] = nrMonsters[i - 1];
+			nrMonsters[i] += 1;
 			//console.log("anteriorul lui " + i + " este: " + nrMonsters[i-1]);
 		//else
 			//nrMonsters[i] ++;
 		
-		total += nrMonsters[i]; 
+		//total += nrMonsters[i]; 
 	}
 	console.log("monstrii: " + nrMonsters);
 	
