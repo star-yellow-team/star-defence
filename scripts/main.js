@@ -137,6 +137,7 @@ function gameSetup() {
 function gameLoop() {
     // game logic
     console.log("scor= " + userScore);
+    updateAchievements();
 	takeLife();
 	if(gameOver()) {
 		alert("Finished!");
