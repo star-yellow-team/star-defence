@@ -46,7 +46,7 @@ var MACHINEGUN_TURRET = {
 
 var SLOW_TURRET = {
 	id:	1,
-	damage:	0,
+	damage:	1,
 	range:	300,
 	upgradeLevel:	0,
 	price:	20,
@@ -235,7 +235,8 @@ function detectEnemy(tureta)
 		if(distanta(waves[i], tureta) <= tureta.range)
 			{
             			//pot lovi monstrul
-           			waves[i].doDamage(tureta.damage)
+           			//waves[i].doDamage(tureta.damage)
+					waves[i].slowMonster(100);
 				if(!waves[i].isAlive())
 				{
 					userScore  += (waves[i].type + 5)*(waves[i].type + 5)*(waves[i].type + 5);
@@ -243,16 +244,17 @@ function detectEnemy(tureta)
 					i--;
 					break;
 				}
-				if (tureta.type==SLOW_TURRET.type)
+				if (tureta.type==1)
 					{
 						waves[i].slowMonster(100);
+						
 					}
 					
 				if (tureta.detection==DETECTOR_TURRET.detection && waves[i].isVisible==false)
 				{
 					waves[i].isVisible==true;
 				}
-				
+				//alert("tuasfga");
 		        break;
 	        }
 

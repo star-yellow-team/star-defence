@@ -162,8 +162,8 @@ Monster.prototype.doDamage      = function(amount) {
 Monster.prototype.slowMonster = function(amount)
 {
 	amount = Math.abs(amount);
-	this.speed -= amount;
-	alert("slow");
+	this.speed -= 1;
+	//alert("slow");
 }
 
 /**
