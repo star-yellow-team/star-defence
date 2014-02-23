@@ -11,7 +11,7 @@ Chestiile fun apar JOS STANGA.
 DEFAULTUL este success cu top left.
 */
 
-function updateAchievements()
+function updateAchievements()//Se apeleaza in functia gameLoop(), din main.js.
 {
 	//FOR FUN. Keeping the game with jokes and alive.
 	if(fun_activated == true)
@@ -40,7 +40,7 @@ function updateAchievements()
 	}
 	
 	//ENEMIES ________________________________________________________________________________________________________
-	switch(enemies_defeated_perBattle)
+	switch(enemies_defeated_perBattle)//se verifica in monsters.js la isAlive()
 	{
 		case 1:
 			if(first_enemy_defeated == false)
@@ -65,7 +65,7 @@ function updateAchievements()
 	}
 	
 	//TURRETS__________________________________________________________________________________________________________
-	switch(turrets_placed_perBattle)
+	switch(turrets_placed_perBattle)//Se verifica in maps.js la functia addElement()
 	{
 		case 1:
 			if(first_turret_placed == false)
@@ -84,7 +84,7 @@ function updateAchievements()
 	}
 	
 	//WAVES________________________________________________________________________________________________________
-	switch (waves_won_perBattle)
+	switch (waves_won_perBattle)//Se verifica in main.js la functia waveFinished()
 	{
 		case 1:
 			if(first_wave_won == false)
@@ -108,7 +108,7 @@ function updateAchievements()
 	}
 	
 	//CREDITS________________________________________________________________________________________________________
-	switch(totalCredits)
+	switch(totalCredits)//Se aduna credits cand un monstru este omorat, deci la isAlive().
 	{
 		case 100:
 			if(first_100_credits == false)
