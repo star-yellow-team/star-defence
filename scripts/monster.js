@@ -162,7 +162,10 @@ Monster.prototype.doDamage      = function(amount) {
 Monster.prototype.slowMonster = function(amount)
 {
 	amount = Math.abs(amount);
-	this.speed -= 1;
+	if(this.speed - 1 >= 0)
+		this.speed -= 1;
+	else
+		this.speed = 0;
 	//alert("slow");
 }
 
