@@ -159,9 +159,8 @@ Monster.prototype.doDamage      = function(amount) {
     return this.isAlive()
 }
 
-Monster.prototype.slowMonster = function(amount)
+Monster.prototype.slowMonster = function()
 {
-	amount = Math.abs(amount);
 	switch(this.type)
 	{
 		case 0:

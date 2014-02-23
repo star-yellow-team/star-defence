@@ -270,7 +270,8 @@ function detectEnemy(tureta)
 						if(tureta.type != 1)
 		           			waves[i].doDamage(tureta.damage)
 						else
-							waves[i].slowMonster(100);	
+							waves[i].slowMonster();
+								
 				if(!waves[i].isAlive())
 				{
 					userScore  += (waves[i].type + 5)*(waves[i].type + 5)*(waves[i].type + 5);
