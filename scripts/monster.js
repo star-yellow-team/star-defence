@@ -159,11 +159,30 @@ Monster.prototype.doDamage      = function(amount) {
     return this.isAlive()
 }
 
-Monster.prototype.slowMonster = function(amount)
+Monster.prototype.slowMonster = function()
 {
-	amount = Math.abs(amount);
-	this.speed -= amount;
-	alert("slow");
+	switch(this.type)
+	{
+		case 0:
+			this.speed = 0.5;
+			break;
+		case 1:
+			this.speed = 1.25;
+			break;
+		case 2:
+			this.speed = 1.5;
+			break;
+		case 3:
+			this.speed = 2;
+			break;
+		case 4:
+			this.speed = 1;
+			break;
+		default:
+			console.log("ai grija");
+	}
+	
+	//alert("slow");
 }
 
 /**
