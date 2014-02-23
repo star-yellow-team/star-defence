@@ -1,0 +1,36 @@
+<html>
+   <head>
+      <script type="text/javascript">
+            function sleep(milliseconds) {
+              var start = new Date().getTime();
+              for (var i = 0; i < 1e7; i++) {
+                if ((new Date().getTime() - start) > milliseconds){
+                  break;
+                }
+              }
+            }
+        
+ 
+            var webSocket = new WebSocket("ws://localhost:9000");
+            if(webSocket == undefined) {
+                webSocket = new MozWebSocket("ws://localhost:9000");
+            }
+            webSocket.onmessage = function(e) {
+               alert("Got echo: " + e.data);
+            }
+
+            while(true) {
+                sleep(2);
+                webSocket.send('ping')
+            
+            }
+         
+      </script>
+   </head>
+   <body>
+      <h1>WebSocket Echo Client</h1>
+      <button onclick='webSocket.send("Hello, world!");'>
+         Send Hello
+      </button>
+   </body>
+</html>

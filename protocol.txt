@@ -70,8 +70,8 @@ Fiecare cerere trebuie sa aiba un parametru(cod) care semnifica operatia ce treb
 executata.
 
 Dupa unele operatii, jucatorul ar putea primi o notificare ce va spune daca 
-operatia s-a executat cu succes. Ea va avea parametrii:  success(true/false dupa caz) 
-si message(un mesaj mai detaliat in caz de eroare), code(codul unei notificari) 
+operatia s-a executat cu succes. Ea va avea parametrii:  code(codul unei notificari)
+,success(true/false dupa caz) si message(un mesaj mai detaliat in caz de eroare), 
 si response(in cazul in care se vor returna date de la server).
 
 
