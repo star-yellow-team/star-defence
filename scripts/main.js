@@ -151,6 +151,7 @@ function gameLoop() {
 	
 
     if(waveFinished()){
+    	waves_won_perBattle ++; //ACHIEVEMENTS
         generateWave();
         startMonsters = waves.length;        
     }
