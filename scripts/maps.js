@@ -147,6 +147,7 @@ function addElement(element, x, y, harta)
 		return false;
 	if(x < 0 || x >= MAX_X)
 		return false;
+	if(element==11||element==12||element ==13||element==14||element==15)turrets_placed_perBattle++; //ACHIEVEMENTS
 	matrix[y][x][harta] = element;
 	return true;
 }
