@@ -35,7 +35,7 @@ var first_turret_placed = false;
 var first_10_turrets_placed = false;
 var first_20_turrets_placed = false;
 
-var waves_won_perBattle = 0; //WAVES
+var waves_won_perBattle = -1; //WAVES
 var first_wave_won = false;
 var first_10_waves_won = false;
 var first_50_waves_won = false;
