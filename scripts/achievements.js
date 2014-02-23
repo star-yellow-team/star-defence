@@ -10,7 +10,7 @@ Chestiile fun apar JOS STANGA.
 
 DEFAULTUL este success cu top left.
 */
-$("#laser_turret").notify("covaci nu a terminat partea asta.");
+
 function updateAchievements()
 {
 	//FOR FUN. Keeping the game with jokes and alive.
