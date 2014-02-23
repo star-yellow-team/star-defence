@@ -179,7 +179,6 @@ function gameLoop() {
     // desenam
     draw();
 
-
     setTimeout(gameLoop, loopInterval);
 }
 

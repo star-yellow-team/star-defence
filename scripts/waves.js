@@ -67,9 +67,11 @@ function generateWave()
 	//nrMonsters[0] = curentRound;
 	//console.log("runda: " + curentRound);
 	
-	nrMonsters[0]++;
-	for(var i = 1; i < nrM; i++)
+//	nrMonsters[0]++;
+	for(var i = 0; i < nrM; i++)
 	{
+		if(i == nrM - 1 && nrM < NUMBER_OF_MONSTER_TYPES)
+			break;
 		
 		/*
 			in acest for completez vectorul nrMonsters care reprezinta cati monstri te tipul i subt in wave...
@@ -78,10 +80,11 @@ function generateWave()
 			MULT NOROC LA DEBUGING... ADRIAN, WE NEED YOU!!!!!!
 		*/
 		//if(i > 0)
-			nrMonsters[i] = nrMonsters[i-1] - 1;	
+			nrMonsters[i] = i+1;
 			console.log("anteriorul lui " + i + " este: " + nrMonsters[i-1]);
 		//else
 			//nrMonsters[i] ++;
+		
 		total += nrMonsters[i]; 
 	}
 	console.log("monstrii: " + nrMonsters);
