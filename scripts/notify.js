@@ -160,7 +160,7 @@ pluginOptions = {
   arrowSize: 5,
   breakNewLines: true,
   elementPosition: 'top left',
-  globalPosition: 'top left',
+  globalPosition: 'top right',
   style: 'bootstrap',
   className: 'success',
   showAnimation: 'slideDown',
