@@ -63,9 +63,9 @@ var MACHINEGUN_TURRET = {
 	y:	0
 }*/
 
-var SLOWING_TURRET = {
-	id:	0,
-	damage:	0.00001,
+var SLOW_TURRET = {
+	id:	1,
+	damage:	0,
 	range:	3,
 	attackSpeed:	0,
 	damageType:	"Single",
@@ -152,18 +152,18 @@ function Turret(type)
 			break;
 		
 		
-		case SLOWING_TURRET.id:
-			this.damage=SLOWING_TURRET.damage;
-			this.range=SLOWING_TURRET.range;
-			this.attackSpeed=SLOWING_TURRET.attackSpeed;
-			this.damageType=SLOWING_TURRET.damageType;
-			this.upgradeLevel=SLOWING_TURRET.upgradeLevel;
-			this.price=SLOWING_TURRET.price;
-			this.kills=SLOWING_TURRET.kills;
-			this.requirement=SLOWING_TURRET.requirement;
-			this.description=SLOWING_TURRET.description;
-			this.isAttacking=SLOWING_TURRET.isAttacking;
-			this.contor=SLOWING_TURRET.contor;
+		case SLOW_TURRET.id:
+			this.damage=SLOW_TURRET.damage;
+			this.range=SLOW_TURRET.range;
+			this.attackSpeed=SLOW_TURRET.attackSpeed;
+			this.damageType=SLOW_TURRET.damageType;
+			this.upgradeLevel=SLOW_TURRET.upgradeLevel;
+			this.price=SLOW_TURRET.price;
+			this.kills=SLOW_TURRET.kills;
+			this.requirement=SLOW_TURRET.requirement;
+			this.description=SLOW_TURRET.description;
+			this.isAttacking=SLOW_TURRET.isAttacking;
+			this.contor=SLOW_TURRET.contor;
 			break;
 
 		case PLASMA_TURRET.id:
@@ -257,7 +257,7 @@ function detectEnemy(tureta)
 			}
 		}
 	}	
-	if(tureta.canAttack() == false) {
+	if(tureta.canAttack() == false && tureta.damage > 0) {
             return;
 	}
 	
@@ -266,8 +266,11 @@ function detectEnemy(tureta)
 		if(distanta(waves[i], tureta) <= tureta.range)
 			{
             			//pot lovi monstrul
-           			//waves[i].doDamage(tureta.damage)
-					waves[i].slowMonster(100);
+						
+						if(tureta.type != 1)
+		           			waves[i].doDamage(tureta.damage)
+						else
+							waves[i].slowMonster(100);	
 				if(!waves[i].isAlive())
 				{
 					userScore  += (waves[i].type + 5)*(waves[i].type + 5)*(waves[i].type + 5);
@@ -275,11 +278,7 @@ function detectEnemy(tureta)
 					i--;
 					break;
 				}
-				if (tureta.type==1)
-					{
-						waves[i].slowMonster(100);
-						
-					}
+				
 					
 				if (tureta.detection==DETECTOR_TURRET.detection && waves[i].isVisible==false)
 				{

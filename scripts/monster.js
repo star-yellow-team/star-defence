@@ -183,10 +183,6 @@ Monster.prototype.slowMonster = function(amount)
 			console.log("ai grija");
 	}
 	
-	if(this.speed - 0.05 >= 0)
-		this.speed -= 0.05;
-	else
-		this.speed = 0;
 	//alert("slow");
 }
 

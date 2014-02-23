@@ -76,7 +76,7 @@ function drawTurret(turretNumber) {
                         turrets.push(turret); 
                         break;
                     case 12:
-                        var turret = new Turret(SLOWING_TURRET.id);
+                        var turret = new Turret(SLOW_TURRET.id);
                         turret.x = Math.round((boxX-xMin) / boxSize);
                         turret.y = Math.round(boxY/boxSize);
                         turrets.push(turret); 
