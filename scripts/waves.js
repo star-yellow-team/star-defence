@@ -7,7 +7,7 @@ var x = monsters.length;
 //temporar
 var map = mapNumber
 var nrM = NUMBER_OF_MONSTER_TYPES;
-nrM =0;
+nrM =1;
 /**
  *	functia generateWave se apeleaza cu numarul de tipuri de monstri si dificultatea aleasa de jucator
  *	si construieste vectorul nrMonsters unde pe pozitia i se retine numarul monstrilor de tipul i care trebuie pusi pe harta 
@@ -45,53 +45,26 @@ function generateWave()
 {
 	var total = 0;
 	if(curentRound == 1)
-		{
-			for(var i = 0; i <= NUMBER_OF_MONSTER_TYPES; i++)
-				nrMonsters[i] = 0;
-		}
-	else
-		curentRound++;
-	console.log("runda" + curentRound);
-	if(curentRound % 5 == 0 || curentRound == 1)
 	{
-		if( nrM < NUMBER_OF_MONSTER_TYPES)
-			nrM++;	
+		for(var i = 0; i < NUMBER_OF_MONSTER_TYPES; i++)
+			nrMonsters[i] = 0;	
 	}
 	
-	console.log("numar tipuri monstrii: " + nrM);
-	/*if(curentRound > 1)
-		nrMonsters[0] = nrMonsters[0] + 1;
-	else
-		nrMonsters[0] = 1;
-		*/
-	//nrMonsters[0] = curentRound;
-	//console.log("runda: " + curentRound);
-	
+	if(curentRound % 5 == 0)
+	{
+		if(nrM < NUMBER_OF_MONSTER_TYPES)	
+			nrM++;
+	}
+	console.log("monstru 0: " + nrMonsters[0]);
 	nrMonsters[0]++;
 	for(var i = 1; i < nrM; i++)
 	{
-		//if(i == nrM - 1 && nrM < NUMBER_OF_MONSTER_TYPES)
-			//break;
-		
-		/*
-			in acest for completez vectorul nrMonsters care reprezinta cati monstri te tipul i subt in wave...
-			nrMonsters[0] creste cu o unitate la fiecare apel al functiei(sau asa ar trebui :D) iar ceilalti au valuarea anteriorului -1(teoretic:D)
-			desi totul pare sumplu nu se intampla nimic din ceea ce am explicat
-			MULT NOROC LA DEBUGING... ADRIAN, WE NEED YOU!!!!!!
-		*/
-		//if(i > 0)
-			nrMonsters[i] += 1;
-			//console.log("anteriorul lui " + i + " este: " + nrMonsters[i-1]);
-		//else
-			//nrMonsters[i] ++;
-		
-		//total += nrMonsters[i]; 
+		nrMonsters[i] += 1;	
+		total += nrMonsters[i];
 	}
 	console.log("monstrii: " + nrMonsters);
-	
-	
-	
 	fillWaves(nrM);
+	curentRound++;
 	
 	//fill v2 in lucru
 	/*var aux = 0;
@@ -102,7 +75,6 @@ function generateWave()
 		aux++;
 	}
 	*/
-	
 }
 
 /**
@@ -125,13 +97,15 @@ function fillWaves(nrM)
 {
 	var k = 0;
 	k = 0;
+	var aux = 0;
 	searchPoints(map, 2);
 	for(var i = 0; i < nrM; i++)
 		{
-			while(nrMonsters[i] > 0)
+			aux = nrMonsters[i];
+			while(aux > 0)
 				{
 					waves[k++] = new Monster(Pointsy[0], Pointsx[0], i);
-					nrMonsters[i]--;
+					aux--;
 				}
 		}
 
