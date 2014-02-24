@@ -12,7 +12,6 @@
 // luam obiectele canvas si context
 var canvas          = document.getElementById("gameCanvas");
 var context         = canvas.getContext("2d");
-var startMonsters   = 0
 
 $(".ghostImage").hide();
 
@@ -88,9 +87,7 @@ function draw() {
     drawBackground();
 
 
-    var dimension = boxSize / 3;
-    var offset = (boxSize) / (startMonsters);
-    var currentOffset = 0
+    
 
     // bug: monstrii "sar" cand moare unul dintre ei
     for(var m = 0; m < waves.length; ++ m) {
@@ -98,11 +95,12 @@ function draw() {
 
 	    //deseneaza monstrul
             context.fillStyle = monsters[monster.type].color;
-	    context.fillRect(boxSize * monster.x + dimension, boxSize * monster.y + currentOffset, dimension, dimension); 
-     
+	    context.fillRect(boxSize * monster.x + dimension, boxSize * monster.y + monster.offset, dimension, dimension); 
+        
+            // contur lifebar
             context.strokeStyle = "black"
             context.strokeRect(boxSize * monster.x + dimension / 2, 
-                            boxSize * monster.y - boxSize/3 + currentOffset,
+                            boxSize * monster.y - boxSize/3 + monster.offset,
                             2*dimension, 2*dimension/3 );
             
             //determina viata
@@ -111,14 +109,10 @@ function draw() {
     
             //deseneaza partea rosie
             context.fillRect(boxSize * monster.x + dimension / 2, 
-                            boxSize * monster.y - boxSize/3 + currentOffset, 
+                            boxSize * monster.y - boxSize/3 + monster.offset, 
                             health, 2*dimension/3 );
             
-            currentOffset += offset;
-
-            if(currentOffset > (boxSize-dimension)) {
-                currentOffset = 0;
-            } 
+             
 	}
     
  
@@ -128,6 +122,7 @@ function draw() {
 function gameSetup() {
 	findPath(mapNumber)
 	generateWave()	
+        sizeMonsters()
 }
 
 /**
@@ -147,14 +142,14 @@ function gameLoop() {
     for(var turretIndex in turrets) {
         var turret = turrets[turretIndex];
         detectEnemy(turret);
-		turret.isAttaking = false;
+	turret.isAttaking = false;
     }
 	
 
     if(waveFinished()){
     	waves_won_perBattle ++; //ACHIEVEMENTS
         generateWave();
-        startMonsters = waves.length;        
+        sizeMonsters(); 
     }
 	
 	

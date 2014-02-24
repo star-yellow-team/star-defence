@@ -100,7 +100,8 @@ function Monster(x, y, type) {
     this.destinationY   = 0;
     this.current	= 0;
     this.pace           = 0;
-    
+    this.offset         = 0;    
+
     switch(type) {
 
         case SIMPLE_MONSTER.id:
