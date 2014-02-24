@@ -96,7 +96,6 @@ function deleteWave(nrM)
 function fillWaves(nrM)
 {
 	var k = 0;
-	k = 0;
 	var aux = 0;
 	searchPoints(map, 2);
 	for(var i = 0; i < nrM; i++)
@@ -127,7 +126,6 @@ function waveFinished() {
 }
 
 /**
- * !! DOCUMENTATI
  *	functia gameOver returneaza:
  *		0: jucatorul nu mai are viata
  *		1: jucatorul a terminat toate rundele, A CASTIGAT
