@@ -16,9 +16,9 @@ var nrmax_path      =  0;
 var curentRound     = -1;
 var boxSize         =  0;
 var userScore       =  0;
-
 var turrets         = [];
-
+var dimension       =  0;
+var offset          =  0;
 
 //Achievements
 var time_passed_perBattle = 0; var totalCredits = 0; var totalScore = 0; var fun_activated = true; // TIMP, CREDITS, SCOR, FUN
@@ -35,10 +35,30 @@ var first_turret_placed = false;
 var first_10_turrets_placed = false;
 var first_20_turrets_placed = false;
 
-var waves_won_perBattle = 0; //WAVES
+var waves_won_perBattle = -1; //WAVES
 var first_wave_won = false;
 var first_10_waves_won = false;
 var first_50_waves_won = false;
 var first_100_waves_won = false;
 
 var first_100_credits = false;
+
+$('#money-wrapper').html(String(userScore))
+
+function sizeMonsters() {
+    dimension = boxSize / 3;
+    offset = (boxSize) / (waves.length);
+    var currentOffset = 0;
+
+    for(var mIndex = 0; mIndex < waves.length; ++ mIndex) {
+        var monster     = waves[mIndex]
+        monster.offset  = currentOffset;
+        currentOffset   += offset;
+
+        if(currentOffset > (boxSize-dimension)) {
+            currentOffset = 0;
+        }
+    }
+    
+    
+}

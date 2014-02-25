@@ -27,6 +27,7 @@ var SIMPLE_MONSTER = {
     damage: 0, 
     color:  'orange',
 	point: 2,
+	slowed:	false,
     visible: true
 }
 
@@ -38,6 +39,7 @@ var SPEEDY_MONSTER = {
     damage: 0,
     color:  'blue',
 	point: 3,
+	slowed:	false,
     visible: true
 }
 
@@ -49,6 +51,7 @@ var FLYING_MONSTER={
     damage: 0,
     color:  'purple',
 	point: 4,	
+	slowed:	false,
     visible: true
 }
 
@@ -60,6 +63,7 @@ var POWERFUL_MONSTER={
     damage:0,
     color: 'pink',
 	point: 5,
+	slowed:	false,
     visible: true
 }
 
@@ -71,6 +75,7 @@ var RAMSI_MONSTER={
     damage:0,
     color: 'magenta',
 	point: 6,
+	slowed:	false,
     visible: true
 }
 
@@ -95,7 +100,8 @@ function Monster(x, y, type) {
     this.destinationY   = 0;
     this.current	= 0;
     this.pace           = 0;
-    
+    this.offset         = 0;    
+
     switch(type) {
 
         case SIMPLE_MONSTER.id:
@@ -159,11 +165,58 @@ Monster.prototype.doDamage      = function(amount) {
     return this.isAlive()
 }
 
-Monster.prototype.slowMonster = function(amount)
+Monster.prototype.redoMonster = function()
 {
-	amount = Math.abs(amount);
-	this.speed -= amount;
-	alert("slow");
+	this.slowed=false;
+	switch(this.type)
+	{
+		case 0:
+			this.speed = 1;
+			break;
+		case 1:
+			this.speed = 2.5;
+			break;
+		case 2:
+			this.speed = 3;
+			break;
+		case 3:
+			this.speed = 4;
+			break;
+		case 4:
+			this.speed = 2;
+			break;
+		default:
+			console.log("ai grija");
+	}
+	
+	//alert("slow");
+}
+
+Monster.prototype.slowMonster = function()
+{
+	this.slowed=true;
+	switch(this.type)
+	{
+		case 0:
+			this.speed = 0.5;
+			break;
+		case 1:
+			this.speed = 1.25;
+			break;
+		case 2:
+			this.speed = 1.5;
+			break;
+		case 3:
+			this.speed = 2;
+			break;
+		case 4:
+			this.speed = 1;
+			break;
+		default:
+			console.log("ai grija");
+	}
+	
+	//alert("slow");
 }
 
 /**

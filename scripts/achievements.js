@@ -36,7 +36,7 @@ function updateAchievements()//Se apeleaza in functia gameLoop(), din main.js.
 				break;
 		}
 		$.notify.defaults({ className: "success" }); //pun la loc defaultul.
-		$.notify.defaults({ globalPosition: "top left" }); //pun la loc defaultul.
+		$.notify.defaults({ globalPosition: "top right" }); //pun la loc defaultul.
 	}
 	
 	//ENEMIES ________________________________________________________________________________________________________

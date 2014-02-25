@@ -44,16 +44,36 @@ var MACHINEGUN_TURRET = {
 	y:	0
 }
 
-var SLOW_TURRET = {
+/*var SLOW_TURRET = {
 	id:	1,
-	damage:	0,
+	damage:	1,
 	range:	300,
+	attackSpeed:	0,
+	damageType:	"Single",
 	upgradeLevel:	0,
 	price:	20,
+	kills:	0,
 	requirement:	"None",
 	description:	"Slows enemies in their path",
 	slow:	"Yes",
 	slowValue: 10,
+	isAttacking:	false,
+	contor:	0,
+	x:	0,
+	y:	0
+}*/
+
+var SLOW_TURRET = {
+	id:	1,
+	damage:	0,
+	range:	3,
+	attackSpeed:	0,
+	damageType:	"Single",
+	upgradeLevel:	0,
+	price:	10,
+	kills:	0,
+	requirement:	"None",
+	description:	"Fast attacking turret",
 	isAttacking:	false,
 	contor:	0,
 	x:	0,
@@ -98,8 +118,11 @@ var DETECTOR_TURRET = {
 	id:	4,
 	damage:	0,
 	range:	2,
+	attackSpeed:	0,
+	damageType:	"Single",
 	upgradeLevel:	0,
 	price:	20,
+	kills:	0,
 	detection: "Yes",
 	requirement:	"Pass level 8",
 	description:	"Reveals invisible enemies within range",
@@ -130,12 +153,16 @@ function Turret(type)
 		
 		
 		case SLOW_TURRET.id:
+			this.damage=SLOW_TURRET.damage;
 			this.range=SLOW_TURRET.range;
+			this.attackSpeed=SLOW_TURRET.attackSpeed;
+			this.damageType=SLOW_TURRET.damageType;
 			this.upgradeLevel=SLOW_TURRET.upgradeLevel;
 			this.price=SLOW_TURRET.price;
+			this.kills=SLOW_TURRET.kills;
 			this.requirement=SLOW_TURRET.requirement;
 			this.description=SLOW_TURRET.description;
-			this.slow=SLOW_TURRET.slow;
+			this.isAttacking=SLOW_TURRET.isAttacking;
 			this.contor=SLOW_TURRET.contor;
 			break;
 
@@ -168,12 +195,16 @@ function Turret(type)
 			break;
 
 		case DETECTOR_TURRET.id:
+			this.damage=DETECTOR_TURRET.damage;
 			this.range=DETECTOR_TURRET.range;
+			this.attackSpeed=DETECTOR_TURRET.attackSpeed;
+			this.damageType=DETECTOR_TURRET.damageType;
 			this.upgradeLevel=DETECTOR_TURRET.upgradeLevel;
 			this.price=DETECTOR_TURRET.price;
-			this.detection=DETECTOR_TURRET.detection;
+			this.kills=DETECTOR_TURRET.kills;
 			this.requirement=DETECTOR_TURRET.requirement;
 			this.description=DETECTOR_TURRET.description;
+			this.isAttacking=DETECTOR_TURRET.isAttacking;
 			this.contor=DETECTOR_TURRET.contor;
 			break;
 
@@ -207,26 +238,7 @@ function distanta(i, tureta)
 /* Cred ca atacul va depinde de o functie de detectat cand inamicul intra in range */
 function detectEnemy(tureta)
 {
-    for (var i = waves.length-1; i >= 0; i--)
-		{
-			if ((distanta(waves[i], tureta))>tureta.range && waves[i].isSlowed == true)
-			{	switch(waves[i].type) {
-					case SIMPLE_MONSTER.type:
-						waves[i].speed      = SIMPLE_MONSTER.speed;	break;
-					case SPEEDY_MONSTER.type:
-						waves[i].speed      = SPEEDY_MONSTER.speed;	break;
-					case FLYING_MONSTER.type:
-						waves[i].speed      = FLYING_MONSTER.speed;	break;
-					case POWERFUL_MONSTER.type:
-						waves[i].speed      = POWERFUL_MONSTER.speed;	break;
-					case RAMSI_MONSTER.type:
-						waves[i].speed  	= RAMSI_MONSTER.speed;	break;
-					default:
-						console.log("Invalid monster type!");	break;
-			}
-		}
-	}	
-	if(tureta.canAttack() == false) {
+	if(tureta.canAttack() == false && tureta.damage > 0) {
             return;
 	}
 	
@@ -235,27 +247,30 @@ function detectEnemy(tureta)
 		if(distanta(waves[i], tureta) <= tureta.range)
 			{
             			//pot lovi monstrul
-           			waves[i].doDamage(tureta.damage)
+						
+						if(tureta.type != 1)
+		           			waves[i].doDamage(tureta.damage)
+						else
+							waves[i].slowMonster();	
 				if(!waves[i].isAlive())
 				{
 					userScore  += (waves[i].type + 5)*(waves[i].type + 5)*(waves[i].type + 5);
-					waves.splice(i, 1);
+					$("#money-wrapper").html(String(userScore))
+                                        waves.splice(i, 1);
 					i--;
 					break;
 				}
-				if (tureta.type==SLOW_TURRET.type)
-					{
-						waves[i].slowMonster(100);
-					}
+				
 					
 				if (tureta.detection==DETECTOR_TURRET.detection && waves[i].isVisible==false)
 				{
 					waves[i].isVisible==true;
 				}
-				
+				//alert("tuasfga");
 		        break;
 	        }
-
+		if(distanta(waves[i], tureta) > tureta.range)
+			waves[i].redoMonster();
         }
 }
 
