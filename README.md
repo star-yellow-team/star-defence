@@ -13,10 +13,8 @@ For users
 =========  
 ``` bash
 git clone git@github.com:star-yellow-team/star-defence.git
-
 cd star-defence
-
-
-firefox game.html```
+firefox game.html
+```
 
 :) enjoy :)
