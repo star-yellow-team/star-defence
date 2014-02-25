@@ -265,8 +265,8 @@ function detectEnemy(tureta)
 				{
 					waves[i].isVisible==true;
 				}
-				//alert("tuasfga");
-		        break;
+				if (tureta.type != 1)
+					break;
 	        }
 		if(distanta(waves[i], tureta) > tureta.range)
 			waves[i].redoMonster();
