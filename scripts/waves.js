@@ -96,7 +96,6 @@ function deleteWave(nrM)
 function fillWaves(nrM)
 {
 	var k = 0;
-	k = 0;
 	var aux = 0;
 	searchPoints(map, 2);
 	for(var i = 0; i < nrM; i++)
@@ -127,7 +126,6 @@ function waveFinished() {
 }
 
 /**
- * !! DOCUMENTATI
  *	functia gameOver returneaza:
  *		0: jucatorul nu mai are viata
  *		1: jucatorul a terminat toate rundele, A CASTIGAT
@@ -159,11 +157,13 @@ function takeLife()
             if(!waves[i].isAlive()) {
                 userScore += (waves[i].type + 5)*(waves[i].type + 5)*(waves[i].type + 5);
 				waves.splice(i,1)
+                $("#money-wrapper").html(String(userScore))
                 -- i
                 
                 //ia monstrii care au ajuns la destinatie
              } else if(waves[i].x == Pointsy[0] && waves[i].y == Pointsx[0]) {
 		life--;
+                $("#health-wrapper").html(String(life)+'/5')
 		waves.splice(i,1);
                 -- i;
 	    } // end else if

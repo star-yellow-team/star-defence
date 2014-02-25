@@ -43,6 +43,7 @@ var first_100_waves_won = false;
 
 var first_100_credits = false;
 
+$('#money-wrapper').html(String(userScore))
 
 function sizeMonsters() {
     dimension = boxSize / 3;
