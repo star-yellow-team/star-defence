@@ -11,8 +11,11 @@ Pentru a vedea ce scrie, trebuie sa deschideti consola de javaascript din browse
 
 For users  
 =========  
-git clone git@github.com:star-yellow-team/star-defence.git
+```git clone git@github.com:star-yellow-team/star-defence.git
+
 cd star-defence
-firefox game.html
+
+
+firefox game.html```
 
 :) enjoy :)
