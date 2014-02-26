@@ -131,9 +131,10 @@ $("#ability").hide();
 
 function description(turret) {
 	$("#hover").show();
-	$("#description").html(turret.description);
-	$("#price").html(turret.price);
 	$("#title").html(turret.name);
+	$("#description").html(turret.description);
+	$("#price").show();
+	$("#price").html(turret.price);
 	if (turret.slow)
 		$("#slowt").show();
 	else
@@ -142,9 +143,13 @@ function description(turret) {
 		$("#reveal").show();
 	else
 		$("#reveal").hide();
+	$("#damage").show();
 	$("#damage").html(turret.damage);
+	$("#damageType").show();
 	$("#damageType").html(turret.damageType);
+	$("#speed").show();
 	$("#speed").html(turret.attackSpeed);
+	$("#requirement").show();
 	$("#requirement").html(turret.requirement);
 	if (turret.level > curentRound) {
 		$("#requirement").css("color","red");
@@ -161,4 +166,14 @@ function description(turret) {
 
 function hideHover() {
 	$("#hover").hide();
+}
+
+
+function removeDescription(turret) {
+	$("#hover").show();
+	$("#title").html("Remove Turret");
+	$("#hover").children("p").hide();
+	$("#hover").children("hr").hide();
+	$("#description").show();
+	$("#description").html("Remove an existing turret. You get half the money back!");
 }
