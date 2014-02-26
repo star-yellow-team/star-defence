@@ -27,7 +27,7 @@ var SIMPLE_MONSTER = {
     damage: 0, 
     color:  'orange',
 	point: 2,
-	slowed:	false,
+	slowingTurret:	0,
     visible: true
 }
 
@@ -39,7 +39,7 @@ var SPEEDY_MONSTER = {
     damage: 0,
     color:  'blue',
 	point: 3,
-	slowed:	false,
+	slowingTurret:	0,
     visible: true
 }
 
@@ -51,7 +51,7 @@ var FLYING_MONSTER={
     damage: 0,
     color:  'purple',
 	point: 4,	
-	slowed:	false,
+	slowingTurret:	0,
     visible: true
 }
 
@@ -63,7 +63,7 @@ var POWERFUL_MONSTER={
     damage:0,
     color: 'pink',
 	point: 5,
-	slowed:	false,
+	slowingTurret:	0,
     visible: true
 }
 
@@ -75,7 +75,7 @@ var RAMSI_MONSTER={
     damage:0,
     color: 'magenta',
 	point: 6,
-	slowed:	false,
+	slowingTurret:	0,
     visible: true
 }
 
@@ -167,23 +167,23 @@ Monster.prototype.doDamage      = function(amount) {
 
 Monster.prototype.redoMonster = function()
 {
-	this.slowed=false;
+	this.slowingTurret=-1;
 	switch(this.type)
 	{
-		case 0:
-			this.speed = 1;
+		case SIMPLE_MONSTER.id:
+			this.speed = SIMPLE_MONSTER.speed;
 			break;
-		case 1:
-			this.speed = 2.5;
+		case SPEEDY_MONSTER.id:
+			this.speed = SPEEDY_MONSTER.speed;
 			break;
-		case 2:
-			this.speed = 3;
+		case FLYING_MONSTER.id:
+			this.speed = FLYING_MONSTER.speed;
 			break;
-		case 3:
-			this.speed = 4;
+		case POWERFUL_MONSTER.id:
+			this.speed = POWERFUL_MONSTER.speed;
 			break;
-		case 4:
-			this.speed = 2;
+		case RAMSI_MONSTER.id:
+			this.speed = RAMSI_MONSTER.speed;
 			break;
 		default:
 			console.log("ai grija");
@@ -192,30 +192,30 @@ Monster.prototype.redoMonster = function()
 	//alert("slow");
 }
 
-Monster.prototype.slowMonster = function()
+Monster.prototype.slowMonster = function(param)
 {
-	this.slowed=true;
+	this.slowingTurret=param;
 	switch(this.type)
 	{
-		case 0:
-			this.speed = 0.5;
+		case SIMPLE_MONSTER.id:
+			this.speed = SIMPLE_MONSTER.speed/2;
 			break;
-		case 1:
-			this.speed = 1.25;
+		case SPEEDY_MONSTER.id:
+			this.speed = SIMPLE_MONSTER.speed/2;
 			break;
-		case 2:
-			this.speed = 1.5;
+		case FLYING_MONSTER.id:
+			this.speed = FLYING_MONSTER.speed/2;
 			break;
-		case 3:
-			this.speed = 2;
+		case POWERFUL_MONSTER.id:
+			this.speed = POWERFUL_MONSTER.speed/2;
 			break;
-		case 4:
-			this.speed = 1;
+		case RAMSI_MONSTER.id:
+			this.speed = RAMSI_MONSTER.speed/2;
 			break;
 		default:
 			console.log("ai grija");
 	}
-	
+	return param;
 	//alert("slow");
 }
 

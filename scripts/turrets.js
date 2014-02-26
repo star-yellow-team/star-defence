@@ -7,40 +7,21 @@
 //numar maxim de tipuri de turete
 var NUMBER_OF_TURRET_TYPES = 5;
 
-//functia slow
-function Slow(monster)
-{
-	switch(monster.type) {
-        case SIMPLE_MONSTER.type:
-            monster.speed      = SIMPLE_MONSTER.speed/2;	break;
-        case SPEEDY_MONSTER.type:
-            monster.speed      = SPEEDY_MONSTER.speed/2;	break;
-		case FLYING_MONSTER.type:
-			monster.speed      = FLYING_MONSTER.speed/2;	break;
-        case POWERFUL_MONSTER.type:
-			monster.speed      = POWERFUL_MONSTER.speed/2;		break;
-		case RAMSI_MONSTER.type:
-			monster.speed	   = RAMSI_MONSTER.speed/2;		break;
-        default:
-            console.log("Invalid monster type!");	break;
-    }
-}
-
 //Tipuri de turete
 var MACHINEGUN_TURRET = {
 	name: "Machinegun Turret",
 	id:	0,
 	damage:	0.6,
-	range:	3,
+	range:	2,
 	attackSpeed:	4,
+	slow:	false,
+	reveal:	false,
 	damageType:	"Single",
 	upgradeLevel:	0,
 	price:	10,
 	kills:	0,
 	requirement:	"None",
 	description:	"Fast attacking turret",
-	slow:	false,
-	reveal:	false,
 	isAttacking:	false,
 	contor:	0,
 	x:	0,
@@ -58,7 +39,7 @@ var MACHINEGUN_TURRET = {
 	kills:	0,
 	requirement:	"None",
 	description:	"Slows enemies in their path",
-	slow:	true,
+	slow:	"Yes",
 	slowValue: 10,
 	isAttacking:	false,
 	contor:	0,
@@ -70,14 +51,16 @@ var SLOW_TURRET = {
 	name: "Slow Turret",
 	id:	1,
 	damage:	0,
-	range:	3,
+	range:	2,
 	attackSpeed:	0,
 	damageType:	"Spread",
 	upgradeLevel:	0,
+	slow:	true,
+	reveal:	false,
 	price:	10,
 	kills:	0,
 	requirement:	"None",
-	description:	"Fast attacking turret",
+	description:	"Slows enemies in their path",
 	slow:	true,
 	reveal:	false,
 	isAttacking:	false,
@@ -94,12 +77,12 @@ var PLASMA_TURRET = {
 	attackSpeed:    4,
 	damageType:	"Splash",
 	upgradeLevel:	0,
+	slow:	false,
+	reveal:	false,
 	price:	40,
 	kills:	0,
 	requirement:	"None",
 	description:	"Strong turret against swarms of small units",
-	slow:	false,
-	reveal:	false,
 	isAttacking:	false,
 	contor:	0,
 	x:	0,
@@ -110,17 +93,17 @@ var LASER_TURRET = {
 	name: "Laser Turret",
 	id:	3,
 	damage:	1.1,
-	range:	3,
+	range:	2,
 	attackSpeed:	4,
 	damageType:	"Single",
 	upgradeLevel:	0,
+	slow:	false,
+	reveal:	false,
 	price:	50,
 	kills:	0,
 	requirement:	"Pass level 6",
 	level: 6,
 	description:	"Fires laser beams at enemy targets",
-	slow:	false,
-	reveal:	false,
 	isAttacking:	false,
 	contor:	0,
 	x:	0,
@@ -135,23 +118,19 @@ var DETECTOR_TURRET = {
 	attackSpeed:	0,
 	damageType:	"Single",
 	upgradeLevel:	0,
+	slow:	false,
+	reveal:	true,
 	price:	20,
 	kills:	0,
 	detection: "Yes",
+	reveal:	true,
 	requirement:	"Pass level 8",
 	level: 8,
 	description:	"Reveals invisible enemies within range",
-	slow:	false,
-	reveal:	true,
 	isAttacking:	false,
 	contor:	0,
 	x:	0,
 	y:	0
-}
-
-var REMOVE_TURRET = {
-	name: "Remove Turret",
-	description: "Destroy an existing turret, to get half the money back"
 }
 
 function Turret(type)
@@ -270,10 +249,10 @@ function detectEnemy(tureta)
 			{
             			//pot lovi monstrul
 						
-						if(tureta.type != 1)
-		           			waves[i].doDamage(tureta.damage)
-						else
-							waves[i].slowMonster();	
+				if(tureta.type != SLOW_TURRET.id)
+		           	waves[i].doDamage(tureta.damage)
+				if(tureta.type == SLOW_TURRET.id)
+					waves[i].slowMonster(turretIndex);	
 				if(!waves[i].isAlive())
 				{
 					userScore  += (waves[i].type + 5)*(waves[i].type + 5)*(waves[i].type + 5);
@@ -291,8 +270,6 @@ function detectEnemy(tureta)
 				if (tureta.type != 1)
 					break;
 	        }
-		if(distanta(waves[i], tureta) > tureta.range)
-			waves[i].redoMonster();
         }
 }
 

@@ -129,6 +129,7 @@ function gameSetup() {
  *  Este chemata la fiecare loop
  *  Are grija de logica jocului
  * */
+ var turretIndex
 function gameLoop() {
     // game logic
     updateAchievements();
@@ -138,9 +139,14 @@ function gameLoop() {
 		return 0;
 	}
 	
-    for(var turretIndex in turrets) {
+    for(turretIndex in turrets) {
         var turret = turrets[turretIndex];
         detectEnemy(turret);
+		for (var i = waves.length-1; i >= 0; i--)
+		{
+			if((distanta(waves[i], turret) > turret.range) && waves[i].slowingTurret==turretIndex)
+				waves[i].redoMonster();
+				}
 	turret.isAttaking = false;
     }
 	
