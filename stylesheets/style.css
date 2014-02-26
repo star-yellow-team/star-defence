@@ -54,10 +54,14 @@ body {
 	position:relative;
 	float:right;
 	background-color:#003D00;
+	background: -webkit-linear-gradient(#000300, #000300, #001F00, #000300, #000300); /* For Safari */
+	background: -o-linear-gradient(#000300, #000300, #001F00, #000300, #000300); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#000300, #000300, #001F00, #000300, #000300); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#000300, #000300, #001F00, #000300, #000300); /* Standard syntax */
 }
 
 #bar-wrapper {
-	background-color:#002B00;
+	background-color:#000300;
 	vertical-align:central;
 	font-family: 'Share Tech', sans-serif;
 	font-size:100%;
