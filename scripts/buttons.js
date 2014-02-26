@@ -80,6 +80,9 @@ function drawTurret(turretNumber) {
 	// In cazul RemoveTurret (verde)
 	if (turretNumber == 0) {
 		deleteElement(placeX, placeY, mapNumber);
+		for (i in turrets)
+			if(turrets[i].x == placeX && turrets[i].y == placeY)
+				turrets.splice(i);
 	} 
 	
 	// Desenare turret
