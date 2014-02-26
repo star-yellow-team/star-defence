@@ -192,25 +192,25 @@ Monster.prototype.redoMonster = function()
 	//alert("slow");
 }
 
-Monster.prototype.slowMonster = function(param)
+Monster.prototype.slowMonster = function(param, tureta)
 {
 	this.slowingTurret=param;
 	switch(this.type)
 	{
 		case SIMPLE_MONSTER.id:
-			this.speed = SIMPLE_MONSTER.speed/2;
+			this.speed = SIMPLE_MONSTER.speed/tureta.amount;
 			break;
 		case SPEEDY_MONSTER.id:
-			this.speed = SIMPLE_MONSTER.speed/2;
+			this.speed = SIMPLE_MONSTER.speed/tureta.amount;
 			break;
 		case FLYING_MONSTER.id:
-			this.speed = FLYING_MONSTER.speed/2;
+			this.speed = FLYING_MONSTER.speed/tureta.amount;
 			break;
 		case POWERFUL_MONSTER.id:
-			this.speed = POWERFUL_MONSTER.speed/2;
+			this.speed = POWERFUL_MONSTER.speed/tureta.amount;
 			break;
 		case RAMSI_MONSTER.id:
-			this.speed = RAMSI_MONSTER.speed/2;
+			this.speed = RAMSI_MONSTER.speed/tureta.amount;
 			break;
 		default:
 			console.log("ai grija");

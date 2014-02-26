@@ -11,11 +11,12 @@ var NUMBER_OF_TURRET_TYPES = 5;
 var MACHINEGUN_TURRET = {
 	name: "Machinegun Turret",
 	id:	0,
-	damage:	0.6,
+	damage:	0.5,
 	range:	2,
 	attackSpeed:	4,
 	slow:	false,
 	reveal:	false,
+	amount:	0,
 	damageType:	"Single",
 	upgradeLevel:	0,
 	price:	10,
@@ -53,16 +54,18 @@ var SLOW_TURRET = {
 	damage:	0,
 	range:	2,
 	attackSpeed:	0,
-	damageType:	"Spread",
+	damageType:	"Area of Effect",
 	upgradeLevel:	0,
 	slow:	true,
 	reveal:	false,
+	amount:	2,
 	price:	10,
 	kills:	0,
 	requirement:	"None",
 	description:	"Slows enemies in their path",
 	slow:	true,
 	reveal:	false,
+	amount:	2,
 	isAttacking:	false,
 	contor:	0,
 	x:	0,
@@ -79,6 +82,7 @@ var PLASMA_TURRET = {
 	upgradeLevel:	0,
 	slow:	false,
 	reveal:	false,
+	amount:	0,
 	price:	40,
 	kills:	0,
 	requirement:	"None",
@@ -92,13 +96,14 @@ var PLASMA_TURRET = {
 var LASER_TURRET = {
 	name: "Laser Turret",
 	id:	3,
-	damage:	1.1,
+	damage:	0.2,
 	range:	2,
-	attackSpeed:	4,
+	attackSpeed:	1,
 	damageType:	"Single",
 	upgradeLevel:	0,
 	slow:	false,
 	reveal:	false,
+	amount:	0,
 	price:	50,
 	kills:	0,
 	requirement:	"Pass level 6",
@@ -114,12 +119,13 @@ var DETECTOR_TURRET = {
 	name: "Detector Turret",
 	id:	4,
 	damage:	0,
-	range:	2,
+	range:	3,
 	attackSpeed:	0,
 	damageType:	"Single",
 	upgradeLevel:	0,
 	slow:	false,
 	reveal:	true,
+	amount:	0,
 	price:	20,
 	kills:	0,
 	detection: "Yes",
@@ -136,7 +142,6 @@ var DETECTOR_TURRET = {
 function Turret(type)
 {
 	this.type       = type;
-        this.isSlowed   = false
 	switch(type)	{
 		case MACHINEGUN_TURRET.id:
 			this.damage=MACHINEGUN_TURRET.damage;
@@ -163,6 +168,7 @@ function Turret(type)
 			this.kills=SLOW_TURRET.kills;
 			this.requirement=SLOW_TURRET.requirement;
 			this.description=SLOW_TURRET.description;
+			this.amount=SLOW_TURRET.amount;
 			this.isAttacking=SLOW_TURRET.isAttacking;
 			this.contor=SLOW_TURRET.contor;
 			break;
@@ -252,7 +258,7 @@ function detectEnemy(tureta)
 				if(tureta.type != SLOW_TURRET.id)
 		           	waves[i].doDamage(tureta.damage)
 				if(tureta.type == SLOW_TURRET.id)
-					waves[i].slowMonster(turretIndex);	
+					waves[i].slowMonster(turretIndex, tureta);	
 				if(!waves[i].isAlive())
 				{
 					userScore  += (waves[i].type + 5)*(waves[i].type + 5)*(waves[i].type + 5);
@@ -276,7 +282,65 @@ function detectEnemy(tureta)
 /* Aici mai modificam pentru ca imi trebuie variabila in care stocam banii, skin-urile pe care le va avea fiecare turret la fiecare nivel */
 function upgrade(tureta)
 {
-	
-	money=money-price;
+	switch(type)	{
+		case MACHINEGUN_TURRET.id:
+			switch(level)	{
+				case 0:		tureta.range+=1; 				break;
+				case 1:		tureta.damage+=0.2;				break;
+				case 2:		tureta.range+=1;				break;
+				case 3:		tureta.damage+=0.2;				break;
+				case 4:		tureta.attackSpeed-=1.5;		break;
+				default:	console.log("Cannot be upgraded any further!");	
+			}
+			break;
+			
+		case SLOW_TURRET.id:
+			switch(level)	{
+				case 0:		tureta.range+=1; 				break;
+				case 1:		tureta.amount=1.66666;				break;
+				case 2:		tureta.range+=1;				break;
+				case 3:		tureta.amount=2;				break;
+				case 4:		tureta.amount=2.5;				break;
+				default:	console.log("Cannot be upgraded any further!");		
+			}
+			break;
+
+		case PLASMA_TURRET.id:
+			switch(level)	{
+				case 0:		tureta.damage+=0.3; 			break;
+				case 1:		tureta.range+=1;				break;
+				case 2:		tureta.damage+=0.5;				break;
+				case 3:		tureta.range+=1;				break;
+				case 4:		tureta.attackSpeed-=1;			break;
+				default:	console.log("Cannot be upgraded any further!");		
+			}
+			break;
+
+		case LASER_TURRET.id:
+			switch(level)	{
+				case 0:		tureta.range+=1; 				break;
+				case 1:		tureta.damage+=0.2;				break;
+				case 2:		tureta.range+=1;				break;
+				case 3:		tureta.damage+=0.3;				break;
+				case 4:		tureta.damage+=1;				break;
+				default:	console.log("Cannot be upgraded any further!");		
+			}
+			break;
+
+		case DETECTOR_TURRET.id:
+			switch(level)	{
+				case 0:		tureta.range+=1; 				break;
+				case 1:		tureta.range+=1;				break;
+				case 2:		tureta.range+=1;				break;
+				case 3:		tureta.range+=1;				break;
+				case 4:		tureta.range+=2;				break;
+				default:	console.log("Cannot be upgraded any further!");		
+			}
+			break;
+
+		default:
+			console.log("Invalid turret type!");	
+    }
+	userScore=userScore-price;
 	tureta.upgradeLevel++;
 }
