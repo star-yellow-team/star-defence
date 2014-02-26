@@ -61,42 +61,50 @@ function unstick() {
 	hover = "";
 }
 
-//Functia de desenare turete
+// Functia de desenare turete
 function drawTurret(turretNumber) {
+	
+	// Calculare Pozitie pe harta
+	placeX = Math.round((boxX - xMin - 5) / boxSize);
+	placeY = Math.round((boxY - yMin - 5) / boxSize);
+	
+	// In cazul RemoveTurret (verde)
 	if (turretNumber == 0) {
-		deleteElement(Math.round((boxX - xMin) / boxSize), Math.round(boxY / boxSize), mapNumber);
-	} else if (addElement(turretNumber, Math.round((boxX - xMin - 5) / boxSize), Math.round((boxY - yMin - 5) / boxSize), mapNumber) == true) {
-
+		deleteElement(placeX, placeY, mapNumber);
+	} 
+	
+	// Desenare turret
+	else if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
     		unstick();
 	        switch(turretNumber) {
                     case 11:
                         var turret = new Turret(MACHINEGUN_TURRET.id);
-                        turret.x = Math.round((boxX-xMin) / boxSize);
-                        turret.y = Math.round(boxY/boxSize);
+                        turret.x = placeX;
+                        turret.y = placeY;
                         turrets.push(turret); 
                         break;
                     case 12:
                         var turret = new Turret(SLOW_TURRET.id);
-                        turret.x = Math.round((boxX-xMin) / boxSize);
-                        turret.y = Math.round(boxY/boxSize);
+                        turret.x = placeX;
+                        turret.y = placeY;
                         turrets.push(turret); 
                         break;
                     case 13:
                         var turret = new Turret(PLASMA_TURRET.id);
-                        turret.x = Math.round((boxX-xMin) / boxSize);
-                        turret.y = Math.round(boxY/boxSize);
+                        turret.x = placeX;
+                        turret.y = placeY;
                         turrets.push(turret);
                         break;  
                     case 14:
                         var turret = new Turret(LASER_TURRET.id);
-                        turret.x = Math.round((boxX-xMin) / boxSize);
-                        turret.y = Math.round(boxY/boxSize);
+                        turret.x = placeX;
+                        turret.y = placeY;
                         turrets.push(turret);
                         break;
                     case 15:
                         var turret = new Turret(DETECTOR_TURRET.id);
-                        turret.x = Math.round((boxX-xMin) / boxSize);
-                        turret.y = Math.round(boxY/boxSize);
+                        turret.x = placeX;
+                        turret.y = placeY;
                         turrets.push(turret);
                         break;
 
