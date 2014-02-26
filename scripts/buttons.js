@@ -31,11 +31,11 @@ $(document).mousemove(function(event) {
 		}
         $(hover).css("left",boxX);
        	$(hover).css("top",boxY);
-		if (event.pageX + 5 * boxSize > screenWidth)
-			hoverX = event.pageX - 21 - 5 * boxSize;
-		else
-			hoverX = event.pageX - 1;
-		hoverY = event.pageY;	
+		hoverX = event.pageX - $("#hover").width() - 25;
+		if (event.pageY + $("#hover").width() < screenHeight)
+			hoverY = event.pageY - 5;
+		else	
+			hoverY = event.pageY - $("#hover").height() - 5;
 		$("#hover").css("top",hoverY);
 		$("#hover").css("left",hoverX);
 });
@@ -125,32 +125,38 @@ function drawTurret(turretNumber) {
 }
 
 $("#hover").hide();
-$("#slow").hide();
+$("#slowt").hide();
 $("#reveal").hide();
+$("#ability").hide();
 
 function description(turret) {
 	$("#hover").show();
 	$("#description").html(turret.description);
+	$("#price").html(turret.price);
 	$("#title").html(turret.name);
 	if (turret.slow)
-		$("#slow").show();
+		$("#slowt").show();
 	else
-		$("#slow").hide();
+		$("#slowt").hide();
 	if (turret.reveal)
 		$("#reveal").show();
 	else
-		$("#slow").hide();
+		$("#reveal").hide();
 	$("#damage").html(turret.damage);
 	$("#damageType").html(turret.damageType);
-	$("#speed").html(turret.name);
-	$("#requirement").html(turret.name);
-	if (turret.level < curentRound)
+	$("#speed").html(turret.attackSpeed);
+	$("#requirement").html(turret.requirement);
+	if (turret.level > curentRound) {
 		$("#requirement").css("color","red");
-	else
+		$("#requirement").css("font-weight","bold");
+	} else {
 		$("#requirement").css("color","white");
-	console.log(turret.reveal);
-	console.log(turret.slow);
-	console.log(curentRound);
+		$("#requirement").css("font-weight","normal");
+	}
+	if (turret.slow || turret.reveal)
+ 		$("#ability").show();
+	else
+	    $("#ability").hide();
 }
 
 function hideHover() {

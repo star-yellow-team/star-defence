@@ -80,7 +80,14 @@ function sizeScreen() {
     $("#health-wrapper").css("background-size",boxSize / 2);
     $("#money-wrapper").css("background-size",boxSize / 2);
 	
-    $("#hover").css("width",5 * boxSize);
+    $("#title").css("font-size",(boxSize / 5 * 3) * 150 / 100);
+    $("#hover").css("font-size",boxSize / 5 * 3);
+    $("#slowt").css("background-size",boxSize / 2);
+    $("#slowt").css("padding-left",boxSize / 2);
+    $("#reveal").css("background-size",boxSize / 2);
+    $("#reveal").css("padding-left",boxSize / 2);
+    $("#price").css("background-size",boxSize / 2);
+    $("#price").css("padding-left",boxSize / 2);
     
     $("#health-wrapper").css("height",boxSize); 
     $("#health-wrapper").css("width",2 * boxSize); 

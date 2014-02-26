@@ -196,6 +196,7 @@ body {
 	font-size:100%;
 	padding:0px;
 	margin:0px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 #title {
@@ -204,21 +205,28 @@ body {
 }
 
 #description {
-	font-family: "Trebuchet MS", Helvetica, sans-serif
 }
 
 #slowt {
 	background-image:url(../images/snowflake.png);
 	background-position:left center;
 	background-repeat:no-repeat;
+	background-size:inherit;
 	color:cyan;
-	padding-left:20px;
 }
 
 #reveal {
 	background-image:url(../images/eye.png);
 	background-position:left center;
 	background-repeat:no-repeat;
-	color:beige;
-	padding-left:20px;
+	background-size:inherit;
+	color:lightgreen;
+}
+
+#price {
+	background-image:url(../images/money.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	background-size:inherit;
+	color: orange;
 }
