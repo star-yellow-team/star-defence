@@ -102,13 +102,13 @@ function drawTurret(turretNumber) {
                         turrets.push(turret); 
                         break;
                     case 13:
-                        var turret = new Turret(PLASMA_TURRET.id);
+                        var turret = new Turret(LASER_TURRET.id);
                         turret.x = placeX;
                         turret.y = placeY;
                         turrets.push(turret);
                         break;  
                     case 14:
-                        var turret = new Turret(LASER_TURRET.id);
+                        var turret = new Turret(PLASMA_TURRET.id);
                         turret.x = placeX;
                         turret.y = placeY;
                         turrets.push(turret);
