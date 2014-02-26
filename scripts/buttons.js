@@ -134,8 +134,23 @@ function description(turret) {
 	$("#title").html(turret.name);
 	if (turret.slow)
 		$("#slow").show();
+	else
+		$("#slow").hide();
 	if (turret.reveal)
 		$("#reveal").show();
+	else
+		$("#slow").hide();
+	$("#damage").html(turret.damage);
+	$("#damageType").html(turret.damageType);
+	$("#speed").html(turret.name);
+	$("#requirement").html(turret.name);
+	if (turret.level < curentRound)
+		$("#requirement").css("color","red");
+	else
+		$("#requirement").css("color","white");
+	console.log(turret.reveal);
+	console.log(turret.slow);
+	console.log(curentRound);
 }
 
 function hideHover() {
