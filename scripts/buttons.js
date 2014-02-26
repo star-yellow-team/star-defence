@@ -131,9 +131,10 @@ $("#ability").hide();
 
 function description(turret) {
 	$("#hover").show();
+	$("#hover").children("p").show();
+	$("#hover").children("hr").show();
 	$("#title").html(turret.name);
 	$("#description").html(turret.description);
-	$("#price").show();
 	$("#price").html(turret.price);
 	if (turret.slow)
 		$("#slowt").show();
@@ -143,13 +144,9 @@ function description(turret) {
 		$("#reveal").show();
 	else
 		$("#reveal").hide();
-	$("#damage").show();
 	$("#damage").html(turret.damage);
-	$("#damageType").show();
 	$("#damageType").html(turret.damageType);
-	$("#speed").show();
 	$("#speed").html(turret.attackSpeed);
-	$("#requirement").show();
 	$("#requirement").html(turret.requirement);
 	if (turret.level > curentRound) {
 		$("#requirement").css("color","red");
