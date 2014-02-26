@@ -19,10 +19,14 @@
         	<canvas id="gameCanvas" >
         	</canvas>
             <div id="menu-wrapper">
-            	<div id="bar-wrapper">
-                    <div id="health-wrapper">5 / 5</div>
-                    <div id="money-wrapper">15,000</div>
-                </div>
+            	<table id="bar-wrapper">
+                <tr>
+                    <td id="health-wrapper"><p id="money">5 / 5</p>
+                    </td></tr>
+                    <tr>
+                    <td id="money-wrapper"><p id="health">15,000</p>
+                    </tr>
+                </table>
             	<div id="turret-menu">
                 	<div class="button" id="machinegun_turret" onClick="stick(11)"></div>
                 	<div class="button" id="slow_turret" onClick="stick(12)"></div>

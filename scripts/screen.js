@@ -38,16 +38,16 @@ function sizeScreen() {
     screenHeight = $(window).height();
    
     // o selectam pe cea mai mica
-    if (screenWidth / numberOfBoxesX < screenHeight / numberOfBoxesY) {
-       	screenSize = screenWidth - 15 - 2 * boxSize;
+    if ((screenWidth - 10) / (numberOfBoxesX + 2) < (screenHeight - 10) / numberOfBoxesY) {
+       	screenSize = (screenWidth - 10) / (numberOfBoxesX + 2) * numberOfBoxesX;
 		maxNumberOfBoxes = numberOfBoxesX;
     } else {
-        screenSize = screenHeight - 15 - 2 * boxSize;
+        screenSize = screenHeight - 10;
 		maxNumberOfBoxes = numberOfBoxesY;
     }
 
     // setam dimesniunea unei celule prin rotunjire la cea mai mica unitate
-    boxSize = Math.floor(screenSize / maxNumberOfBoxes);
+    boxSize = Math.floor(screenSize / maxNumberOfBoxes) - 1;
 	
 	// recalculam marimea body ca un numar divizibil cu 20
     canvasWidth = numberOfBoxesX * boxSize;
@@ -76,6 +76,9 @@ function sizeScreen() {
     
     $("#bar-wrapper").css("height",2 * boxSize); 
     $("#bar-wrapper").css("width",2 * boxSize); 
+    $("#bar-wrapper").css("font-size",boxSize / 5 * 3);
+    $("#health-wrapper").css("background-size",boxSize / 2);
+    $("#money-wrapper").css("background-size",boxSize / 2);
     
     $("#health-wrapper").css("height",boxSize); 
     $("#health-wrapper").css("width",2 * boxSize); 

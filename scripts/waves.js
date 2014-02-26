@@ -150,21 +150,21 @@ function gameOver()
 function takeLife()
 {       
         // ia monstrii care au ajuns la destinatie
-	searchPoints(map, 3);
-	for(var i = 0; i < waves.length; i++) {
+	    searchPoints(map, 3);
+	    for(var i = 0; i < waves.length; i++) {
 
             // ia monstrii care sunt morti
             if(!waves[i].isAlive()) {
                 userScore += (waves[i].type + 5)*(waves[i].type + 5)*(waves[i].type + 5);
 				waves.splice(i,1)
-                $("#money-wrapper").html(String(userScore))
+                $("#money").html(String(userScore))
                 -- i
                 
                 //ia monstrii care au ajuns la destinatie
-             } else if(waves[i].x == Pointsy[0] && waves[i].y == Pointsx[0]) {
-		life--;
-                $("#health-wrapper").html(String(life)+'/5')
-		waves.splice(i,1);
+            } else if(waves[i].x == Pointsy[0] && waves[i].y == Pointsx[0]) {
+		        life--;
+                $("#health").html(String(life)+' / 5')
+		        waves.splice(i,1);
                 -- i;
 	    } // end else if
 

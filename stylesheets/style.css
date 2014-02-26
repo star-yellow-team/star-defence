@@ -60,7 +60,11 @@ body {
 	background-color:#002B00;
 	vertical-align:central;
 	font-family: 'Share Tech', sans-serif;
-	font-size:20px;
+	font-size:100%;
+	display: table;
+	height: 400px;
+	#position: relative;
+	overflow: hidden;
 }
 
 #gameCanvas {
@@ -110,15 +114,33 @@ body {
 	float:right;
 }
 
+#bar-wrapper, #bar-wrapper p, #barwrapper tr, #bar-wrapper tr td {
+	padding:0px;
+	margin:0px;
+	text-align:right !important;
+}
+
 #health-wrapper {
 	border-bottom: 2px solid #005C00;
 	color:white;
 	text-align:center;
+	display: table-cell;
+	vertical-align: middle;
+	background-image:url(../images/heart.png);
+	background-repeat:no-repeat;
+	background-position:left center;
+	padding-right:5px;
 }
 
 #money-wrapper {
 	color:white;
 	text-align:center;
+	display: table-cell;
+	vertical-align: middle;
+	background-image:url(../images/money.png);
+	background-repeat:no-repeat;
+	background-position:left center;
+	padding-right:5px;
 }
 
 #buttonsWrapper {
