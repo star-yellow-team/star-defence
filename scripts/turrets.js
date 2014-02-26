@@ -65,19 +65,21 @@ var SLOW_TURRET = {
 	description:	"Slows enemies in their path",
 	slow:	true,
 	reveal:	false,
-	amount:	2,
 	isAttacking:	false,
 	contor:	0,
 	x:	0,
 	y:	0
 }
-
+//30%.........1.42857
+//40%.........1.66666
+//50%.........2
+//60%.........2.5
 var PLASMA_TURRET = {
 	name: "Plasma Turret",
 	id:	2,
-	damage:	1.0,
+	damage:	0.1,
 	range:	2,
-	attackSpeed:    4,
+	attackSpeed:    1,
 	damageType:	"Splash",
 	upgradeLevel:	0,
 	slow:	false,
@@ -96,7 +98,7 @@ var PLASMA_TURRET = {
 var LASER_TURRET = {
 	name: "Laser Turret",
 	id:	3,
-	damage:	0.2,
+	damage:	0.1,
 	range:	2,
 	attackSpeed:	1,
 	damageType:	"Single",
@@ -256,7 +258,13 @@ function detectEnemy(tureta)
             			//pot lovi monstrul
 						
 				if(tureta.type != SLOW_TURRET.id)
-		           	waves[i].doDamage(tureta.damage)
+		           	waves[i].doDamage(tureta.damage);
+				if(tureta.type == PLASMA_TURRET.id)
+				{
+					for (var j = waves.length-1; j >= 0; j--)
+						if(distanta(waves[i], waves[j]) <= 0.5)
+							waves[j].doDamage(tureta.damage/3);
+				}
 				if(tureta.type == SLOW_TURRET.id)
 					waves[i].slowMonster(turretIndex, tureta);	
 				if(!waves[i].isAlive())
@@ -297,7 +305,7 @@ function upgrade(tureta)
 		case SLOW_TURRET.id:
 			switch(level)	{
 				case 0:		tureta.range+=1; 				break;
-				case 1:		tureta.amount=1.66666;				break;
+				case 1:		tureta.amount=1.66666;			break;
 				case 2:		tureta.range+=1;				break;
 				case 3:		tureta.amount=2;				break;
 				case 4:		tureta.amount=2.5;				break;
