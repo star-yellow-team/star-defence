@@ -28,6 +28,7 @@ function Slow(monster)
 
 //Tipuri de turete
 var MACHINEGUN_TURRET = {
+	name: "Machinegun Turret",
 	id:	0,
 	damage:	0.6,
 	range:	3,
@@ -55,7 +56,7 @@ var MACHINEGUN_TURRET = {
 	kills:	0,
 	requirement:	"None",
 	description:	"Slows enemies in their path",
-	slow:	"Yes",
+	slow:	true,
 	slowValue: 10,
 	isAttacking:	false,
 	contor:	0,
@@ -64,6 +65,7 @@ var MACHINEGUN_TURRET = {
 }*/
 
 var SLOW_TURRET = {
+	name: "Slow Turret",
 	id:	1,
 	damage:	0,
 	range:	3,
@@ -74,6 +76,7 @@ var SLOW_TURRET = {
 	kills:	0,
 	requirement:	"None",
 	description:	"Fast attacking turret",
+	slow:	true,
 	isAttacking:	false,
 	contor:	0,
 	x:	0,
@@ -81,6 +84,7 @@ var SLOW_TURRET = {
 }
 
 var PLASMA_TURRET = {
+	name: "Plasma Turret",
 	id:	2,
 	damage:	1.0,
 	range:	2,
@@ -98,6 +102,7 @@ var PLASMA_TURRET = {
 }
 
 var LASER_TURRET = {
+	name: "Laser Turret",
 	id:	3,
 	damage:	1.1,
 	range:	3,
@@ -107,6 +112,7 @@ var LASER_TURRET = {
 	price:	50,
 	kills:	0,
 	requirement:	"Pass level 6",
+	level: 6,
 	description:	"Fires laser beams at enemy targets",
 	isAttacking:	false,
 	contor:	0,
@@ -115,6 +121,7 @@ var LASER_TURRET = {
 }
 
 var DETECTOR_TURRET = {
+	name: "Detector Turret",
 	id:	4,
 	damage:	0,
 	range:	2,
@@ -125,11 +132,18 @@ var DETECTOR_TURRET = {
 	kills:	0,
 	detection: "Yes",
 	requirement:	"Pass level 8",
+	level: 8,
 	description:	"Reveals invisible enemies within range",
+	reveal:	true,
 	isAttacking:	false,
 	contor:	0,
 	x:	0,
 	y:	0
+}
+
+var REMOVE_TURRET = {
+	name: "Remove Turret",
+	description: "Destroy an existing turret, to get half the money back"
 }
 
 function Turret(type)

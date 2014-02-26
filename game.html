@@ -28,12 +28,12 @@
                     </tr>
                 </table>
             	<div id="turret-menu">
-                	<div class="button" id="machinegun_turret" onClick="stick(11)"></div>
-                	<div class="button" id="slow_turret" onClick="stick(12)"></div>
-                	<div class="button" id="laser_turret" onClick="stick(13)"></div>
-                	<div class="button" id="plasma_turret" onClick="stick(14)"></div>
-                	<div class="button" id="detector_turret" onClick="stick(15)"></div>
-                	<div class="button" id="remove_turret" onClick="stick(0)"></div>
+                	<div class="button" id="machinegun_turret" onClick="stick(11)" onMouseOver="description(MACHINEGUN_TURRET)" onMouseOut="hideHover()"></div>
+                	<div class="button" id="slow_turret" onClick="stick(12)" onMouseOver="description(SLOW_TURRET)" onMouseOut="hideHover()"></div>
+                	<div class="button" id="laser_turret" onClick="stick(13)" onMouseOver="description(LASER_TURRET)" onMouseOut="hideHover()"></div>
+                	<div class="button" id="plasma_turret" onClick="stick(14)" onMouseOver="description(PLASMA_TURRET)" onMouseOut="hideHover()"></div>
+                	<div class="button" id="detector_turret" onClick="stick(15)" onMouseOver="description(DETECTOR_TURRET)" onMouseOut="hideHover()"></div>
+                	<div class="button" id="remove_turret" onClick="stick(0)" onMouseOver="description(REMOVE_TURRET)" onMouseOut="hideHover()"></div>
             	</div>
             	<div id="ui-menu">
                 	<div class="button" id="turret" onClick="stick()"></div>
@@ -51,6 +51,16 @@
         <div class="ghostImage" id="plasma" onClick="drawTurret(14)"></div>
         <div class="ghostImage" id="detector" onClick="drawTurret(15)"></div>
         <div class="ghostImage" id="remove" onClick="drawTurret(0)"></div>
+        
+        <div id="hover">
+        	<h1 id="title">Title</h1>
+            <p id="description">Description</p>
+            <p><span style="font-weight:bold; color:yellow">Special Ability: </span><span id="slow">Slows Down Enemies</span><span id="reveal">Reveals Hidden Enemies</span></p>
+            <p><span style="font-weight:bold;">Damage Type: </span><span id="damageType">Damage Type</span></p>
+            <p><span style="font-weight:bold;">Damage: </span><span id="damage">Damage</p>
+            <p><span style="font-weight:bold;">Speed: </span><span id="speed">Speed</p>
+            <p><span style="font-weight:bold;">Requirements: </span><span id="requirement">Requirements</p>
+        </div>
 
 	    <!-- Scripts are loading after page load to avoid changing unexisting objects -->
         <script type="text/javascript" src="scripts/globals.js"></script>

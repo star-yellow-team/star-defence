@@ -7,6 +7,8 @@ var blueHover = 0;
 var boxX;
 var boxY;
 var hover;
+var hoverY;
+var hoverX;
 
 var currentMousePos = { x: -1, y: -1 };
 
@@ -29,6 +31,13 @@ $(document).mousemove(function(event) {
 		}
         $(hover).css("left",boxX);
        	$(hover).css("top",boxY);
+		if (event.pageX + 5 * boxSize > screenWidth)
+			hoverX = event.pageX - 21 - 5 * boxSize;
+		else
+			hoverX = event.pageX - 1;
+		hoverY = event.pageY;	
+		$("#hover").css("top",hoverY);
+		$("#hover").css("left",hoverX);
 });
 
 // Determina care ghost image se ataseaza cursorului
@@ -113,4 +122,22 @@ function drawTurret(turretNumber) {
                         break;
                 }
 	}
+}
+
+$("#hover").hide();
+$("#slow").hide();
+$("#reveal").hide();
+
+function description(turret) {
+	$("#hover").show();
+	$("#description").html(turret.description);
+	$("#title").html(turret.name);
+	if (turret.slow)
+		$("#slow").show();
+	if (turret.reveal)
+		$("#reveal").show();
+}
+
+function hideHover() {
+	$("#hover").hide();
 }

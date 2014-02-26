@@ -181,3 +181,44 @@ body {
 #remove, #remove_turret {
 	background-color:green;
 }
+
+#hover {
+	background-color:rgba(0,0,0,0.75);
+	border-radius:15px;
+	box-shadow:0px 0px 10px black;
+	color:white;
+	position:fixed;
+	overflow:hidden;
+	padding:10px;
+}
+
+#hover p {
+	font-size:100%;
+	padding:0px;
+	margin:0px;
+}
+
+#title {
+	font-size:150%;
+	font-family: 'Share Tech', sans-serif;
+}
+
+#description {
+	font-family: "Trebuchet MS", Helvetica, sans-serif
+}
+
+#slow {
+	background-image:url(../images/snowflake.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	color:cyan;
+	padding-left:20px;
+}
+
+#reveal {
+	background-image:url(../images/eye.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	color:beige;
+	padding-left:20px;
+}

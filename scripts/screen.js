@@ -79,6 +79,8 @@ function sizeScreen() {
     $("#bar-wrapper").css("font-size",boxSize / 5 * 3);
     $("#health-wrapper").css("background-size",boxSize / 2);
     $("#money-wrapper").css("background-size",boxSize / 2);
+	
+    $("#hover").css("width",5 * boxSize);
     
     $("#health-wrapper").css("height",boxSize); 
     $("#health-wrapper").css("width",2 * boxSize); 
