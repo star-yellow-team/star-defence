@@ -82,6 +82,9 @@ function drawTurret(turretNumber) {
 		deleteElement(placeX, placeY, mapNumber);
 		for (i in turrets)
 			if(turrets[i].x == placeX && turrets[i].y == placeY)
+				if (turrets[i].type == 1)
+					for (var i = waves.length-1; i >= 0; i--)
+						waves[i].redoMonster();
 				turrets.splice(i);
 	} 
 	
