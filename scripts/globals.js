@@ -62,3 +62,9 @@ function sizeMonsters() {
     
     
 }
+
+
+function animate(context, object) {
+
+
+}

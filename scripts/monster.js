@@ -26,9 +26,11 @@ var SIMPLE_MONSTER = {
     speed:  1,
     damage: 0, 
     color:  'orange',
-	point: 2,
-	slowingTurret:	0,
-    visible: true
+    point: 2,
+    slowingTurret:	0,
+    visible: true,
+    sprite: 'sprite.png',
+    spriteSize: 5 
 }
 
 //  monstru rapid
@@ -38,9 +40,11 @@ var SPEEDY_MONSTER = {
     speed:  2.5,
     damage: 0,
     color:  'blue',
-	point: 3,
-	slowingTurret:	0,
-    visible: true
+    point: 3,
+    slowingTurret:	0,
+    visible: true,
+    sprite: 'sprite.png',
+    spriteSize: 5 
 }
 
 // monstru zburator
@@ -50,9 +54,11 @@ var FLYING_MONSTER={
     speed: 3,
     damage: 0,
     color:  'purple',
-	point: 4,	
-	slowingTurret:	0,
-    visible: true
+    point: 4,	
+    slowingTurret:	0,
+    visible: true,
+    sprite: 'sprite.png',
+    spriteSize: 5 
 }
 
 // cel mai puternic monstru
@@ -62,9 +68,11 @@ var POWERFUL_MONSTER={
     speed: 4,
     damage:0,
     color: 'pink',
-	point: 5,
-	slowingTurret:	0,
-    visible: true
+    point: 5,
+    slowingTurret:	0,
+    visible: true,
+    sprite: 'sprite.png',
+    spriteSize: 5 
 }
 
 // monstrul echipei , RAMSI=RADU,ANDREI,ADRIAN,MIRUNA,STEFAN,IONUT :)
@@ -74,9 +82,11 @@ var RAMSI_MONSTER={
     speed: 2,
     damage:0,
     color: 'magenta',
-	point: 6,
-	slowingTurret:	0,
-    visible: true
+    point: 6,
+    slowingTurret:	0,
+    visible: true,
+    sprite: 'sprite.png',
+    spriteSize: 5 
 }
 
 var monsters = [SIMPLE_MONSTER, SPEEDY_MONSTER, FLYING_MONSTER, POWERFUL_MONSTER, RAMSI_MONSTER]
@@ -101,6 +111,7 @@ function Monster(x, y, type) {
     this.current	= 0;
     this.pace           = 0;
     this.offset         = 0;    
+    this.frameNumber    = 0;
 
     switch(type) {
 
@@ -109,6 +120,8 @@ function Monster(x, y, type) {
             this.speed      = SIMPLE_MONSTER.speed;
             this.damage     = SIMPLE_MONSTER.damage;           
             this.isVisible  = SIMPLE_MONSTER.visible;
+            this.sprite     = SIMPLE_MONSTER.sprite;
+            this.spriteSize = SIMPLE_MONSTER.spriteSize;
             break; 
        
         case SPEEDY_MONSTER.id:
@@ -116,6 +129,8 @@ function Monster(x, y, type) {
             this.speed      = SPEEDY_MONSTER.speed;
             this.damage     = SPEEDY_MONSTER.damage;  
             this.isVisible  = SPEEDY_MONSTER.visible;
+            this.sprite     = SPEEDY_MONSTER.sprite;
+            this.spriteSize = SPEEDY_MONSTER.spriteSize;
             break;
 
 	case FLYING_MONSTER.id:
@@ -123,6 +138,8 @@ function Monster(x, y, type) {
 	    this.speed      = FLYING_MONSTER.speed;
 	    this.damage     = FLYING_MONSTER.damage;
             this.isVisible  = FLYING_MONSTER.visible;
+            this.sprite     = FLYING_MONSTER.sprite;
+            this.spriteSize = FLYING_MONSTER.spriteSize;
             break;
         
         case POWERFUL_MONSTER.id:
@@ -130,13 +147,17 @@ function Monster(x, y, type) {
 	    this.speed      = POWERFUL_MONSTER.speed;
             this.damage     = POWERFUL_MONSTER.damage;
             this.isVisible  = POWERFUL_MONSTER.visible;
+            this.sprite     = POWERFUL_MONSTER.sprite;
+            this.spriteSize = POWERFUL_MONSTER.spriteSize;
             break;
 
 	case RAMSI_MONSTER.id:
-	    this.health = RAMSI_MONSTER.health;
-	    this.speed  = RAMSI_MONSTER.speed;
-            this.damage = RAMSI_MONSTER.damage;
+	    this.health     = RAMSI_MONSTER.health;
+	    this.speed      = RAMSI_MONSTER.speed;
+            this.damage     = RAMSI_MONSTER.damage;
             this.isVisible  = RAMSI_MONSTER.visible;
+            this.sprite     = RMASI_MONSTER.sprite;
+            this.spriteSize = RAMSI_MONSTER.spriteSize;
             break;
 	    
 
@@ -162,6 +183,7 @@ Monster.prototype.doDamage      = function(amount) {
     this.health -= amount;
 
     if(this.isAlive()==false) { enemies_defeated_perBattle++; totalCredits ++;} //ACHIEVEMENTS
+
     return this.isAlive()
 }
 
@@ -186,10 +208,9 @@ Monster.prototype.redoMonster = function()
 			this.speed = RAMSI_MONSTER.speed;
 			break;
 		default:
-			console.log("ai grija");
+			console.log("there's an error with slow!");
 	}
 	
-	//alert("slow");
 }
 
 Monster.prototype.slowMonster = function(param)
@@ -213,10 +234,9 @@ Monster.prototype.slowMonster = function(param)
 			this.speed = RAMSI_MONSTER.speed/2;
 			break;
 		default:
-			console.log("ai grija");
+			console.log("there`s an error with slow");
 	}
 	return param;
-	//alert("slow");
 }
 
 /**
@@ -244,7 +264,9 @@ Monster.prototype.moveTo        = function(newX,newY) {
         this.destinationX   = newX;
         this.destinationY   = newY;
         this.current        += 1;
-        this.pace           = (Math.abs(this.destinationX - this.x) + Math.abs(this.destinationY - this.y)) / loopInterval;
+        this.pace           = (Math.abs(this.destinationX - this.x) + 
+                                    Math.abs(this.destinationY - this.y)) / 
+                                        loopInterval;
     }
 
     if(this.x != this.destinationX) {

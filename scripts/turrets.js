@@ -7,15 +7,33 @@
 //numar maxim de tipuri de turete
 var NUMBER_OF_TURRET_TYPES = 5;
 
+
+
 //Tipuri de turete
 var MACHINEGUN_TURRET = {
-	name: "Machinegun Turret",
 	id:	0,
 	damage:	0.6,
-	range:	2,
+	range:	3,
 	attackSpeed:	4,
-	slow:	false,
-	reveal:	false,
+	damageType:	"Single",
+	upgradeLevel:	0,
+	price:	10,
+	kills:	0,
+	requirement:	"None",
+	description:	"Fast attacking turret",
+	isAttacking:	false,
+	contor:	0,
+	x:	0,
+	y:	0,
+        sprite:         'spirte.png',
+        spriteSize:    5
+}
+
+var SLOW_TURRET = {
+	id:	1,
+	damage:	0,
+	range:	3,
+	attackSpeed:	0,
 	damageType:	"Single",
 	upgradeLevel:	0,
 	price:	10,
@@ -26,59 +44,17 @@ var MACHINEGUN_TURRET = {
 	contor:	0,
 	x:	0,
 	y:	0
-}
-
-/*var SLOW_TURRET = {
-	id:	1,
-	damage:	1,
-	range:	300,
-	attackSpeed:	0,
-	damageType:	"Single",
-	upgradeLevel:	0,
-	price:	20,
-	kills:	0,
-	requirement:	"None",
-	description:	"Slows enemies in their path",
-	slow:	"Yes",
-	slowValue: 10,
-	isAttacking:	false,
-	contor:	0,
-	x:	0,
-	y:	0
-}*/
-
-var SLOW_TURRET = {
-	name: "Slow Turret",
-	id:	1,
-	damage:	0,
-	range:	2,
-	attackSpeed:	0,
-	damageType:	"Spread",
-	upgradeLevel:	0,
-	slow:	true,
-	reveal:	false,
-	price:	10,
-	kills:	0,
-	requirement:	"None",
-	description:	"Slows enemies in their path",
-	slow:	true,
-	reveal:	false,
-	isAttacking:	false,
-	contor:	0,
-	x:	0,
-	y:	0
+        sprite:         'spirte.png',
+        spriteSize:    5
 }
 
 var PLASMA_TURRET = {
-	name: "Plasma Turret",
 	id:	2,
 	damage:	1.0,
 	range:	2,
 	attackSpeed:    4,
 	damageType:	"Splash",
 	upgradeLevel:	0,
-	slow:	false,
-	reveal:	false,
 	price:	40,
 	kills:	0,
 	requirement:	"None",
@@ -87,56 +63,55 @@ var PLASMA_TURRET = {
 	contor:	0,
 	x:	0,
 	y:	0
+        sprite:         'spirte.png',
+        spriteSize:    5
 }
 
 var LASER_TURRET = {
-	name: "Laser Turret",
 	id:	3,
 	damage:	1.1,
-	range:	2,
+	range:	3,
 	attackSpeed:	4,
 	damageType:	"Single",
 	upgradeLevel:	0,
-	slow:	false,
-	reveal:	false,
 	price:	50,
 	kills:	0,
 	requirement:	"Pass level 6",
-	level: 6,
 	description:	"Fires laser beams at enemy targets",
 	isAttacking:	false,
 	contor:	0,
 	x:	0,
 	y:	0
+        sprite:         'spirte.png',
+        spriteSize:    5
 }
 
 var DETECTOR_TURRET = {
-	name: "Detector Turret",
 	id:	4,
 	damage:	0,
 	range:	2,
 	attackSpeed:	0,
 	damageType:	"Single",
 	upgradeLevel:	0,
-	slow:	false,
-	reveal:	true,
 	price:	20,
 	kills:	0,
 	detection: "Yes",
-	reveal:	true,
 	requirement:	"Pass level 8",
-	level: 8,
 	description:	"Reveals invisible enemies within range",
 	isAttacking:	false,
 	contor:	0,
 	x:	0,
 	y:	0
+        sprite:         'spirte.png',
+        spriteSize:    5
 }
 
 function Turret(type)
 {
 	this.type       = type;
-        this.isSlowed   = false
+        this.isSlowed   = false;
+        this.frameNumber= 0;         
+
 	switch(type)	{
 		case MACHINEGUN_TURRET.id:
 			this.damage=MACHINEGUN_TURRET.damage;
@@ -150,7 +125,9 @@ function Turret(type)
 			this.description=MACHINEGUN_TURRET.description;
 			this.isAttacking=MACHINEGUN_TURRET.isAttacking;
 			this.contor=MACHINEGUN_TURRET.contor;
-			break;
+	                this.sprite     = MACHINEGUN_TURRET.sprite;
+                        this.spriteSize = MACHINEGUN_TURRET.spriteSize;
+            		break;
 		
 		
 		case SLOW_TURRET.id:
@@ -165,7 +142,10 @@ function Turret(type)
 			this.description=SLOW_TURRET.description;
 			this.isAttacking=SLOW_TURRET.isAttacking;
 			this.contor=SLOW_TURRET.contor;
-			break;
+	                this.sprite     = SLOW_TURRET.sprite;
+                        this.spriteSize = SLOW_TURRET.spriteSize;	
+                	break;
+
 
 		case PLASMA_TURRET.id:
 			this.damage=PLASMA_TURRET.damage;
@@ -179,6 +159,8 @@ function Turret(type)
 			this.description=PLASMA_TURRET.description;
 			this.isAttacking=PLASMA_TURRET.isAttacking;
 			this.contor=PLASMA_TURRET.contor;
+                        this.sprite     = PLASMA_TURRET.sprite;
+                        this.spriteSize = PLASMA_TURRET.spriteSize;
 			break;
 
 		case LASER_TURRET.id:
@@ -193,6 +175,8 @@ function Turret(type)
 			this.description=LASER_TURRET.description;
 			this.isAttacking=LASER_TURRET.isAttacking;
 			this.contor=LASER_TURRET.contor;
+                        this.sprite     = LASER_TURRET.sprite;
+                        this.spriteSize = LASER_TURRET.spriteSize;
 			break;
 
 		case DETECTOR_TURRET.id:
@@ -207,6 +191,8 @@ function Turret(type)
 			this.description=DETECTOR_TURRET.description;
 			this.isAttacking=DETECTOR_TURRET.isAttacking;
 			this.contor=DETECTOR_TURRET.contor;
+                        this.sprite     = DETECTOR_TURRET.sprite;
+                        this.spriteSize = DETECTOR_TURRET.spriteSize;
 			break;
 
 		default:
@@ -229,7 +215,6 @@ Turret.prototype.canAttack = function() {
 
 //2.25=1 sec
 
-// Aici nu stiu inca cum vom face sa atace turnul.
 
 function distanta(i, tureta)
 {
@@ -249,10 +234,10 @@ function detectEnemy(tureta)
 			{
             			//pot lovi monstrul
 						
-				if(tureta.type != SLOW_TURRET.id)
-		           	waves[i].doDamage(tureta.damage)
-				if(tureta.type == SLOW_TURRET.id)
-					waves[i].slowMonster(turretIndex);	
+						if(tureta.type != 1)
+		           			waves[i].doDamage(tureta.damage)
+						else
+							waves[i].slowMonster();	
 				if(!waves[i].isAlive())
 				{
 					userScore  += (waves[i].type + 5)*(waves[i].type + 5)*(waves[i].type + 5);
@@ -267,9 +252,11 @@ function detectEnemy(tureta)
 				{
 					waves[i].isVisible==true;
 				}
-				if (tureta.type != 1)
-					break;
+
+		        break;
 	        }
+		if(distanta(waves[i], tureta) > tureta.range)
+			waves[i].redoMonster();
         }
 }
 
