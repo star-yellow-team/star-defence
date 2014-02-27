@@ -22,4 +22,15 @@ class Notification(object):
     def __setattribute__(self, i, v):
         pass
 
+    def __str__(self):
+        s = '['
+        for key, value in self.data.items():
+            s += key + ':' + str(value)
+            s += ', '
 
+        s += ']'
+        
+        return s
+
+    def __repr__(self):
+        return self.__str__() 

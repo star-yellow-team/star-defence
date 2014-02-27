@@ -3,7 +3,6 @@ from rqueue import Queue
 """
 Class representing a player on the server.
 """
-
 class Player(object):
     
     """
@@ -16,7 +15,7 @@ class Player(object):
         self.game_id        = -240513
         self.ws             = socket
 
-    def add_notification(notif):
+    def add_notification(self, notif):
         self.notifications.push(notif)
 
     """
@@ -47,5 +46,27 @@ class Player(object):
     """   
     def __repr__(self):
         return self.__str__() 
+
+    def __iter__(self):
+        return NotificationIterator(self)
+
+
+class NotificationIterator:
+	
+	def __init__(self, player):
+	    self.queue      = player.notifications 
+            self.counter    = -1
+	def __iter__(self):
+	    return self
+
+	def __next__(self):
+            self.counter += 1
+
+	    if self.counter >= len(self.queue):
+                raise StopIteration
+            else:
+                return self.queue[self.counter]
+				
+	next = __next__
 
 

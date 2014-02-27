@@ -23,25 +23,26 @@ var offset          =  0;
 //Achievements
 var time_passed_perBattle = 0; var totalCredits = 0; var totalScore = 0; var fun_activated = true; // TIMP, CREDITS, SCOR, FUN
 
-var enemies_defeated_perBattle = 0;	 //ENEMIES
-var first_enemy_defeated = false;
-var first_10_enemies_defeated = false;
-var first_50_enemies_defeated = false;
-var first_100_enemies_defeated = false;
+var enemies_defeated_perBattle  =   0;
+var first_enemy_defeated        = false;
+var first_10_enemies_defeated   = false;
+var first_50_enemies_defeated   = false;
+var first_100_enemies_defeated  = false;
 var first_1000_enemies_defeated = false;
 
-var turrets_placed_perBattle =0;  //TURRETS
-var first_turret_placed = false;
-var first_10_turrets_placed = false;
-var first_20_turrets_placed = false;
+var turrets_placed_perBattle    =   0;
+var first_turret_placed         = false;
+var first_10_turrets_placed     = false;
+var first_20_turrets_placed     = false;
 
-var waves_won_perBattle = -1; //WAVES
-var first_wave_won = false;
-var first_10_waves_won = false;
-var first_50_waves_won = false;
-var first_100_waves_won = false;
+var waves_won_perBattle         =   -1;
+var first_wave_won              = false;
+var first_10_waves_won          = false;
+var first_50_waves_won          = false;
+var first_100_waves_won         = false;
+var first_100_credits           = false;
 
-var first_100_credits = false;
+var FRAME_SIZE                  =   50;
 
 $('#money-wrapper').html(String(userScore))
 
@@ -61,4 +62,17 @@ function sizeMonsters() {
     }
     
     
+}
+
+// draw image to screen drawImage(imageObject, sourceX, sourceY, sourceWidth, sourceHeight,
+// destinationX, destinationY, destinationWidth, destinationHeight)
+function animate(context, object, offset) { 
+
+    if(offset == undefined) {
+        
+    } else {
+
+    }
+
+    object.frameNumber = (object.frameNumber + 1) % object.spriteSize;
 }
