@@ -106,6 +106,8 @@ function drawTurret(turretNumber) {
     		unstick();
 	        switch(turretNumber) {
                     case 11:
+                        alert('eererre')
+                        userScore -= 100
                         var turret = new Turret(MACHINEGUN_TURRET.id);
                         turret.x = placeX;
                         turret.y = placeY;
