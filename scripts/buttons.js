@@ -93,7 +93,7 @@ function removeTurret() {
 	deleteElement(plX, plY, mapNumber);
 	for (i in turrets)
 		if(turrets[i].x == plX && turrets[i].y == plY+1)
-			for (var j = waves.length-1; j >= 0; j--)
+			for (j = waves.length-1; j >= 0; j--)
 				waves[j].redoMonster();
 			turrets.splice(i);
 }
