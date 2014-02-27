@@ -206,7 +206,7 @@ function cmenu() {
 	}
 }
 
-function removeMenu() {
+function rmenu() {
 	$('#contextMenu').animate({ width: 0} , 200);
 		contextm = 0;
 }
