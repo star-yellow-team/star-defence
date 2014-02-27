@@ -319,60 +319,63 @@ function detectEnemy(tureta)
 }
 
 /* Aici mai modificam pentru ca imi trebuie variabila in care stocam banii, skin-urile pe care le va avea fiecare turret la fiecare nivel */
-function upgrade(tureta)
-{
-	switch(type)	{
+Turret.prototype.upgrade = function(x, y)
+{	 for (i in turrets)
+	{
+		if (x==turrets[i].x && y==turrets[i].y)
+	{
+	switch(turrets[i].type)	{
 		case MACHINEGUN_TURRET.id:
 			switch(level)	{
-				case 0:		tureta.range+=1; 		userScore=userScore-tureta.upgradePrice;		break;
-				case 1:		tureta.damage+=0.3;		userScore=userScore-tureta.upgradePrice;		break;
-				case 2:		tureta.range+=1;		userScore=userScore-tureta.upgradePrice;		break;
-				case 3:		tureta.damage+=0.3;		userScore=userScore-tureta.upgradePrice;		break;
-				case 4:		tureta.attackSpeed-=3;	userScore=userScore-tureta.upgradePrice;		break;
+				case 0:		turrets[i].range+=1; 			userScore=userScore-turrets[i].upgradePrice;		break;
+				case 1:		turrets[i].damage+=0.3;			userScore=userScore-turrets[i].upgradePrice;		break;
+				case 2:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
+				case 3:		turrets[i].damage+=0.3;			userScore=userScore-turrets[i].upgradePrice;		break;
+				case 4:		turrets[i].attackSpeed-=3;		userScore=userScore-turrets[i].upgradePrice;		break;
 				default:	console.log("Cannot be upgraded any further!");	
 			}
 			break;
 			
 		case SLOW_TURRET.id:
 			switch(level)	{
-				case 0:		tureta.range+=1; 		userScore=userScore-tureta.upgradePrice;		break;
-				case 1:		tureta.amount=1.66666;	userScore=userScore-tureta.upgradePrice;		break;
-				case 2:		tureta.range+=1;		userScore=userScore-tureta.upgradePrice;		break;
-				case 3:		tureta.amount=2;		userScore=userScore-tureta.upgradePrice;		break;
-				case 4:		tureta.amount=2.5;		userScore=userScore-tureta.upgradePrice;		break;
+				case 0:		turrets[i].range+=1; 			userScore=userScore-turrets[i].upgradePrice;		break;
+				case 1:		turrets[i].amount=1.66666;		userScore=userScore-turrets[i].upgradePrice;		break;
+				case 2:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
+				case 3:		turrets[i].amount=2;			userScore=userScore-turrets[i].upgradePrice;		break;
+				case 4:		turrets[i].amount=2.5;			userScore=userScore-turrets[i].upgradePrice;		break;
 				default:	console.log("Cannot be upgraded any further!");		
 			}
 			break;
 
 		case PLASMA_TURRET.id:
 			switch(level)	{
-				case 0:		tureta.damage+=3; 		userScore=userScore-tureta.upgradePrice; 		break;
-				case 1:		tureta.range+=1;		userScore=userScore-tureta.upgradePrice;		break;
-				case 2:		tureta.damage+=5;		userScore=userScore-tureta.upgradePrice;		break;
-				case 3:		tureta.range+=1;		userScore=userScore-tureta.upgradePrice;		break;
-				case 4:		tureta.attackSpeed-=7;	userScore=userScore-tureta.upgradePrice;		break;
+				case 0:		turrets[i].damage+=3; 			userScore=userScore-turrets[i].upgradePrice; 		break;
+				case 1:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
+				case 2:		turrets[i].damage+=5;			userScore=userScore-turrets[i].upgradePrice;		break;
+				case 3:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
+				case 4:		turrets[i].attackSpeed-=7;		userScore=userScore-turrets[i].upgradePrice;		break;
 				default:	console.log("Cannot be upgraded any further!");		
 			}
 			break;
 
 		case LASER_TURRET.id:
 			switch(level)	{
-				case 0:		tureta.range+=1; 		userScore=userScore-tureta.upgradePrice;		break;
-				case 1:		tureta.damage+=0.2;		userScore=userScore-tureta.upgradePrice;		break;
-				case 2:		tureta.range+=1;		userScore=userScore-tureta.upgradePrice;		break;
-				case 3:		tureta.damage+=0.5;		userScore=userScore-tureta.upgradePrice;		break;
-				case 4:		tureta.damage+=1;		userScore=userScore-tureta.upgradePrice;		break;
+				case 0:		turrets[i].range+=1; 			userScore=userScore-turrets[i].upgradePrice;		break;
+				case 1:		turrets[i].damage+=0.2;			userScore=userScore-turrets[i].upgradePrice;		break;
+				case 2:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
+				case 3:		turrets[i].damage+=0.5;			userScore=userScore-turrets[i].upgradePrice;		break;
+				case 4:		turrets[i].damage+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
 				default:	console.log("Cannot be upgraded any further!");		
 			}
 			break;
 
 		case DETECTOR_TURRET.id:
 			switch(level)	{
-				case 0:		tureta.range+=1; 		userScore=userScore-tureta.upgradePrice;		break;
-				case 1:		tureta.range+=1;		userScore=userScore-tureta.upgradePrice;		break;
-				case 2:		tureta.range+=1;		userScore=userScore-tureta.upgradePrice;		break;
-				case 3:		tureta.range+=1;		userScore=userScore-tureta.upgradePrice;		break;
-				case 4:		tureta.range+=2;		userScore=userScore-tureta.upgradePrice;		break;
+				case 0:		turrets[i].range+=1; 			userScore=userScore-turrets[i].upgradePrice;		break;
+				case 1:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
+				case 2:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
+				case 3:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
+				case 4:		turrets[i].range+=2;			userScore=userScore-turrets[i].upgradePrice;		break;
 				default:	console.log("Cannot be upgraded any further!");		
 			}
 			break;
@@ -380,5 +383,8 @@ function upgrade(tureta)
 		default:
 			console.log("Invalid turret type!");	
     }
-	tureta.upgradeLevel++;
+	turrets[i].upgradeLevel++;
+	break;
+	}
+	}
 }
