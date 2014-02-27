@@ -167,7 +167,10 @@ function takeLife()
 		        waves.splice(i,1);
                 -- i;
 	    } // end else if
-		$("#level").html("level " + String(curentRound));
+		
+		level = curentRound - 1;
+		
+		$("#level").html("level " + String(level));
 
 
         } //end for

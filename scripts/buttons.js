@@ -167,7 +167,7 @@ function description(turret) {
 	$("#damageType").html(turret.damageType);
 	$("#speed").html(turret.attackSpeed);
 	$("#requirement").html(turret.requirement);
-	if (turret.level > curentRound) {
+	if (turret.level > level) {
 		$("#requirement").css("color","red");
 		$("#requirement").css("font-weight","bold");
 	} else {
