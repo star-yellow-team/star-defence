@@ -167,7 +167,7 @@ function description(turret) {
 	$("#damageType").html(turret.damageType);
 	$("#speed").html(turret.attackSpeed);
 	$("#requirement").html(turret.requirement);
-	if (turret.level > level) {
+	if (turret.level > curentRound) {
 		$("#requirement").css("color","red");
 		$("#requirement").css("font-weight","bold");
 	} else {
@@ -196,8 +196,7 @@ function removeDescription(turret) {
 var contextm = 0;
 $("#contextMenu").css("width","0");
 
-function contextMenu() {
-		alert("OK");
+function cmenu() {
 	if (contextm == 0) {
 		$('#contextMenu').animate({ "min-width": 2 * boxSize + 10} , 200);
 		contextm = 1;
