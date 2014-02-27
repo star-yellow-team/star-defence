@@ -247,10 +247,12 @@ function distanta(i, tureta)
 /* Cred ca atacul va depinde de o functie de detectat cand inamicul intra in range */
 function detectEnemy(tureta)
 {
+	var audio1 = new Audio('Plasma.mp3');
+	var audio2 = new Audio('Machinegun.mp3');
+	var audio3 = new Audio('Laser.mp3');
 	if(tureta.canAttack() == false && tureta.damage > 0) {
             return;
 	}
-	
         for (var i = waves.length-1; i >= 0; i--)
 		{	
 		if(distanta(waves[i], tureta) <= tureta.range)
@@ -259,6 +261,12 @@ function detectEnemy(tureta)
 						
 				if(tureta.type != SLOW_TURRET.id)
 		           	waves[i].doDamage(tureta.damage);
+				switch(tureta.type)	{
+					case 0:		audio2.play(); 				break;
+					case 2:		audio1.play();				break;
+					case 3:		audio3.play();				break;
+					default:	console.log("Invalid turret type!");	
+				}
 				if(tureta.type == PLASMA_TURRET.id)
 				{
 					for (var j = waves.length-1; j >= 0; j--)
