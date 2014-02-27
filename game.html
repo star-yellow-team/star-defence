@@ -44,15 +44,21 @@
             </div>
         </div>
         
+        
+        <div id="contextMenu" onClick="contextMenu()">
+            <div class="button" id="remove" onClick=alert("Pause")></div>
+            <div class="button" id="upgrade" onClick=alert("Pause")></div>
+        </div>
+        
 		
         <!-- This is hidden prior to clicking the blue box and after clicking it -->
+        <div class="ghostImage" id="highlight" onClick="contextMenu()"></div>
         <div class="ghostImage" id="machinegun" onClick="drawTurret(11)"></div>
         <div class="ghostImage" id="slow" onClick="drawTurret(12)"></div>
         <div class="ghostImage" id="laser" onClick="drawTurret(13)"></div>
         <div class="ghostImage" id="plasma" onClick="drawTurret(14)"></div>
         <div class="ghostImage" id="detector" onClick="drawTurret(15)"></div>
         <div class="ghostImage" id="remove" onClick="drawTurret(0)"></div>
-        <div class="ghostImage" id="highlight" onClick="drawTurret(0)"></div>
         
         <div id="hover">
         	<h1 id="title">Title</h1>
