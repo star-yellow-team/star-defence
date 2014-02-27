@@ -197,11 +197,12 @@ var contextm = 0;
 $("#contextMenu").css("width","0");
 
 function contextMenu() {
+		alert("OK");
 	if (contextm == 0) {
-		$('#contextMenu').animate({ width: 2 * boxSize + 10} , 200);
+		$('#contextMenu').animate({ "min-width": 2 * boxSize + 10} , 200);
 		contextm = 1;
 	} else {
-		$('#contextMenu').animate({ width: 0} , 200);
+		$('#contextMenu').animate({ "min-width": 0} , 200);
 		contextm = 0;
 	}
 }
