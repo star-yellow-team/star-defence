@@ -24,6 +24,7 @@ var MACHINEGUN_TURRET = {
 	price:	10,
 	kills:	0,
 	requirement:	"None",
+	level: 0,
 	description:	"Fast attacking turret",
 	isAttacking:	false,
 	contor:	0,
@@ -47,6 +48,7 @@ var SLOW_TURRET = {
 	price:	20,
 	kills:	0,
 	requirement:	"None",
+	level: 0,
 	description:	"Slows enemies in their path",
 	isAttacking:	false,
 	contor:	0,
@@ -72,6 +74,7 @@ var PLASMA_TURRET = {
 	price:	35,
 	kills:	0,
 	requirement:	"None",
+	level: 0,
 	description:	"Strong turret against swarms of small units",
 	isAttacking:	false,
 	contor:	0,
@@ -151,6 +154,7 @@ function Turret(type)
 			this.contor=MACHINEGUN_TURRET.contor;
 	                this.sprite     = MACHINEGUN_TURRET.sprite;
                         this.spriteSize = MACHINEGUN_TURRET.spriteSize;
+			this.level=MACHINEGUN_TURRET.level;
             		break;
 		
 		
@@ -168,7 +172,8 @@ function Turret(type)
 			this.isAttacking=SLOW_TURRET.isAttacking;
 			this.contor=SLOW_TURRET.contor;
 	                this.sprite     = SLOW_TURRET.sprite;
-                        this.spriteSize = SLOW_TURRET.spriteSize;	
+                        this.spriteSize = SLOW_TURRET.spriteSize;
+			this.level=SLOW_TURRET.level;	
                 	break;
 
 
@@ -186,6 +191,7 @@ function Turret(type)
 			this.contor=PLASMA_TURRET.contor;
                         this.sprite     = PLASMA_TURRET.sprite;
                         this.spriteSize = PLASMA_TURRET.spriteSize;
+			this.level=PLASMA_TURRET.level;
 			break;
 
 		case LASER_TURRET.id:
@@ -202,6 +208,7 @@ function Turret(type)
 			this.contor=LASER_TURRET.contor;
                         this.sprite     = LASER_TURRET.sprite;
                         this.spriteSize = LASER_TURRET.spriteSize;
+			this.level=LASER_TURRET.level;
 			break;
 
 		case DETECTOR_TURRET.id:
@@ -218,6 +225,7 @@ function Turret(type)
 			this.contor=DETECTOR_TURRET.contor;
                         this.sprite     = DETECTOR_TURRET.sprite;
                         this.spriteSize = DETECTOR_TURRET.spriteSize;
+			this.level=DETECTOR_TURRET.level;
 			break;
 
 		default:
