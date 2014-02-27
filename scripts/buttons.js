@@ -106,8 +106,7 @@ function drawTurret(turretNumber) {
 	        switch(turretNumber) {
                     case 11:
                         var turret = new Turret(MACHINEGUN_TURRET.id);
-						if(userScore - turret.price >= 0 && userLevel >= turret.level)
-                        {
+						if(userScore - turret.price >= 0 && userLevel >= turret.level) {
 							if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
     							unstick();
 								turret.x = placeX;
