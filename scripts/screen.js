@@ -103,8 +103,10 @@ function sizeScreen() {
     
     yMax = yMin + canvasHeight - boxSize;
     xMax = xMin + canvasWidth - boxSize;
+	
+    $("#contextMenu").css("height",boxSize);
     
-    sizeMonsters() 
+    sizeMonsters();
 }
 
 // o apelam pentru prima oara

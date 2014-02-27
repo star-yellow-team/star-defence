@@ -183,7 +183,15 @@ body {
 }
 
 #remove, #remove_turret {
-	background-color:green;
+	background-color:darkgreen;
+	position:relative;
+	float:left;
+}
+
+#upgrade {
+	position:relative;
+	float:left;
+	background-color:orange;
 }
 
 #highlight {
@@ -278,3 +286,8 @@ body {
 	border-radius:12.5px !important;
 }
 
+#contextMenu {
+	background-color:rgba(0,10,0,0.5);
+	position:absolute;
+	overflow:hidden;
+}

@@ -12,7 +12,7 @@ var NUMBER_OF_TURRET_TYPES = 5;
 //Tipuri de turete
 var MACHINEGUN_TURRET = {
 	id:	0,
-        name:   "Machinegun turret",
+    name:   "Machinegun turret",
 	damage:	1.2,
 	range:	2,
 	attackSpeed:	10,
@@ -29,13 +29,13 @@ var MACHINEGUN_TURRET = {
 	contor:	0,
 	x:	0,
 	y:	0,
-        sprite:         'spirte.png',
-        spriteSize:    5
+    sprite:         'spirte.png',
+    spriteSize:    5
 }
 
 var SLOW_TURRET = {
 	id:	1,
-        name:   "Slow turret",
+    name:   "Slow turret",
 	damage:	0,
 	range:	2,
 	attackSpeed:	0,
@@ -52,8 +52,8 @@ var SLOW_TURRET = {
 	contor:	0,
 	x:	0,
 	y:	0,
-        sprite:         'spirte.png',
-        spriteSize:    5
+    sprite:         'spirte.png',
+    spriteSize:    5
 }
 //30%.........1.42857
 //40%.........1.66666

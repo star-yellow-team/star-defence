@@ -31,11 +31,14 @@ $(document).mousemove(function(event) {
 		}
         $(hover).css("left",boxX);
        	$(hover).css("top",boxY);
-		hoverX = event.pageX - $("#hover").width() - 25;
 		if (event.pageY + $("#hover").width() < screenHeight)
 			hoverY = event.pageY - 5;
 		else	
 			hoverY = event.pageY - $("#hover").height() - 5;
+		if (event.pageX + $("#hover").width() < screenWidth)
+			hoverX = event.pageX + 5;
+		else	
+			hoverX = event.pageX - $("#hover").width() - 25;
 		$("#hover").css("top",hoverY);
 		$("#hover").css("left",hoverX);
 		
@@ -47,7 +50,9 @@ $(document).mousemove(function(event) {
 		if (getElement(placeX, placeY) != 0 && getElement(placeX, placeY) != 1 && getElement(placeX, placeY) != 2 && getElement(placeX, placeY) != 3) {
 			$("#highlight").show();
 			$("#highlight").css("top",boxY);
+			$("#contextMenu").css("top",boxY);
 			$("#highlight").css("left",boxX);
+			$("#contextMenu").css("left",boxX+boxSize);
 		} else
 			$("#highlight").hide();
 });
@@ -81,23 +86,23 @@ function unstick() {
 	$(hover).hide();
 	hover = "";
 }
+  
+function removeTurret() {
+	plX = Math.round((parseInt($("#highlight").css("top")) - yMin) / boxSize);
+	plY = Math.round((parseInt($("#highlight").css("left")) - xMin) / boxSize);
+	deleteElement(plY, plX, mapNumber);
+	for (i in turrets)
+		if(turrets[i].x == plY && turrets[i].y == plX+1)
+			if (turrets[i].type == 1)
+				for (var i = waves.length-1; i >= 0; i--)
+					waves[i].redoMonster();
+			turrets.splice(i);
+}
 
 // Functia de desenare turete
 function drawTurret(turretNumber) {
-	
-	// In cazul RemoveTurret (verde)
-	if (turretNumber == 0) {
-		deleteElement(placeX, placeY, mapNumber);
-		for (i in turrets)
-			if(turrets[i].x == placeX && turrets[i].y == placeY)
-				if (turrets[i].type == 1)
-					for (var i = waves.length-1; i >= 0; i--)
-						waves[i].redoMonster();
-				turrets.splice(i);
-	} 
-	
 	// Desenare turret
-	else if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
+	if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
     		unstick();
 	        switch(turretNumber) {
                     case 11:
@@ -179,7 +184,6 @@ function hideHover() {
 	$("#hover").hide();
 }
 
-
 function removeDescription(turret) {
 	$("#hover").show();
 	$("#title").html("Remove Turret");
@@ -187,4 +191,22 @@ function removeDescription(turret) {
 	$("#hover").children("hr").hide();
 	$("#description").show();
 	$("#description").html("Remove an existing turret. You get half the money back!");
+}
+
+var contextm = 0;
+$("#contextMenu").css("width","0");
+
+function contextMenu() {
+	if (contextm == 0) {
+		$('#contextMenu').animate({ width: 2 * boxSize + 10} , 200);
+		contextm = 1;
+	} else {
+		$('#contextMenu').animate({ width: 0} , 200);
+		contextm = 0;
+	}
+}
+
+function removeMenu() {
+	$('#contextMenu').animate({ width: 0} , 200);
+		contextm = 0;
 }
