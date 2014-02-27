@@ -21,12 +21,15 @@
         	</canvas>
             <div id="menu-wrapper">
             	<table id="bar-wrapper">
-                <tr>
+                	<tr>
                     <td id="health-wrapper"><p id="money">5 / 5</p>
                     </td></tr>
                     <tr>
                     <td id="money-wrapper"><p id="health">15,000</p>
-                    </tr>
+                    </td></tr>
+                    <tr>
+                    <td id="level-wrapper"><p id="level">level 0</p>
+                    </td></tr>
                 </table>
             	<div id="turret-menu">
                 	<div class="button" id="machinegun_turret" onClick="stick(11)" onMouseOver="description(MACHINEGUN_TURRET)" touchstart="description(MACHINEGUN_TURRET)" onMouseOut="hideHover()" touchend="hideHover()"></div>
@@ -37,7 +40,7 @@
             	</div>
             	<div id="ui-menu">
                 	<div class="button" id="turret" onClick="stick()"></div>
-                	<div class="button" id="second" onClick=alert("Pause")></div>
+                	<div class="button" id="second" onClick=alert(curentRound)></div>
                 	<div class="button" id="third" onClick="third()"></div>
         		</div>
             </div>

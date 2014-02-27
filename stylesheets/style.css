@@ -121,13 +121,12 @@ body {
 #bar-wrapper, #bar-wrapper p, #barwrapper tr, #bar-wrapper tr td {
 	padding:0px;
 	margin:0px;
-	text-align:right !important;
 }
 
 #health-wrapper {
 	border-bottom: 2px solid #005C00;
 	color:white;
-	text-align:center;
+	text-align:right;
 	display: table-cell;
 	vertical-align: middle;
 	background-image:url(../images/heart.png);
@@ -138,13 +137,25 @@ body {
 
 #money-wrapper {
 	color:white;
-	text-align:center;
+	text-align:right;
 	display: table-cell;
 	vertical-align: middle;
 	background-image:url(../images/money.png);
 	background-repeat:no-repeat;
 	background-position:left center;
 	padding-right:5px;
+	border-bottom: 2px solid #005C00;
+}
+
+#level-wrapper {
+	color:lime;
+	text-align:center;
+	display: table-cell;
+	vertical-align: middle;
+	background-repeat:no-repeat;
+	background-position:left center;
+	padding-right:5px;
+	font-variant:small-caps;
 }
 
 #buttonsWrapper {

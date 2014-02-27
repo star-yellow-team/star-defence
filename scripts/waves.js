@@ -170,5 +170,7 @@ function takeLife()
 
 
         } //end for
+		
+		$("#health").html("level " + String(curentRound));
         
 }
