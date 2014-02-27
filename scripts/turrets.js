@@ -12,6 +12,7 @@ var NUMBER_OF_TURRET_TYPES = 5;
 //Tipuri de turete
 var MACHINEGUN_TURRET = {
 	id:	0,
+        name:   "Machinegun turret",
 	damage:	1.2,
 	range:	2,
 	attackSpeed:	10,
@@ -34,6 +35,7 @@ var MACHINEGUN_TURRET = {
 
 var SLOW_TURRET = {
 	id:	1,
+        name:   "Slow turret",
 	damage:	0,
 	range:	3,
 	attackSpeed:	0,
@@ -49,7 +51,7 @@ var SLOW_TURRET = {
 	isAttacking:	false,
 	contor:	0,
 	x:	0,
-	y:	0
+	y:	0,
         sprite:         'spirte.png',
         spriteSize:    5
 }
@@ -59,6 +61,7 @@ var SLOW_TURRET = {
 //60%.........2.5
 var PLASMA_TURRET = {
 	id:	2,
+        name:   "Plasma turret",
 	damage:	2,
 	range:	2,
 	attackSpeed:    22,
@@ -73,13 +76,14 @@ var PLASMA_TURRET = {
 	isAttacking:	false,
 	contor:	0,
 	x:	0,
-	y:	0
+	y:	0,
         sprite:         'spirte.png',
         spriteSize:    5
 }
 
 var LASER_TURRET = {
 	id:	3,
+        name:   "Laser turret",
 	damage:	0.3,
 	range:	2,
 	attackSpeed:	1,
@@ -95,13 +99,14 @@ var LASER_TURRET = {
 	isAttacking:	false,
 	contor:	0,
 	x:	0,
-	y:	0
+	y:	0,
         sprite:         'spirte.png',
         spriteSize:    5
 }
 
 var DETECTOR_TURRET = {
 	id:	4,
+        name:   "Detector turret",
 	damage:	0,
 	range:	3,
 	attackSpeed:	0,
@@ -118,7 +123,7 @@ var DETECTOR_TURRET = {
 	isAttacking:	false,
 	contor:	0,
 	x:	0,
-	y:	0
+	y:	0,
         sprite:         'spirte.png',
         spriteSize:    5
 }
@@ -252,12 +257,6 @@ function detectEnemy(tureta)
 			{
             			//pot lovi monstrul
 						
-<<<<<<< HEAD
-						if(tureta.type != 1)
-		           			waves[i].doDamage(tureta.damage)
-						else
-							waves[i].slowMonster();	
-=======
 				if(tureta.type != SLOW_TURRET.id)
 		           	waves[i].doDamage(tureta.damage);
 				if(tureta.type == PLASMA_TURRET.id)
@@ -268,7 +267,6 @@ function detectEnemy(tureta)
 				}
 				if(tureta.type == SLOW_TURRET.id)
 					waves[i].slowMonster(turretIndex, tureta);	
->>>>>>> 40b16242c58b2b0658b5d3c7b224cd30a63512ec
 				if(!waves[i].isAlive())
 				{
 					userScore  += (waves[i].type + 5)*(waves[i].type + 5)*(waves[i].type + 5);
