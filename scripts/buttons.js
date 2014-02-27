@@ -106,7 +106,7 @@ function drawTurret(turretNumber) {
 	        switch(turretNumber) {
                     case 11:
                         var turret = new Turret(MACHINEGUN_TURRET.id);
-						if(userScore - turret.price > 0 && userLevel > turret.level)
+						if(userScore - turret.price >= 0 && userLevel > turret.level)
                         {
 							if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
     							unstick();
@@ -117,11 +117,14 @@ function drawTurret(turretNumber) {
 								userScore -= turret.price; 
 								$("#money-wrapper").html(String(userScore))
 							}
-						}
+						} else if (userScore - turret.price < 0)
+							$(".ghostImage").notify("You do not have enough money","error");
+						else
+							$(".ghostImage").notify("You are not experienced enough","error");
                         break;
                     case 12:
                         var turret = new Turret(SLOW_TURRET.id);
-						if(userScore - turret.price > 0 && userLevel > turret.level)
+						if(userScore - turret.price >= 0 && userLevel > turret.level)
 	                        {
 							if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
     							unstick();
@@ -131,11 +134,14 @@ function drawTurret(turretNumber) {
 								userScore -= turret.price; 
 								$("#money-wrapper").html(String(userScore))
 							}
-							}
+						} else if (userScore - turret.price < 0)
+							$(".ghostImage").notify("You do not have enough money","error");
+						else
+							$(".ghostImage").notify("You are not experienced enough","error");
                         break;
                     case 13:
                         var turret = new Turret(LASER_TURRET.id);
-						if(userScore - turret.price > 0 && userLevel > turret.level)
+						if(userScore - turret.price >= 0 && userLevel > turret.level)
                         {
 							if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
     							unstick();
@@ -145,11 +151,14 @@ function drawTurret(turretNumber) {
 							userScore -= turret.price;
 							$("#money-wrapper").html(String(userScore))
 							}
-						}
+						} else if (userScore - turret.price < 0)
+							$(".ghostImage").notify("You do not have enough money","error");
+						else
+							$(".ghostImage").notify("You are not experienced enough","error");
                         break;  
                     case 14:
                         var turret = new Turret(PLASMA_TURRET.id);
-						if(userScore - turret.price > 0 && userLevel > turret.level)
+						if(userScore - turret.price >= 0 && userLevel > turret.level)
                         {
 							if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
     							unstick();
@@ -159,11 +168,14 @@ function drawTurret(turretNumber) {
 							userScore -= turret.price;
 							$("#money-wrapper").html(String(userScore))
 							}
-						}
+						} else if (userScore - turret.price < 0)
+							$(".ghostImage").notify("You do not have enough money","error");
+						else
+							$(".ghostImage").notify("You are not experienced enough","error");
                         break;
                     case 15:
                         var turret = new Turret(DETECTOR_TURRET.id);
-						if(userScore - turret.price > 0 && userLevel > turret.level)
+						if(userScore - turret.price >= 0 && userLevel > turret.level)
                         {
 							if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
     							unstick();
@@ -173,7 +185,10 @@ function drawTurret(turretNumber) {
 							userScore -= turret.price;
 							$("#money-wrapper").html(String(userScore))
 							}
-						}
+						} else if (userScore - turret.price < 0)
+							$(".ghostImage").notify("You do not have enough money","error");
+						else
+							$(".ghostImage").notify("You are not experienced enough","error");
                         break;
 
                     default:
