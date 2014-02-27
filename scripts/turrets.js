@@ -37,7 +37,7 @@ var SLOW_TURRET = {
 	id:	1,
         name:   "Slow turret",
 	damage:	0,
-	range:	3,
+	range:	2,
 	attackSpeed:	0,
 	damageType:	"Area of Effect",
 	upgradeLevel:	0,
@@ -47,7 +47,7 @@ var SLOW_TURRET = {
 	price:	20,
 	kills:	0,
 	requirement:	"None",
-	description:	"Fast attacking turret",
+	description:	"Slows enemies in their path",
 	isAttacking:	false,
 	contor:	0,
 	x:	0,
@@ -262,7 +262,7 @@ function detectEnemy(tureta)
 				if(tureta.type == PLASMA_TURRET.id)
 				{
 					for (var j = waves.length-1; j >= 0; j--)
-						if(distanta(waves[i], waves[j]) <= 0.5)
+						if(distanta(waves[i], waves[j]) <= 0.1)
 							waves[j].doDamage(tureta.damage/3);
 				}
 				if(tureta.type == SLOW_TURRET.id)
@@ -281,11 +281,9 @@ function detectEnemy(tureta)
 				{
 					waves[i].isVisible==true;
 				}
-
-		        break;
+				if (tureta.type != 1)
+					break;
 	        }
-		if(distanta(waves[i], tureta) > tureta.range)
-			waves[i].redoMonster();
         }
 }
 
