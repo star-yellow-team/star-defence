@@ -295,7 +295,7 @@ function detectEnemy(tureta)
 					waves[i].slowMonster(turretIndex, tureta);	
 				if(!waves[i].isAlive())
 				{
-					userScore  += (waves[i].type + 5)*(waves[i].type + 5)*(waves[i].type + 5);
+					userScore  += (waves[i].type + 3)*(waves[i].type + 3);
 					$("#money-wrapper").html(String(userScore))
                                         waves.splice(i, 1);
 					i--;
