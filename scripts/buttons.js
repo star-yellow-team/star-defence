@@ -234,14 +234,7 @@ function cmenu() {
 	}
 }
 
-<<<<<<< HEAD
-function removeMenu() {
-	$('#contextMenu').animate({ width: 0} , 200);
-		contextm = 0;
-}
-=======
 function rmenu() {
 	$('#contextMenu').animate({ "min-width": 0} , 200);
 	contextm = 0;
 }
->>>>>>> f5d22548dbd540001f391fc5e34029cbdb579a8d
