@@ -11,9 +11,9 @@ var NUMBER_OF_TURRET_TYPES = 5;
 var MACHINEGUN_TURRET = {
 	name: "Machinegun Turret",
 	id:	0,
-	damage:	0.5,
+	damage:	1.2,
 	range:	2,
-	attackSpeed:	4,
+	attackSpeed:	10,
 	slow:	false,
 	reveal:	false,
 	amount:	0,
@@ -59,7 +59,7 @@ var SLOW_TURRET = {
 	slow:	true,
 	reveal:	false,
 	amount:	2,
-	price:	10,
+	price:	20,
 	kills:	0,
 	requirement:	"None",
 	description:	"Slows enemies in their path",
@@ -77,15 +77,15 @@ var SLOW_TURRET = {
 var PLASMA_TURRET = {
 	name: "Plasma Turret",
 	id:	2,
-	damage:	0.1,
+	damage:	2,
 	range:	2,
-	attackSpeed:    1,
+	attackSpeed:    22,
 	damageType:	"Splash",
 	upgradeLevel:	0,
 	slow:	false,
 	reveal:	false,
 	amount:	0,
-	price:	40,
+	price:	35,
 	kills:	0,
 	requirement:	"None",
 	description:	"Strong turret against swarms of small units",
@@ -98,7 +98,7 @@ var PLASMA_TURRET = {
 var LASER_TURRET = {
 	name: "Laser Turret",
 	id:	3,
-	damage:	0.1,
+	damage:	0.3,
 	range:	2,
 	attackSpeed:	1,
 	damageType:	"Single",
@@ -128,7 +128,7 @@ var DETECTOR_TURRET = {
 	slow:	false,
 	reveal:	true,
 	amount:	0,
-	price:	20,
+	price:	25,
 	kills:	0,
 	detection: "Yes",
 	reveal:	true,
@@ -294,10 +294,10 @@ function upgrade(tureta)
 		case MACHINEGUN_TURRET.id:
 			switch(level)	{
 				case 0:		tureta.range+=1; 				break;
-				case 1:		tureta.damage+=0.2;				break;
+				case 1:		tureta.damage+=0.3;				break;
 				case 2:		tureta.range+=1;				break;
-				case 3:		tureta.damage+=0.2;				break;
-				case 4:		tureta.attackSpeed-=1.5;		break;
+				case 3:		tureta.damage+=0.3;				break;
+				case 4:		tureta.attackSpeed-=3;			break;
 				default:	console.log("Cannot be upgraded any further!");	
 			}
 			break;
@@ -315,11 +315,11 @@ function upgrade(tureta)
 
 		case PLASMA_TURRET.id:
 			switch(level)	{
-				case 0:		tureta.damage+=0.3; 			break;
+				case 0:		tureta.damage+=3; 			break;
 				case 1:		tureta.range+=1;				break;
-				case 2:		tureta.damage+=0.5;				break;
+				case 2:		tureta.damage+=5;				break;
 				case 3:		tureta.range+=1;				break;
-				case 4:		tureta.attackSpeed-=1;			break;
+				case 4:		tureta.attackSpeed-=7;			break;
 				default:	console.log("Cannot be upgraded any further!");		
 			}
 			break;
@@ -329,7 +329,7 @@ function upgrade(tureta)
 				case 0:		tureta.range+=1; 				break;
 				case 1:		tureta.damage+=0.2;				break;
 				case 2:		tureta.range+=1;				break;
-				case 3:		tureta.damage+=0.3;				break;
+				case 3:		tureta.damage+=0.5;				break;
 				case 4:		tureta.damage+=1;				break;
 				default:	console.log("Cannot be upgraded any further!");		
 			}
