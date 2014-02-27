@@ -38,6 +38,18 @@ $(document).mousemove(function(event) {
 			hoverY = event.pageY - $("#hover").height() - 5;
 		$("#hover").css("top",hoverY);
 		$("#hover").css("left",hoverX);
+		
+	
+		// Calculare Pozitie pe harta
+		placeX = Math.round((boxX - xMin - 5) / boxSize);
+		placeY = Math.round((boxY - yMin - 5) / boxSize);
+		
+		if (getElement(placeX, placeY) != 0 && getElement(placeX, placeY) != 1 && getElement(placeX, placeY) != 2 && getElement(placeX, placeY) != 3) {
+			$("#highlight").show();
+			$("#highlight").css("top",boxY);
+			$("#highlight").css("left",boxX);
+		} else
+			$("#highlight").hide();
 });
 
 // Determina care ghost image se ataseaza cursorului
@@ -72,10 +84,6 @@ function unstick() {
 
 // Functia de desenare turete
 function drawTurret(turretNumber) {
-	
-	// Calculare Pozitie pe harta
-	placeX = Math.round((boxX - xMin - 5) / boxSize);
-	placeY = Math.round((boxY - yMin - 5) / boxSize);
 	
 	// In cazul RemoveTurret (verde)
 	if (turretNumber == 0) {

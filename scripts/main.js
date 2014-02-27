@@ -131,6 +131,8 @@ function gameSetup() {
  * */
  var turretIndex
 function gameLoop() {
+shortcuts();
+if (pause == 0){
     // game logic
     updateAchievements();
 	takeLife();
@@ -178,6 +180,7 @@ function gameLoop() {
 
     // desenam
     draw();
+}
 
     setTimeout(gameLoop, loopInterval);
 }
