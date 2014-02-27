@@ -195,8 +195,9 @@ function main() {
         gameLoop();
 
 }
-
-
-
+$.notify.defaults({autoHide:false});
+$.notify("Random message");
+$.notify("Random message","info");
+$.notify("Random message","warn");
 
 
