@@ -92,10 +92,11 @@ function removeTurret() {
 	plX = Math.round((parseInt($("#highlight").css("left")) - xMin) / boxSize);
 	deleteElement(plX, plY, mapNumber);
 	for (i in turrets)
-		if(turrets[i].x == plX && turrets[i].y == plY+1)
+		if(turrets[i].x == plX && turrets[i].y == plY) {
 			for (j = waves.length-1; j >= 0; j--)
 				waves[j].redoMonster();
 			turrets.splice(i);
+		}
 }
 
 // Functia de desenare turete
