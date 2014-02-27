@@ -88,14 +88,13 @@ function unstick() {
 }
   
 function removeTurret() {
-	plX = Math.round((parseInt($("#highlight").css("top")) - yMin) / boxSize);
-	plY = Math.round((parseInt($("#highlight").css("left")) - xMin) / boxSize);
-	deleteElement(plY, plX, mapNumber);
+	plY = Math.round((parseInt($("#highlight").css("top")) - yMin) / boxSize);
+	plX = Math.round((parseInt($("#highlight").css("left")) - xMin) / boxSize);
+	deleteElement(plX, plY, mapNumber);
 	for (i in turrets)
-		if(turrets[i].x == plY && turrets[i].y == plX+1)
-			if (turrets[i].type == 1)
-				for (var i = waves.length-1; i >= 0; i--)
-					waves[i].redoMonster();
+		if(turrets[i].x == plX && turrets[i].y == plY+1)
+			for (var j = waves.length-1; j >= 0; j--)
+				waves[j].redoMonster();
 			turrets.splice(i);
 }
 
@@ -106,7 +105,7 @@ function drawTurret(turretNumber) {
 	        switch(turretNumber) {
                     case 11:
                         var turret = new Turret(MACHINEGUN_TURRET.id);
-						if(userScore - turret.price >= 0 && userLevel > turret.level)
+						if(userScore - turret.price >= 0 && userLevel >= turret.level)
                         {
 							if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
     							unstick();
@@ -124,7 +123,7 @@ function drawTurret(turretNumber) {
                         break;
                     case 12:
                         var turret = new Turret(SLOW_TURRET.id);
-						if(userScore - turret.price >= 0 && userLevel > turret.level)
+						if(userScore - turret.price >= 0 && userLevel >= turret.level)
 	                        {
 							if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
     							unstick();
@@ -141,7 +140,7 @@ function drawTurret(turretNumber) {
                         break;
                     case 13:
                         var turret = new Turret(LASER_TURRET.id);
-						if(userScore - turret.price >= 0 && userLevel > turret.level)
+						if(userScore - turret.price >= 0 && userLevel >= turret.level)
                         {
 							if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
     							unstick();
@@ -158,7 +157,7 @@ function drawTurret(turretNumber) {
                         break;  
                     case 14:
                         var turret = new Turret(PLASMA_TURRET.id);
-						if(userScore - turret.price >= 0 && userLevel > turret.level)
+						if(userScore - turret.price >= 0 && userLevel >= turret.level)
                         {
 							if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
     							unstick();
@@ -175,7 +174,7 @@ function drawTurret(turretNumber) {
                         break;
                     case 15:
                         var turret = new Turret(DETECTOR_TURRET.id);
-						if(userScore - turret.price >= 0 && userLevel > turret.level)
+						if(userScore - turret.price >= 0 && userLevel >= turret.level)
                         {
 							if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
     							unstick();
