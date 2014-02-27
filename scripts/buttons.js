@@ -207,6 +207,6 @@ function cmenu() {
 }
 
 function rmenu() {
-	$('#contextMenu').animate({ width: 0} , 200);
-		contextm = 0;
+	$('#contextMenu').animate({ "min-width": 0} , 200);
+	contextm = 0;
 }
