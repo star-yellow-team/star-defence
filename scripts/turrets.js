@@ -30,6 +30,7 @@ var MACHINEGUN_TURRET = {
 	contor:	0,
 	x:	0,
 	y:	0,
+	level: 0,
     sprite:         'spirte.png',
     spriteSize:    5
 }
@@ -47,6 +48,7 @@ var SLOW_TURRET = {
 	amount:	2,
 	price:	20,
 	kills:	0,
+	level: 0,
 	requirement:	"None",
 	level: 0,
 	description:	"Slows enemies in their path",
@@ -73,6 +75,7 @@ var PLASMA_TURRET = {
 	amount:	0,
 	price:	35,
 	kills:	0,
+	level: 0,
 	requirement:	"None",
 	level: 0,
 	description:	"Strong turret against swarms of small units",
@@ -152,6 +155,7 @@ function Turret(type)
 			this.description=MACHINEGUN_TURRET.description;
 			this.isAttacking=MACHINEGUN_TURRET.isAttacking;
 			this.contor=MACHINEGUN_TURRET.contor;
+			this.level=MACHINEGUN_TURRET.level;
 	                this.sprite     = MACHINEGUN_TURRET.sprite;
                         this.spriteSize = MACHINEGUN_TURRET.spriteSize;
 			this.level=MACHINEGUN_TURRET.level;
@@ -159,6 +163,7 @@ function Turret(type)
 		
 		
 		case SLOW_TURRET.id:
+			this.level=SLOW_TURRET.level;
 			this.damage=SLOW_TURRET.damage;
 			this.range=SLOW_TURRET.range;
 			this.attackSpeed=SLOW_TURRET.attackSpeed;
@@ -178,6 +183,7 @@ function Turret(type)
 
 
 		case PLASMA_TURRET.id:
+			this.level=PLASMA_TURRET.level;
 			this.damage=PLASMA_TURRET.damage;
 			this.range=PLASMA_TURRET.range;
 			this.attackSpeed=PLASMA_TURRET.attackSpeed;
@@ -195,6 +201,7 @@ function Turret(type)
 			break;
 
 		case LASER_TURRET.id:
+			this.level=LASER_TURRET.level;
 			this.damage=LASER_TURRET.damage;
 			this.range=LASER_TURRET.range;
 			this.attackSpeed=LASER_TURRET.attackSpeed;
@@ -212,6 +219,7 @@ function Turret(type)
 			break;
 
 		case DETECTOR_TURRET.id:
+			this.level=DETECTOR_TURRET.level;
 			this.damage=DETECTOR_TURRET.damage;
 			this.range=DETECTOR_TURRET.range;
 			this.attackSpeed=DETECTOR_TURRET.attackSpeed;

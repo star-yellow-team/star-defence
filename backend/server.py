@@ -81,12 +81,18 @@ def handle_notification(ws, notification):
         # primire cerere joc
         pass
     elif notification['code'] == 6:
+        # alegere harta
+        
         pass
     elif notification['code'] == 7:
+        # trimitere modificare harta
+
         pass
     elif notification['code'] == 8:
+        # trimite mesaj
         pass
     else:
+        # iesire jucator din joc
         pass
 
 
