@@ -47,9 +47,9 @@
         </div>
         
         
-        <div id="contextMenu" onMouseDown="removeMenu()">
-            <div class="button" id="remove" onMouseOver="removeDescription()" touchstart="removeDescription()" onMouseOut="hideHover()" touchend="hideHover()" onClick="removeTurret()"></div>
-            <div class="button" id="upgrade" onClick='ab()'></div>
+        <div id="contextMenu" onMouseDown="rmenu()">
+            <div class="button" id="remove" onMouseOver="removeDescription()" touchstart="removeDescription()" onMouseOut="hideHover()" touchend="hideHover()" onClick="removeTurret()" onMouseDown="rmenu()"></div>
+            <div class="button" id="upgrade" onClick='ab()' onMouseDown="rmenu()"></div>
         </div>
         
 		

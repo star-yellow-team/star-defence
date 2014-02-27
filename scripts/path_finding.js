@@ -142,7 +142,7 @@ function findPath ()
 		}
 		/*
 		console.log(auxX + " " + auxY);
-		deletePoints();
+		deletePoints(true);
 		searchPoints(mapNumber,path_matrix[auxX][auxY] + 1);
 		console.log("lungime puncte:" + Pointsx.length);
 		var rand = Math.random()*Pointsx.length;

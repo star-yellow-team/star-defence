@@ -44,6 +44,7 @@ function generateWave2()
 function generateWave()
 {
 	var total = 0;
+	$("#level").html("level " + String(curentRound));
 	if(curentRound == 1)
 	{
 		for(var i = 0; i < NUMBER_OF_MONSTER_TYPES; i++)
@@ -166,12 +167,7 @@ function takeLife()
                 $("#health").html(String(life)+' / 5')
 		        waves.splice(i,1);
                 -- i;
-	    } // end else if
-		
-		level = curentRound - 1;
-		
-		$("#level").html("level " + String(level));
-
+	    } // end else if		
 
         } //end for
 		

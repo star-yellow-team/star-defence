@@ -109,33 +109,59 @@ function drawTurret(turretNumber) {
                         alert('eererre')
                         userScore -= 100
                         var turret = new Turret(MACHINEGUN_TURRET.id);
-                        turret.x = placeX;
-                        turret.y = placeY;
-                        turrets.push(turret); 
+						if(userScore - turret.price > 0)
+                        {
+							turret.x = placeX;
+                        	turret.y = placeY;
+                        	turrets.push(turret);
+							console.log("pret: " + turret.price);
+							userScore -= turret.price; 
+							$("#money-wrapper").html(String(userScore))
+						}
                         break;
                     case 12:
                         var turret = new Turret(SLOW_TURRET.id);
-                        turret.x = placeX;
-                        turret.y = placeY;
-                        turrets.push(turret); 
+						if(userScore - turret.price > 0)
+	                        {
+								turret.x = placeX;
+    	                    	turret.y = placeY;
+        	                	turrets.push(turret);
+								userScore -= turret.price; 
+								$("#money-wrapper").html(String(userScore))
+							}
                         break;
                     case 13:
                         var turret = new Turret(LASER_TURRET.id);
-                        turret.x = placeX;
-                        turret.y = placeY;
-                        turrets.push(turret);
+						if(userScore - turret.price > 0)
+                        {
+							turret.x = placeX;
+                        	turret.y = placeY;
+                        	turrets.push(turret);
+							userScore -= turret.price;
+							$("#money-wrapper").html(String(userScore))
+						}
                         break;  
                     case 14:
                         var turret = new Turret(PLASMA_TURRET.id);
-                        turret.x = placeX;
-                        turret.y = placeY;
-                        turrets.push(turret);
+						if(userScore - turret.price > 0)
+                        {
+							turret.x = placeX;
+                        	turret.y = placeY;
+                        	turrets.push(turret);
+							userScore -= turret.price;
+							$("#money-wrapper").html(String(userScore))
+						}
                         break;
                     case 15:
                         var turret = new Turret(DETECTOR_TURRET.id);
-                        turret.x = placeX;
-                        turret.y = placeY;
-                        turrets.push(turret);
+						if(userScore - turret.price > 0)
+                        {
+							turret.x = placeX;
+                        	turret.y = placeY;
+                        	turrets.push(turret);
+							userScore -= turret.price;
+							$("#money-wrapper").html(String(userScore))
+						}
                         break;
 
                     default:
@@ -208,7 +234,14 @@ function cmenu() {
 	}
 }
 
+<<<<<<< HEAD
 function removeMenu() {
 	$('#contextMenu').animate({ width: 0} , 200);
 		contextm = 0;
 }
+=======
+function rmenu() {
+	$('#contextMenu').animate({ "min-width": 0} , 200);
+	contextm = 0;
+}
+>>>>>>> f5d22548dbd540001f391fc5e34029cbdb579a8d
