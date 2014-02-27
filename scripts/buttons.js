@@ -102,64 +102,77 @@ function removeTurret() {
 // Functia de desenare turete
 function drawTurret(turretNumber) {
 	// Desenare turret
-	if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
-    		unstick();
+	
 	        switch(turretNumber) {
                     case 11:
                         var turret = new Turret(MACHINEGUN_TURRET.id);
 						if(userScore - turret.price > 0 && userLevel > turret.level)
                         {
-							turret.x = placeX;
-                        	turret.y = placeY;
-                        	turrets.push(turret);
-							console.log("pret: " + turret.price);
-							userScore -= turret.price; 
-							$("#money-wrapper").html(String(userScore))
+							if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
+    							unstick();
+								turret.x = placeX;
+                        		turret.y = placeY;
+                        		turrets.push(turret);
+								console.log("pret: " + turret.price);
+								userScore -= turret.price; 
+								$("#money-wrapper").html(String(userScore))
+							}
 						}
                         break;
                     case 12:
                         var turret = new Turret(SLOW_TURRET.id);
 						if(userScore - turret.price > 0 && userLevel > turret.level)
 	                        {
+							if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
+    							unstick();
 								turret.x = placeX;
     	                    	turret.y = placeY;
         	                	turrets.push(turret);
 								userScore -= turret.price; 
 								$("#money-wrapper").html(String(userScore))
 							}
+							}
                         break;
                     case 13:
                         var turret = new Turret(LASER_TURRET.id);
-						alert(userLevel > turret.level);
 						if(userScore - turret.price > 0 && userLevel > turret.level)
                         {
+							if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
+    							unstick();
 							turret.x = placeX;
                         	turret.y = placeY;
                         	turrets.push(turret);
 							userScore -= turret.price;
 							$("#money-wrapper").html(String(userScore))
+							}
 						}
                         break;  
                     case 14:
                         var turret = new Turret(PLASMA_TURRET.id);
 						if(userScore - turret.price > 0 && userLevel > turret.level)
                         {
+							if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
+    							unstick();
 							turret.x = placeX;
                         	turret.y = placeY;
                         	turrets.push(turret);
 							userScore -= turret.price;
 							$("#money-wrapper").html(String(userScore))
+							}
 						}
                         break;
                     case 15:
                         var turret = new Turret(DETECTOR_TURRET.id);
 						if(userScore - turret.price > 0 && userLevel > turret.level)
                         {
+							if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
+    							unstick();
 							turret.x = placeX;
                         	turret.y = placeY;
                         	turrets.push(turret);
 							userScore -= turret.price;
 							$("#money-wrapper").html(String(userScore))
+							}
 						}
                         break;
 
@@ -167,7 +180,7 @@ function drawTurret(turretNumber) {
                         console.log("Invalid turret!!"+String(turretNumber));
                         break;
                 }
-	}
+	
 }
 
 $("#hover").hide();
