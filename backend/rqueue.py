@@ -68,3 +68,11 @@ class Queue(object):
 			s +=  ']'
 
 			return s
+
+        def __getitem__(self, index):
+                if index >= len(self._queue):
+                        raise IndexError("Index out of bounds")
+                elif type(index) != type(int()):
+                        raise ValueError("Index must be an integer")                        
+                else:
+                        return self._queue[index]
