@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
         <title>Tower Defense</title>
         
         <link href="stylesheets/style.css" rel="stylesheet" type="text/css">
@@ -28,12 +29,12 @@
                     </tr>
                 </table>
             	<div id="turret-menu">
-                	<div class="button" id="machinegun_turret" onClick="stick(11)" onMouseOver="description(MACHINEGUN_TURRET)" onMouseOut="hideHover()"></div>
-                	<div class="button" id="slow_turret" onClick="stick(12)" onMouseOver="description(SLOW_TURRET)" onMouseOut="hideHover()"></div>
-                	<div class="button" id="laser_turret" onClick="stick(13)" onMouseOver="description(LASER_TURRET)" onMouseOut="hideHover()"></div>
-                	<div class="button" id="plasma_turret" onClick="stick(14)" onMouseOver="description(PLASMA_TURRET)" onMouseOut="hideHover()"></div>
-                	<div class="button" id="detector_turret" onClick="stick(15)" onMouseOver="description(DETECTOR_TURRET)" onMouseOut="hideHover()"></div>
-                	<div class="button" id="remove_turret" onClick="stick(0)" onMouseOver="removeDescription()" onMouseOut="hideHover()"></div>
+                	<div class="button" id="machinegun_turret" onClick="stick(11)" onMouseOver="description(MACHINEGUN_TURRET)" touchstart="description(MACHINEGUN_TURRET)" onMouseOut="hideHover()" touchend="hideHover()"></div>
+                	<div class="button" id="slow_turret" onClick="stick(12)" onMouseOver="description(SLOW_TURRET)" touchstart="description(SLOW_TURRET)" onMouseOut="hideHover()" touchend="hideHover()"></div>
+                	<div class="button" id="laser_turret" onClick="stick(13)" onMouseOver="description(LASER_TURRET)" touchstart="description(LASER_TURRET)" onMouseOut="hideHover()" touchend="hideHover()"></div>
+                	<div class="button" id="plasma_turret" onClick="stick(14)" onMouseOver="description(PLASMA_TURRET)" touchstart="description(PLASMA_TURRET)" onMouseOut="hideHover()" touchend="hideHover()"></div>
+                	<div class="button" id="detector_turret" onClick="stick(15)" onMouseOver="description(DETECTOR_TURRET)" touchstart="description(DETECTOR_TURRET)" onMouseOut="hideHover()" touchend="hideHover()"></div>
+                	<div class="button" id="remove_turret" onClick="stick(0)" onMouseOver="removeDescription()" touchstart="removeDescription()" onMouseOut="hideHover()" touchend="hideHover()"></div>
             	</div>
             	<div id="ui-menu">
                 	<div class="button" id="turret" onClick="stick()"></div>

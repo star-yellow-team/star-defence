@@ -88,6 +88,8 @@ function sizeScreen() {
     $("#reveal").css("padding-left",boxSize / 2);
     $("#price").css("background-size",boxSize / 2);
     $("#price").css("padding-left",boxSize / 2);
+	
+	$("#hover").css("max-width", 12*boxSize);
     
     $("#health-wrapper").css("height",boxSize); 
     $("#health-wrapper").css("width",2 * boxSize); 
