@@ -112,6 +112,7 @@ Notificari:
 --------------------------------------------------------------------------------
 -1          Rezultatul autentificarii       success=true/false; 
                                             message=daca e cazul;
+                                            name="" daca se face logare ca guest
 --------------------------------------------------------------------------------
 -2          Primire cerere de joc           response={oponent:''}
 --------------------------------------------------------------------------------

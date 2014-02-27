@@ -2,6 +2,7 @@ from twisted.internet import reactor, threads
 from autobahn.twisted.websocket import WebSocketServerFactory, WebSocketServerProtocol, listenWS
 from player import Player
 from threading import Thread
+import db
 
 # vector containing all players
 players = []
@@ -44,15 +45,40 @@ def handle_notification(ws, notification):
         # server-ul automat trimite 
         # notificarile
         pass
+
     elif notification['code'] == 1:
-        pass
+        # user requested sign up
+        ok = db.sign_up_user(notification['user'], notification['password'])
+
+        if ok:
+            player.add_notification(Notification({'code':-1, 'success':True, 'message':'no errors'}))
+        else:
+            player.add_notification(Notification({'code':-1, 'success':False, 'message':'Error while signing up'}))
+                
     elif notification['code'] == 2:
-        pass
+       # sign in user
+        ok = db.sign_in_user(notification['user'], notification['passowrd'])
+
+        if ok:
+            player.add_notification(Notification({'code':-1, 'success':True, 'message':'no errors'}))
+        else:
+            player.add_notification(Notification({'code':-1, 'success':False, 'message':'Error while signing up'}))    
+
     elif notification['code'] == 3:
-        pass
+        name = db.get_guest_name()
+        ok = sign_up_user(name, 'guest')
+
+        if ok:
+            player.add_notification(Notification({'code':-1, 'success':True, 'message':'no errors'}))
+        else:
+            player.add_notification(Notification({'code':-1, 'success':False, 'message':'Error while signing up'}))
+                 
+
     elif notification['code'] == 4:
+        # trimitere cerere joc
         pass
     elif notification['code'] == 5:
+        # primire cerere joc
         pass
     elif notification['code'] == 6:
         pass

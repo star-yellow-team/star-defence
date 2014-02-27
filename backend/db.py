@@ -41,7 +41,7 @@ def sign_in_user(name, password):
 
     return False
         
-def sign_up_guest():
+def get_guest_name():
     return 'guest' + str(uuid.uuid1())[:20]    
 
 """
