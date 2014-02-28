@@ -332,7 +332,7 @@ Turret.prototype.upgrade = function(x, y)
 	switch(turrets[i].type)	{
 		case MACHINEGUN_TURRET.id:
 			switch(level)	{
-				case 0:		turrets[i].range+=1; 			userScore=userScore-turrets[i].upgradePrice;		break;
+				case 0:		turrets[i].range=0; 			userScore=userScore-turrets[i].upgradePrice;		break;
 				case 1:		turrets[i].damage+=0.3;			userScore=userScore-turrets[i].upgradePrice;		break;
 				case 2:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
 				case 3:		turrets[i].damage+=0.3;			userScore=userScore-turrets[i].upgradePrice;		break;

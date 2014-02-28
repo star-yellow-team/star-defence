@@ -267,3 +267,10 @@ function rmenu() {
 	$('#contextMenu').animate({ "min-width": 0} , 200);
 	contextm = 0;
 }
+
+
+function upgrade() {
+	plY = Math.round((parseInt($("#highlight").css("top")) - yMin) / boxSize);
+	plX = Math.round((parseInt($("#highlight").css("left")) - xMin) / boxSize);
+	Turret.prototype.upgrade(plX,plY);
+}
