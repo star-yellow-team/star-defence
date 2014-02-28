@@ -37,6 +37,20 @@ function makeLevel(level)
 		break;
 		
 		case 3:
+		addMonsters_onWave(1,5);
+		break;
+		
+		case 4:
+		addMonsters_onWave(1,10);
+		break;
+		
+		case 5:
+		addMonsters_onWave(1,5);
+		addMonsters_onWave(2,2);
+		addMonsters_onWave(1,5);
+		addMonsters_onWave(3,3);
+		
+		case 6:
 		last_level_completed=true;
 		break;
 	}
