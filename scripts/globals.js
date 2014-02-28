@@ -4,8 +4,7 @@
  *
  * */
 
-var mapNumber       = Math.floor(Math.random() * 10) % 3;//prompt("Numarul hartii", 0);
-var difficulty      = 0 //prompt("Dificultatea", 0) % 3;
+var mapNumber       = 0;//prompt("Numarul hartii", 0);
 var life            =  5;
 var loopInterval    = 50;
 var waves           = [];
@@ -26,7 +25,7 @@ var StoryModeFinished = false; //daca s-a terminat storyul.
 var last_level_completed = false; //mai aveam nevoie si de variabila asta.
 var move_on         = true;
 var current_level   = 1;
-var user_selection  = prompt("Cum se deruleaza jocul?","story");
+var user_selection  = 0//prompt("Cum se deruleaza jocul?","story");
 
 //StoryTelling
 var coming_soon = true;

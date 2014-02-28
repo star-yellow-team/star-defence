@@ -23,6 +23,7 @@ var xMin;
 var xMax;
 var yMin;
 var yMax;
+var font100;
 
 function x() {
 	
@@ -53,6 +54,8 @@ function sizeScreen() {
     canvasWidth = numberOfBoxesX * boxSize;
     canvasHeight = numberOfBoxesY * boxSize;
 
+	font100 = boxSize / 5 * 3;
+
     // redimensionam
     $(".ghostImage").css("height",boxSize);
     $(".ghostImage").css("width",boxSize);
@@ -76,12 +79,12 @@ function sizeScreen() {
     
     $("#bar-wrapper").css("height",2 * boxSize); 
     $("#bar-wrapper").css("width",2 * boxSize); 
-    $("#bar-wrapper").css("font-size",boxSize / 5 * 3);
+    $("#bar-wrapper").css("font-size",font100);
     $("#health-wrapper").css("background-size",boxSize / 2);
     $("#money-wrapper").css("background-size",boxSize / 2);
 	
-    $("#title").css("font-size",(boxSize / 5 * 3) * 150 / 100);
-    $("#hover").css("font-size",boxSize / 5 * 3);
+    $("#title").css("font-size",font100);
+    $("#hover").css("font-size",font100 * 100 / 150);
     $("#slowt").css("background-size",boxSize / 2);
     $("#slowt").css("padding-left",boxSize / 2);
     $("#reveal").css("background-size",boxSize / 2);
@@ -105,6 +108,21 @@ function sizeScreen() {
     xMax = xMin + canvasWidth - boxSize;
 	
     $("#contextMenu").css("height",boxSize);
+	
+    $("h1").css("font-size",font100*3);
+    $("h1").css("top",5 * boxSize);
+    $("h2").css("font-size",font100*150/100);
+	
+    $("input").css("font-size",font100*150/100);
+    $("form").css("font-size",font100*150/100);
+    $("input").css("padding",boxSize / 2);
+	$(".gamemode").css("width",boxSize/2);
+	$(".gamemode").css("height",boxSize/2);
+	
+    $("form").css("top",(screenHeight-$("form").height()) / 2);
+    $("form").css("left",(screenWidth-$("form").width()) / 2);
+	
+	$("form").children("h2").css("margin-bottom", -boxSize);
     
     sizeMonsters();
 }

@@ -200,4 +200,42 @@ function main() {
 
 }
 
+function startup() {
+	$("form").fadeOut("fast").delay(1000);
+			
+	$("form").hide();
+	
+	mapNumber = document.getElementById("map").value;
+	user_selection = $('input[name="gamemode"]:checked').val();
+	
+	if (mapNumber === "")
+		mapNumber = 0;
+	
+	main();
+	
+	$("#dimmer").slideUp("fast");
+}
+
+function pausegame() {
+	if (pause == 1) {
+    	pause = 0;
+		$("#paused").hide();
+		
+		$("#play").hide();
+		
+		$("#restart").hide();
+		
+		$("#dimmer").slideUp("fast");
+	} else {
+		pause = 1;
+		$("#dimmer").slideDown("fast");
+		
+		$("#paused").show();
+		
+		$("#play").show();
+		
+		$("#restart").show();
+	}
+}
+
 
