@@ -10,11 +10,30 @@
         <!-- Importing jQuery from Google as it probably already is cached in the browser memory -->
         <script type="text/javascript" src="scripts/jquery.js"></script>
         <script type="text/javascript" src="scripts/notify.js"></script>
+        
+        <script type="text/javascript">
+		<!--//--><![CDATA[//><!--
+			var images = new Array()
+			function preload() {
+				for (i = 0; i < preload.arguments.length; i++) {
+					images[i] = new Image()
+					images[i].src = preload.arguments[i]
+				}
+			}
+			preload(
+				"http://gamestardefense.netai.net/star-defence/images/loading.png"
+			)
+			$("#dimmer").css({"opacity":"1"});
+		//--><!]]>
+		</script>
 
     </head>
 
-    <body onload="main()">
-		
+    <body>
+		<div id="dimmer"></div>
+        
+        <h1 id="loading">Loading...</h1>
+        
 		<!-- Game Canvas is set to 100% of body -->
         <div id="wrapper">
         	<canvas id="gameCanvas" >
@@ -87,5 +106,17 @@
         <script type="text/javascript" src="scripts/buttons.js"></script>
         <script type="text/javascript" src="scripts/shortcuts.js"></script>
         <script type="text/javascript" src="scripts/main.js"></script>
+
+		<script type="text/javascript">
+		function load() {
+			$(window).delay(1000);
+			$("#loading").animate({"opacity":"0","top":"100"});
+			$("#loader").animate({"opacity":"0","top":"100"});
+			$("#dimmer").animate({"opacity":"0"});
+		}
+		
+		setTimeout(load(),1000);
+			main();
+		</script>
     </body>
 </html>

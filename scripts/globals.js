@@ -4,8 +4,8 @@
  *
  * */
 
-var mapNumber       = prompt("Numarul hartii", 0);
-var difficulty      = prompt("Dificultatea", 0) % 3;
+var mapNumber       = 0 //prompt("Numarul hartii", 0);
+var difficulty      = 0 //prompt("Dificultatea", 0) % 3;
 var life            =  5;
 var loopInterval    = 50;
 var waves           = [];

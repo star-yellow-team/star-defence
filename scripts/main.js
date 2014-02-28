@@ -15,7 +15,6 @@ var context         = canvas.getContext("2d");
 
 $(".ghostImage").hide();
 
-
 /**
  *  Deseneaza background-ul(harta)
  *  Momentan: 
@@ -190,9 +189,8 @@ if (pause == 0){
  *  Ea incepe jocul
  * */
 function main() {
-	gameSetup()
-        gameLoop();
-
+	gameSetup();
+    gameLoop();
 }
 
 
