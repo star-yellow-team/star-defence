@@ -6,8 +6,55 @@
 * */
 function updateStoryTelling()
 {
+	userScore+=totalCredits;
+	totalCredits-=totalCredits;
+	
 	if(coming_soon==true)$.notify("The great, immersive story is coming soon!", {position:"top center"});
 	coming_soon=false;
+	
+	//Machine Guns
+	switch(machineGuns_built)
+	{
+		case 1:
+		if(first_machineGun == true){
+		$(".ghostImage").notify("Good choice! \n The Machine Gun is an all-round good turret.","info");
+		first_machineGun = false;
+		}
+		break;
+		
+		case 2:
+		if(second_machineGun == true){
+		$(".ghostImage").notify("Two Machine Guns are always better than one!","info");
+		second_machineGun = false;
+		}
+		break;
+		
+		case 3:
+		if(third_machineGun == true){
+		$(".ghostImage").notify("I love them too!","info");
+		third_machineGun = false;
+		}
+		break;
+	}
+	
+	//Waves Alerts
+	switch(waves_won_perBattle)
+	{
+		case 0:
+		if(wave1_alert==true){
+		$.notify("Commander! Warning! \n Enemies incoming!","info");
+		wave1_alert = false;
+		}
+		break;
+		
+		case 1:
+		if(wave2_alert==true){
+		$.notify("More enemies incoming!","info");
+		wave2_alert = false;
+		}
+		break;
+	}
+	
 }
 
 
