@@ -331,7 +331,7 @@ Turret.prototype.upgrade = function(x, y)
 	{
 	switch(turrets[i].type)	{
 		case MACHINEGUN_TURRET.id:
-			switch(level)	{
+			switch(turrets[i].upgradeLevel)	{
 				case 0:		turrets[i].range=0; 			userScore=userScore-turrets[i].upgradePrice;		break;
 				case 1:		turrets[i].damage+=0.3;			userScore=userScore-turrets[i].upgradePrice;		break;
 				case 2:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
@@ -342,7 +342,7 @@ Turret.prototype.upgrade = function(x, y)
 			break;
 			
 		case SLOW_TURRET.id:
-			switch(level)	{
+			switch(turrets[i].upgradeLevel)	{
 				case 0:		turrets[i].range+=1; 			userScore=userScore-turrets[i].upgradePrice;		break;
 				case 1:		turrets[i].amount=1.66666;		userScore=userScore-turrets[i].upgradePrice;		break;
 				case 2:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
@@ -353,7 +353,7 @@ Turret.prototype.upgrade = function(x, y)
 			break;
 
 		case PLASMA_TURRET.id:
-			switch(level)	{
+			switch(turrets[i].upgradeLevel)	{
 				case 0:		turrets[i].damage+=3; 			userScore=userScore-turrets[i].upgradePrice; 		break;
 				case 1:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
 				case 2:		turrets[i].damage+=5;			userScore=userScore-turrets[i].upgradePrice;		break;
@@ -364,7 +364,7 @@ Turret.prototype.upgrade = function(x, y)
 			break;
 
 		case LASER_TURRET.id:
-			switch(level)	{
+			switch(turrets[i].upgradeLevel)	{
 				case 0:		turrets[i].range+=1; 			userScore=userScore-turrets[i].upgradePrice;		break;
 				case 1:		turrets[i].damage+=0.2;			userScore=userScore-turrets[i].upgradePrice;		break;
 				case 2:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
@@ -375,7 +375,7 @@ Turret.prototype.upgrade = function(x, y)
 			break;
 
 		case DETECTOR_TURRET.id:
-			switch(level)	{
+			switch(turrets[i].upgradeLevel)	{
 				case 0:		turrets[i].range+=1; 			userScore=userScore-turrets[i].upgradePrice;		break;
 				case 1:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
 				case 2:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
