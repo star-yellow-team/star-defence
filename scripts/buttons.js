@@ -97,6 +97,7 @@ function removeTurret() {
 				waves[j].redoMonster();
 			turrets.splice(i);
 		}
+	rmenu();
 }
 
 // Functia de desenare turete
@@ -117,7 +118,6 @@ function drawTurret(turretNumber) {
                         		turrets.push(turret);
 								console.log("pret: " + turret.price);
 								userScore -= turret.price; 
-								$("#money-wrapper").html(String(userScore))
 							}
 						} else if (userScore - turret.price < 0)
 							$(".ghostImage").notify("You do not have enough money","error");
@@ -134,7 +134,6 @@ function drawTurret(turretNumber) {
     	                    	turret.y = placeY;
         	                	turrets.push(turret);
 								userScore -= turret.price; 
-								$("#money-wrapper").html(String(userScore))
 							}
 						} else if (userScore - turret.price < 0)
 							$(".ghostImage").notify("You do not have enough money","error");
@@ -151,7 +150,6 @@ function drawTurret(turretNumber) {
                         	turret.y = placeY;
                         	turrets.push(turret);
 							userScore -= turret.price;
-							$("#money-wrapper").html(String(userScore))
 							}
 						} else if (userScore - turret.price < 0)
 							$(".ghostImage").notify("You do not have enough money","error");
@@ -168,7 +166,6 @@ function drawTurret(turretNumber) {
                         	turret.y = placeY;
                         	turrets.push(turret);
 							userScore -= turret.price;
-							$("#money-wrapper").html(String(userScore))
 							}
 						} else if (userScore - turret.price < 0)
 							$(".ghostImage").notify("You do not have enough money","error");
@@ -185,7 +182,6 @@ function drawTurret(turretNumber) {
                         	turret.y = placeY;
                         	turrets.push(turret);
 							userScore -= turret.price;
-							$("#money-wrapper").html(String(userScore))
 							}
 						} else if (userScore - turret.price < 0)
 							$(".ghostImage").notify("You do not have enough money","error");
@@ -272,5 +268,7 @@ function rmenu() {
 function upgrade() {
 	plY = Math.round((parseInt($("#highlight").css("top")) - yMin) / boxSize);
 	plX = Math.round((parseInt($("#highlight").css("left")) - xMin) / boxSize);
-	Turret.prototype.upgrade(plX,plY);
+	Upgrade(plX,plY);
+	console.log("OK 0");
+	rmenu();
 }

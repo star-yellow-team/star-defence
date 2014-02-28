@@ -170,10 +170,13 @@ if (pause == 0){
 	 
 
     // desenam
-    draw();
 }
 
     setTimeout(gameLoop, loopInterval);
+    draw();
+$("#money").html(String(userScore));
+$("#health").html(String(life)+' / 5');
+console.log(userScore);
 }
 
 

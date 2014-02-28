@@ -162,10 +162,11 @@ function Turret(type)
 			this.isAttacking=MACHINEGUN_TURRET.isAttacking;
 			this.contor=MACHINEGUN_TURRET.contor;
 			this.level=MACHINEGUN_TURRET.level;
-	                this.sprite     = MACHINEGUN_TURRET.sprite;
-                        this.spriteSize = MACHINEGUN_TURRET.spriteSize;
+	        this.sprite     = MACHINEGUN_TURRET.sprite;
+            this.spriteSize = MACHINEGUN_TURRET.spriteSize;
 			this.level=MACHINEGUN_TURRET.level;
-            		break;
+			this.upgradePrice=MACHINEGUN_TURRET.upgradePrice;
+            break;
 		
 		
 		case SLOW_TURRET.id:
@@ -182,10 +183,10 @@ function Turret(type)
 			this.amount=SLOW_TURRET.amount;
 			this.isAttacking=SLOW_TURRET.isAttacking;
 			this.contor=SLOW_TURRET.contor;
-	                this.sprite     = SLOW_TURRET.sprite;
-                        this.spriteSize = SLOW_TURRET.spriteSize;
-			this.level=SLOW_TURRET.level;	
-                	break;
+	        this.sprite     = SLOW_TURRET.sprite;
+            this.spriteSize = SLOW_TURRET.spriteSize;
+			this.upgradePrice=SLOW_TURRET.upgradePrice;
+            break;
 
 
 		case PLASMA_TURRET.id:
@@ -201,9 +202,9 @@ function Turret(type)
 			this.description=PLASMA_TURRET.description;
 			this.isAttacking=PLASMA_TURRET.isAttacking;
 			this.contor=PLASMA_TURRET.contor;
-                        this.sprite     = PLASMA_TURRET.sprite;
-                        this.spriteSize = PLASMA_TURRET.spriteSize;
-			this.level=PLASMA_TURRET.level;
+            this.sprite     = PLASMA_TURRET.sprite;
+            this.spriteSize = PLASMA_TURRET.spriteSize;
+			this.upgradePrice=PLASMA_TURRET.upgradePrice;
 			break;
 
 		case LASER_TURRET.id:
@@ -219,9 +220,9 @@ function Turret(type)
 			this.description=LASER_TURRET.description;
 			this.isAttacking=LASER_TURRET.isAttacking;
 			this.contor=LASER_TURRET.contor;
-                        this.sprite     = LASER_TURRET.sprite;
-                        this.spriteSize = LASER_TURRET.spriteSize;
-			this.level=LASER_TURRET.level;
+            this.sprite     = LASER_TURRET.sprite;
+            this.spriteSize = LASER_TURRET.spriteSize;
+			this.upgradePrice=LASER_TURRET.upgradePrice;
 			break;
 
 		case DETECTOR_TURRET.id:
@@ -237,9 +238,9 @@ function Turret(type)
 			this.description=DETECTOR_TURRET.description;
 			this.isAttacking=DETECTOR_TURRET.isAttacking;
 			this.contor=DETECTOR_TURRET.contor;
-                        this.sprite     = DETECTOR_TURRET.sprite;
-                        this.spriteSize = DETECTOR_TURRET.spriteSize;
-			this.level=DETECTOR_TURRET.level;
+            this.sprite     = DETECTOR_TURRET.sprite;
+            this.spriteSize = DETECTOR_TURRET.spriteSize;
+			this.upgradePrice=DETECTOR_TURRET.upgradePrice;
 			break;
 
 		default:

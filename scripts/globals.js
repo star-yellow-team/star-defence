@@ -57,8 +57,6 @@ var first_100_credits           = false;
 var FRAME_SIZE                  =   50;
 var FRAME_RATE                  =    3;
 
-$('#money-wrapper').html(String(userScore))
-
 function sizeMonsters() {
     dimension = boxSize ;
     //offset = (boxSize) / (waves.length);

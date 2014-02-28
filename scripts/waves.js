@@ -141,14 +141,12 @@ function takeLife()
             if(!waves[i].isAlive()) {
                 userScore += (waves[i].type + 5)*(waves[i].type + 5)*(waves[i].type + 5);
 				waves.splice(i,1)
-                $("#money").html(String(userScore))
                 -- i
                 
                 //ia monstrii care au ajuns la destinatie
             } else if(waves[i].x == Pointsy[0] && waves[i].y == Pointsx[0]) {
 		life--;
                 life = life >= 0 ? life : 0;
-                $("#health").html(String(life)+' / 5')
 		        waves.splice(i,1);
                 -- i;
 	    } // end else if
