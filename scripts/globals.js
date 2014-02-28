@@ -80,10 +80,50 @@ function sizeMonsters() {
 // draw image to screen drawImage(imageObject, sourceX, sourceY, sourceWidth, sourceHeight,
 // destinationX, destinationY, destinationWidth, destinationHeight)
 function animate(context, object, offset) { 
-
+    if(object == undefined) {return;}
     if(offset == undefined) {
         
+    } else if(object.type == 0) {
+        //deseneaza monstrul
+            context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0,FRAME_SIZE, FRAME_SIZE, 
+            boxSize * object.x + dimension, boxSize * object.y + object.offset, dimension, dimension)            
+
+            // contur lifebar
+            context.strokeStyle = "black"
+            context.strokeRect(boxSize * object.x + dimension / 2, 
+                            boxSize * object.y - boxSize/3 + object.offset,
+                            2*dimension, 2*dimension/3 );
+            
+            //determina viata
+            context.fillStyle = "red"
+            var health = object.health * (2*dimension) / monsters[object.type].health;
+    
+            //deseneaza partea rosie
+            context.fillRect(boxSize * object.x + dimension / 2, 
+                            boxSize * object.y - boxSize/3 + object.offset, 
+                            health, 2*dimension/3 );
+            
+
     } else {
+        //deseneaza monstrul
+            context.fillStyle = monsters[object.type].color;
+	    context.fillRect(boxSize * object.x + dimension, boxSize * object.y + object.offset, dimension, dimension); 
+        
+            // contur lifebar
+            context.strokeStyle = "black"
+            context.strokeRect(boxSize * object.x + dimension / 2, 
+                            boxSize * object.y - boxSize/3 + object.offset,
+                            2*dimension, 2*dimension/3 );
+            
+            //determina viata
+            context.fillStyle = "red"
+            var health = object.health * (2*dimension) / monsters[object.type].health;
+    
+            //deseneaza partea rosie
+            context.fillRect(boxSize * object.x + dimension / 2, 
+                            boxSize * object.y - boxSize/3 + object.offset, 
+                            health, 2*dimension/3 );
+            
 
     }
 

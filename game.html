@@ -13,24 +13,37 @@
         
         <script type="text/javascript">
 		<!--//--><![CDATA[//><!--
+
 			var images = new Array()
+                        var toLoad = 1
+
 			function preload() {
 				for (i = 0; i < preload.arguments.length; i++) {
 					images[i] = new Image()
 					images[i].src = preload.arguments[i]
-				}
+				        images[i].onload = function() {
+                                            -- toLoad;
+                                        }
+                                }
 			}
+            
+                        preload('images/monsteryellow.png')
 			
 			$("#dimmer").css({"opacity":"1"});
 		//--><!]]>
 	</script>
         <script type="text/javascript">
 		function load() {
-			$(window).delay(1000);
+			if(toLoad != 0) {
+                            setTimeout(load, 50)
+                            return
+                        }
+                        $(window).delay(1000);
 			$("#loading").animate({"opacity":"0","top":"100"});
 			$("#loader").animate({"opacity":"0","top":"100"});
 			$("#dimmer").animate({"opacity":"0"});
                         main()
+                        
     		}
     
 		
@@ -39,7 +52,7 @@
     </head>
 
     <body onload="load()">
-		<div id="dimmer"></div>
+	<div id="dimmer"></div>
         
         <h1 id="loading">Loading...</h1>
         

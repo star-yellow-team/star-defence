@@ -29,8 +29,8 @@ var SIMPLE_MONSTER = {
     point: 2,
     slowingTurret:	0,
     visible: true,
-    sprite: 'sprite.png',
-    spriteSize: 5 
+    sprite: images[0],
+    spriteSize: 4
 }
 
 //  monstru rapid

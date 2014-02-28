@@ -90,27 +90,8 @@ function draw() {
     // bug: monstrii "sar" cand moare unul dintre ei
     for(var m = 0; m < waves.length; ++ m) {
 	    var monster = waves[m];
-
-	    //deseneaza monstrul
-            context.fillStyle = monsters[monster.type].color;
-	    context.fillRect(boxSize * monster.x + dimension, boxSize * monster.y + monster.offset, dimension, dimension); 
-        
-            // contur lifebar
-            context.strokeStyle = "black"
-            context.strokeRect(boxSize * monster.x + dimension / 2, 
-                            boxSize * monster.y - boxSize/3 + monster.offset,
-                            2*dimension, 2*dimension/3 );
-            
-            //determina viata
-            context.fillStyle = "red"
-            var health = monster.health * (2*dimension) / monsters[monster.type].health;
-    
-            //deseneaza partea rosie
-            context.fillRect(boxSize * monster.x + dimension / 2, 
-                            boxSize * monster.y - boxSize/3 + monster.offset, 
-                            health, 2*dimension/3 );
-            
-             
+            animate(context, monster, monster.offset)
+	                 
 	}
     
  
