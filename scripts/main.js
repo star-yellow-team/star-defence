@@ -213,6 +213,7 @@ function main() {
 		case 'story':
 		gameSetup();
 		curentRound=2; //altfel nu incepe cu level 1.
+		waves_won_perBattle=0; 
 		story();
 		break;
 	}
