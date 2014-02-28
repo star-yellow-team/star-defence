@@ -114,6 +114,7 @@ function gameSetup() {
 			break;
 	}
 	
+	$("#wrapper").fadeIn("fast");
 }
 
 /**

@@ -16,6 +16,7 @@
   /* Fonts */
     /* Share Tech */    @import url(http://fonts.googleapis.com/css?family=Share+Tech);
 
+
 /* General CSS Styling */
 
 #loading {
@@ -28,6 +29,13 @@
 	width:100%;
 	text-align:center;
 	z-index:1000;
+}
+
+.gamemode {
+	border-radius:100px;
+	background-color:none;
+	padding:0px;
+	margin:0px;
 }
 
 #paused {
