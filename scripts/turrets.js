@@ -270,12 +270,13 @@ function distanta(i, tureta)
 /* Cred ca atacul va depinde de o functie de detectat cand inamicul intra in range */
 function detectEnemy(tureta)
 {
-	var audio1 = new Audio('Plasma.mp3');
-	var audio2 = new Audio('Machinegun.mp3');
-	var audio3 = new Audio('Laser.mp3');
+	var audio1 = new Audio('sounds/Plasma.mp3');
+	var audio2 = new Audio('sounds/Machinegun.mp3');
+	var audio3 = new Audio('sounds/Laser.mp3');
 	audio2.volume = 0.05;
 	audio1.volume = 0.05;
 	audio3.volume = 0.05;
+
 	if(tureta.canAttack() == false && tureta.damage > 0) {
             return;
 	}

@@ -19,6 +19,7 @@ var userScore       =  20;
 var turrets         = [];
 var dimension       =  0;
 var offset          =  0;
+var userLevel       =  0;
 
 //Story
 var StoryModeFinished = false; //daca s-a terminat storyul.

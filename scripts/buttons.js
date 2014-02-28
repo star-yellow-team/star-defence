@@ -102,7 +102,9 @@ function removeTurret() {
 // Functia de desenare turete
 function drawTurret(turretNumber) {
 	// Desenare turret
-		$.notify().options({autoHideDelay: 200});
+	//      //what is this |
+		//what         v
+		//$(document).notify().options({autoHideDelay: 200});
 	        switch(turretNumber) {
                     case 11:
                         var turret = new Turret(MACHINEGUN_TURRET.id);
