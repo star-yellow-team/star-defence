@@ -201,11 +201,6 @@ if (pause == 0){
  *  Ea incepe jocul
  * */
 function main() {
-<<<<<<< HEAD
-	gameSetup();
-    gameLoop();
-=======
-	
 	switch(user_selection)
 	{
 		case 'survival':
@@ -220,8 +215,6 @@ function main() {
 		story();
 		break;
 	}
-
->>>>>>> ea4fe7524155395ecea19a26585683ec6f748bea
 }
 
 
