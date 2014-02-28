@@ -201,10 +201,6 @@ function main() {
 }
 
 function startup() {
-	$("form").fadeOut("fast").delay(1000);
-			
-	$("form").hide();
-	
 	mapNumber = document.getElementById("map").value;
 	user_selection = $('input[name="gamemode"]:checked').val();
 	
@@ -213,7 +209,12 @@ function startup() {
 	
 	main();
 	
+	setTimeout(function() {
+	$("form").hide();
+	
 	$("#dimmer").slideUp("fast");
+	
+	}, 200);
 }
 
 function pausegame() {
