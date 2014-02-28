@@ -112,6 +112,7 @@ function Monster(x, y, type) {
     this.pace           = 0;
     this.offset         = 0;    
     this.frameNumber    = 0;
+    this.rateNumber     = 0;
 
     switch(type) {
 

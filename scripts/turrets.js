@@ -146,6 +146,7 @@ function Turret(type)
 	this.type       = type;
         this.isSlowed   = false;
         this.frameNumber= 0;         
+        this.rateNumber = 0;
 
 	switch(type)	{
 		case MACHINEGUN_TURRET.id:

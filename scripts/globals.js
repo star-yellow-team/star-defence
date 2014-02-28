@@ -56,12 +56,14 @@ var first_100_waves_won         = false;
 var first_100_credits           = false;
 
 var FRAME_SIZE                  =   50;
+var FRAME_RATE                  =    3;
 
 $('#money-wrapper').html(String(userScore))
 
 function sizeMonsters() {
-    dimension = boxSize / 3;
-    offset = (boxSize) / (waves.length);
+    dimension = boxSize ;
+    //offset = (boxSize) / (waves.length);
+    offset = 0;    
     var currentOffset = 0;
 
     for(var mIndex = 0; mIndex < waves.length; ++ mIndex) {
@@ -86,48 +88,53 @@ function animate(context, object, offset) {
     } else if(object.type == 0) {
         //deseneaza monstrul
             context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0,FRAME_SIZE, FRAME_SIZE, 
-            boxSize * object.x + dimension, boxSize * object.y + object.offset, dimension, dimension)            
+            boxSize * object.x, boxSize * object.y + object.offset, dimension, dimension)            
 
             // contur lifebar
             context.strokeStyle = "black"
-            context.strokeRect(boxSize * object.x + dimension / 2, 
-                            boxSize * object.y - boxSize/3 + object.offset,
-                            2*dimension, 2*dimension/3 );
+            context.strokeRect(boxSize * object.x - dimension / 2, 
+                            boxSize * object.y - boxSize/2 + object.offset,
+                            2*dimension, dimension/3 );
             
             //determina viata
             context.fillStyle = "red"
             var health = object.health * (2*dimension) / monsters[object.type].health;
     
             //deseneaza partea rosie
-            context.fillRect(boxSize * object.x + dimension / 2, 
-                            boxSize * object.y - boxSize/3 + object.offset, 
-                            health, 2*dimension/3 );
+            context.fillRect(boxSize * object.x - dimension / 2, 
+                            boxSize * object.y - boxSize/2 + object.offset, 
+                            health, dimension/3 );
             
 
     } else {
         //deseneaza monstrul
             context.fillStyle = monsters[object.type].color;
-	    context.fillRect(boxSize * object.x + dimension, boxSize * object.y + object.offset, dimension, dimension); 
+	    context.fillRect(boxSize * object.x, boxSize * object.y + object.offset, dimension, dimension); 
         
             // contur lifebar
             context.strokeStyle = "black"
-            context.strokeRect(boxSize * object.x + dimension / 2, 
-                            boxSize * object.y - boxSize/3 + object.offset,
-                            2*dimension, 2*dimension/3 );
+            context.strokeRect(boxSize * object.x - dimension / 2, 
+                            boxSize * object.y - boxSize/2 + object.offset,
+                            2*dimension, dimension/3 );
             
             //determina viata
             context.fillStyle = "red"
             var health = object.health * (2*dimension) / monsters[object.type].health;
     
             //deseneaza partea rosie
-            context.fillRect(boxSize * object.x + dimension / 2, 
-                            boxSize * object.y - boxSize/3 + object.offset, 
-                            health, 2*dimension/3 );
+            context.fillRect(boxSize * object.x - dimension / 2, 
+                            boxSize * object.y - boxSize/2 + object.offset, 
+                            health, dimension/3 );
             
 
     }
+    
+    if(object.rateNumber == 0) {
+        object.frameNumber = (object.frameNumber + 1) % object.spriteSize;
+    }
 
-    object.frameNumber = (object.frameNumber + 1) % object.spriteSize;
+    object.rateNumber += 1
+    object.rateNumber %= FRAME_RATE
 }
 
 
