@@ -201,13 +201,14 @@ if (pause == 0){
  *  Ea incepe jocul
  * */
 function main() {
+
 	switch(user_selection)
 	{
 		case 'survival':
 		gameSetup();//'gameSetup' este automat.
 		gameLoop();
 		break;
-		
+
 		case 'story':
 		gameSetup();
 		curentRound=2; //altfel nu incepe cu level 1.
@@ -215,6 +216,7 @@ function main() {
 		story();
 		break;
 	}
+
 }
 
 
