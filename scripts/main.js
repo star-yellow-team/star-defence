@@ -118,9 +118,21 @@ function draw() {
 
 // se apeleaza inaintea tuturor functiilor
 function gameSetup() {
-	findPath(mapNumber)
-	generateWave()	
-        sizeMonsters()
+	
+	switch(user_selection)
+	{
+		case 'survival':
+			findPath(mapNumber)
+			generateWave();	
+			sizeMonsters();
+			break;
+			
+		case 'story':
+			findPath(mapNumber);
+			activateStoryMode();
+			break;
+	}
+	
 }
 
 /**
@@ -189,8 +201,27 @@ if (pause == 0){
  *  Ea incepe jocul
  * */
 function main() {
+<<<<<<< HEAD
 	gameSetup();
     gameLoop();
+=======
+	
+	switch(user_selection)
+	{
+		case 'survival':
+		gameSetup();//'gameSetup' este automat.
+		gameLoop();
+		break;
+		
+		case 'story':
+		gameSetup();
+		curentRound=2; //altfel nu incepe cu level 1.
+		waves_won_perBattle=0; 
+		story();
+		break;
+	}
+
+>>>>>>> ea4fe7524155395ecea19a26585683ec6f748bea
 }
 
 

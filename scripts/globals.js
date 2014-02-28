@@ -20,6 +20,18 @@ var turrets         = [];
 var dimension       =  0;
 var offset          =  0;
 
+//Story
+var StoryModeFinished = false; //daca s-a terminat storyul.
+var last_level_completed = false; //mai aveam nevoie si de variabila asta.
+var move_on         = true;
+var current_level   = 1;
+var user_selection  = prompt("Cum se deruleaza jocul?","story");
+
+//StoryTelling
+var coming_soon = true;
+var machineGuns_built = 0, first_machineGun = true, second_machineGun = true, third_machineGun = true;
+var wave1_alert = true, wave2_alert = true, wave3_alert = true;
+
 //Achievements
 var time_passed_perBattle = 0; var totalCredits = 0; var totalScore = 0; var fun_activated = true; // TIMP, CREDITS, SCOR, FUN
 

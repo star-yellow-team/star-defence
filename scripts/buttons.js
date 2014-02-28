@@ -109,6 +109,7 @@ function drawTurret(turretNumber) {
 						if(userScore - turret.price >= 0 && userLevel >= turret.level) {
 							if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
     							unstick();
+    							machineGuns_built ++; //StoryTelling
 								turret.x = placeX;
                         		turret.y = placeY;
                         		turrets.push(turret);
