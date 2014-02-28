@@ -324,7 +324,7 @@ function detectEnemy(tureta)
 }
 
 /* Aici mai modificam pentru ca imi trebuie variabila in care stocam banii, skin-urile pe care le va avea fiecare turret la fiecare nivel */
-Turret.prototype.upgrade = function(x, y)
+function Upgrade(x, y)
 {	 for (i in turrets)
 	{
 		if (x==turrets[i].x && y==turrets[i].y)
