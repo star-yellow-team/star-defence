@@ -125,22 +125,6 @@ function waveFinished() {
 	return waves.length > 0 ? false : true;
 }
 
-/**
- *	functia gameOver returneaza:
- *		0: jucatorul nu mai are viata
- *		1: jucatorul a terminat toate rundele, A CASTIGAT
- *		-1: jucatorul mai are viata si nu a terminat toate rundele
- **/
-function gameOver()
-{
-	if(life <= 0)
-		{
-
-			return true;
-		}
-
-	return false;
-}
 
 
 /**
@@ -162,7 +146,8 @@ function takeLife()
                 
                 //ia monstrii care au ajuns la destinatie
             } else if(waves[i].x == Pointsy[0] && waves[i].y == Pointsx[0]) {
-		        life--;
+		life--;
+                life = life >= 0 ? life : 0;
                 $("#health").html(String(life)+' / 5')
 		        waves.splice(i,1);
                 -- i;

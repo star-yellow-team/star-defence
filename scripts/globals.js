@@ -4,7 +4,7 @@
  *
  * */
 
-var mapNumber       = 0 //prompt("Numarul hartii", 0);
+var mapNumber       = Math.floor(Math.random() * 10) % 3;//prompt("Numarul hartii", 0);
 var difficulty      = 0 //prompt("Dificultatea", 0) % 3;
 var life            =  5;
 var loopInterval    = 50;
@@ -88,4 +88,22 @@ function animate(context, object, offset) {
     }
 
     object.frameNumber = (object.frameNumber + 1) % object.spriteSize;
+}
+
+
+/**
+ *	functia gameOver returneaza:
+ *		0: jucatorul nu mai are viata
+ *		1: jucatorul a terminat toate rundele, A CASTIGAT
+ *		-1: jucatorul mai are viata si nu a terminat toate rundele
+ **/
+function gameOver()
+{
+	if(life <= 0)
+		{
+
+			return true;
+		}
+
+	return false;
 }
