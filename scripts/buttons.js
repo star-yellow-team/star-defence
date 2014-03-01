@@ -283,7 +283,7 @@ function cmenu() {
 	setTimeout(function() {
 		$('#contextMenu').animate({ "min-width": 0} , 200);
 		contextm = 0;
-	}, 1000);
+	}, 4300);
 }
 
 function rmenu() {
