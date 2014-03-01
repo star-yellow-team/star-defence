@@ -99,9 +99,7 @@ function draw() {
 
 // se apeleaza inaintea tuturor functiilor
 function gameSetup() {
-	pause = 0;
-	
-	curentLevel = 0;
+	curentRound = 1;
 	life = 5;
 	
 	switch(user_selection)
@@ -135,7 +133,7 @@ if (pause == 0){
 	if(gameOver()) {
 		restart();
 		life = 5;
-		pause = 1;
+		return 0;
 	}
 	
     for(turretIndex in turrets) {
