@@ -30,12 +30,12 @@
                         preload('images/monsteryellow.png')
 			
 			$("#dimmer").css({"opacity":"1"});
-	var audio1 = new Audio('sounds/Plasma.mp3');
-	var audio2 = new Audio('sounds/Machinegun.mp3');
-	var audio3 = new Audio('sounds/Laser.mp3');
-	audio2.volume = 0.05;
-	audio1.volume = 0.05;
-	audio3.volume = 0.05;
+			var audio1 = new Audio('sounds/Plasma.mp3');
+			var audio2 = new Audio('sounds/Machinegun.mp3');
+			var audio3 = new Audio('sounds/Laser.mp3');
+			audio2.volume = 0.05;
+			audio1.volume = 0.05;
+			audio3.volume = 0.05;
 		//--><!]]>
 		</script>
         <script type="text/javascript">
@@ -85,24 +85,19 @@
                     <td id="level-wrapper"><p id="level">level 0</p>
                     </td></tr>
                 </table>
-            	<div id="turret-menu">
+            	<div id="turret-menu" style="text-align:center;">
                 	<div class="button" id="machinegun_turret" onClick="stick(11)" onMouseOver="description(MACHINEGUN_TURRET)" touchstart="description(MACHINEGUN_TURRET)" onMouseOut="hideHover()" touchend="hideHover()"></div>
                 	<div class="button" id="slow_turret" onClick="stick(12)" onMouseOver="description(SLOW_TURRET)" touchstart="description(SLOW_TURRET)" onMouseOut="hideHover()" touchend="hideHover()"></div>
                 	<div class="button" id="laser_turret" onClick="stick(13)" onMouseOver="description(LASER_TURRET)" touchstart="description(LASER_TURRET)" onMouseOut="hideHover()" touchend="hideHover()"></div>
                 	<div class="button" id="plasma_turret" onClick="stick(14)" onMouseOver="description(PLASMA_TURRET)" touchstart="description(PLASMA_TURRET)" onMouseOut="hideHover()" touchend="hideHover()"></div>
                 	<div class="button" id="detector_turret" onClick="stick(15)" onMouseOver="description(DETECTOR_TURRET)" touchstart="description(DETECTOR_TURRET)" onMouseOut="hideHover()" touchend="hideHover()"></div>
             	</div>
-            	<div id="ui-menu">
-                	<div class="button" id="turret" onClick="stick()"></div>
-                	<div class="button" id="second" onClick=alert(curentRound)></div>
-                	<div class="button" id="third" onClick="third()"></div>
-        		</div>
             </div>
         </div>
         
         
         <div id="contextMenu">
-            <div class="button" id="upgrade" onMouseOver="removeDescription()" touchstart="removeDescription()" onMouseOut="hideHover()" touchend="hideHover()" onClick="upgrade()"></div>
+            <div class="button" id="upgrade" onMouseOver="upgradeDescription()" touchstart="upgradeDescription()" onMouseOut="hideHover()" touchend="hideHover()" onClick="upgrade()"></div>
             <div class="button" id="remove" onMouseOver="removeDescription()" touchstart="removeDescription()" onMouseOut="hideHover()" touchend="hideHover()" onClick="removeTurret()"></div>
         </div>
         

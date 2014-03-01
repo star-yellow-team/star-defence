@@ -231,6 +231,11 @@ function description(turret) {
  		$("#ability").show();
 	else
 	    $("#ability").hide();
+	$("#range").html(turret.range);
+	if (check.price > userScore)
+		$("#price").css("color","red");
+	else
+		$("#price").css("color","orange");
 }
 
 function hideHover() {
@@ -271,4 +276,37 @@ function upgrade() {
 	Upgrade(plX,plY);
 	console.log("OK 0");
 	rmenu();
+}
+
+function upgradeDescription() {
+	plY = Math.round((parseInt($("#highlight").css("top")) - yMin) / boxSize);
+	plX = Math.round((parseInt($("#highlight").css("left")) - xMin) / boxSize);
+	console.log(String(plX)+' '+String(plY));
+	var check = Verify(plX, plY);
+	$("#hover").show();
+	$("#hover").children("p").show();
+	$("#hover").children("hr").show();
+	$("#title").html(check.name);
+	$("#description").html(check.description);
+	$("#price").html(check.upgradePrice);
+	if (check.slow)
+		$("#slowt").show();
+	else
+		$("#slowt").hide();
+	if (check.reveal)
+		$("#reveal").show();
+	else
+		$("#reveal").hide();
+	$("#damage").html(check.damage);
+	$("#damageType").html(check.damageType);
+	$("#speed").html(check.attackSpeed);
+	if (check.slow || check.reveal)
+ 		$("#ability").show();
+	else
+	    $("#ability").hide();
+	$("#range").html(check.range);
+	if (check.upgradePrice > userScore)
+		$("#price").css("color","red");
+	else
+		$("#price").css("color","orange");
 }

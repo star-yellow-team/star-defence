@@ -186,8 +186,6 @@ body {
 
 #turret-menu {
 	background-color:darkgrey;
-	position:relative;
-	float:right;
 }
 
 #bar-wrapper, #bar-wrapper p, #barwrapper tr, #bar-wrapper tr td {
@@ -301,9 +299,6 @@ body {
 #title {
 	font-size:150%;
 	font-family: 'Share Tech', sans-serif;
-}
-
-#description {
 }
 
 #slowt {

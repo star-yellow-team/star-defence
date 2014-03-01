@@ -166,6 +166,7 @@ function Turret(type)
             this.spriteSize = MACHINEGUN_TURRET.spriteSize;
 			this.level=MACHINEGUN_TURRET.level;
 			this.upgradePrice=MACHINEGUN_TURRET.upgradePrice;
+			this.name=MACHINEGUN_TURRET.name;
             break;
 		
 		
@@ -186,6 +187,7 @@ function Turret(type)
 	        this.sprite     = SLOW_TURRET.sprite;
             this.spriteSize = SLOW_TURRET.spriteSize;
 			this.upgradePrice=SLOW_TURRET.upgradePrice;
+			this.name=SLOW_TURRET.name;
             break;
 
 
@@ -205,6 +207,7 @@ function Turret(type)
             this.sprite     = PLASMA_TURRET.sprite;
             this.spriteSize = PLASMA_TURRET.spriteSize;
 			this.upgradePrice=PLASMA_TURRET.upgradePrice;
+			this.name=PLASMA_TURRET.name;
 			break;
 
 		case LASER_TURRET.id:
@@ -223,6 +226,7 @@ function Turret(type)
             this.sprite     = LASER_TURRET.sprite;
             this.spriteSize = LASER_TURRET.spriteSize;
 			this.upgradePrice=LASER_TURRET.upgradePrice;
+			this.name=LASER_TURRET.name;
 			break;
 
 		case DETECTOR_TURRET.id:
@@ -241,6 +245,7 @@ function Turret(type)
             this.sprite     = DETECTOR_TURRET.sprite;
             this.spriteSize = DETECTOR_TURRET.spriteSize;
 			this.upgradePrice=DETECTOR_TURRET.upgradePrice;
+			this.name=DETECTOR_TURRET.name;
 			break;
 
 		default:
@@ -439,7 +444,8 @@ function Upgrade(x, y)
 
 function Verify(x, y)
 {	 
-	var check = new Turret;
+	var check = new Turret(MACHINEGUN_TURRET.id);
+	console.log(check.level);
 	for (i in turrets)
 	{
 		if (x==turrets[i].x && y==turrets[i].y)
@@ -447,7 +453,7 @@ function Verify(x, y)
 	switch(turrets[i].type)	{
 		case MACHINEGUN_TURRET.id:
 				switch(turrets[i].upgradeLevel)	{
-					case 0:		check.damage=1.2;	check.range=3;	check.attackSpeed=10;	check.upgradeLevel=1;		break;
+					case 0:		check.damage=1.2;	check.range=3;	check.attackSpeed=10;	check.upgradeLevel=1; console.log("OK");		break;
 					case 1:		check.damage=1.5;	check.range=3;	check.attackSpeed=10;	check.upgradeLevel=2;		break;
 					case 2:		check.damage=1.5;	check.range=4;	check.attackSpeed=10;	check.upgradeLevel=3;		break;
 					case 3:		check.damage=1.8;	check.range=4;	check.attackSpeed=10;	check.upgradeLevel=4;		break;

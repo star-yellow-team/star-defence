@@ -66,9 +66,9 @@ function sizeScreen() {
     $("#gameCanvas").css("width",canvasWidth);
     $("#gameCanvas").css("height",canvasHeight);
 
-    $("#ui-menu").css("margin-top",(canvasHeight - $("#ui-menu").height()) / 2 + 5 - 2 * boxSize); 
-
-    $("#turret-menu").css("margin-top",(canvasHeight - $("#turret-menu").height()) / 2 + 5 - 2 * boxSize); 
+    $("#turret-menu").css("margin-top",(canvasHeight - $("#turret-menu").height()) / 2 - 3 * boxSize);
+	$("#turret-menu").css("margin-left",boxSize / 2); 
+	$("#turret-menu").css("width",boxSize); 
 
     $("#gameCanvas").attr({"width":String(canvasWidth)+'px', "height":String(canvasHeight)+'px'});
 	
