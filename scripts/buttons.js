@@ -257,13 +257,29 @@ var contextm = 0;
 $("#contextMenu").css("width","0");
 
 function cmenu() {
+	plY = Math.round((parseInt($("#highlight").css("top")) - yMin) / boxSize);
+	plX = Math.round((parseInt($("#highlight").css("left")) - xMin) / boxSize);
+	console.log(String(plX)+' '+String(plY));
+	var check = Verify(plX, plY);
+	if (check == -1)
+		upgr = 0
+	else 
+		upgr = 1
+		
 	if (contextm == 0) {
-		$('#contextMenu').animate({ "min-width": 2 * boxSize + 10} , 200);
+		if (upgr == 1) {
+			$('#contextMenu').animate({ "min-width": 2 * boxSize + 10} , 200);
+			$('#upgrade').show();
+		} else {
+			$('#contextMenu').animate({ "min-width": boxSize + 10} , 200);
+			$('#upgrade').hide();
+		}
 		contextm = 1;
 	} else {
 		$('#contextMenu').animate({ "min-width": 0} , 200);
 		contextm = 0;
 	}
+	console.log(upgr);
 }
 
 function rmenu() {

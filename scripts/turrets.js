@@ -350,7 +350,7 @@ function Upgrade(x, y)
 					case 3:		turrets[i].damage+=0.3;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 4:		turrets[i].attackSpeed-=3;		userScore=userScore-turrets[i].upgradePrice;		break;
 					default:	$("#highlight").show();
-								$("#highlight").notify("Max Turret Tech Level Reached","error",{ position:"bottom left" });
+								$("#highlight").notify("Maximum Turret Tech Level Reached","error",{ position:"bottom left" });
 								$("#highlight").hide();
 				}
 				break;
@@ -372,7 +372,7 @@ function Upgrade(x, y)
 					case 3:		turrets[i].amount=2;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 4:		turrets[i].amount=2.5;			userScore=userScore-turrets[i].upgradePrice;		break;
 					default:	$("#highlight").show();
-								$("#highlight").notify("Max Turret Tech Level Reached","error",{ position:"bottom left" });
+								$("#highlight").notify("Maximum Turret Tech Level Reached","error",{ position:"bottom left" });
 								$("#highlight").hide();}
 				break;
 			}
@@ -393,7 +393,7 @@ function Upgrade(x, y)
 					case 3:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 4:		turrets[i].attackSpeed-=7;		userScore=userScore-turrets[i].upgradePrice;		break;
 					default:	$("#highlight").show();
-								$("#highlight").notify("Max Turret Tech Level Reached","error",{ position:"bottom left" });
+								$("#highlight").notify("Maximum Turret Tech Level Reached","error",{ position:"bottom left" });
 								$("#highlight").hide();}
 				break;
 			}
@@ -414,7 +414,7 @@ function Upgrade(x, y)
 					case 3:		turrets[i].damage+=0.5;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 4:		turrets[i].damage+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
 					default:	$("#highlight").show();
-								$("#highlight").notify("Max Turret Tech Level Reached","error",{ position:"bottom left" });
+								$("#highlight").notify("Maximum Turret Tech Level Reached","error",{ position:"bottom left" });
 								$("#highlight").hide();}
 				break;
 			}
@@ -435,7 +435,7 @@ function Upgrade(x, y)
 					case 3:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 4:		turrets[i].range+=2;			userScore=userScore-turrets[i].upgradePrice;		break;
 					default:	$("#highlight").show();
-								$("#highlight").notify("Max Turret Tech Level Reached","error",{ position:"bottom left" });
+								$("#highlight").notify("Maximum Turret Tech Level Reached","error",{ position:"bottom left" });
 								$("#highlight").hide();}
 				break;
 			}
@@ -464,7 +464,11 @@ function Verify(x, y)
 	{
 		if (x==turrets[i].x && y==turrets[i].y)
 	{
-	var check = new Turret(turrets[i].type);
+	if (turrets[i].upgradeLevel < 5)
+		var check = new Turret(turrets[i].type);
+	else
+		check = -1;
+	if (check != -1)
 	switch(turrets[i].type)	{
 		case MACHINEGUN_TURRET.id:
 				switch(turrets[i].upgradeLevel)	{
