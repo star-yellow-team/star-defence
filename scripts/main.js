@@ -175,13 +175,14 @@ if (pause == 0){
 
     // desenam
 }
-
-    setTimeout(gameLoop, loopInterval);
-    draw();
+	draw();
 	$("#money").html(String(userScore));
 	$("#health").html(String(life)+' / 5');
+	
+    gml = setTimeout(gameLoop, loopInterval);
 }
 
+var gml;
 
 /**
  *  Functia main
@@ -226,6 +227,7 @@ function startup() {
 }
 
 function restart() {
+	clearTimeout(gml);
 	unstick();
 	rmenu();
    	pause = 0;
