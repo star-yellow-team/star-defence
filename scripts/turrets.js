@@ -329,7 +329,7 @@ function Upgrade(x, y)
 			if (userScore-turrets[i].upgradePrice>=0)
 			{
 				switch(turrets[i].upgradeLevel)	{
-					case 0:		turrets[i].range=0; 			userScore=userScore-turrets[i].upgradePrice;		break;
+					case 0:		turrets[i].range+=1; 			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 1:		turrets[i].damage+=0.3;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 2:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 3:		turrets[i].damage+=0.3;			userScore=userScore-turrets[i].upgradePrice;		break;

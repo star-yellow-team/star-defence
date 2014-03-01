@@ -18,4 +18,8 @@ $(window).keyup(function(e) {
 		stick(14);
 	if (e.keyCode == 53)
 		stick(15);
+	if (e.keyCode == 27) {
+		unstick();
+		rmenu();
+	}
 });

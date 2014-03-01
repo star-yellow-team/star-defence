@@ -157,7 +157,7 @@ function Monster(x, y, type) {
 	    this.speed      = RAMSI_MONSTER.speed;
             this.damage     = RAMSI_MONSTER.damage;
             this.isVisible  = RAMSI_MONSTER.visible;
-            this.sprite     = RMASI_MONSTER.sprite;
+            this.sprite     = RAMSI_MONSTER.sprite;
             this.spriteSize = RAMSI_MONSTER.spriteSize;
             break;
 	    

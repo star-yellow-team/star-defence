@@ -100,6 +100,10 @@ function draw() {
 // se apeleaza inaintea tuturor functiilor
 function gameSetup() {
 	
+	curentLevel = 0;
+	userScore = 0;
+	life = 5;
+	
 	switch(user_selection)
 	{
 		case 'survival':
@@ -129,8 +133,8 @@ if (pause == 0){
     updateAchievements();
 	takeLife();
 	if(gameOver()) {
-		alert("Finished!");
-		return 0;
+		restart();
+		life = 5;
 	}
 	
     for(turretIndex in turrets) {
@@ -175,9 +179,8 @@ if (pause == 0){
 
     setTimeout(gameLoop, loopInterval);
     draw();
-$("#money").html(String(userScore));
-$("#health").html(String(life)+' / 5');
-console.log(userScore);
+	$("#money").html(String(userScore));
+	$("#health").html(String(life)+' / 5');
 }
 
 
@@ -219,6 +222,14 @@ function startup() {
 	$("#dimmer").slideUp("fast");
 	
 	}, 200);
+}
+
+function restart() {
+	$("#wrapper").hide();
+	
+	$("form").show();
+	
+	$("#dimmer").slideDown("fast");
 }
 
 function pausegame() {
