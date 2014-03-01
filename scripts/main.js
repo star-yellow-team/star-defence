@@ -180,7 +180,6 @@ if (pause == 0){
     draw();
 	$("#money").html(String(userScore));
 	$("#health").html(String(life)+' / 5');
-	console.log(curentRound);
 }
 
 
@@ -227,6 +226,8 @@ function startup() {
 }
 
 function restart() {
+	unstick();
+	rmenu();
    	pause = 0;
 	$("#paused").hide();
 		
@@ -242,6 +243,8 @@ function restart() {
 }
 
 function pausegame() {
+	unstick();
+	rmenu();
 	if (pause == 1) {
     	pause = 0;
 		$("#paused").hide();

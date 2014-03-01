@@ -59,6 +59,8 @@ function updateStoryTelling()
 
 
 function story(){
+$("#money").html(String(userScore));
+$("#health").html(String(life)+' / 5');
 
 if(StoryModeFinished == true) return 0; //Asta o sa existe si in main.js de pe github.
 
