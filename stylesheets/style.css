@@ -136,6 +136,7 @@ body {
 	background: -moz-linear-gradient(#000300, #001F00, #000300); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(#000300, #001F00, #000300); /* Standard syntax */
 	margin:auto;
+	background-image:url(../../../../Desktop/bkg.png);
 }
 
 #wrapper {

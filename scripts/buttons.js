@@ -91,10 +91,12 @@ function removeTurret() {
 	plY = Math.round((parseInt($("#highlight").css("top")) - yMin) / boxSize);
 	plX = Math.round((parseInt($("#highlight").css("left")) - xMin) / boxSize);
 	deleteElement(plX, plY, mapNumber);
+	
 	for (i in turrets)
 		if(turrets[i].x == plX && turrets[i].y == plY) {
 			for (j = waves.length-1; j >= 0; j--)
 				waves[j].redoMonster();
+			userScore += (turrets[i].price + turrets[i].upgradeLevel * turrets[i].upgradePrice) / 2;
 			turrets.splice(i);
 		}
 	rmenu();
