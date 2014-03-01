@@ -47,7 +47,7 @@ $(document).mousemove(function(event) {
 		placeX = Math.round((boxX - xMin - 5) / boxSize);
 		placeY = Math.round((boxY - yMin - 5) / boxSize);
 		
-		if (getElement(placeX, placeY) != 0 && getElement(placeX, placeY) != 1 && getElement(placeX, placeY) != 2 && getElement(placeX, placeY) != 3) {
+		if (getElement(placeX, placeY) != 0 && getElement(placeX, placeY) != 1 && getElement(placeX, placeY) != 2 && getElement(placeX, placeY) != 3 && contextm == 0) {
 			$("#highlight").show();
 			$("#highlight").css("top",boxY);
 			$("#contextMenu").css("top",boxY);
@@ -279,7 +279,11 @@ function cmenu() {
 		$('#contextMenu').animate({ "min-width": 0} , 200);
 		contextm = 0;
 	}
-	console.log(upgr);
+	
+	setTimeout(function() {
+		$('#contextMenu').animate({ "min-width": 0} , 200);
+		contextm = 0;
+	}, 1000);
 }
 
 function rmenu() {
