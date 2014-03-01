@@ -260,11 +260,13 @@ function pausegame() {
 		pause = 1;
 		$("#dimmer").slideDown("fast");
 		
+		setTimeout(function() {
 		$("#paused").show();
 		
 		$("#play").show();
 		
 		$("#restart").show();
+		}, 200);
 	}
 }
 

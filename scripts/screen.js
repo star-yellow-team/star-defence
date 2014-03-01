@@ -129,7 +129,7 @@ function sizeScreen() {
 	$("#paused").css("top",screenHeight / 2 - 6 * boxSize);
 	$("#play").css("top",screenHeight / 2 - 2 * boxSize);
 	$("#restart").css("top",screenHeight / 2 - 2 * boxSize);
-	$("#play").css("left",screenWidth / 2 - 5.325 * boxSize);
+	$("#play").css("left",screenWidth / 2 - 5 * boxSize);
 	$("#restart").css("left",screenWidth / 2 + 0.5 * boxSize);
 	$("#play").css("width",5 * boxSize);
 	$("#play").css("height",5 * boxSize);
