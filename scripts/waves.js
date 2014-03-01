@@ -13,6 +13,7 @@ curentRound = 1;
 x = 0;
 nrM =1;
 curentRound = 1;
+map = mapNumber;
 }
 
 wavereset();
@@ -147,6 +148,7 @@ function takeLife()
 {       
         // ia monstrii care au ajuns la destinatie
 	    searchPoints(map, 3);
+		console.log(map);
 	    for(var i = 0; i < waves.length; i++) {
 
             // ia monstrii care sunt morti
@@ -168,6 +170,7 @@ function takeLife()
 		$("#level").html("level " + String(userLevel));		
 
         } //end for
+		//		console.log(String(Pointsy[0])+" "+String(Pointsx[0]));
 		
         
 }
