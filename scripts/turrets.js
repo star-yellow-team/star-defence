@@ -47,7 +47,7 @@ var SLOW_TURRET = {
 	upgradePrice:	30,
 	slow:	true,
 	reveal:	false,
-	amount:	2,
+	amount:	1.42857,
 	price:	20,
 	kills:	0,
 	level: 0,
@@ -329,7 +329,7 @@ function Upgrade(x, y)
 			if (userScore-turrets[i].upgradePrice>=0)
 			{
 				switch(turrets[i].upgradeLevel)	{
-					case 0:		turrets[i].range=0; 			userScore=userScore-turrets[i].upgradePrice;		break;
+					case 0:		turrets[i].range+=1; 			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 1:		turrets[i].damage+=0.3;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 2:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 3:		turrets[i].damage+=0.3;			userScore=userScore-turrets[i].upgradePrice;		break;
@@ -435,4 +435,73 @@ function Upgrade(x, y)
 	}
 	}
 	return 1;
+}
+
+function Verify(x, y)
+{	 
+	var check = new Turret;
+	for (i in turrets)
+	{
+		if (x==turrets[i].x && y==turrets[i].y)
+	{
+	switch(turrets[i].type)	{
+		case MACHINEGUN_TURRET.id:
+				switch(turrets[i].upgradeLevel)	{
+					case 0:		check.damage=1.2;	check.range=3;	check.attackSpeed=10;	check.upgradeLevel=1;		break;
+					case 1:		check.damage=1.5;	check.range=3;	check.attackSpeed=10;	check.upgradeLevel=2;		break;
+					case 2:		check.damage=1.5;	check.range=4;	check.attackSpeed=10;	check.upgradeLevel=3;		break;
+					case 3:		check.damage=1.8;	check.range=4;	check.attackSpeed=10;	check.upgradeLevel=4;		break;
+					case 4:		check.damage=1.8;	check.range=4;	check.attackSpeed=7;	check.upgradeLevel=5;		break;
+					default:	console.log("Cannot be upgraded any further!");	
+				}
+				break;
+		case SLOW_TURRET.id:
+				switch(turrets[i].upgradeLevel)	{
+					case 0:		check.amount=1.42857;	check.range=3;	check.upgradeLevel=1;		break;
+					case 1:		check.amount=1.66666;	check.range=3;	check.upgradeLevel=2;		break;
+					case 2:		check.amount=1.66666;	check.range=4;	check.upgradeLevel=3;		break;
+					case 3:		check.amount=2;		check.range=4;	check.upgradeLevel=4;		break;
+					case 4:		check.amount=2.5;	check.range=4;	check.upgradeLevel=5;		break;
+					default:	console.log("Cannot be upgraded any further!");		
+				}
+				break;	
+		case PLASMA_TURRET.id:
+				switch(turrets[i].upgradeLevel)	{
+					case 0:		check.damage=5;	check.range=2;	check.attackSpeed=22;	check.upgradeLevel=1; 		break;
+					case 1:		check.damage=5;	check.range=3;	check.attackSpeed=22;	check.upgradeLevel=2;		break;
+					case 2:		check.damage=10;	check.range=3;	check.attackSpeed=22;	check.upgradeLevel=3;		break;
+					case 3:		check.damage=10;	check.range=4;	check.attackSpeed=22;	check.upgradeLevel=4;		break;
+					case 4:		check.damage=10;	check.range=4;	check.attackSpeed=15;	check.upgradeLevel=5;		break;
+					default:	console.log("Cannot be upgraded any further!");		
+				}
+				break;
+		case LASER_TURRET.id:
+				switch(turrets[i].upgradeLevel)	{
+					case 0:		check.damage=0.3;	check.range=3;	check.attackSpeed=1;	check.upgradeLevel=1;		break;
+					case 1:		check.damage=0.5;	check.range=3;	check.attackSpeed=1;	check.upgradeLevel=2;		break;
+					case 2:		check.damage=0.5;	check.range=4;	check.attackSpeed=1;	check.upgradeLevel=3;		break;
+					case 3:		check.damage=1.0;	check.range=4;	check.attackSpeed=1;	check.upgradeLevel=4;		break;
+					case 4:		check.damage=2.0;	check.range=4;	check.attackSpeed=1;	check.upgradeLevel=5;		break;
+					default:	console.log("Cannot be upgraded any further!");		
+				}
+				break;
+		case DETECTOR_TURRET.id:
+				switch(turrets[i].upgradeLevel)	{
+					case 0:		check.range=3;	check.upgradeLevel=1;		break;
+					case 1:		check.range=4;	check.upgradeLevel=2;		break;
+					case 2:		check.range=5;	check.upgradeLevel=3;		break;
+					case 3:		check.range=6;	check.upgradeLevel=4;		break;
+					case 4:		check.range=7;	check.upgradeLevel=5;		break;
+					default:	console.log("Cannot be upgraded any further!");		
+				}
+				break;
+		default:
+			{
+			console.log("Invalid turret type!");	
+			}
+    }
+	break;
+	}
+	}
+	return check;
 }
