@@ -1,13 +1,16 @@
 // JavaScript Document
 var pause = 0;
+var playing = 0;
 
 function shortcuts(){};
 $("#paused").hide();
 $("#misc").hide();
 
 $(window).keyup(function(e) {
-  	if (e.keyCode == 32)
+  	if (e.keyCode == 32 && playing == 1) {
 		pausegame()
+		console.log(playing);
+	}
 	if (e.keyCode == 49)
 		stick(11);
 	if (e.keyCode == 50)

@@ -67,6 +67,9 @@ function addMaps()
 }
 
 //adaugarea hartilor predefinite in matrix
+function auxMaps() {
+nrMaps = 0;
+
 auxMap =[ 
 			   	[ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ] ,
 				[ 2 , 1 , 1 , 1 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ] ,
@@ -139,6 +142,7 @@ auxMap =[
 			   [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] ,  
 			];
 addMaps();
+}
 
 function addElement(element, x, y, harta)
 {

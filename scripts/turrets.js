@@ -530,3 +530,9 @@ function Verify(x, y)
 	}
 	return check;
 }
+
+
+function restartTurrets() {
+	for (i in turrets)
+		turrets.splice(i);
+}

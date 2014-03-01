@@ -47,7 +47,7 @@ $(document).mousemove(function(event) {
 		placeX = Math.round((boxX - xMin - 5) / boxSize);
 		placeY = Math.round((boxY - yMin - 5) / boxSize);
 		
-		if (getElement(placeX, placeY) != 0 && getElement(placeX, placeY) != 1 && getElement(placeX, placeY) != 2 && getElement(placeX, placeY) != 3 && contextm == 0) {
+		if (getElement(placeX, placeY) != 0 && getElement(placeX, placeY) != 1 && getElement(placeX, placeY) != 2 && getElement(placeX, placeY) != 3 && contextm == 0 && playing == 1) {
 			$("#highlight").show();
 			$("#highlight").css("top",boxY);
 			$("#contextMenu").css("top",boxY);

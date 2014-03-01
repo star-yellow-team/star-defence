@@ -214,6 +214,8 @@ function startup() {
 	if (mapNumber === "")
 		mapNumber = 0;
 		
+	auxMaps();
+		
 	wavereset();
 	
 	main();
@@ -223,6 +225,8 @@ function startup() {
 	
 	$("#dimmer").slideUp("fast");
 	
+	playing = 1;
+	
 	}, 200);
 }
 
@@ -231,6 +235,10 @@ function restart() {
 	unstick();
 	rmenu();
    	pause = 0;
+	playing = 0;
+	
+	restartTurrets();
+	
 	$("#paused").hide();
 		
 	$("#play").hide();
