@@ -45,7 +45,6 @@
 	top:calc(50% - 200px);
 	color:grey;
 	font-variant:small-caps;
-	width:100%;
 	text-align:center;
 	z-index:1000;
 }
