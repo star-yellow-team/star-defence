@@ -102,7 +102,6 @@ function gameSetup() {
 	pause = 0;
 	
 	curentLevel = 0;
-	userScore = 0;
 	life = 5;
 	
 	switch(user_selection)
