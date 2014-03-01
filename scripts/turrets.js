@@ -19,7 +19,7 @@ var MACHINEGUN_TURRET = {
 	slow:	false,
 	reveal:	false,
 	amount:	0,
-	damageType:	"Single",
+	damageType:	"Single Monster",
 	upgradeLevel:	0,
 	upgradePrice:	30,
 	price:	10,
@@ -42,7 +42,7 @@ var SLOW_TURRET = {
 	damage:	0,
 	range:	2,
 	attackSpeed:	0,
-	damageType:	"Area of Effect",
+	damageType:	"Entire Area",
 	upgradeLevel:	0,
 	upgradePrice:	30,
 	slow:	true,
@@ -71,7 +71,7 @@ var PLASMA_TURRET = {
 	damage:	2,
 	range:	2,
 	attackSpeed:    22,
-	damageType:	"Splash",
+	damageType:	"Splash Damage",
 	upgradeLevel:	0,
 	upgradePrice:	40,
 	reveal:	false,
@@ -96,7 +96,7 @@ var LASER_TURRET = {
 	damage:	0.3,
 	range:	2,
 	attackSpeed:	1,
-	damageType:	"Single",
+	damageType:	"Single Monster",
 	upgradeLevel:	0,
 	upgradePrice:	45,
 	slow:	false,
@@ -121,7 +121,7 @@ var DETECTOR_TURRET = {
 	damage:	0,
 	range:	3,
 	attackSpeed:	0,
-	damageType:	"Single",
+	damageType:	"Single Monster",
 	upgradeLevel:	0,
 	upgradePrice:	30,
 	slow:	false,
@@ -167,6 +167,8 @@ function Turret(type)
 			this.level=MACHINEGUN_TURRET.level;
 			this.upgradePrice=MACHINEGUN_TURRET.upgradePrice;
 			this.name=MACHINEGUN_TURRET.name;
+			this.slow=MACHINEGUN_TURRET.slow;
+			this.reveal=MACHINEGUN_TURRET.reveal;
             break;
 		
 		
@@ -188,6 +190,8 @@ function Turret(type)
             this.spriteSize = SLOW_TURRET.spriteSize;
 			this.upgradePrice=SLOW_TURRET.upgradePrice;
 			this.name=SLOW_TURRET.name;
+			this.slow=SLOW_TURRET.slow;
+			this.reveal=SLOW_TURRET.reveal;
             break;
 
 
@@ -208,6 +212,8 @@ function Turret(type)
             this.spriteSize = PLASMA_TURRET.spriteSize;
 			this.upgradePrice=PLASMA_TURRET.upgradePrice;
 			this.name=PLASMA_TURRET.name;
+			this.slow=PLASMA_TURRET.slow;
+			this.reveal=PLASMA_TURRET.reveal;
 			break;
 
 		case LASER_TURRET.id:
@@ -227,6 +233,8 @@ function Turret(type)
             this.spriteSize = LASER_TURRET.spriteSize;
 			this.upgradePrice=LASER_TURRET.upgradePrice;
 			this.name=LASER_TURRET.name;
+			this.slow=LASER_TURRET.slow;
+			this.reveal=LASER_TURRET.reveal;
 			break;
 
 		case DETECTOR_TURRET.id:
@@ -246,6 +254,8 @@ function Turret(type)
             this.spriteSize = DETECTOR_TURRET.spriteSize;
 			this.upgradePrice=DETECTOR_TURRET.upgradePrice;
 			this.name=DETECTOR_TURRET.name;
+			this.slow=DETECTOR_TURRET.slow;
+			this.reveal=DETECTOR_TURRET.reveal;
 			break;
 
 		default:
@@ -444,12 +454,11 @@ function Upgrade(x, y)
 
 function Verify(x, y)
 {	 
-	var check = new Turret(MACHINEGUN_TURRET.id);
-	console.log(check.level);
 	for (i in turrets)
 	{
 		if (x==turrets[i].x && y==turrets[i].y)
 	{
+	var check = new Turret(turrets[i].type);
 	switch(turrets[i].type)	{
 		case MACHINEGUN_TURRET.id:
 				switch(turrets[i].upgradeLevel)	{

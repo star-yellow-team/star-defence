@@ -202,6 +202,7 @@ $("#reveal").hide();
 $("#ability").hide();
 
 function description(turret) {
+	$("#description").show();
 	$("#hover").show();
 	$("#hover").children("p").show();
 	$("#hover").children("hr").show();
@@ -243,6 +244,7 @@ function hideHover() {
 }
 
 function removeDescription(turret) {
+	$("#description").show();
 	$("#hover").show();
 	$("#title").html("Remove Turret");
 	$("#hover").children("p").hide();
@@ -286,8 +288,8 @@ function upgradeDescription() {
 	$("#hover").show();
 	$("#hover").children("p").show();
 	$("#hover").children("hr").show();
-	$("#title").html(check.name);
-	$("#description").html(check.description);
+	$("#title").html("Upgrade this "+check.name);
+	$("#description").hide();
 	$("#price").html(check.upgradePrice);
 	if (check.slow)
 		$("#slowt").show();
