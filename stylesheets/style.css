@@ -89,6 +89,28 @@ input:focus {
 	outline: none;
 }
 
+#play {
+	position:absolute;
+	background-image:url(../images/play.png);
+	background-size:cover;
+	z-index: 1002;
+}
+
+#play:hover {
+	background-image:url(../images/playhover.png);
+}
+
+#restart {
+	position:absolute;
+	background-image:url(../images/restart.png);
+	background-size:cover;
+	z-index: 1002;
+}
+
+#restart:hover {
+	background-image:url(../images/restarthover.png);
+}
+
 html {
 	height: 100%;
 }

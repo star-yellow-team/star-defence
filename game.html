@@ -44,8 +44,6 @@
             	setTimeout(load, 50)
             	return
             }
-			$("#dimmer").css({"opacity":"1"});
-			$("form").hide();
     	}
    		</script>
     
@@ -58,6 +56,9 @@
         <h1 id="loading">Loading...</h1>
         
         <h1 id="paused">Paused</h1>
+        
+        <div id="play" onClick="pausegame()"></div>
+        <div id="restart" onClick="restart()"></div>
         
         <form id="startup">
         	<input type="number" name="map" id="map" placeholder="Map Number"><br/>
@@ -147,6 +148,10 @@
 			$("#loading").hide();
 			
 			$("form").show();
+		
+			$("#play").hide();
+		
+			$("#restart").hide();
 		</script>
 
 		

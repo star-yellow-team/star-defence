@@ -227,6 +227,13 @@ function startup() {
 }
 
 function restart() {
+   	pause = 0;
+	$("#paused").hide();
+		
+	$("#play").hide();
+		
+	$("#restart").hide();
+	
 	$("#wrapper").hide();
 	
 	$("form").show();
