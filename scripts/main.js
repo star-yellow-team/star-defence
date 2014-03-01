@@ -182,6 +182,7 @@ if (pause == 0){
     draw();
 	$("#money").html(String(userScore));
 	$("#health").html(String(life)+' / 5');
+	console.log(curentRound);
 }
 
 
@@ -214,6 +215,8 @@ function startup() {
 	
 	if (mapNumber === "")
 		mapNumber = 0;
+		
+	wavereset();
 	
 	main();
 	

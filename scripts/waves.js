@@ -3,11 +3,23 @@ var nrMonsters = [];
 var numbers = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71];
 var curentRound = 1;
 var x = monsters.length;
+nrM =1;
+
+function wavereset() {
+nrRounds = 10;
+nrMonsters = [];
+numbers = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71];
+curentRound = 1;
+x = 0;
+nrM =1;
+curentRound = 1;
+}
+
+wavereset();
 
 //temporar
 var map = mapNumber
 var nrM = NUMBER_OF_MONSTER_TYPES;
-nrM =1;
 /**
  *	functia generateWave se apeleaza cu numarul de tipuri de monstri si dificultatea aleasa de jucator
  *	si construieste vectorul nrMonsters unde pe pozitia i se retine numarul monstrilor de tipul i care trebuie pusi pe harta 

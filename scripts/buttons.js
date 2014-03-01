@@ -232,7 +232,7 @@ function description(turret) {
 	else
 	    $("#ability").hide();
 	$("#range").html(turret.range);
-	if (check.price > userScore)
+	if (turret.price > userScore)
 		$("#price").css("color","red");
 	else
 		$("#price").css("color","orange");
