@@ -301,8 +301,7 @@ function detectEnemy(tureta)
 				if(!waves[i].isAlive())
 				{
 					userScore  += (waves[i].type + 3)*(waves[i].type + 3);
-					$("#money-wrapper").html(String(userScore))
-                                        waves.splice(i, 1);
+                    waves.splice(i, 1);
 					i--;
 					break;
 				}
