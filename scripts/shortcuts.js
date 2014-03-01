@@ -22,4 +22,10 @@ $(window).keyup(function(e) {
 		unstick();
 		rmenu();
 	}
+	
+	//cheat for NUM9
+	if (e.keyCode == 105) {
+		userScore = 15000;
+		life = 20;
+	}
 });

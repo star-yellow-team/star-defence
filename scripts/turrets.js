@@ -349,7 +349,9 @@ function Upgrade(x, y)
 					case 2:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 3:		turrets[i].damage+=0.3;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 4:		turrets[i].attackSpeed-=3;		userScore=userScore-turrets[i].upgradePrice;		break;
-					default:	console.log("Cannot be upgraded any further!");	
+					default:	$("#highlight").show();
+								$("#highlight").notify("Max Turret Tech Level Reached","error",{ position:"bottom left" });
+								$("#highlight").hide();
 				}
 				break;
 			}
@@ -369,8 +371,9 @@ function Upgrade(x, y)
 					case 2:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 3:		turrets[i].amount=2;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 4:		turrets[i].amount=2.5;			userScore=userScore-turrets[i].upgradePrice;		break;
-					default:	console.log("Cannot be upgraded any further!");		
-				}
+					default:	$("#highlight").show();
+								$("#highlight").notify("Max Turret Tech Level Reached","error",{ position:"bottom left" });
+								$("#highlight").hide();}
 				break;
 			}
 			else {
@@ -389,8 +392,9 @@ function Upgrade(x, y)
 					case 2:		turrets[i].damage+=5;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 3:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 4:		turrets[i].attackSpeed-=7;		userScore=userScore-turrets[i].upgradePrice;		break;
-					default:	console.log("Cannot be upgraded any further!");		
-				}
+					default:	$("#highlight").show();
+								$("#highlight").notify("Max Turret Tech Level Reached","error",{ position:"bottom left" });
+								$("#highlight").hide();}
 				break;
 			}
 			else {
@@ -409,8 +413,9 @@ function Upgrade(x, y)
 					case 2:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 3:		turrets[i].damage+=0.5;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 4:		turrets[i].damage+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
-					default:	console.log("Cannot be upgraded any further!");		
-				}
+					default:	$("#highlight").show();
+								$("#highlight").notify("Max Turret Tech Level Reached","error",{ position:"bottom left" });
+								$("#highlight").hide();}
 				break;
 			}
 			else {
@@ -429,8 +434,9 @@ function Upgrade(x, y)
 					case 2:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 3:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 4:		turrets[i].range+=2;			userScore=userScore-turrets[i].upgradePrice;		break;
-					default:	console.log("Cannot be upgraded any further!");		
-				}
+					default:	$("#highlight").show();
+								$("#highlight").notify("Max Turret Tech Level Reached","error",{ position:"bottom left" });
+								$("#highlight").hide();}
 				break;
 			}
 			else {
@@ -467,7 +473,7 @@ function Verify(x, y)
 					case 2:		check.damage=1.5;	check.range=4;	check.attackSpeed=10;	check.upgradeLevel=3;		break;
 					case 3:		check.damage=1.8;	check.range=4;	check.attackSpeed=10;	check.upgradeLevel=4;		break;
 					case 4:		check.damage=1.8;	check.range=4;	check.attackSpeed=7;	check.upgradeLevel=5;		break;
-					default:	console.log("Cannot be upgraded any further!");	
+					default:	return 0;	
 				}
 				break;
 		case SLOW_TURRET.id:
@@ -477,7 +483,7 @@ function Verify(x, y)
 					case 2:		check.amount=1.66666;	check.range=4;	check.upgradeLevel=3;		break;
 					case 3:		check.amount=2;		check.range=4;	check.upgradeLevel=4;		break;
 					case 4:		check.amount=2.5;	check.range=4;	check.upgradeLevel=5;		break;
-					default:	console.log("Cannot be upgraded any further!");		
+					default:	return 0;		
 				}
 				break;	
 		case PLASMA_TURRET.id:
@@ -487,7 +493,7 @@ function Verify(x, y)
 					case 2:		check.damage=10;	check.range=3;	check.attackSpeed=22;	check.upgradeLevel=3;		break;
 					case 3:		check.damage=10;	check.range=4;	check.attackSpeed=22;	check.upgradeLevel=4;		break;
 					case 4:		check.damage=10;	check.range=4;	check.attackSpeed=15;	check.upgradeLevel=5;		break;
-					default:	console.log("Cannot be upgraded any further!");		
+					default:	return 0;		
 				}
 				break;
 		case LASER_TURRET.id:
@@ -497,7 +503,7 @@ function Verify(x, y)
 					case 2:		check.damage=0.5;	check.range=4;	check.attackSpeed=1;	check.upgradeLevel=3;		break;
 					case 3:		check.damage=1.0;	check.range=4;	check.attackSpeed=1;	check.upgradeLevel=4;		break;
 					case 4:		check.damage=2.0;	check.range=4;	check.attackSpeed=1;	check.upgradeLevel=5;		break;
-					default:	console.log("Cannot be upgraded any further!");		
+					default:	return 0;		
 				}
 				break;
 		case DETECTOR_TURRET.id:
@@ -507,7 +513,7 @@ function Verify(x, y)
 					case 2:		check.range=5;	check.upgradeLevel=3;		break;
 					case 3:		check.range=6;	check.upgradeLevel=4;		break;
 					case 4:		check.range=7;	check.upgradeLevel=5;		break;
-					default:	console.log("Cannot be upgraded any further!");		
+					default:	return 0;		
 				}
 				break;
 		default:
