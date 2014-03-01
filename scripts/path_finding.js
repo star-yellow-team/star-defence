@@ -72,7 +72,7 @@ function findPath ()
 		x = coada_x[p];
 		y = coada_y[p]; 
 		//Era o mare problema: se intra in undefined. Asta pentru ca se verifica in afara matricei declarate.
-		if( x+1 >= 0 && y >= 0 && x+1 < 20 && y < 20 )	//IMPORTANT! >= pentru 0, DAR < strict pentru 20. Asa sunt facute hartile. [0,20) gen.
+		if( x+1 >= 0 && y >= 0 && x+1 < 20 && y < 30 )	//IMPORTANT! >= pentru 0, DAR < strict pentru 20. Asa sunt facute hartile. [0,20) gen.
 		if( matrix[x+1][y][harta] != 0 && path_matrix[x+1][y] == 0)
 		{	
 			u++; coada_x[u]=x+1; coada_y[u]=y; path_matrix[x+1][y] = path_matrix[x][y] + 1;
@@ -80,21 +80,21 @@ function findPath ()
 			//Da, x+1, cu notatiile noastre, inseamna in jos.
 		}
 		
-		if( x-1 >= 0 && y >= 0 && x-1 < 20 && y < 20 )
+		if( x-1 >= 0 && y >= 0 && x-1 < 20 && y < 30 )
 		if( matrix[x-1][y][harta] != 0 && path_matrix[x-1][y] == 0 )
 		{
 			u++; coada_x[u]=x-1; coada_y[u]=y; path_matrix[x-1][y] = path_matrix[x][y] + 1;
 			//alert("Nordul a fost taguit.")
 		}
 		
-		if( x >= 0 && y+1 >= 0 && x < 20 && y+1 < 20 )
+		if( x >= 0 && y+1 >= 0 && x < 20 && y+1 < 30 )
 		if( matrix[x][y+1][harta] != 0 && path_matrix[x][y+1] == 0 )
 		{
 			u++; coada_x[u]=x; coada_y[u]=y+1; path_matrix[x][y+1] = path_matrix[x][y] + 1;
 			//alert("Estul a fost taguit.")
 		}
 		
-		if( x >= 0 && y-1 >= 0 && x < 20 && y-1 < 20 )
+		if( x >= 0 && y-1 >= 0 && x < 20 && y-1 < 30 )
 		if( matrix[x][y-1][harta] != 0 && path_matrix[x][y-1] == 0 )
 		{
 			u++; coada_x[u]=x; coada_y[u]=y-1; path_matrix[x][y-1] = path_matrix[x][y] + 1;
@@ -169,7 +169,7 @@ function drawPath_fromMatrix()
 	var rectWidth = 40;
 	var rectHeight = 30;
 	for(i = 0; i <= 20; i++)
-		for(j = 0; j <= 20; j++)
+		for(j = 0; j <= 30; j++)
 			{
 				if(path_matrix[j][i] != 0)
 				{
@@ -202,7 +202,7 @@ function drawPath_fromVector()
 	var rectWidth = 40;
 	var rectHeight = 30;
 	for(i = 0; i <= 20; i++)
-		for(j = 0; j <= 20; j++)
+		for(j = 0; j <= 30; j++)
 		{
 			ok=0; //alert(k);
 			for(var l=1;l<=nrmax_path;l++)
