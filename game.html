@@ -14,9 +14,17 @@
         <script type="text/javascript">
 		<!--//--><![CDATA[//><!--
 
-			var images = new Array()
-                        var toLoad = 1
-
+			var images = new Array();
+                        var toLoad = 2;
+                        /**
+                        * images[0] -- SIMPLE_MONSTER
+                        * images[1] -- MACHINEGUN_TURRET
+                        * images[2] -- monster
+                        * images[3] -- monster
+                        * images[4] -- monster
+                        * images[5] -- monster
+                        * 
+                        */
 			function preload() {
 				for (i = 0; i < preload.arguments.length; i++) {
 					images[i] = new Image()
@@ -27,7 +35,7 @@
                 }
 			}
             
-            preload('images/monsteryellow.png')
+            preload('images/monsteryellow.png', 'images/machinegun.png');
 			
 			$("#dimmer").css({"opacity":"1"});
 			var audio1 = new Audio('sounds/Plasma.mp3');
@@ -40,10 +48,10 @@
 		</script>
         <script type="text/javascript">
 		function load() {
-			if(toLoad != 0) {
-            	setTimeout(load, 50)
-            	return
-            }
+		    if(toLoad != 0) {
+            	        setTimeout(load, 50)
+            	        return;
+                    }
     	}
    		</script>
     

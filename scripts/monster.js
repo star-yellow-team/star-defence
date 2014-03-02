@@ -30,7 +30,8 @@ var SIMPLE_MONSTER = {
     slowingTurret:	0,
     visible: true,
     sprite: images[0],
-    spriteSize: 4
+    spriteSize: 4,
+    rate:   3
 }
 
 //  monstru rapid
@@ -43,8 +44,9 @@ var SPEEDY_MONSTER = {
     point: 3,
     slowingTurret:	0,
     visible: true,
-    sprite: 'sprite.png',
-    spriteSize: 5 
+    sprite: images[0],
+    spriteSize: 4,
+    rate: 3 
 }
 
 // monstru zburator
@@ -57,8 +59,9 @@ var FLYING_MONSTER={
     point: 4,	
     slowingTurret:	0,
     visible: true,
-    sprite: 'sprite.png',
-    spriteSize: 5 
+    sprite: images[0],
+    spriteSize: 4,
+    rate: 3
 }
 
 // cel mai puternic monstru
@@ -71,8 +74,9 @@ var POWERFUL_MONSTER={
     point: 5,
     slowingTurret:	0,
     visible: true,
-    sprite: 'sprite.png',
-    spriteSize: 5 
+    sprite: images[0],
+    spriteSize: 4,
+    rate: 3
 }
 
 // monstrul echipei , RAMSI=RADU,ANDREI,ADRIAN,MIRUNA,STEFAN,IONUT :)
@@ -85,8 +89,9 @@ var RAMSI_MONSTER={
     point: 6,
     slowingTurret:	0,
     visible: true,
-    sprite: 'sprite.png',
-    spriteSize: 5 
+    sprite: images[0],
+    spriteSize: 4,
+    rate: 3
 }
 
 var monsters = [SIMPLE_MONSTER, SPEEDY_MONSTER, FLYING_MONSTER, POWERFUL_MONSTER, RAMSI_MONSTER]
@@ -123,7 +128,8 @@ function Monster(x, y, type) {
             this.isVisible  = SIMPLE_MONSTER.visible;
             this.sprite     = SIMPLE_MONSTER.sprite;
             this.spriteSize = SIMPLE_MONSTER.spriteSize;
-            break; 
+            this.rate       = SIMPLE_MONSTER.rate;
+             break; 
        
         case SPEEDY_MONSTER.id:
             this.health     = SPEEDY_MONSTER.health;
@@ -132,6 +138,7 @@ function Monster(x, y, type) {
             this.isVisible  = SPEEDY_MONSTER.visible;
             this.sprite     = SPEEDY_MONSTER.sprite;
             this.spriteSize = SPEEDY_MONSTER.spriteSize;
+            this.rate       = SPEEDY_MONSTER.rate;
             break;
 
 	case FLYING_MONSTER.id:
@@ -141,6 +148,7 @@ function Monster(x, y, type) {
             this.isVisible  = FLYING_MONSTER.visible;
             this.sprite     = FLYING_MONSTER.sprite;
             this.spriteSize = FLYING_MONSTER.spriteSize;
+            this.rate       = FLYING_MONSTER.rate;
             break;
         
         case POWERFUL_MONSTER.id:
@@ -150,6 +158,7 @@ function Monster(x, y, type) {
             this.isVisible  = POWERFUL_MONSTER.visible;
             this.sprite     = POWERFUL_MONSTER.sprite;
             this.spriteSize = POWERFUL_MONSTER.spriteSize;
+            this.rate       = POWERFUL_MONSTER.rate;
             break;
 
 	case RAMSI_MONSTER.id:
@@ -159,6 +168,7 @@ function Monster(x, y, type) {
             this.isVisible  = RAMSI_MONSTER.visible;
             this.sprite     = RAMSI_MONSTER.sprite;
             this.spriteSize = RAMSI_MONSTER.spriteSize;
+            this.rate       = RAMSI_MONSTER.rate;
             break;
 	    
 

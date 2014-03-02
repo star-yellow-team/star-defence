@@ -82,8 +82,10 @@ function animate(context, object, offset) {
     if(object == undefined) {return;}
     if(offset == undefined) {
         //pt turete
+        context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0, FRAME_SIZE, FRAME_SIZE,
+        boxSize * object.x, boxSize * object.y, boxSize, boxSize);
         
-    } else if(object.type == 0) {
+    } else {
         //deseneaza monstrul
             context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0,FRAME_SIZE, FRAME_SIZE, 
             boxSize * object.x, boxSize * object.y + object.offset, dimension, dimension)            
@@ -107,51 +109,18 @@ function animate(context, object, offset) {
                 context.fillStyle = "rgb("+String(Math.floor((current*255)/initial))+", 0 , 0)"
             } 
     
-            console.log(context.fillStyle)
             //deseneaza partea rosie
             context.fillRect(boxSize * object.x,
                             boxSize * object.y -dimension / 4 + object.offset, 
                             health, dimension/4 );
-            
-
-    } else {
-        //deseneaza monstrul
-            context.fillStyle = monsters[object.type].color;
-	    context.fillRect(boxSize * object.x, boxSize * object.y  + object.offset, dimension, dimension); 
-        
-            // contur lifebar
-            context.strokeStyle = "black"
-            context.strokeRect(boxSize * object.x,
-                            boxSize * object.y - dimension / 4 + object.offset,
-                            dimension, dimension/4 );
-            
-            
-            //determina viata
-            var initial= monsters[object.type].health
-            var current= object.health
-            var health = object.health * (dimension) / initial;
-
-            // determina daca e verde sau rosu            
-            if(current > initial /2) {
-                context.fillStyle = "rgb(0,"+String(Math.floor((current*255)/initial))+", 0)"
-            } else {
-                context.fillStyle = "rgb("+String(Math.floor((current*255)/initial))+", 0 , 0)"
-            }
-
-            //deseneaza partea rosie
-            context.fillRect(boxSize * object.x,
-                            boxSize * object.y - dimension / 4 + object.offset, 
-                            health, dimension/4 );
-            
-
-    }
+    } 
     
     if(object.rateNumber == 0) {
         object.frameNumber = (object.frameNumber + 1) % object.spriteSize;
     }
 
     object.rateNumber += 1
-    object.rateNumber %= FRAME_RATE
+    object.rateNumber %= object.rate
 }
 
 
