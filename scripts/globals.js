@@ -93,6 +93,7 @@ function animate(context, object, offset) {
             object.rateNumber += 1
             object.rateNumber %= object.rate
         } else {
+            object.frameNumber = 0;
             context.drawImage(object.sprite, 0, 0, FRAME_SIZE, FRAME_SIZE,
             boxSize * object.x, boxSize * object.y, boxSize, boxSize);
         }
