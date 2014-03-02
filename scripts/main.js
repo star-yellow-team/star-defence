@@ -37,7 +37,7 @@ function drawBackground() {
 	    	//	3 = base
              switch(getElement(i, j, mapNumber)) {
                 case 0:
-                    context.fillStyle = "green";       
+                    context.fillStyle = 'rgba(0,225,0,0)';       
                     break;
                 case 1:
                     context.fillStyle = "brown";
