@@ -137,6 +137,7 @@ body {
 	background: linear-gradient(#000300, #001F00, #000300); /* Standard syntax */
 	margin:auto;
 	background-image:url(../images/bkg.png);
+	background-size:cover;
 }
 
 #wrapper {
