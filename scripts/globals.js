@@ -95,15 +95,13 @@ function animate(context, object, offset) {
                             dimension, dimension/4 );
             
             //determina viata
-            var health = object.health * (dimension) / monsters[object.type].health;
+            var initial= monsters[object.type].health
+            var current= object.health
+            var health = object.health * (dimension) / initial;
 
             // determina daca e verde sau rosu            
-            if(object.health >= monsters[object.type].health / 2) {
-                context.fillStyle = "#00FF00"
-            } else {
-                context.fillStyle = "red"
-            }
-
+            context.fillStyle = "rgb((current/initial)*255,((initial-current)/initial)* 255 , 0)" 
+    
             //deseneaza partea rosie
             context.fillRect(boxSize * object.x,
                             boxSize * object.y -dimension / 4 + object.offset, 
@@ -121,15 +119,14 @@ function animate(context, object, offset) {
                             boxSize * object.y - dimension / 4 + object.offset,
                             dimension, dimension/4 );
             
-            //determina viata
-            var health = object.health * (dimension) / monsters[object.type].health;
             
-             // determina daca e verde sau rosu            
-            if(object.health >= monsters[object.type].health / 2) {
-                context.fillStyle = "#00FF00"
-            } else {
-                context.fillStyle = "red"
-            }
+            //determina viata
+            var initial= monsters[object.type].health
+            var current= object.health
+            var health = object.health * (dimension) / initial;
+
+            // determina daca e verde sau rosu            
+            context.fillStyle = "rgb((current/initial)*255,((initial-current)/initial)* 255 , 0)"
 
             //deseneaza partea rosie
             context.fillRect(boxSize * object.x,
