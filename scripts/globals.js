@@ -89,16 +89,16 @@ function animate(context, object, offset) {
 
             // contur lifebar
             context.strokeStyle = "black"
-            context.strokeRect(boxSize * object.x - dimension / 2, 
+            context.strokeRect(boxSize * object.x,
                             boxSize * object.y - boxSize/2 + object.offset,
-                            2*dimension, dimension/3 );
+                            dimension, dimension/3 );
             
             //determina viata
             context.fillStyle = "red"
-            var health = object.health * (2*dimension) / monsters[object.type].health;
+            var health = object.health * (dimension) / monsters[object.type].health;
     
             //deseneaza partea rosie
-            context.fillRect(boxSize * object.x - dimension / 2, 
+            context.fillRect(boxSize * object.x,
                             boxSize * object.y - boxSize/2 + object.offset, 
                             health, dimension/3 );
             
@@ -110,16 +110,16 @@ function animate(context, object, offset) {
         
             // contur lifebar
             context.strokeStyle = "black"
-            context.strokeRect(boxSize * object.x - dimension / 2, 
+            context.strokeRect(boxSize * object.x,
                             boxSize * object.y - boxSize/2 + object.offset,
-                            2*dimension, dimension/3 );
+                            dimension, dimension/3 );
             
             //determina viata
             context.fillStyle = "red"
-            var health = object.health * (2*dimension) / monsters[object.type].health;
+            var health = object.health * (dimension) / monsters[object.type].health;
     
             //deseneaza partea rosie
-            context.fillRect(boxSize * object.x - dimension / 2, 
+            context.fillRect(boxSize * object.x,
                             boxSize * object.y - boxSize/2 + object.offset, 
                             health, dimension/3 );
             
