@@ -82,9 +82,21 @@ function animate(context, object, offset) {
     if(object == undefined) {return;}
     if(offset == undefined) {
         //pt turete
-        context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0, FRAME_SIZE, FRAME_SIZE,
-        boxSize * object.x, boxSize * object.y, boxSize, boxSize);
-        
+        if(checkTurret(object)) {
+            context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0, FRAME_SIZE, FRAME_SIZE,
+            boxSize * object.x, boxSize * object.y, boxSize, boxSize);
+       
+            if(object.rateNumber == 0) {
+            object.frameNumber = (object.frameNumber + 1) % object.spriteSize;
+            }
+
+            object.rateNumber += 1
+            object.rateNumber %= object.rate
+        } else {
+            context.drawImage(object.sprite, 0, 0, FRAME_SIZE, FRAME_SIZE,
+            boxSize * object.x, boxSize * object.y, boxSize, boxSize);
+        }
+                     
     } else {
         //deseneaza monstrul
             context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0,FRAME_SIZE, FRAME_SIZE, 
@@ -113,14 +125,15 @@ function animate(context, object, offset) {
             context.fillRect(boxSize * object.x,
                             boxSize * object.y -dimension / 4 + object.offset, 
                             health, dimension/4 );
+            if(object.rateNumber == 0) {
+                object.frameNumber = (object.frameNumber + 1) % object.spriteSize;
+            }
+
+            object.rateNumber += 1
+            object.rateNumber %= object.rate
     } 
     
-    if(object.rateNumber == 0) {
-        object.frameNumber = (object.frameNumber + 1) % object.spriteSize;
-    }
-
-    object.rateNumber += 1
-    object.rateNumber %= object.rate
+    
 }
 
 
