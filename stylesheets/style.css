@@ -24,7 +24,7 @@
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	position:fixed;
 	top:calc(50% - 200px);
-	color:green;
+	color:lightblue;
 	font-variant:small-caps;
 	width:100%;
 	text-align:center;
@@ -59,7 +59,7 @@
 
 form {
 	position:fixed;
-	color:green;
+	color:lightblue;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	text-align:center;
 	z-index:1001
@@ -67,9 +67,9 @@ form {
 
 input {
 	background-color:rgba(0,0,0,0.75);
-	color:green;
-	border:2.5px solid green;
-	box-shadow: 0px 0px 10px green, 0px 0px 5px green inset;
+	color:lightblue;
+	border:2.5px solid lightblue;
+	box-shadow: 0px 0px 10px lightblue, 0px 0px 5px lightblue inset;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	background-size: 25px;
 	padding:20px;
@@ -78,9 +78,9 @@ input {
 
 input:focus {
 	background-color:rgba(0,0,0,0.75);
-	color:green;
-	border:2.5px solid lime;
-	box-shadow: 0px 0px 10px green, 0px 0px 5px green inset;
+	color:lightblue;
+	border:2.5px solid lightblue;
+	box-shadow: 0px 0px 10px lightblue, 0px 0px 5px lightblue inset;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	background-size: 25px;
 	padding:20px;
@@ -90,9 +90,9 @@ input:focus {
 
 input:hover {
 	background-color:rgba(0,0,0,0.75);
-	color:green;
-	border:2.5px solid lime;
-	box-shadow: 0px 0px 10px lime 0px 0px 5px lime inset;
+	color:lightblue;
+	border:2.5px solid lightblue;
+	box-shadow: 0px 0px 10px lightblue 0px 0px 5px lightblue inset;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	background-size: 25px;
 	padding:20px;
