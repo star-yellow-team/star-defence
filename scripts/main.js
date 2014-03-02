@@ -26,6 +26,8 @@ $(".ghostImage").hide();
 function drawBackground() {
     var i = 0;
     var j = 0;
+
+    context.clearRect(0,0, canvas.width, canvas.height)    
     
     // desenam fiecare celula
     for(i = 0 ; i < MAX_X; ++ i) {
