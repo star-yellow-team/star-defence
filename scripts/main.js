@@ -40,24 +40,29 @@ function drawBackground() {
              switch(getElement(i, j, mapNumber)) {
                 case 0:
                     context.fillStyle = 'rgba(0,225,0,0)';       
+                    // umplem casuta de pe randul i si coloana j
+                    context.fillRect(i*boxSize, j*boxSize, boxSize, boxSize);
                     break;
                 case 1:
                     context.fillStyle = "brown";
+                    // umplem casuta de pe randul i si coloana j
+                    context.fillRect(i*boxSize, j*boxSize, boxSize, boxSize);
                     break;
                 case 2:
                     context.fillStyle = "red";
+                    // umplem casuta de pe randul i si coloana j
+                    context.fillRect(i*boxSize, j*boxSize, boxSize, boxSize);
                     break;
                 case 3:
                     context.fillStyle = "blue"
+                    // umplem casuta de pe randul i si coloana j
+                    context.fillRect(i*boxSize, j*boxSize, boxSize, boxSize);
                     break;
  		default:
                     // o eroare in harta
-                    console.log('buuug!')
                     break;
             }
 
-            // umplem casuta de pe randul i si coloana j
-            context.fillRect(i*boxSize, j*boxSize, boxSize, boxSize);
         }
     }
 }
