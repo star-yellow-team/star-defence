@@ -297,6 +297,8 @@ function checkTurret (tureta)
 		}
 	if (ok==true)
 		return false;
+	if (ok==false)
+		return true;
 }
 
 function distanta(i, tureta)
