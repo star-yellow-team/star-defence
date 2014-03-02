@@ -32,7 +32,7 @@ var MACHINEGUN_TURRET = {
     x:	0,
     y:	0,
     level: 0,
-    sprite: images[1],
+    sprite: images[0],
     spriteSize:    30,
     rate: 1
 }

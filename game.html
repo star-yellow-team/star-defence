@@ -35,7 +35,7 @@
                 }
 			}
             
-            preload('images/monsteryellow.png', 'images/machinegun.png');
+            preload('images/machinegun.png', 'images/monsteryellow.png');
 			
 			$("#dimmer").css({"opacity":"1"});
 			var audio1 = new Audio('sounds/Plasma.mp3');
@@ -160,6 +160,17 @@
 			$("#play").hide();
 		
 			$("#restart").hide();
+			
+			$("#machinegun").css("background-image","url("+images[0].src+")");
+			$("#machinegun_turret").css("background-image","url("+images[0].src+")");
+			$("#slow").css("background-image","url("+images[1].src+")");
+			$("#slow-turret").css("background-image","url("+images[1].src+")");
+			$("#laser").css("background-image","url("+images[2].src+")");
+			$("#laser-turret").css("background-image","url("+images[2].src+")");
+			$("#plasma").css("background-image","url("+images[3].src+")");
+			$("#plasma-turret").css("background-image","url("+images[3].src+")");
+			$("#detector").css("background-image","url("+images[4].src+")");
+			$("#detector-turret").css("background-image","url("+images[4].src+")");
 		</script>
 
 		

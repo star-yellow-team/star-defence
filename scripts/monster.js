@@ -29,7 +29,7 @@ var SIMPLE_MONSTER = {
     point: 2,
     slowingTurret:	0,
     visible: true,
-    sprite: images[0],
+    sprite: images[1],
     spriteSize: 4,
     rate:   3
 }

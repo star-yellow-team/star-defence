@@ -90,9 +90,9 @@ input:focus {
 
 input:hover {
 	background-color:rgba(0,0,0,0.75);
-	color:lightblue;
-	border:2.5px solid lightblue;
-	box-shadow: 0px 0px 10px lightblue 0px 0px 5px lightblue inset;
+	color:cyan;
+	border:2.5px solid cyan;
+	box-shadow: 0px 0px 10px cyan 0px 0px 5px cyan inset;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	background-size: 25px;
 	padding:20px;
@@ -200,6 +200,7 @@ body {
 	height:100px;
 	margin:0px;
 	padding:0px;
+	background-size:cover;
 }
 
 #turret {
@@ -277,6 +278,7 @@ body {
 	opacity:0.5;
 	position:absolute;
 	box-shadow: 0px 0px 25px green inset;
+	background-size:cover;
 }
 
 #machinegun, #machinegun_turret {
