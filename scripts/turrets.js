@@ -288,6 +288,16 @@ Turret.prototype.canAttack = function() {
 
 //2.25=1 sec
 
+function checkTurret (tureta)
+{	
+	var ok=true;
+	for (var i = waves.length-1; i >= 0; i--)
+		{	if(distanta(waves[i], tureta) <= tureta.range)
+				ok=false;
+		}
+	if (ok==true)
+		return false;
+}
 
 function distanta(i, tureta)
 {
