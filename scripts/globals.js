@@ -81,6 +81,7 @@ function sizeMonsters() {
 function animate(context, object, offset) { 
     if(object == undefined) {return;}
     if(offset == undefined) {
+        //pt turete
         
     } else if(object.type == 0) {
         //deseneaza monstrul
@@ -90,38 +91,50 @@ function animate(context, object, offset) {
             // contur lifebar
             context.strokeStyle = "black"
             context.strokeRect(boxSize * object.x,
-                            boxSize * object.y - boxSize/2 + object.offset,
-                            dimension, dimension/3 );
+                            boxSize * object.y - dimension/4 + object.offset,
+                            dimension, dimension/4 );
             
             //determina viata
-            context.fillStyle = "red"
             var health = object.health * (dimension) / monsters[object.type].health;
-    
+
+            // determina daca e verde sau rosu            
+            if(object.health >= monsters[object.type].health / 2) {
+                context.fillStyle = "#00FF00"
+            } else {
+                context.fillStyle = "red"
+            }
+
             //deseneaza partea rosie
             context.fillRect(boxSize * object.x,
-                            boxSize * object.y - boxSize/2 + object.offset, 
-                            health, dimension/3 );
+                            boxSize * object.y -dimension / 4 + object.offset, 
+                            health, dimension/4 );
             
 
     } else {
         //deseneaza monstrul
             context.fillStyle = monsters[object.type].color;
-	    context.fillRect(boxSize * object.x, boxSize * object.y + object.offset, dimension, dimension); 
+	    context.fillRect(boxSize * object.x, boxSize * object.y  + object.offset, dimension, dimension); 
         
             // contur lifebar
             context.strokeStyle = "black"
             context.strokeRect(boxSize * object.x,
-                            boxSize * object.y - boxSize/2 + object.offset,
-                            dimension, dimension/3 );
+                            boxSize * object.y - dimension / 4 + object.offset,
+                            dimension, dimension/4 );
             
             //determina viata
-            context.fillStyle = "red"
             var health = object.health * (dimension) / monsters[object.type].health;
-    
+            
+             // determina daca e verde sau rosu            
+            if(object.health >= monsters[object.type].health / 2) {
+                context.fillStyle = "#00FF00"
+            } else {
+                context.fillStyle = "red"
+            }
+
             //deseneaza partea rosie
             context.fillRect(boxSize * object.x,
-                            boxSize * object.y - boxSize/2 + object.offset, 
-                            health, dimension/3 );
+                            boxSize * object.y - dimension / 4 + object.offset, 
+                            health, dimension/4 );
             
 
     }
