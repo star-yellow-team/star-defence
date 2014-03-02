@@ -307,7 +307,7 @@ function distanta(i, tureta)
 /* Cred ca atacul va depinde de o functie de detectat cand inamicul intra in range */
 function detectEnemy(tureta)
 {
-
+	var ok=true;
 	if(tureta.canAttack() == false && tureta.damage > 0) {
             return;
 	}
@@ -318,7 +318,11 @@ function detectEnemy(tureta)
             			//pot lovi monstrul
 						
 				if(tureta.type != SLOW_TURRET.id)
+				{
 		           	waves[i].doDamage(tureta.damage);
+					tureta.isAttacking=true;
+					ok=false;
+				}
 				switch(tureta.type)	{
 					case 0:		audio2.play(); 				break;
 					case 2:		audio1.play();				break;
@@ -350,6 +354,8 @@ function detectEnemy(tureta)
 					break;
 	        }
         }
+	if (ok==true)
+		tureta.isAttacking=false;
 }
 
 /* Aici mai modificam pentru ca imi trebuie variabila in care stocam banii, skin-urile pe care le va avea fiecare turret la fiecare nivel */
