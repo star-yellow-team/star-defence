@@ -100,7 +100,9 @@ function animate(context, object, offset) {
             var health = object.health * (dimension) / initial;
 
             // determina daca e verde sau rosu            
-            context.fillStyle = "rgb((current/initial)*255,((initial-current)/initial)* 255 , 0)" 
+           
+            context.fillStyle = "rgb("+(current/initial)*255+","+((initial-current)/initial)* 255+" , 0)"
+ 
     
             //deseneaza partea rosie
             context.fillRect(boxSize * object.x,
@@ -126,7 +128,7 @@ function animate(context, object, offset) {
             var health = object.health * (dimension) / initial;
 
             // determina daca e verde sau rosu            
-            context.fillStyle = "rgb((current/initial)*255,((initial-current)/initial)* 255 , 0)"
+            context.fillStyle = "rgb("+(current/initial)*255+","+((initial-current)/initial)* 255+" , 0)"
 
             //deseneaza partea rosie
             context.fillRect(boxSize * object.x,
