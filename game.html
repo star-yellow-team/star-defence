@@ -23,11 +23,11 @@
 					images[i].src = preload.arguments[i]
 				        images[i].onload = function() {
                                             -- toLoad;
-                                        }
-                                }
+                                        	}
+                }
 			}
             
-                        preload('images/monsteryellow.png')
+            preload('images/monsteryellow.png')
 			
 			$("#dimmer").css({"opacity":"1"});
 			var audio1 = new Audio('sounds/Plasma.mp3');
@@ -67,7 +67,7 @@
         	<input type="radio" class="gamemode" name="gamemode" value="survival" checked="checked"><p>Survival</p>
             <br/>
             <br/>
-			<input type="button" value="Proceed" onClick="startup()" autofocus="autofocus">
+			<input type="button" value="Proceed" onClick="startup()" autofocus>
         </form>
         
 		<!-- Game Canvas is set to 100% of body -->
