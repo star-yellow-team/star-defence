@@ -170,10 +170,11 @@ if (pause == 0){
 	 
 
     // desenam
-}
+
 	draw();
 	$("#money").html(String(userScore));
 	$("#health").html(String(life)+' / 5');
+}
 	
     gml = setTimeout(gameLoop, loopInterval);
 }
@@ -232,20 +233,24 @@ function restart() {
 	rmenu();
    	pause = 0;
 	playing = 0;
-	
+
+        //game logci clearUp
 	restartTurrets();
 	
-	$("#paused").hide();
-		
+        //html clearup
+	$("#paused").hide();	
 	$("#play").hide();
-		
 	$("#restart").hide();
-	
 	$("#wrapper").hide();
-	
 	$("form").show();
-	
 	$("#dimmer").slideDown("fast");
+
+        wavereset();
+        curentRound=2; //altfel nu incepe cu level 1.
+        waves_won_perBattle=0;
+        restartWaveSystem();
+
+    
 }
 
 function pausegame() {

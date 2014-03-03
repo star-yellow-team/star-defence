@@ -26,34 +26,6 @@ var nrM = NUMBER_OF_MONSTER_TYPES;
  *	si construieste vectorul nrMonsters unde pe pozitia i se retine numarul monstrilor de tipul i care trebuie pusi pe harta 
  *	nrM = numarul de tipuri de monstri, 
  **/
-function generateWave2()
-{
-	
-	
-	if(curentRound < 1)
-		curentRound = 1;
-	else
-		curentRound++;
-	for(var i = 0; i < nrM; i++)
-		{
-			var x;
-			switch (curentRound)
-				{
-					case (1):
-						x = 1;
-						break;
-					case (curentRound < 5):
-						x = Math.round( Math.random() * (5 - 1)) + i * (difficulty - 1);
-						break;
-					default:
-						x = Math.round( Math.random() * (numbers.length - 1) + 5) + i * (difficulty - 1);
-				}
-			nrMonsters[i] = 1;
-		}
-	fillWaves(nrM);
-}
-
-
 function generateWave()
 {
 	var total = 0;
@@ -68,14 +40,12 @@ function generateWave()
 		if(nrM < NUMBER_OF_MONSTER_TYPES)	
 			nrM++;
 	}
-	console.log("monstru 0: " + nrMonsters[0]);
 	nrMonsters[0]++;
 	for(var i = 1; i < nrM; i++)
 	{
 		nrMonsters[i] += 1;	
 		total += nrMonsters[i];
 	}
-	console.log("monstrii: " + nrMonsters);
 	fillWaves(nrM);
 	curentRound++;
 	
@@ -100,6 +70,11 @@ function deleteWave(nrM)
 		nrMonsters[i] = 0;
 }
 
+
+function restartWaveSystem() {
+    waves.length = 0;
+    curentRound  = 1;
+}
 
 /**
  *	functia fillWaves genereaza vectorul waves care contine in ordine monstrii care trebuie plimbati pana la baza
@@ -148,7 +123,6 @@ function takeLife()
 {       
         // ia monstrii care au ajuns la destinatie
 	    searchPoints(map, 3);
-		console.log(map);
 	    for(var i = 0; i < waves.length; i++) {
 
             // ia monstrii care sunt morti
@@ -170,7 +144,6 @@ function takeLife()
 		$("#level").html("level " + String(userLevel));		
 
         } //end for
-		//		console.log(String(Pointsy[0])+" "+String(Pointsx[0]));
 		
         
 }
