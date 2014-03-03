@@ -15,11 +15,11 @@
 		<!--//--><![CDATA[//><!--
 
 			var images = new Array();
-                        var toLoad = 2;
+                        var toLoad = 3;
                         /**
-                        * images[0] -- SIMPLE_MONSTER
-                        * images[1] -- MACHINEGUN_TURRET
-                        * images[2] -- monster
+                        * images[0] -- MACHINEGUN_TURRET
+                        * images[1] -- SIMPLE_MONSTER
+                        * images[2] -- FLYING_MONSTER
                         * images[3] -- monster
                         * images[4] -- monster
                         * images[5] -- monster
@@ -35,7 +35,7 @@
                 }
 			}
             
-            preload('images/machinegun.png', 'images/monsteryellow.png');
+            preload('images/machinegun.png', 'images/monsteryellow.png', 'images/monsterflying.png');
 			
 			$("#dimmer").css({"opacity":"1"});
 			var audio1 = new Audio('sounds/Plasma.mp3');

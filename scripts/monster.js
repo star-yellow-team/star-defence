@@ -59,8 +59,8 @@ var FLYING_MONSTER={
     point: 4,	
     slowingTurret:	0,
     visible: true,
-    sprite: images[1],
-    spriteSize: 4,
+    sprite: images[2],
+    spriteSize: 3,
     rate: 3
 }
 
