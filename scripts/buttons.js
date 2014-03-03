@@ -88,18 +88,21 @@ function unstick() {
 }
   
 function removeTurret() {
-	plY = Math.round((parseInt($("#highlight").css("top")) - yMin) / boxSize);
-	plX = Math.round((parseInt($("#highlight").css("left")) - xMin) / boxSize);
-	deleteElement(plX, plY, mapNumber);
+	var plY = Math.round((parseInt($("#highlight").css("top")) - yMin) / boxSize);
+	var plX = Math.round((parseInt($("#highlight").css("left")) - xMin) / boxSize);
+	var i =0, j = 0;
+        deleteElement(plX, plY, mapNumber);
 	
+        
 	for (i in turrets)
 		if(turrets[i].x == plX && turrets[i].y == plY) {
 			for (j = waves.length-1; j >= 0; j--)
 				waves[j].redoMonster();
 			userScore += (turrets[i].price + turrets[i].upgradeLevel * turrets[i].upgradePrice) / 2;
-			turrets.splice(i);
+        		turrets.splice(i, 1);
 		}
-	rmenu();
+
+        return rmenu();
 }
 
 // Functia de desenare turete

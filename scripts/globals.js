@@ -119,7 +119,7 @@ function animate(context, object, offset) {
             if(current > initial /2) {
                 context.fillStyle = "rgb(0,"+String(Math.floor((current*255)/initial))+", 0)"
             } else {
-                context.fillStyle = "rgb("+String(Math.floor((current*255)/initial))+", 0 , 0)"
+                context.fillStyle = "rgb("+String(Math.floor((current*255)/(initial/2)))+", 0 , 0)"
             } 
     
             //deseneaza partea rosie
