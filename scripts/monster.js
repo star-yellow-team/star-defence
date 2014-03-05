@@ -49,62 +49,66 @@ var SPEEDY_MONSTER = {
     rate: 3 
 }
 
-// monstru zburator
+// monstru si mai rapid
 var FLYING_MONSTER={
-    id :  2,
-    health: 12,
-    speed: 3,
-    damage: 0,
-    color:  'purple',
-    point: 4,	
-    slowingTurret:	0,
-    visible: true,
-    sprite: images[2],
-    spriteSize: 3,
-    rate: 3
+    id :            2,
+    health:         12,
+    speed:          3,
+    damage:         0,
+    color:          'purple',
+    point:          4,	
+    slowingTurret:  0,
+    visible:        true,
+    sprite:         images[2],
+    spriteSize:     3,
+    rate:           3
 }
 
 // cel mai puternic monstru
 var POWERFUL_MONSTER={
-    id : 3,
-    health: 25,
-    speed: 4,
-    damage:0,
-    color: 'pink',
-    point: 5,
-    slowingTurret:	0,
-    visible: true,
-    sprite: images[4],
-    spriteSize: 3,
-    rate: 3
+    id :            3,
+    health:         25,
+    speed:          4,
+    damage:         0,
+    color:          'pink',
+    point:          5,
+    slowingTurret:  0,
+    visible:        true,
+    sprite:         images[4],
+    spriteSize:     3,
+    rate:           3
 }
 
 // monstrul echipei , RAMSI=RADU,ANDREI,ADRIAN,MIRUNA,STEFAN,IONUT :)
 var RAMSI_MONSTER={
-    id :4,
-    health: 40,
-    speed: 2,
-    damage:0,
-    color: 'magenta',
-    point: 6,
-    slowingTurret:	0,
-    visible: true,
-    sprite: images[5],
-    spriteSize: 5,
-    rate: 3
+    id :            4,
+    health:         40,
+    speed:          2,
+    damage:         0,
+    color:          'magenta',
+    point:          6,
+    slowingTurret:  0,
+    visible:        true,
+    sprite:         images[5],
+    spriteSize:     5,
+    rate:           3
 }
 
+// un vector cu tipurile de monstri
 var monsters = [SIMPLE_MONSTER, SPEEDY_MONSTER, FLYING_MONSTER, POWERFUL_MONSTER, RAMSI_MONSTER]
+
 // Numarul maxim de tipuri de monstri
 var NUMBER_OF_MONSTER_TYPES = monsters.length;
 
 
 
 /**
- *  Constructorul clasei Monster
- *  @param x pozitia pe Ox a mosntrului
- *  @param y pozitia pe Oy a monstrului
- *  @param type tipul monstrului.
+ *  Clasa Monster
+ *
+ *  @name Monster
+ *  @param {int} x      pozitia pe Ox a mosntrului
+ *  @param {int} y      pozitia pe Oy a monstrului
+ *  @param {int} type   tipul monstrului.
  * */
 function Monster(x, y, type) {
 
@@ -171,7 +175,6 @@ function Monster(x, y, type) {
             this.rate       = RAMSI_MONSTER.rate;
             break;
 	    
-
         default:
             console.log("Invalid monster type....!");
             break;
@@ -181,12 +184,13 @@ function Monster(x, y, type) {
 
 
 /**
- *  Functia doDamage() pentru da damage unui monstru
- *  @param amount damage-ul pe care sa il primeasca monstrul
- *  @return true daca mai ramane in viata
- *  @return false daca moare
+ *  Functia pentru da damage unui monstru
+ *  @param {int}        amount damage-ul pe care sa il primeasca monstrul
+ *  @return {boolean}   daca mai e in viata
  *
- *  Exemplu: monster.doDamage(100);
+ *  @example
+ *  var monster = new Monster(0,0,0); 
+ *  monster.doDamage(100);
  *
  * */
 Monster.prototype.doDamage      = function(amount) {
@@ -198,6 +202,13 @@ Monster.prototype.doDamage      = function(amount) {
     return this.isAlive()
 }
 
+/**
+ * Functia care reface viteza unui monstru
+ *
+ * @example
+ * var monster = new Monster();
+ * monster.redoMonster();
+ * */
 Monster.prototype.redoMonster = function()
 {
 	this.slowingTurret=-1;
@@ -224,52 +235,69 @@ Monster.prototype.redoMonster = function()
 	
 }
 
-Monster.prototype.slowMonster = function(param, tureta)
-{
-	this.slowingTurret=param;
-	switch(this.type)
-	{
-		case SIMPLE_MONSTER.id:
-			this.speed = SIMPLE_MONSTER.speed/tureta.amount;
-			break;
-		case SPEEDY_MONSTER.id:
-			this.speed = SIMPLE_MONSTER.speed/tureta.amount;
-			break;
-		case FLYING_MONSTER.id:
-			this.speed = FLYING_MONSTER.speed/tureta.amount;
-			break;
-		case POWERFUL_MONSTER.id:
-			this.speed = POWERFUL_MONSTER.speed/tureta.amount;
-			break;
-		case RAMSI_MONSTER.id:
-			this.speed = RAMSI_MONSTER.speed/tureta.amount;
-			break;
-		default:
-			console.log("there`s an error with slow");
-	}
-	return param;
+
+/**
+ * Functia care incetineste un monstru
+ *
+ * @param {int}     param ??????
+ * @param {Turret}  turret referinta catre tureta
+ *
+ * */
+Monster.prototype.slowMonster = function(param, tureta) {
+    this.slowingTurret=param;
+
+    switch(this.type) {
+        case SIMPLE_MONSTER.id:
+            this.speed = SIMPLE_MONSTER.speed/tureta.amount;
+            break;
+        case SPEEDY_MONSTER.id:
+            this.speed = SIMPLE_MONSTER.speed/tureta.amount;
+            break;
+        case FLYING_MONSTER.id:
+            this.speed = FLYING_MONSTER.speed/tureta.amount;
+            break;
+        case POWERFUL_MONSTER.id:
+            this.speed = POWERFUL_MONSTER.speed/tureta.amount;
+            break;
+        case RAMSI_MONSTER.id:
+            this.speed = RAMSI_MONSTER.speed/tureta.amount;
+            break;
+        default:
+            console.log("there`s an error with slow");
+    }
+
+    return param;
 }
+
 
 /**
  *  Functia isAlive()
- *  @return true sau false daca monstrul e in viata
- *  Exemplu: monster.isAlive() -> true/false
+ *
+ *  @return {boolean} daca monstrul e in viata
+ *  
+ *  @example
+ *  var monster = new Monster(0,0,0)
+ *  if(monster.isAlive()) {
+ *      // ... cod pentru cand monstrul mai e in viata
+ *  } else {
+ *      // ... cod pentru cand monstrul a murit
+ *  }
  * */
-Monster.prototype.isAlive       = function() {
+Monster.prototype.isAlive = function() {
     return (this.health > 0) ? true : false;
 }
 
+
 /**
  *  Functia moveTo()
- *  @param newX pozitia noua pe Ox
- *  @param newY pozitia noua pe Oy
+ *  @param {int} newX pozitia noua pe Ox
+ *  @param {int} newY pozitia noua pe Oy
  *
- *  Exemplu: monster.moveTo(0,0);
+ *  @example
+ *  var monster = new Monster(0,0,0)
+ *  monster.moveTo(0,0);
  * */
-Monster.prototype.moveTo        = function(newX,newY) {
-    //this.x = newX;
-    //this.y = newY;
-    
+Monster.prototype.moveTo = function(newX,newY) {
 
     if(newX != this.destinationX || newY != this.destinationY) {
         this.destinationX   = newX;
@@ -315,8 +343,18 @@ Monster.prototype.moveTo        = function(newX,newY) {
 
 /**
  *  Functia reachedDestination()
- *  @return true daca a ajuns la destinatie
- *  @return false daca nu a ajuns la destinatie
+ *  @return {boolean} Returneaza daca a ajuns sau nu la destinatie
+ *
+ *  @example
+ *  var monster = new Monster(0,0,0)
+ *  if(monster.reachedDestination()) {
+ *      // cod pentru cand a ajuns la destinatie
+ *  } else {
+ *      // cod pentru cand nu a ajuns la destinatie
+ *  }
+ *
+ *  // destenatia este cea setata in functia moveTo()
+ *  // in caz ca este diferita fata de cea existenta
  * */
 Monster.prototype.reachedDestination = function() {
     return (this.x == this.destinationX && this.y == this.destinationY) ? true : false;
