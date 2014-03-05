@@ -33,7 +33,7 @@ var SIMPLE_MONSTER = {
     point: 2,
     slowingTurret:	0,
     visible: true,
-    sprite: images[1],
+    sprite: images[2],
     spriteSize: 4,
     rate:   3
 }
@@ -48,7 +48,7 @@ var SPEEDY_MONSTER = {
     point: 3,
     slowingTurret:	0,
     visible: true,
-    sprite: images[3],
+    sprite: images[4],
     spriteSize: 3,
     rate: 3 
 }
@@ -63,7 +63,7 @@ var FLYING_MONSTER={
     point:          4,	
     slowingTurret:  0,
     visible:        true,
-    sprite:         images[2],
+    sprite:         images[3],
     spriteSize:     3,
     rate:           3
 }
@@ -78,7 +78,7 @@ var POWERFUL_MONSTER={
     point:          5,
     slowingTurret:  0,
     visible:        true,
-    sprite:         images[4],
+    sprite:         images[5],
     spriteSize:     3,
     rate:           3
 }
@@ -93,7 +93,7 @@ var RAMSI_MONSTER={
     point:          6,
     slowingTurret:  0,
     visible:        true,
-    sprite:         images[5],
+    sprite:         images[6],
     spriteSize:     5,
     rate:           3
 }

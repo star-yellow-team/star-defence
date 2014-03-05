@@ -114,7 +114,7 @@ var LASER_TURRET = {
         contor:	0,
         x:	0,
         y:	0,
-        sprite: images[0],
+        sprite: images[1],
         spriteSize:    30,
         rate: 1
 }
