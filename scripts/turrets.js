@@ -341,7 +341,12 @@ function detectEnemy(tureta)
 					waves[i].slowMonster(turretIndex, tureta);	
 				if(!waves[i].isAlive())
 				{
-					userScore  += (waves[i].type + 3)*(waves[i].type + 3);
+					if(userScore >= 200) {
+						$.notify("You`re too greedy and you will receive no more money until you cool down", "error")	
+					} else {
+						userScore  += (waves[i].type + 3)*(waves[i].type + 3);
+					}
+					
                     waves.splice(i, 1);
 					i--;
 					break;

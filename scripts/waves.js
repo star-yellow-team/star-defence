@@ -149,7 +149,11 @@ function takeLife()
 
             // ia monstrii care sunt morti
             if(!waves[i].isAlive()) {
-                userScore += (waves[i].type + 5)*(waves[i].type + 5)*(waves[i].type + 5);
+                if(userScore >= 200) {
+						$.notify("You`re too greedy and you will receive no more money until you cool down", "error")	
+					} else {
+						userScore  += (waves[i].type + 3)*(waves[i].type + 3);
+					}
 				waves.splice(i,1)
                 -- i
                 
