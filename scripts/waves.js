@@ -125,7 +125,7 @@ function spawn()
 	
 			monster.moveTo(path_y[monster.current+1],path_x[monster.current+1]);
 			waves.push(monster);
-			return;
+			continue;
 		}
 	}
 }
