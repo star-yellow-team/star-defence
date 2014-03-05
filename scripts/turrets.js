@@ -34,7 +34,7 @@ var MACHINEGUN_TURRET = {
     level: 0,
     sprite: images[0],
     spriteSize:    30,
-    rate: 1
+    rate: 2
 }
 
 var SLOW_TURRET = {
@@ -116,7 +116,7 @@ var LASER_TURRET = {
         y:	0,
         sprite: images[1],
         spriteSize:    30,
-        rate: 1
+        rate: 2
 }
 
 var DETECTOR_TURRET = {

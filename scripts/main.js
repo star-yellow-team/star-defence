@@ -131,9 +131,8 @@ if (pause == 0){
     takeLife();
     
     if(gameOver()) {
-	restart();
-	life = 5;
-	return 0;
+	location.reload();
+        return 0;
     }
 	
     for(turretIndex in turrets) {
@@ -194,14 +193,20 @@ var gml;
  * */
 function main() {
 
+    playing   = 1
+    userScore = 20
+    life      = 5
+    userLevel = 1
     switch(user_selection) {
 
         case 'survival':
+            current = 1
 	    gameSetup();//'gameSetup' este automat.
 	    gameLoop();
 	    break;
 
         case 'story':
+            current_level = 0
 	    gameSetup();
             curentRound=2; //altfel nu incepe cu level 1.
             waves_won_perBattle=0; 
@@ -227,7 +232,6 @@ function startup() {
     setTimeout(function() {
                 $("form").hide();
                 $("#dimmer").slideUp("fast");
-                playing = 1;
                 }, 200);
 }
 
@@ -237,23 +241,22 @@ function restart() {
     unstick();
     rmenu();
     pause = 0;
-    playing = 0;
-
-    //game logic clearUp
-    restartTurrets();
-    
+ 
     //html clearup
     $("#paused").hide();	
     $("#play").hide();
     $("#restart").hide();
     $("#wrapper").hide();
-    $("form").show();
-    $("#dimmer").slideDown("fast");
-
-    wavereset();
+    $("#dimmer").slideUp("fast");
+    
+    restartTurrets();
     waves_won_perBattle=0;
     restartWaveSystem();
- 
+    
+    auxMaps();		
+    wavereset();	
+    main();
+    
 }
 
 
