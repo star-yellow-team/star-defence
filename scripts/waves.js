@@ -1,14 +1,11 @@
-var nrRounds = 10;
 var nrMonsters = [];
-var numbers = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71];
+var auxMonsters = [];
 var curentRound = 1;
 var x = monsters.length;
 nrM =1;
 
 function wavereset() {
-nrRounds = 10;
 nrMonsters = [];
-numbers = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71];
 curentRound = 1;
 x = 0;
 nrM =1;
@@ -32,8 +29,15 @@ function generateWave()
 	if(curentRound == 1)
 	{
 		for(var i = 0; i < NUMBER_OF_MONSTER_TYPES; i++)
-			nrMonsters[i] = 0;	
+			{
+				nrMonsters[i] = 0;	
+			}
 	}
+	
+	for(var i = 0; i < NUMBER_OF_MONSTER_TYPES; i++)
+			{
+				auxMonsters[i] = 0;
+			}
 	
 	if(curentRound % 5 == 0)
 	{
@@ -46,18 +50,8 @@ function generateWave()
 		nrMonsters[i] += 1;	
 		total += nrMonsters[i];
 	}
-	fillWaves(nrM);
 	curentRound++;
 	
-	//fill v2 in lucru
-	/*var aux = 0;
-	while(aux < nrM)
-	{
-		for(var i = 0; i < total; i++)	
-			waves[i] = new Monster(Pointsy[0], Pointsx[0], aux);
-		aux++;
-	}
-	*/
 }
 
 /**
@@ -107,6 +101,34 @@ function fillWaves(nrM)
 	}
 }
 
+function goala()
+{
+	for(var i = 0; i < nrM; i++)
+	{
+		if(nrMonsters[i] - auxMonsters[i] > 0)
+			return false;	
+	}
+	return true;
+}
+
+function spawn()
+{
+	searchPoints(map, 2);
+	for(var i = 0; i < nrM; i++)	
+	{
+		if(nrMonsters[i] - auxMonsters[i] > 0)
+		{
+			auxMonsters[i]++;
+			var monster = new Monster(Pointsy[0], Pointsx[0], i);
+			monster.x = path_y[1];
+        	monster.y = path_x[1];
+	
+			monster.moveTo(path_y[monster.current+1],path_x[monster.current+1]);
+			waves.push(monster);
+			return;
+		}
+	}
+}
 
 // documentati
 function waveFinished() {

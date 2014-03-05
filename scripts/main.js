@@ -149,7 +149,16 @@ if (pause == 0){
     
     }
 	
-
+	if(goala() == false)
+	{
+		console.log("gol");
+		console.log("monstrii: " + nrMonsters);
+		if(toAdd == 0) {
+			spawn()
+		}
+		toAdd = (toAdd+1) % rate;
+	}
+	else
     if(waveFinished()){
     	waves_won_perBattle ++; //ACHIEVEMENTS
         generateWave();

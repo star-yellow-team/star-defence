@@ -200,34 +200,4 @@ function searchPoints(harta, element)
 			}
 }
 
-//deseneaza o harta 
-function drawMap(x)
-{
-	var i,j;
-	var canvas = document.getElementById('game');
-	var context = canvas.getContext('2d');
-	var rectWidth = 40;
-	var rectHeight = 30;
-	for(i = 0; i < MAX_X; i++)
-		for(j = 0; j < MAX_Y; j++)
-			{
-				if(matrix[j][i][x]== 1)
-				{
-					context.beginPath();
-					context.rect(i * rectWidth, j * rectHeight, 40, 30);
-					context.fillStyle = 'blue';
-					context.fill();
-				}
-				
-				if(matrix[j][i][x] == 0)
-				{
-					context.beginPath();
-					context.rect(i * rectWidth, j * rectHeight, 40, 30);
-					context.fillStyle = 'red';
-					context.fill();
-				}
-					
-			}
-}
-
 mapNumber = mapNumber % nrMaps;
