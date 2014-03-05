@@ -64,7 +64,7 @@ var FLYING_MONSTER={
     slowingTurret:  0,
     visible:        true,
     sprite:         images[3],
-    spriteSize:     3,
+    spriteSize:     5,
     rate:           3
 }
 
@@ -94,7 +94,7 @@ var RAMSI_MONSTER={
     slowingTurret:  0,
     visible:        true,
     sprite:         images[6],
-    spriteSize:     5,
+    spriteSize:     3,
     rate:           3
 }
 
