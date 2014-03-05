@@ -3,6 +3,7 @@
                             +========================================================================+
                                             NUME:                       RAMSI V0.1
 
+										mere
 Principalele trebuinte {
 
 -Logarea utilizatorului prin {
