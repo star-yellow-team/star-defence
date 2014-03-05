@@ -221,8 +221,7 @@ function startup() {
     }
 		
     auxMaps();		
-    wavereset();
-	
+    wavereset();	
     main();
     
     setTimeout(function() {
@@ -240,7 +239,7 @@ function restart() {
     pause = 0;
     playing = 0;
 
-    //game logci clearUp
+    //game logic clearUp
     restartTurrets();
     
     //html clearup
@@ -252,7 +251,6 @@ function restart() {
     $("#dimmer").slideDown("fast");
 
     wavereset();
-    curentRound=2; //altfel nu incepe cu level 1.
     waves_won_perBattle=0;
     restartWaveSystem();
  
