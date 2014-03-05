@@ -1,9 +1,11 @@
 /**
  *  @author Miruna, AndreiRo
+ *  @name monster
+ *
  *  Clasa de baza Monster si posibilele tipuri de monstri
  *
- *  Exemple:
- *  simpleMonster = Monster(0,0,SIMPLE_MONSTER.id)
+ *  @example:
+ *  var simpleMonster = Monster(0,0,SIMPLE_MONSTER.id)
  *  simpleMonster.health // returneaza viata  monstrului
  *  simpleMonster.speed  // returneaza viteza monstrului
  *  simpleMonster.damage // returneaza damage-ul monstrului
@@ -12,13 +14,15 @@
  *  simpleMonster.doDamage(10)  // ii produce un damage de 10 monstrului returneaza true daca mai e in viata, false daca nu
  *  simpleMonster.moveTo(1,1)   // muta monstrul la (1,1)
  *
- *
  * */
+
 
 /**
  *  Tipurile posibile de monstri.
  *  E un obiect care contine informatii despre tip, viata, viteza, damage propriu in caz ca poate ataca
  * */
+
+
 //  monstru de baza
 var SIMPLE_MONSTER = {
     id :    0,
