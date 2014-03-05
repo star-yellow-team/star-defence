@@ -194,9 +194,6 @@ var gml;
 function main() {
 
     playing   = 1
-    userScore = 20
-    life      = 5
-    userLevel = 1
     switch(user_selection) {
 
         case 'survival':
@@ -224,7 +221,8 @@ function startup() {
     if (mapNumber === "") {
 	mapNumber = 0;
     }
-		
+
+    resetValues()		
     auxMaps();		
     wavereset();	
     main();

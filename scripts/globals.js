@@ -58,23 +58,19 @@ var FRAME_SIZE                  =   50;
 var FRAME_RATE                  =    3;
 
 function resetValues() {
+    life            =  5;
     waves           = [];
-    path_matrix     = [];
-    path_x          = [];
-    path_y          = [];
     nrmax_path      =  0;
+    curentRound     =  1;
     userScore       =  20;
-    life            = 5;
     turrets         = [];
     userLevel       =  0;
-    curentRound     = 1;
 
     //Story
     StoryModeFinished = false; //daca s-a terminat storyul.
     last_level_completed = false; //mai aveam nevoie si de variabila asta.
     move_on         = true;
     current_level   = 1;
-    user_selection  = 0//prompt("Cum se deruleaza jocul?","story");
 
     //StoryTelling
     coming_soon = true;
@@ -82,11 +78,10 @@ function resetValues() {
     wave1_alert = true, wave2_alert = true, wave3_alert = true;
 
     //Achievements
-    time_passed_perBattle = 0; 
+    time_passed_perBattle = 0;
     totalCredits = 0;
     totalScore = 0;
     fun_activated = true; // TIMP, CREDITS, SCOR, FUN
-
     enemies_defeated_perBattle  =   0;
     first_enemy_defeated        = false;
     first_10_enemies_defeated   = false;
@@ -98,18 +93,17 @@ function resetValues() {
     first_turret_placed         = false;
     first_10_turrets_placed     = false;
     first_20_turrets_placed     = false;
+
     waves_won_perBattle         =   -1;
     first_wave_won              = false;
     first_10_waves_won          = false;
     first_50_waves_won          = false;
     first_100_waves_won         = false;
     first_100_credits           = false;
-
 }
 
 function sizeMonsters() {
     dimension = boxSize ;
-    //offset = (boxSize) / (waves.length);
     offset = 0;    
     var currentOffset = 0;
 
