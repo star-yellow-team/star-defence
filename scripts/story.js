@@ -59,9 +59,8 @@ function updateStoryTelling()
 
 
 function story(){
-	if(life <= 0)
-		{
-			console.log("startup");
+	if(life <= 0){
+			//aici se afiseaza meniul principal daca jucatorul nu mai are viata
 			location.reload();
 		}
 $("#money").html(String(userScore));

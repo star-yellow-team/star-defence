@@ -121,7 +121,6 @@ function drawTurret(turretNumber) {
 								turret.x = placeX;
                         		turret.y = placeY;
                         		turrets.push(turret);
-								console.log("pret: " + turret.price);
 								userScore -= turret.price; 
 							}
 						} else if (userScore - turret.price < 0)
