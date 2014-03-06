@@ -59,6 +59,11 @@ function updateStoryTelling()
 
 
 function story(){
+	if(life <= 0)
+		{
+			console.log("startup");
+			location.reload();
+		}
 $("#money").html(String(userScore));
 $("#health").html(String(life)+' / 5');
 

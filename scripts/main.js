@@ -222,7 +222,6 @@ function main() {
 
 }
 
-
 function startup() {
     mapNumber = document.getElementById("map").value;
     user_selection = $('input[name="gamemode"]:checked').val();
@@ -290,4 +289,3 @@ function pausegame() {
     }
 
 } // end pausegame()
-
