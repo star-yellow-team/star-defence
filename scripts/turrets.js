@@ -313,12 +313,12 @@ function detectEnemy(tureta)
 	if(tureta.canAttack() == false && tureta.damage > 0) {
             return;
 	}
-        for (var i = waves.length-1; i >= 0; i--)
+        for (var i = 0; i < waves.length; i++)
 		{	
 		if(distanta(waves[i], tureta) <= tureta.range)
 			{
             			//pot lovi monstrul
-						
+				ok = false;	
 				if(tureta.type != SLOW_TURRET.id)
 				{
 		           	waves[i].doDamage(tureta.damage);

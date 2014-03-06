@@ -88,7 +88,7 @@ function draw() {
 	                 
     }
     
-    for(var t = 0; t < turrets.length; ++ t) {
+    for(var t = turrets.length - 1; t >= 0; -- t) {
         var turret = turrets[t];
         animate(context, turret)
     }
