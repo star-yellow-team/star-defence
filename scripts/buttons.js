@@ -3,14 +3,15 @@
  * Animeaza meniul si se ocupa de ghostImage-ul turetei pe care o plasez
  * lungimea si inaltimea documentului.
  */
+var contextm = 0;
 var blueHover = 0;
 var boxX;
 var boxY;
 var hover;
 var hoverY;
 var hoverX;
-
 var currentMousePos = { x: -1, y: -1 };
+
 
 // Aducem ghostImageul albastru la mouse, stickuit pe grid
 $(document).mousemove(function(event) {
@@ -47,14 +48,15 @@ $(document).mousemove(function(event) {
 		placeX = Math.round((boxX - xMin - 5) / boxSize);
 		placeY = Math.round((boxY - yMin - 5) / boxSize);
 		
-		if (getElement(placeX, placeY) != 0 && getElement(placeX, placeY) != 1 && getElement(placeX, placeY) != 2 && getElement(placeX, placeY) != 3 && contextm == 0 && playing == 1) {
+                if (getElement(placeX, placeY) != 0 && getElement(placeX, placeY) != 1 && getElement(placeX, placeY) != 2 && 
+                    getElement(placeX, placeY) != 3 && contextm == 0 && playing == 1) {
 			$("#highlight").show();
 			$("#highlight").css("top",boxY);
 			$("#contextMenu").css("top",boxY);
 			$("#highlight").css("left",boxX);
 			$("#contextMenu").css("left",boxX+boxSize);
-		} else
-			$("#highlight").hide();
+		        return false;
+                }
 });
 
 // Determina care ghost image se ataseaza cursorului
@@ -257,7 +259,6 @@ function removeDescription(turret) {
 	$("#description").html("Remove an existing turret. You get half the money back!");
 }
 
-var contextm = 0;
 $("#contextMenu").css("width","0");
 
 function cmenu() {
@@ -284,15 +285,11 @@ function cmenu() {
 		contextm = 0;
 	}
 	
-	setTimeout(function() {
-		$('#contextMenu').animate({ "min-width": 0} , 200);
-		contextm = 0;
-	}, 4300);
 }
 
 function rmenu() {
-	$('#contextMenu').animate({ "min-width": 0} , 200);
-	contextm = 0;
+    $('#contextMenu').animate({ "min-width": 0} , 200);
+    contextm = 0;
 }
 
 
@@ -336,3 +333,24 @@ function upgradeDescription() {
 	else
 		$("#price").css("color","orange");
 }
+
+/**
+ * Functiile care se ocupa de inchiderea contextMenului in cazul in care utilizatorul
+ * a luat cursorul de pe el
+ * */
+
+$("#upgrade").mouseout(function(e) {
+    if(e.relatedTarget.id === "remove" || e.relatedTarget.id === "hover" || e.relatedTarget.id === "") {
+        return false;
+    } else { 
+       rmenu();
+    }
+})
+
+$("#remove").mouseout(function(e) {
+    if(e.relatedTarget.id === "upgrade" || e.relatedTarget.id === "hover" || e.relatedTarget.id === "") {
+        return false;
+    } else {
+        rmenu();
+    }
+})
