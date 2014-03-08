@@ -3,7 +3,7 @@
  *  File containing global variables which will be loaded first
  *
  * */
-
+var showMoneyLimitError = true;
 var mapNumber       = 0;//prompt("Numarul hartii", 0);
 var life            =  5;
 var loopInterval    = 50;

@@ -124,7 +124,14 @@ var turretIndex
  * */
 function gameLoop() {
 shortcuts();
-
+if(userScore < 200)
+	showMoneyLimitError = true;
+else{
+	if(showMoneyLimitError == true){
+		$.notify("You`re too greedy and you will receive no more money until you cool down", "error")
+		showMoneyLimitError = false;
+	}
+}
 if (pause == 0){
     // game logic
     updateAchievements();
