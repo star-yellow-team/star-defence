@@ -19,8 +19,8 @@ var turrets         = [];
 var dimension       =  0;
 var offset          =  0;
 var userLevel       =  0;
-var toAdd			=  0;
-var rate			=  50;
+var toAdd	    =  0;
+var rate	    = 50;
 
 //Story
 var StoryModeFinished = false; //daca s-a terminat storyul.
