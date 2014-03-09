@@ -149,6 +149,7 @@ function takeLife()
 
             // ia monstrii care sunt morti
             if(!waves[i].isAlive()) {
+				score++;
                 if(userScore >= 200 && showMoneyLimitError === true) {
 						//$.notify("You`re too greedy and you will receive no more money until you cool down", "error")
 						//showMoneyLimitError = false;	

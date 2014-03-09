@@ -122,6 +122,7 @@ var turretIndex
  * */
 function gameLoop() {
 shortcuts();
+console.log("scor: " + score);
 if(userScore < 200)
 	showMoneyLimitError = true;
 else{
