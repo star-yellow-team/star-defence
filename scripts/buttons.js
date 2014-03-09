@@ -57,34 +57,35 @@ $(document).mousemove(function(event) {
 			$("#highlight").css("left",boxX);
 			$("#contextMenu").css("left",boxX+boxSize);
 		        return false;
-                } else {
+                } else if(contextm != 1) {
                     $("#highlight").hide()
                 }
 });
 
 // Determina care ghost image se ataseaza cursorului
 function stick(x) {
-	unstick();
-	switch (x) {
-		case 11:
-			hover = "#machinegun";
-			break;
-		case 12:
-			hover = "#slow";
-			break;
-		case 13:
-			hover = "#laser";
-			break;
-		case 14:
-			hover = "#plasma";
-			break;
-		case 15:
-			hover = "#detector";
-			break;
-		case 0:
-			hover = "#remove";
-			break;
-	}
+    unstick();
+    switch (x) {
+        case 11:
+            hover = "#machinegun";
+            break;
+        case 12:
+            hover = "#slow";
+            break;
+        case 13:
+            hover = "#laser";
+            break;
+        case 14:
+            hover = "#plasma";
+            break;
+        case 15:
+            hover = "#detector";
+            break;
+        case 0:
+            hover = "#remove";
+            break;
+    }
+    
 }
 
 function unstick() {
