@@ -274,6 +274,7 @@ function restart() {
 function pausegame() {
     unstick();
     rmenu();
+
     if (pause == 1) {
         pause = 0;
         $("#paused").hide();
@@ -284,7 +285,12 @@ function pausegame() {
     } else {
         pause = 1;
         $("#dimmer").slideDown("fast");
-        $("#play").show();    
-        $("#restart").show();           
+            
+        setTimeout(function() {
+                    $("#paused").show();
+                    $("#play").show();
+                    $("#restart").show();
+                    }, 200);
     }
+
 } // end pausegame()
