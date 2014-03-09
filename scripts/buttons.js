@@ -107,7 +107,7 @@ function removeTurret() {
         		turrets.splice(i, 1);
 		}
 
-        return rmenu();
+        return rmenu(false);
 }
 
 // Functia de desenare turete
@@ -292,12 +292,16 @@ function cmenu() {
 	
         setTimeout(function(){
             if(!entered) {
-                rmenu()
+                rmenu(true)
             }
-        }, 2000);
+        }, 4000);
 }
 
-function rmenu() {
+function rmenu(forced) {
+    if(!forced && !entered) {
+            return true;
+    }
+
     $('#contextMenu').animate({ "min-width": 0} , 200);
     contextm = 0;
     entered  = false;
@@ -308,7 +312,7 @@ function upgrade() {
 	plY = Math.round((parseInt($("#highlight").css("top")) - yMin) / boxSize);
 	plX = Math.round((parseInt($("#highlight").css("left")) - xMin) / boxSize);
 	Upgrade(plX,plY);
-	rmenu();
+	rmenu(false);
 }
 
 function upgradeDescription() {
@@ -358,13 +362,13 @@ $("#remove").mouseenter(function(e) {
 
 $("#remove").mouseleave(function(e) {
     if(e.relatedTarget.id == "gameCanvas") {
-        rmenu();
+        rmenu(false);
     }
 })
 
 $("#upgrade").mouseleave(function(e) {
     if(e.relatedTarget.id == "gameCanvas") {
-        rmenu();
+        rmenu(false);
     }
 })
 
