@@ -48,6 +48,10 @@ $(document).mousemove(function(event) {
 		// Calculare Pozitie pe harta
 		placeX = Math.round((boxX - xMin - 5) / boxSize);
 		placeY = Math.round((boxY - yMin - 5) / boxSize);
+                
+                if(event.target != undefined && contextm == 1 && event.target.id == "gameCanvas") {
+                    rmenu(false);
+                }
 
                 if (getElement(placeX, placeY) != 0 && getElement(placeX, placeY) != 1 && getElement(placeX, placeY) != 2 && 
                     getElement(placeX, placeY) != 3 && contextm == 0 && playing == 1) {
@@ -363,15 +367,6 @@ $("#remove").mouseenter(function(e) {
     entered = true;
 })
 
-$("#remove").mouseleave(function(e) {
-    if(e.relatedTarget.id == "gameCanvas") {
-        rmenu(false);
-    }
-})
 
-$("#upgrade").mouseleave(function(e) {
-    if(e.relatedTarget.id == "gameCanvas") {
-        rmenu(false);
-    }
-})
+
 

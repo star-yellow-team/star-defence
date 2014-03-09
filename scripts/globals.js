@@ -147,12 +147,17 @@ function animate(context, object, offset) {
 
         // deseneaza stelutele
         // scaleaza dimensiunea stelutei
-        var s_size   = boxSize / 5;
-        var current_s_offset = 0;
+        var s_size   = boxSize / 3;
+        var current_s_x_offset = 0,
+            current_s_y_offset = 0;
         for(var s = 0; s < object.upgradeLevel; ++ s) {
             context.drawImage(images[7], 0, 0, 50, 50, 
-            boxSize * object.x + current_s_offset, boxSize * (object.y+1) - s_size, s_size, s_size);
-            current_s_offset += s_size;
+            boxSize * object.x + current_s_x_offset, boxSize * (object.y+1) - s_size + current_s_y_offset, s_size, s_size);
+            current_s_x_offset += s_size;
+            if(current_s_x_offset == boxSize) {
+                current_s_x_offset = 0;
+                current_s_y_offset = - s_size;
+            }
         }
              
            
