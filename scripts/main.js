@@ -50,14 +50,12 @@ function drawBackground() {
                     context.drawImage(images[9], i*boxSize, j*boxSize, boxSize, boxSize);
                     break;
                 case 2:
-                    context.fillStyle = "red";
                     // umplem casuta de pe randul i si coloana j
-                    context.fillRect(i*boxSize, j*boxSize, boxSize, boxSize);
+                    context.drawImage(images[12], i*boxSize, j*boxSize, boxSize, boxSize);
                     break;
                 case 3:
-                    context.fillStyle = "blue"
                     // umplem casuta de pe randul i si coloana j
-                    context.fillRect(i*boxSize, j*boxSize, boxSize, boxSize);
+                    context.drawImage(images[13], i*boxSize, j*boxSize, boxSize, boxSize);
                     break;
  		default:
                     // o eroare in harta
