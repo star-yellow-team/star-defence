@@ -12,7 +12,6 @@ var hoverY;
 var hoverX;
 var currentMousePos = { x: -1, y: -1 };
 
-
 // Aducem ghostImageul albastru la mouse, stickuit pe grid
 $(document).mousemove(function(event) {
 		$(hover).show();
@@ -30,9 +29,11 @@ $(document).mousemove(function(event) {
 		} else {
 			boxY = yMin + Math.round((event.pageY - yMin - boxSize / 2) / boxSize) * boxSize;
 		}
-        $(hover).css("left",boxX);
-       	$(hover).css("top",boxY);
-		if (event.pageY + $("#hover").width() < screenHeight)
+                
+                $(hover).css("left",boxX);
+       	        $(hover).css("top",boxY);
+		
+                if (event.pageY + $("#hover").width() < screenHeight)
 			hoverY = event.pageY - 5;
 		else	
 			hoverY = event.pageY - $("#hover").height() - 5;
@@ -47,7 +48,7 @@ $(document).mousemove(function(event) {
 		// Calculare Pozitie pe harta
 		placeX = Math.round((boxX - xMin - 5) / boxSize);
 		placeY = Math.round((boxY - yMin - 5) / boxSize);
-		
+
                 if (getElement(placeX, placeY) != 0 && getElement(placeX, placeY) != 1 && getElement(placeX, placeY) != 2 && 
                     getElement(placeX, placeY) != 3 && contextm == 0 && playing == 1) {
 			$("#highlight").show();
@@ -56,6 +57,8 @@ $(document).mousemove(function(event) {
 			$("#highlight").css("left",boxX);
 			$("#contextMenu").css("left",boxX+boxSize);
 		        return false;
+                } else {
+                    $("#highlight").hide()
                 }
 });
 
@@ -260,12 +263,14 @@ function removeDescription(turret) {
 }
 
 $("#contextMenu").css("width","0");
+contextm = 0;
 
 function cmenu() {
 	plY = Math.round((parseInt($("#highlight").css("top")) - yMin) / boxSize);
 	plX = Math.round((parseInt($("#highlight").css("left")) - xMin) / boxSize);
-	console.log(String(plX)+' '+String(plY));
-	var check = Verify(plX, plY);
+	
+        entered = false;
+        var check = Verify(plX, plY);
 	if (check == -1)
 		upgr = 0
 	else 
@@ -285,11 +290,17 @@ function cmenu() {
 		contextm = 0;
 	}
 	
+        setTimeout(function(){
+            if(!entered) {
+                rmenu()
+            }
+        }, 2000);
 }
 
 function rmenu() {
     $('#contextMenu').animate({ "min-width": 0} , 200);
     contextm = 0;
+    entered  = false;
 }
 
 
@@ -297,14 +308,13 @@ function upgrade() {
 	plY = Math.round((parseInt($("#highlight").css("top")) - yMin) / boxSize);
 	plX = Math.round((parseInt($("#highlight").css("left")) - xMin) / boxSize);
 	Upgrade(plX,plY);
-	console.log("OK 0");
 	rmenu();
 }
 
 function upgradeDescription() {
 	plY = Math.round((parseInt($("#highlight").css("top")) - yMin) / boxSize);
 	plX = Math.round((parseInt($("#highlight").css("left")) - xMin) / boxSize);
-	console.log(String(plX)+' '+String(plY));
+
 	var check = Verify(plX, plY);
 	$("#hover").show();
 	$("#hover").children("p").show();
@@ -338,19 +348,23 @@ function upgradeDescription() {
  * Functiile care se ocupa de inchiderea contextMenului in cazul in care utilizatorul
  * a luat cursorul de pe el
  * */
-
-$("#upgrade").mouseout(function(e) {
-    if(e.relatedTarget.id === "remove" || e.relatedTarget.id === "hover" || e.relatedTarget.id === "") {
-        return false;
-    } else { 
-       rmenu();
-    }
+$("#upgrade").mouseenter(function(e) {
+    entered = true;
 })
 
-$("#remove").mouseout(function(e) {
-    if(e.relatedTarget.id === "upgrade" || e.relatedTarget.id === "hover" || e.relatedTarget.id === "") {
-        return false;
-    } else {
+$("#remove").mouseenter(function(e) {
+    entered = true;
+})
+
+$("#remove").mouseleave(function(e) {
+    if(e.relatedTarget.id == "gameCanvas") {
         rmenu();
     }
 })
+
+$("#upgrade").mouseleave(function(e) {
+    if(e.relatedTarget.id == "gameCanvas") {
+        rmenu();
+    }
+})
+
