@@ -58,6 +58,7 @@ var first_100_credits           = false;
 
 var FRAME_SIZE                  =   50;
 var FRAME_RATE                  =    3;
+var STAR_SIZE                   =   5;
 
 function resetValues() {
     life            =  5;
@@ -143,7 +144,18 @@ function animate(context, object, offset) {
             context.drawImage(object.sprite, 0, 0, FRAME_SIZE, FRAME_SIZE,
             boxSize * object.x, boxSize * object.y, boxSize, boxSize);
         }
-                     
+
+        // deseneaza stelutele
+        // scaleaza dimensiunea stelutei
+        var s_size   = boxSize / 5;
+        var current_s_offset = 0;
+        for(var s = 0; s < object.upgradeLevel; ++ s) {
+            context.drawImage(images[7], 0, 0, 50, 50, 
+            boxSize * object.x + current_s_offset, boxSize * (object.y+1) - s_size, s_size, s_size);
+            current_s_offset += s_size;
+        }
+             
+           
     } else {
         //deseneaza monstrul
             context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0,FRAME_SIZE, FRAME_SIZE, 
@@ -190,13 +202,11 @@ function animate(context, object, offset) {
  *		1: jucatorul a terminat toate rundele, A CASTIGAT
  *		-1: jucatorul mai are viata si nu a terminat toate rundele
  **/
-function gameOver()
-{
-	if(life <= 0)
-		{
+function gameOver() {
 
-			return true;
-		}
+    if(life <= 0) {
+        return true;
+    }
 
-	return false;
+    return false;
 }
