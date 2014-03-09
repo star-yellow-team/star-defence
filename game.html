@@ -15,7 +15,7 @@
 		<!--//--><![CDATA[//><!--
 
 			var images = new Array();
-                        var toLoad = 6;
+                        var toLoad = 10;
                         /**
                         * images[0] -- MACHINEGUN_TURRET
                         * images[1] -- LASER_TURRET
@@ -26,6 +26,7 @@
                         * images[6] -- UFO
                         * images[7] -- steluta
                         * images[8] -- PLASMA_TURRET
+                        * images[9] -- path
                         */
 			function preload() {
 				for (i = 0; i < preload.arguments.length; i++) {
@@ -39,7 +40,7 @@
             
             preload('images/machinegun.png', 'images/lasergun.png', 'images/simplemonster.png', 'images/UFO.png',
             'images/speedymonster.png','images/powerfulmonster.png', 'images/RAMSIMONSTER.png', 'images/star.png',
-            'images/plasmagun.png');
+            'images/plasmagun.png', 'images/path.png');
 			
 			$("#dimmer").css({"opacity":"1"});
 			var audio1 = new Audio('sounds/Plasma.mp3');

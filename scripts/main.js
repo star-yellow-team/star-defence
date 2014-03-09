@@ -47,7 +47,7 @@ function drawBackground() {
                 case 1:
                     context.fillStyle = "brown";
                     // umplem casuta de pe randul i si coloana j
-                    context.fillRect(i*boxSize, j*boxSize, boxSize, boxSize);
+                    context.drawImage(images[9], i*boxSize, j*boxSize, boxSize, boxSize);
                     break;
                 case 2:
                     context.fillStyle = "red";
