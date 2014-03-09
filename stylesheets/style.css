@@ -255,14 +255,27 @@ body {
 }
 
 #level-wrapper {
-	color:lightblue;
-	text-align:center;
-	display: table-cell;
-	vertical-align: middle;
-	background-repeat:no-repeat;
-	background-position:left center;
-	padding-right:5px;
-	font-variant:small-caps;
+    color:lightblue;
+    text-align:center;
+    display: table-cell;
+    vertical-align: middle;
+    background-repeat:no-repeat;
+    background-position:left center;
+    padding-right:5px;
+    font-variant:small-caps;
+}
+
+#score-wrapper {
+    color:white;
+    text-align:right;
+    display: table-cell;
+    vertical-align: middle;
+    background-image:url(../images/score.png);
+    background-repeat:no-repeat;
+    background-position:left center;
+    background-size:30%;
+    padding-right:5px;
+    border-bottom: 2px solid lightblue;
 }
 
 #buttonsWrapper {
