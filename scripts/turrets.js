@@ -88,7 +88,7 @@ var PLASMA_TURRET = {
     contor:	0,
     x:	0,
     y:	0,
-    sprite:  images[0],
+    sprite:  images[8],
     spriteSize:    30,
     rate: 1
 }
