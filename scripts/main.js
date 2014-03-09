@@ -131,6 +131,7 @@ else{
 		$.notify("You`re too greedy and you will receive no more money until you cool down", "error")
 		showMoneyLimitError = false;
 	}
+	userScore = 200;
 }
 if (pause == 0){
     // game logic
