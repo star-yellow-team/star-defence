@@ -191,6 +191,8 @@ body {
 	position:relative;
 	float:left;
 	background-color:rgba(0,0,0,0.75);
+	background-image:url(../images/test.png);
+	background-size:cover;
 }
 
 /* Menu */
