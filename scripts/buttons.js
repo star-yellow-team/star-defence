@@ -265,12 +265,14 @@ function removeDescription(turret) {
 
 $("#contextMenu").css("width","0");
 contextm = 0;
+	
+var entered = false;
 
 function cmenu() {
 	plY = Math.round((parseInt($("#highlight").css("top")) - yMin) / boxSize);
 	plX = Math.round((parseInt($("#highlight").css("left")) - xMin) / boxSize);
 	
-        entered = false;
+        var entered = false;
         var check = Verify(plX, plY);
 	if (check == -1)
 		upgr = 0

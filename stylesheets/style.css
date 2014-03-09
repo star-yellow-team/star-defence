@@ -231,7 +231,7 @@ body {
 }
 
 #health-wrapper {
-	border-bottom: 2px solid #005C00;
+	border-bottom: 2px solid lightblue;
 	color:white;
 	text-align:right;
 	display: table-cell;
@@ -251,11 +251,11 @@ body {
 	background-repeat:no-repeat;
 	background-position:left center;
 	padding-right:5px;
-	border-bottom: 2px solid #005C00;
+	border-bottom: 2px solid lightblue;
 }
 
 #level-wrapper {
-	color:lime;
+	color:lightblue;
 	text-align:center;
 	display: table-cell;
 	vertical-align: middle;
