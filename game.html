@@ -15,7 +15,7 @@
 		<!--//--><![CDATA[//><!--
 
 			var images = new Array();
-                        var toLoad = 11;
+                        var toLoad = 12;
                         /**
                         * images[0] -- MACHINEGUN_TURRET
                         * images[1] -- LASER_TURRET
@@ -28,6 +28,7 @@
                         * images[8] -- PLASMA_TURRET
                         * images[9] -- path
                         * images[10]-- SLOW_TURRET
+                        * images[11]-- DETECTOR_TURRET
                         */
 			function preload() {
 				for (i = 0; i < preload.arguments.length; i++) {
@@ -41,7 +42,7 @@
             
             preload('images/machinegun.png', 'images/lasergun.png', 'images/simplemonster.png', 'images/UFO.png',
             'images/speedymonster.png','images/powerfulmonster.png', 'images/RAMSIMONSTER.png', 'images/star.png',
-            'images/plasmagun.png', 'images/path.png', 'images/slowturret.png');
+            'images/plasmagun.png', 'images/path.png', 'images/slowturret.png', 'images/detector.png');
 			
 			$("#dimmer").css({"opacity":"1"});
 			var audio1 = new Audio('sounds/Plasma.mp3');
@@ -175,8 +176,8 @@
 			$("#laser_turret").css("background-image","url("+images[1].src+")");
 			$("#plasma").css("background-image","url("+images[8].src+")");
 			$("#plasma_turret").css("background-image","url("+images[8].src+")");
-			$("#detector").css("background-image","url("+images[4].src+")");
-			$("#detector_turret").css("background-image","url("+images[4].src+")");
+			$("#detector").css("background-image","url("+images[11].src+")");
+			$("#detector_turret").css("background-image","url("+images[11].src+")");
 		</script>
 
 		
