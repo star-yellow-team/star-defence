@@ -212,15 +212,15 @@ function main() {
     switch(user_selection) {
 
         case 'survival':
-            current = 1
+	    current = 1
 	    gameSetup();//'gameSetup' este automat.
 	    gameLoop();
 	    break;
 
         case 'story':
             current_level = 0
-	    gameSetup();
-            curentRound=2; //altfel nu incepe cu level 1.
+	     gameSetup();
+            curentRound=1; 
             waves_won_perBattle=0; 
             story();
             break;
