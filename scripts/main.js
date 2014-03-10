@@ -221,7 +221,7 @@ function main() {
             current_level = 0
 	     gameSetup();
             curentRound=1; 
-            waves_won_perBattle=0; 
+            waves_won_perBattle=-1; 
             story();
             break;
     }
