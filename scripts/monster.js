@@ -126,6 +126,7 @@ function Monster(x, y, type) {
     this.offset         = 0;    
     this.frameNumber    = 0;
     this.rateNumber     = 0;
+    this.move           = 0;
 
     switch(type) {
 
@@ -312,15 +313,20 @@ Monster.prototype.moveTo = function(newX,newY) {
                                         magicConstant;
     }
 
+    var xDiff = 0,
+        yDiff = 0;
+
     if(this.x != this.destinationX) {
         if(this.x < this.destinationX) {
             this.x += (this.pace)*this.speed+loopOffset/magicConstant;
             if(this.x > this.destinationX) {
+                xDiff = this.x-this.destinationX;
                 this.x = this.destinationX;
             }
         } else {
             this.x -= (this.pace)*this.speed+loopOffset/magicConstant;
             if(this.x < this.destinationX) {
+                xDiff = this.x-this.destinationX;
                 this.x = this.destinationX;
             }
             
@@ -331,16 +337,24 @@ Monster.prototype.moveTo = function(newX,newY) {
         if(this.y < this.destinationY) {
             this.y += (this.pace)*this.speed+loopOffset/magicConstant;
             if(this.y > this.destinationY) {
+                yDiff = this.y-this.destinationY;
                 this.y = this.destinationY;
             }
         } else {
             this.y -= (this.pace)*this.speed+loopOffset/magicConstant;
             if(this.y < this.destinationY) {
+                yDiff = this.y-this.destinationY;
                 this.y = this.destinationY;
             }
             
         }
     }
+    
+    if((xDiff != 0 || yDiff != 0) && this.reachedDestination() && this.current < path_x.length - 1) {
+        this.moveTo(path_y[this.current+1], path_x[this.current + 1]);
+        console.log("reached" + this.type)
+    }
+
 
 }
 
