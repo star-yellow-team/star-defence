@@ -160,10 +160,11 @@ if (pause == 0){
 		if(toAdd == 0) {
 			spawn()
 		}
-		toAdd = (toAdd+1) % rate;
+		toAdd = (toAdd+1) % (loopOffset > 0 ? Math.floor(loopOffset/3) : rate);
 	}
 	else
     if(waveFinished()){
+        toAdd = 0;
     	waves_won_perBattle ++; //ACHIEVEMENTS
         generateWave();
         sizeMonsters(); 
