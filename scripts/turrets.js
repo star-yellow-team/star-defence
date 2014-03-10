@@ -323,7 +323,7 @@ function detectEnemy(tureta)
 				ok = false;	
 				if(tureta.type != SLOW_TURRET.id)
 				{
-		           	    waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-10));
+		           	    waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-15));
             			    tureta.isAttacking=true;
 				    ok=false;
 				}
@@ -343,7 +343,7 @@ function detectEnemy(tureta)
 					waves[i].slowMonster(turretIndex, tureta);	
 				if(!waves[i].isAlive())
 				{
-					score++;
+                        		score++;
 					if(userScore >= 200 && showMoneyLimitError === true) {
 						//$.notify("You`re too greedy and you will receive no more money until you cool down", "error")	
 						//showMoneyLimitError = false;
