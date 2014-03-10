@@ -261,6 +261,7 @@ function restart() {
     $("#wrapper").hide();
     $("#dimmer").slideUp("fast");
     
+	resetValues();	
     restartTurrets();
     waves_won_perBattle=0;
     restartWaveSystem();
