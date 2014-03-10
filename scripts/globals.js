@@ -76,6 +76,7 @@ function resetValues() {
     userScore       =  20;
     turrets         = [];
     userLevel       =  0;
+    score           = 0;
 
     //Story
     StoryModeFinished = false; //daca s-a terminat storyul.

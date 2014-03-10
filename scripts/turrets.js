@@ -323,7 +323,7 @@ function detectEnemy(tureta)
 				ok = false;	
 				if(tureta.type != SLOW_TURRET.id)
 				{
-		           	    waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/magicConstant);
+		           	    waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-10));
             			    tureta.isAttacking=true;
 				    ok=false;
 				}
