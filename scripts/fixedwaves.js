@@ -27,7 +27,7 @@ function makeLevel(level)
 	switch(level)
 	{
 		case 1:
-		addMonsters_onWave(1,1); 
+		addMonsters_onWave(1,1);
 		addMonsters_onWave(2,1);
 		break;
 		
@@ -52,35 +52,6 @@ function makeLevel(level)
 		break;
 		
 		case 6:
-		addMonsters_onWave(1,1); 
-		addMonsters_onWave(1,1);
-		break;
-		
-		case 7:
-		addMonsters_onWave(1,5);
-		addMonsters_onWave(2,3);
-		addMonsters_onWave(1,7);
-		break;
-		
-		case 8:
-		addMonsters_onWave(1,10);
-		addMonsters_onWave(2,10);
-		addMonsters_onWave(3,5);
-		break;
-		
-		case 9:
-		addMonsters_onWave(1,20);
-		addMonsters_onWave(2,15);
-		addMonsters_onWave(3,10);
-		break;
-		
-		case 10:
-		addMonsters_onWave(1,15);
-		addMonsters_onWave(1,20);
-		addMonsters_onWave(1,30);
-		break;
-		
-		case 11:
 		last_level_completed=true;
 		break;
 	}

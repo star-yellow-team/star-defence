@@ -11,6 +11,28 @@ var hover;
 var hoverY;
 var hoverX;
 var currentMousePos = { x: -1, y: -1 };
+var maxOffset = 50;
+var minOffset = 9;
+
+// Handler pentru forward si backward
+$("#backward").click(function(e) {
+    if(loopOffset > minOffset) {
+        loopOffset -= 10;
+        $.notify("Slowing", "info")
+    } else {
+        $.notify("Already too slow", "error")
+    }
+})
+
+$("#forward").click(function(e) {
+    if(loopOffset < maxOffset) {
+        loopOffset += 10;
+        $.notify("Speeding", "info")
+    } else {
+        $.notify("Already too fast", "error")
+    }
+})
+
 
 // Aducem ghostImageul albastru la mouse, stickuit pe grid
 $(document).mousemove(function(event) {

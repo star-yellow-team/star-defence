@@ -25,6 +25,8 @@ var userLevel       =  0;
 var toAdd	    =  0;
 var rate	    = 50;
 
+var loopOffset      =  0;
+var magicConstant   = 50;
 //Story
 var StoryModeFinished = false; //daca s-a terminat storyul.
 var last_level_completed = false; //mai aveam nevoie si de variabila asta.
@@ -38,7 +40,10 @@ var machineGuns_built = 0, first_machineGun = true, second_machineGun = true, th
 var wave1_alert = true, wave2_alert = true, wave3_alert = true;
 
 //Achievements
-var time_passed_perBattle = 0; var totalCredits = 0; var totalScore = 0; var fun_activated = true; // TIMP, CREDITS, SCOR, FUN
+var time_passed_perBattle = 0;
+var totalCredits = 0;
+var totalScore = 0;
+var fun_activated = true; // TIMP, CREDITS, SCOR, FUN
 
 var enemies_defeated_perBattle  =   0;
 var first_enemy_defeated        = false;

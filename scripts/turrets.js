@@ -276,8 +276,10 @@ function Turret(type)
 }
 
 Turret.prototype.canAttack = function() {
-    
-    this.contor = (this.contor +1)%(this.attackSpeed);
+    var s = this.attackSpeed * 50 / loopInterval
+    var t = s > loopOffset ? s - loopOffset : 1; 
+    this.contor = (this.contor+1)%(t);
+
    
      if(this.contor == 0) {
         return true;
@@ -321,9 +323,9 @@ function detectEnemy(tureta)
 				ok = false;	
 				if(tureta.type != SLOW_TURRET.id)
 				{
-		           	waves[i].doDamage(tureta.damage);
-					tureta.isAttacking=true;
-					ok=false;
+		           	    waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/magicConstant);
+            			    tureta.isAttacking=true;
+				    ok=false;
 				}
 				switch(tureta.type)	{
 					case 0:		audio2.play(); 				break;
