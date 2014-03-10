@@ -110,9 +110,14 @@ function activateStoryMode()
 	
 	if(move_on==true){
 	//Daca 'move_on' == true, stiu ca 'current_level' a crescut. Deci pur si simplu:
+<<<<<<< HEAD
+=======
+
+>>>>>>> 67bbf3c72df971dfc0acf9ded7f3156ea3e74e6a
 	start = 0; //<<<<------ FOARTE IMPORTANT. 
 	activateLevel(current_level);
 	move_on=false;
+
 	}
 	
 	if(last_level_completed==true){

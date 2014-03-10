@@ -107,7 +107,7 @@ if (pause == 0){
                 	monster.moveTo(path_y[monster.current+1], path_x[monster.current+1]);
 
 		} else {
-			monster.moveTo(monster.destinationX, monster.destinationY)
+			monster.moveTo(monster.destinationX, monster.destinationY);
 		}
 		
 		
@@ -115,7 +115,7 @@ if (pause == 0){
 	
     // desenam
     draw();
-	$("#money").html(String(userScore));
+    $("#money").html(String(userScore));
     $("#health").html(String(life)+' / 5');
     $("#score").html(String(score));
 }
