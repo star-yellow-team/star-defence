@@ -236,7 +236,7 @@ function startup() {
 	mapNumber = 0;
     }
 
-    resetValues()		
+    resetValues();		
     auxMaps();		
     wavereset();	
     main();
