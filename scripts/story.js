@@ -114,7 +114,8 @@ if (pause == 0){
     draw();
 	$("#money").html(String(userScore));
     $("#health").html(String(life)+' / 5');
-    $("#score").html(String(score))
+    $("#score").html(String(score));
 }
-    setTimeout(story, loopInterval);
+    gml = setTimeout(story, loopInterval);
 }
+var gml;
