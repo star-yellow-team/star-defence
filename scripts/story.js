@@ -112,6 +112,9 @@ if (pause == 0){
 	
     // desenam
     draw();
+	$("#money").html(String(userScore));
+    $("#health").html(String(life)+' / 5');
+    $("#score").html(String(score))
 }
     setTimeout(story, loopInterval);
 }
