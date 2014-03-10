@@ -4,7 +4,7 @@
  *Functiile sunt foarte intuitive. Am simplificat scriptul foarte mult.
  *Contine: makeLevel(level);
  *		   activateLevel(level);
- *		   altele.
+ *		   activateStoryMode();
  * */
 
 var monster_position_in_wave = 0; //O variabila foarte importanta. 
