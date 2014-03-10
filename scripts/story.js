@@ -57,7 +57,7 @@ function updateStoryTelling()
 	
 }
 
-
+var time=1, ready=25,start=0;//PENTRU MISCAREA MONSTRIILOR 
 function story(){
 	if(life <= 0){
 			//aici se afiseaza meniul principal daca jucatorul nu mai are viata
@@ -85,7 +85,10 @@ if (pause == 0){
 				}
 	turret.isAttaking = false;
     }
-		
+	
+	if(time==ready) {start++; time=0;}
+	else time++;
+	
 	if(waveFinished())
 	{
 		move_on = true; 
@@ -97,14 +100,14 @@ if (pause == 0){
 	}
         
 	//continuarea functiei de miscare.
-	for(var m = 0; m < waves.length; ++ m) {
+	for(var m = 0; m <= start && m<waves.length; ++ m) { //bugul este ca startul se face prea mare, neexistand waves[start] cand start e ceva gen 100.
 		var monster = waves[m];
 	        
         	if(monster.reachedDestination() && monster.current < path_x.length-1) {
                 	monster.moveTo(path_y[monster.current+1], path_x[monster.current+1]);
 
 		} else {
-			monster.moveTo(monster.destinationX, monster.destinationY)
+			monster.moveTo(monster.destinationX, monster.destinationY);
 		}
 		
 		
