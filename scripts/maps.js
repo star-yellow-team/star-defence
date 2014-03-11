@@ -34,7 +34,7 @@ var nrMaps = 0;
 var auxMap = [];
 var Pointsx = new Array();
 var Pointsy = new Array();
-
+var inf = -100; //este folosita pentru a bloca anumite zone
 
 //initializarea mitricelor matrix si auxMap
 for(var i=0; i < MAX_Y; i++) { 
@@ -144,19 +144,6 @@ auxMap =[
 addMaps();
 }
 
-function addElement(element, x, y, harta)
-{
-	if(matrix[y][x][harta] != 0)
-		return false;
-	if(y < 0 || y >= MAX_Y)
-		return false;
-	if(x < 0 || x >= MAX_X)
-		return false;
-	if(element==11||element==12||element ==13||element==14||element==15)turrets_placed_perBattle++; //ACHIEVEMENTS
-	matrix[y][x][harta] = element;
-	return true;
-}
-
 function deleteElement(x, y, harta)
 {
 	if(matrix[y][x][harta] <= 3)
@@ -195,9 +182,35 @@ function searchPoints(harta, element)
 		for( var j = 0; j < MAX_X; j++)
 			if( matrix[i][j][harta] == element )
 			{
+				console.log("mere");
 				Pointsx.push(i);
 				Pointsy.push(j);
 			}
+}
+
+function addElement(element, x, y, harta)
+{
+	if(element >=11 && element <= 15)
+	{
+		searchPoints(harta,element);
+		console.log("py: " + Pointsy[0]);
+		dist = Math.sqrt( (Pointsy[0]-x)*(Pointsy[0]-x) + (Pointsx[0]-y)*(Pointsx[0]-y));
+		console.log("dist= " + dist);
+		if(dist < 40)
+			return false;	
+	}
+	
+	if(matrix[y][x][harta] != 0)
+		return false;
+	
+	
+	if(y < 0 || y >= MAX_Y)
+		return false;
+	if(x < 0 || x >= MAX_X)
+		return false;
+	if(element==11||element==12||element ==13||element==14||element==15)turrets_placed_perBattle++; //ACHIEVEMENTS
+	matrix[y][x][harta] = element;
+	return true;
 }
 
 mapNumber = mapNumber % nrMaps;
