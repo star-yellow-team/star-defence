@@ -57,7 +57,6 @@ function updateStoryTelling()
 	
 }
 
-var time=1, ready=25,start=0;//PENTRU MISCAREA MONSTRIILOR 
 function story(){
 	if(life <= 0){
 			//aici se afiseaza meniul principal daca jucatorul nu mai are viata

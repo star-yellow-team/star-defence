@@ -97,8 +97,9 @@ function activateLevel(level_input)
 		//moveTo(spawnPointX, spawnPointY)
 		var monster = waves[m];
              //temporar
-		monster.x = path_y[1];
-        	monster.y = path_x[1];
+		monster.x = path_y[2];
+        	monster.y = path_x[2];
+			 monster.current += 1;
 	
 		monster.moveTo(path_y[monster.current+1],path_x[monster.current+1]);		
 	}
