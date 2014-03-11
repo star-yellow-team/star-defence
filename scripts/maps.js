@@ -13,11 +13,12 @@
 		getElement( x, y, harta): returneaza elementul de pe pozitia x,y din harta.
 	
 	semnificatie valori matrix[][][]:
-		0 = spatiu liber
-		1 = traseu monstruleti
-		2 = spawn 
-		3 = base
+		0       = spatiu liber
+		1       = traseu monstruleti
+		2       = spawn 
+		3       = base
 		11 - 15 = turnuri
+                123     = elemente auxiliare
 		
 	vectorii Pointsx si Pointsy retin linia si coloana pe care se afla un punct cu o anumita valuare
 		EX: pot fi folositi pentru a afla unde se afla toate punctele de spawn din harta 0 astfel: searchPoints(0, 2);

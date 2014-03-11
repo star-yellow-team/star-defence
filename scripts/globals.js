@@ -27,6 +27,7 @@ var rate	    = 50;
 
 var loopOffset      =  0;
 var magicConstant   = 50;
+
 //Story
 var time=1, ready=25,start=0;//PENTRU MISCAREA MONSTRIILOR 
 var StoryModeFinished = false; //daca s-a terminat storyul.
@@ -195,8 +196,13 @@ function animate(context, object, offset) {
             //draw auxiliary
             context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0,FRAME_SIZE, FRAME_SIZE, 
             boxSize * object.x, boxSize * object.y, dimension, dimension);
-            object.frameNumber += 1;
-            object.frameNumber %= object.spriteSize;
+
+            if(object.rateNumber == 0) {
+                object.frameNumber = (object.frameNumber + 1) % object.spriteSize;
+            }
+
+            object.rateNumber += 1
+            object.rateNumber %= object.rate
         } else {
         //deseneaza monstrul
             context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0,FRAME_SIZE, FRAME_SIZE, 
