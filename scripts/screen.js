@@ -66,7 +66,7 @@ function sizeScreen() {
     $("#gameCanvas").css("width",canvasWidth);
     $("#gameCanvas").css("height",canvasHeight);
 
-    $("#turret-menu").css("margin-top",(canvasHeight - $("#turret-menu").height()) / 2 - 3 * boxSize);
+    $("#turret-menu").css("margin-top",(canvasHeight - $("#turret-menu").height()) / 2 - 4 * boxSize - 15);
 	$("#turret-menu").css("margin-left",boxSize / 2); 
 	$("#turret-menu").css("width",boxSize); 
 
@@ -117,9 +117,9 @@ function sizeScreen() {
     $("h1").css("top",5 * boxSize);
     $("h2").css("font-size",font100*150/100);
 	
-    $("input").css("font-size",font100*150/100);
+    $("form").children("input").css("font-size",font100*150/100);
     $("form").css("font-size",font100*150/100);
-    $("input").css("padding",boxSize / 2);
+    $("form").children("input").css("padding",boxSize / 2);
 	$(".gamemode").css("width",boxSize/2);
 	$(".gamemode").css("height",boxSize/2);
 	
@@ -141,6 +141,13 @@ function sizeScreen() {
 	$("#restart").css("height",5 * boxSize);
 
 	$("#paused").css("left",(screenWidth - $("#paused").width()) / 2);
+	
+	$("#ff").css("width",boxSize);
+	$("#ff").css("height",boxSize);
+	$("#rw").css("width",boxSize);
+	$("#rw").css("height",boxSize);
+	$("#rw").css("margin-top",MAX_Y*boxSize/2 - $("#turret-menu").height()/2 - boxSize);
+	$("#ff").css("margin-top",MAX_Y*boxSize/2 - $("#turret-menu").height()/2 - boxSize);
 }
 
 // o apelam pentru prima oara

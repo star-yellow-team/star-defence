@@ -15,7 +15,7 @@ var maxOffset = 30;
 var minOffset = 9;
 
 // Handler pentru forward si backward
-$("#backward").click(function(e) {
+$("#rw").click(function(e) {
     if(loopOffset > minOffset) {
         loopOffset  -= 10;
         rate += loopOffset/magicConstant;
@@ -26,7 +26,7 @@ $("#backward").click(function(e) {
     }
 })
 
-$("#forward").click(function(e) {
+$("#ff").click(function(e) {
     if(loopOffset < maxOffset) {
         loopOffset  += 10;
         rate -= loopOffset/magicConstant;

@@ -65,7 +65,7 @@ form {
 	z-index:1001
 }
 
-input {
+form input {
 	background-color:rgba(0,0,0,0.75);
 	color:lightblue;
 	border:2.5px solid lightblue;
@@ -83,7 +83,6 @@ input:focus {
 	box-shadow: 0px 0px 10px lightblue, 0px 0px 5px lightblue inset;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	background-size: 25px;
-	padding:20px;
 	border-radius:12.5px;
 	outline: none;
 }
@@ -167,6 +166,47 @@ body {
 	vertical-align:middle;
 	padding:auto;
 }
+
+input#ff, #rw {
+	background-color:rgba(0,0,0,0.75);
+	color:lightblue;
+	border:2.5px solid lightblue;
+	box-shadow: 0px 0px 10px lightblue, 0px 0px 5px lightblue inset;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	padding:20px;
+	border-radius:12.5px;
+	padding: 0px;
+	position:relative;
+	float:right;
+}
+
+input#rw {
+	float:left;
+}
+
+input#rw:hover {
+	background-color:rgba(0,0,0,0.75);
+	color:cyan;
+	border:2.5px solid cyan;
+	box-shadow: 0px 0px 10px cyan 0px 0px 5px cyan inset;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background-size: 25px;
+	border-radius:12.5px;
+	outline: none;
+	z-index:999;
+}
+
+input#ff:hover {
+	background-color:rgba(0,0,0,0.75);
+	color:cyan;
+	border:2.5px solid cyan;
+	box-shadow: 0px 0px 10px cyan 0px 0px 5px cyan inset;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background-size: 25px;
+	border-radius:12.5px;
+	outline: none;
+	z-index:999;
+}	
 
 /* Game Context */
 #menu-wrapper {
