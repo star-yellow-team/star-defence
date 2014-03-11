@@ -34,8 +34,7 @@ var MACHINEGUN_TURRET = {
     level: 0,
     sprite: images[0],
     spriteSize:    30,
-    rate: 2,
-    spriteFollow: true
+    rate: 2
 }
 
 var SLOW_TURRET = {
@@ -62,8 +61,7 @@ var SLOW_TURRET = {
     y:	0,
     sprite: images[10],
     spriteSize:    30,
-    rate: 1,
-    spriteFollow: false
+    rate: 1
 }
 //30%.........1.42857
 //40%.........1.66666
@@ -92,8 +90,7 @@ var PLASMA_TURRET = {
     y:	0,
     sprite:  images[8],
     spriteSize:    30,
-    rate: 1,
-    spriteFollow: true
+    rate: 1
 }
 
 var LASER_TURRET = {
@@ -119,8 +116,7 @@ var LASER_TURRET = {
         y:	0,
         sprite: images[1],
         spriteSize:    30,
-        rate: 2,
-        spriteFollow: true
+        rate: 2
 }
 
 var DETECTOR_TURRET = {
@@ -147,8 +143,7 @@ var DETECTOR_TURRET = {
     y:	0,
     sprite:         images[0],
     spriteSize:    30,
-    rate: 1,
-    spriteFollow: false
+    rate: 1
 }
 
 function Turret(type)
@@ -181,7 +176,6 @@ function Turret(type)
 			this.slow=MACHINEGUN_TURRET.slow;
 			this.reveal=MACHINEGUN_TURRET.reveal;
                         this.rate = MACHINEGUN_TURRET.rate;
-                        this.spriteFollow = MACHINEGUN_TURRET.spriteFollow;
                         break;
 		
 		
@@ -206,7 +200,6 @@ function Turret(type)
 			this.slow=SLOW_TURRET.slow;
 			this.reveal=SLOW_TURRET.reveal;
                         this.rate = SLOW_TURRET.rate;
-                        this.spriteFollow = SLOW_TURRET.spriteFollow;
                         break;
 
 
@@ -230,7 +223,6 @@ function Turret(type)
 			this.slow=PLASMA_TURRET.slow;
 			this.reveal=PLASMA_TURRET.reveal;
 			this.rate = PLASMA_TURRET.rate;
-                        this.spriteFollow = PLASMA_TURRET.spriteFollow;
                         break;
 
 		case LASER_TURRET.id:
@@ -253,7 +245,6 @@ function Turret(type)
 			this.slow=LASER_TURRET.slow;
 			this.reveal=LASER_TURRET.reveal;
 			this.rate = LASER_TURRET.rate;
-                        this.spriteFollow = LASER_TURRET.spriteFollow;
                         break;
 
 		case DETECTOR_TURRET.id:
@@ -276,7 +267,6 @@ function Turret(type)
 			this.slow=DETECTOR_TURRET.slow;
 			this.reveal=DETECTOR_TURRET.reveal;
                         this.rate = DETECTOR_TURRET.rate;
-                        this.spriteFollow = DETECTOR_TURRET.spriteFollow;
 			break;
 
 		default:
@@ -287,7 +277,10 @@ function Turret(type)
 }
 
 Turret.prototype.canAttack = function() {
-    this.contor = (this.contor+1)%((loopOffset != 0) ? 1 : this.attackSpeed );
+    var s = this.attackSpeed * 50 / loopInterval
+    var t = s > loopOffset ? s - loopOffset : 1; 
+    this.contor = (this.contor+1)%(t);
+
    
      if(this.contor == 0) {
         return true;
@@ -368,26 +361,7 @@ function detectEnemy(tureta)
 				ok = false;	
 				if(tureta.type != SLOW_TURRET.id)
 				{
-	    	           	    switch(loopOffset) {
-                                        case 0:
-                                        case 10:
-                                            waves[i].doDamage(tureta.damage)
-                                            break;
-                                        case 20:
-	    	           	            waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-17));
-                                            break;
-                                        case 30:
-	    	           	            waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-20));
-                                            break;
-                                        case 40:  
-	    	           	            waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-25));
-                                            break;
-                                        case 50:
-	    	           	            waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-30));
-                                            break;
-                                    }
-                                     waves[i].doDamage(tureta.damage);
-	    	           	    //waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-20));
+	    	           	    waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-13));
                                     tureta.calculateAngle(waves[i])
         	            	    tureta.isAttacking=true;
 				    ok=false;

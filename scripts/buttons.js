@@ -18,6 +18,8 @@ var minOffset = 9;
 $("#backward").click(function(e) {
     if(loopOffset > minOffset) {
         loopOffset  -= 10;
+        rate += loopOffset/magicConstant;
+        rate = Math.floor(rate)
         $.notify("Slowing", "info")
     } else {
         $.notify("Already too slow", "error")
@@ -27,6 +29,8 @@ $("#backward").click(function(e) {
 $("#forward").click(function(e) {
     if(loopOffset < maxOffset) {
         loopOffset  += 10;
+        rate -= loopOffset/magicConstant;
+        rate = Math.floor(rate)
         $.notify("Speeding", "info")
     } else {
         $.notify("Already too fast", "error")

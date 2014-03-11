@@ -155,18 +155,20 @@ if (pause == 0){
     
     }
 	
-	if(goala() == false) {
-            if(toAdd == 0) {
-                    spawn()
-            }
-            toAdd = (toAdd+1) % calculateRate();
-	
-        } else if(waveFinished()){
-            toAdd = 0;
-            waves_won_perBattle ++; //ACHIEVEMENTS
-            generateWave();
-            sizeMonsters(); 
-        }
+	if(goala() == false)
+	{
+		if(toAdd == 0) {
+			spawn()
+		}
+		toAdd = (toAdd+1) % (loopOffset > 0 ? Math.floor(loopOffset/3) : rate);
+	}
+	else
+    if(waveFinished()){
+        toAdd = 0;
+    	waves_won_perBattle ++; //ACHIEVEMENTS
+        generateWave();
+        sizeMonsters(); 
+    }
 	
 	
 	
