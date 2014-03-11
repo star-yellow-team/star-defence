@@ -58,6 +58,15 @@ function updateStoryTelling()
 }
 
 function story(){
+if(userScore < 200)
+	showMoneyLimitError = true;
+else{
+	if(showMoneyLimitError == true){
+		$.notify("You`re too greedy and you will receive no more money until you cool down", "error")
+		showMoneyLimitError = false;
+		}
+	userScore = 200;
+}
 	if(life <= 0){
 			//aici se afiseaza meniul principal daca jucatorul nu mai are viata
 			location.reload();
