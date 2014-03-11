@@ -12,6 +12,24 @@
         <script type="text/javascript" src="scripts/notify.js"></script>
         
         <script type="text/javascript">
+		// function load() {
+		//     if(toLoad != 0) {
+            	//        setTimeout(load, 50)
+            	//        return;
+                    //}
+    	        // }
+			$("#loading").show();
+   		</script>
+    
+    </head>
+
+    <body>
+    
+		<div id="dimmer"></div>
+        
+        <h1 id="loading">Loading...</h1>
+        
+        <script type="text/javascript">
 		<!--//--><![CDATA[//><!--
 
 			var images = new Array();
@@ -57,22 +75,6 @@
 			audio3.volume = 0.05;
 		//--><!]]>
 		</script>
-        <script type="text/javascript">
-		// function load() {
-		//     if(toLoad != 0) {
-            	//        setTimeout(load, 50)
-            	//        return;
-                    //}
-    	        // }
-   		</script>
-    
-    </head>
-
-    <body>
-    
-		<div id="dimmer"></div>
-        
-        <h1 id="loading">Loading...</h1>
         
         <h1 id="paused">PauseD</h1>
         
@@ -108,11 +110,6 @@
                     <td id="level-wrapper"><p id="level">level 0</p>
                     </td></tr> 
                     <tr>
-                    <td id="forward-wrapper"><input type="button" id="forward" value=">>" />
-                    </td></tr>
-                    <tr>
-                    <td id="backward-wrapper"><input type="button" id="backward" value="<<" />
-                    </td></tr>
                 </table>
             	<div id="turret-menu" style="text-align:center;">
                 	<div class="button" id="machinegun_turret" onClick="stick(11)" onMouseOver="description(MACHINEGUN_TURRET)" touchstart="description(MACHINEGUN_TURRET)" onMouseOut="hideHover()" touchend="hideHover()"></div>

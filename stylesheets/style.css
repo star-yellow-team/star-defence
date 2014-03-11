@@ -160,7 +160,6 @@ body {
 	margin:auto;
 	height:100%;
 	display:table;
-	box-shadow: 0px 0px 250px black;
 }
 
 #innerWrapper {
@@ -182,6 +181,7 @@ body {
 	background: -o-linear-gradient(#000300, #000300, darkblue, #000300, #000300); /* For Opera 11.1 to 12.0 */
 	background: -moz-linear-gradient(#000300, #000300, darkblue, #000300, #000300); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(#000300, #000300, darkblue, #000300, #000300); /* Standard syntax */
+	box-shadow: 0px 0px 250px black;
 }
 
 #bar-wrapper {
@@ -207,6 +207,9 @@ body {
 	position:relative;
 	float:left;
 	background-color:rgba(0,0,0,0.75);
+	background-image:url(../images/test.png);
+	background-size:cover;
+	box-shadow: 0px 0px 250px black;
 }
 
 /* Menu */

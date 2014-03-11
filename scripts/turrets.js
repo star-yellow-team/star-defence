@@ -135,7 +135,7 @@ var DETECTOR_TURRET = {
     kills:	0,
     detection: "Yes",
     requirement:	"Pass level 8",
-    level: 8,
+    level: 100000,
     description:	"Reveals invisible enemies within range",
     isAttacking:	false,
     contor:	0,
