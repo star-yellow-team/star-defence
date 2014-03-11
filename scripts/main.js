@@ -38,7 +38,6 @@ function drawBackground() {
 	    //	2 = spawn 
 	    //	3 = base
             switch(getElement(i, j, mapNumber)) {
-            
                 case 0:
                     context.fillStyle = 'rgba(0,225,0,0)';       
                     // umplem casuta de pe randul i si coloana j
@@ -75,7 +74,7 @@ function drawBackground() {
 function draw() {
     //deseneaza background-ul
     drawBackground();
-
+    
 
     
 
@@ -90,14 +89,42 @@ function draw() {
         var turret = turrets[t];
         animate(context, turret)
     }
- 
+    
+    var aaa = 0;
+
+    for(; aaa < auxiliaries.length; ++ aaa) {
+        animate(context, auxiliaries[aaa], NaN);
+    }
 }
 
 // se apeleaza inaintea tuturor functiilor
 function gameSetup() {
     curentRound = 1;
     life = 5;
-	
+
+    var _k = 0;
+    for(i = 0 ; i < MAX_X; ++ i) {
+        for(j = 0; j < MAX_Y; ++ j) {
+            // determinam tipul celulei
+            //  0 = spatiu liber
+	    //	1 = traseu monstruleti
+	    //	2 = spawn 
+	    //	3 = base
+            switch(getElement(i, j, mapNumber)) {
+                case 0:
+                    if(Math.floor((Math.random())*3) % 3 == 0 && _k < numberOfAuxiliaries ) {
+                    auxiliaries.push(new Auxiliary(i, j, images[14], 3)) 
+                    ++ _k;
+                    }
+                    break;
+                default:
+                    // o eroare in harta
+                    break;
+            } //switch
+
+        } // first for
+    }
+     	
     switch(user_selection) {
 	case 'survival':
         	findPath(mapNumber)

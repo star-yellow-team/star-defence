@@ -15,7 +15,7 @@
 		<!--//--><![CDATA[//><!--
 
 			var images = new Array();
-                        var toLoad = 14;
+                        var toLoad = 15;
                         /**
                         * images[0] -- MACHINEGUN_TURRET
                         * images[1] -- LASER_TURRET
@@ -31,6 +31,7 @@
                         * images[11]-- DETECTOR_TURRET
                         * images[12]-- START
                         * images[13]-- END
+                        * image[14] -- rock
                         */
 			function preload() {
 				for (i = 0; i < preload.arguments.length; i++) {
@@ -39,13 +40,13 @@
 				        images[i].onload = function() {
                                             -- toLoad;
                                         	}
-                }
+                                }
 			}
             
             preload('images/machinegun.png', 'images/lasergun.png', 'images/simplemonster.png', 'images/UFO.png',
             'images/speedymonster.png','images/powerfulmonster.png', 'images/RAMSIMONSTER.png', 'images/star.png',
             'images/plasmagun.png', 'images/path.png', 'images/slowturret.png', 'images/detector.png',
-            'images/start.png', 'images/tower.png');
+            'images/start.png', 'images/tower.png', 'images/rock.png');
 			
 			$("#dimmer").css({"opacity":"1"});
 			var audio1 = new Audio('sounds/Plasma.mp3');
@@ -162,6 +163,7 @@
         <script type="text/javascript" src="scripts/monster.js"></script>
 	<script type="text/javascript" src="scripts/waves.js"></script>
         <script type="text/javascript" src="scripts/turrets.js"></script>
+        <script type="text/javascript" src="scripts/auxiliary.js"></script>
         <script type="text/javascript" src="scripts/screen.js"></script>
         <script type="text/javascript" src="scripts/buttons.js"></script>
         <script type="text/javascript" src="scripts/shortcuts.js"></script>

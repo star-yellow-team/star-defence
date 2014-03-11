@@ -69,6 +69,9 @@ var FRAME_SIZE                  =   50;
 var FRAME_RATE                  =    3;
 var STAR_SIZE                   =   5;
 
+var auxiliaries                 = [];
+var numberOfAuxiliaries           = 30;
+
 function resetValues() {
     life            =  5;
     waves           = [];
@@ -188,7 +191,7 @@ function animate(context, object, offset) {
         }
              
            
-        } else if(offset == NaN) {
+        } else if(isNaN(offset)) {
             //draw auxiliary
             context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0,FRAME_SIZE, FRAME_SIZE, 
             boxSize * object.x, boxSize * object.y, dimension, dimension);
