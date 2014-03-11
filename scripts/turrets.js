@@ -59,7 +59,7 @@ var SLOW_TURRET = {
     contor:	0,
     x:	0,
     y:	0,
-    sprite: images[0],
+    sprite: images[10],
     spriteSize:    30,
     rate: 1
 }
@@ -152,6 +152,7 @@ function Turret(type)
         this.isSlowed   = false;
         this.frameNumber= 0;         
         this.rateNumber = 0;
+        this.angle     = 0;
 
 	switch(type)	{
 		case MACHINEGUN_TURRET.id:
@@ -276,8 +277,10 @@ function Turret(type)
 }
 
 Turret.prototype.canAttack = function() {
-    
-    this.contor = (this.contor +1)%(this.attackSpeed);
+    var s = this.attackSpeed * 50 / loopInterval
+    var t = s > loopOffset ? s - loopOffset : 1; 
+    this.contor = (this.contor+1)%(t);
+
    
      if(this.contor == 0) {
         return true;
@@ -301,6 +304,40 @@ function checkTurret (tureta)
 		return true;
 }
 
+/**
+ * @name calculateAngle
+ * @param {Monster} monstrul atacat
+ *
+ * @description Recalcula unghiul dintre tureta
+ * si monstrul atacat.
+ * */
+
+Turret.prototype.calculateAngle = function(monster) {
+    if(this.x > monster.x) {
+    
+        if(this.y > monster.y) {
+            this.angle = Math.asin((this.x - monster.x) / distanta(monster, this))*180/Math.PI;
+        } else if(this.y < monster.y) {
+            this.angle = 180 -Math.asin((this.x-monster.x) / distanta(monster, this))*180/Math.PI;
+        } else {
+            this.angle = 90;
+        }
+    
+    } else if(this.x < monster.x){
+        
+        if(this.y > monster.y) {
+            this.angle = 360 - Math.asin((monster.x-this.x) / distanta(monster, this))*180/Math.PI;
+        } else if(this.y < monster.y) {
+            this.angle = 270 - Math.asin((monster.y-this.y) / distanta(monster, this))*180/Math.PI;
+        } else {
+            this.angle = 270;
+        }
+        
+    } else {
+        this.angle = 0;       
+    }
+}
+
 function distanta(i, tureta)
 {
 	return(Math.sqrt( (i.x-tureta.x)*(i.x-tureta.x) + (i.y-tureta.y)*(i.y-tureta.y) ) );
@@ -309,6 +346,9 @@ function distanta(i, tureta)
 /* Cred ca atacul va depinde de o functie de detectat cand inamicul intra in range */
 function detectEnemy(tureta)
 {
+        if(waves.length == 0) {
+            tureta.angle = 0;
+        }
 	var ok=true;
 	if(tureta.canAttack() == false && tureta.damage > 0) {
             return;
@@ -321,9 +361,15 @@ function detectEnemy(tureta)
 				ok = false;	
 				if(tureta.type != SLOW_TURRET.id)
 				{
-		           	waves[i].doDamage(tureta.damage);
-					tureta.isAttacking=true;
-					ok=false;
+                                    if(loopOffset < 20) {
+	    	           	        waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-13));
+                                    } else {
+	    	           	        waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-15));
+                                    }
+
+                                    tureta.calculateAngle(waves[i])
+        	            	    tureta.isAttacking=true;
+				    ok=false;
 				}
 				switch(tureta.type)	{
 					case 0:		audio2.play(); 				break;
@@ -341,6 +387,7 @@ function detectEnemy(tureta)
 					waves[i].slowMonster(turretIndex, tureta);	
 				if(!waves[i].isAlive())
 				{
+                        		score++;
 					if(userScore >= 200 && showMoneyLimitError === true) {
 						//$.notify("You`re too greedy and you will receive no more money until you cool down", "error")	
 						//showMoneyLimitError = false;
@@ -349,7 +396,7 @@ function detectEnemy(tureta)
 						//showMoneyLimitError = true;
 					}
 					
-                    waves.splice(i, 1);
+                                        waves.splice(i, 1);
 					i--;
 					break;
 				}

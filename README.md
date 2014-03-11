@@ -1,6 +1,6 @@
 ﻿Star-defence
 ============
-
+Checking to see if GitHub app finally works.
 
 Cand dati commit, asigurati-va ca apare numele vostru, nu cel star-....
 
@@ -18,3 +18,4 @@ firefox game.html
 ```
 
 :) enjoy :)
+

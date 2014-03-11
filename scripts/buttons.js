@@ -11,6 +11,32 @@ var hover;
 var hoverY;
 var hoverX;
 var currentMousePos = { x: -1, y: -1 };
+var maxOffset = 30;
+var minOffset = 9;
+
+// Handler pentru forward si backward
+$("#backward").click(function(e) {
+    if(loopOffset > minOffset) {
+        loopOffset  -= 10;
+        rate += loopOffset/magicConstant;
+        rate = Math.floor(rate)
+        $.notify("Slowing", "info")
+    } else {
+        $.notify("Already too slow", "error")
+    }
+})
+
+$("#forward").click(function(e) {
+    if(loopOffset < maxOffset) {
+        loopOffset  += 10;
+        rate -= loopOffset/magicConstant;
+        rate = Math.floor(rate)
+        $.notify("Speeding", "info")
+    } else {
+        $.notify("Already too fast", "error")
+    }
+})
+
 
 // Aducem ghostImageul albastru la mouse, stickuit pe grid
 $(document).mousemove(function(event) {
@@ -48,6 +74,10 @@ $(document).mousemove(function(event) {
 		// Calculare Pozitie pe harta
 		placeX = Math.round((boxX - xMin - 5) / boxSize);
 		placeY = Math.round((boxY - yMin - 5) / boxSize);
+                
+                if(event.target != undefined && contextm == 1 && event.target.id == "gameCanvas") {
+                    rmenu(false);
+                }
 
                 if (getElement(placeX, placeY) != 0 && getElement(placeX, placeY) != 1 && getElement(placeX, placeY) != 2 && 
                     getElement(placeX, placeY) != 3 && contextm == 0 && playing == 1) {
@@ -363,15 +393,6 @@ $("#remove").mouseenter(function(e) {
     entered = true;
 })
 
-$("#remove").mouseleave(function(e) {
-    if(e.relatedTarget.id == "gameCanvas") {
-        rmenu(false);
-    }
-})
 
-$("#upgrade").mouseleave(function(e) {
-    if(e.relatedTarget.id == "gameCanvas") {
-        rmenu(false);
-    }
-})
+
 

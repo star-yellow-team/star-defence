@@ -131,14 +131,30 @@ body {
 	padding: 0px;
 	width:100%;
 	height:100%;
-	background: -webkit-linear-gradient(#000300, #001F00, #000300); /* For Safari */
-	background: -o-linear-gradient(#000300, #001F00, #000300); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(#000300, #001F00, #000300); /* For Firefox 3.6 to 15 */
+	/*background: -webkit-linear-gradient(#000300, #001F00, #000300); /* For Safari /
+	background: -o-linear-gradient(#000300, #001F00, #000300); /* For Opera 11.1 to 12.0 /
+	background: -moz-linear-gradient(#000300, #001F00, #000300); /* For Firefox 3.6 to 15 /
 	background: linear-gradient(#000300, #001F00, #000300); /* Standard syntax */
 	margin:auto;
 	background-image:url(../images/bkg.png);
 	background-size:cover;
 }
+
+.playing {
+    padding: 0px;
+    width:100%;
+    height:100%;
+    /*
+    background: -webkit-linear-gradient(#000300, #001F00, #000300); /* For Safari 
+    background: -o-linear-gradient(#000300, #001F00, #000300); /* For Opera 11.1 to 12.0 
+    background: -moz-linear-gradient(#000300, #001F00, #000300); /* For Firefox 3.6 to 15/
+    background: linear-gradient(#000300, #001F00, #000300); /* Standard syntax  
+*/
+    margin:auto;
+    background-image:url(../images/bkg1.png);
+    background-size:cover;
+}
+
 
 #wrapper {
 	margin:auto;
@@ -257,14 +273,27 @@ body {
 }
 
 #level-wrapper {
-	color:lightblue;
-	text-align:center;
-	display: table-cell;
-	vertical-align: middle;
-	background-repeat:no-repeat;
-	background-position:left center;
-	padding-right:5px;
-	font-variant:small-caps;
+    color:lightblue;
+    text-align:center;
+    display: table-cell;
+    vertical-align: middle;
+    background-repeat:no-repeat;
+    background-position:left center;
+    padding-right:5px;
+    font-variant:small-caps;
+}
+
+#score-wrapper {
+    color:white;
+    text-align:right;
+    display: table-cell;
+    vertical-align: middle;
+    background-image:url(../images/score.png);
+    background-repeat:no-repeat;
+    background-position:left center;
+    background-size:30%;
+    padding-right:5px;
+    border-bottom: 2px solid lightblue;
 }
 
 #buttonsWrapper {

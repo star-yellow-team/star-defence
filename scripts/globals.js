@@ -14,15 +14,21 @@ var path_y          = [];
 var nrmax_path      =  0;
 var curentRound     = -1;
 var boxSize         =  0;
+//userScore = bani
 var userScore       =  20;
+//score = nr monstri omorati
+var score           = 0;
 var turrets         = [];
 var dimension       =  0;
 var offset          =  0;
 var userLevel       =  0;
-var toAdd			=  0;
-var rate			=  50;
+var toAdd	    =  0;
+var rate	    = 50;
 
+var loopOffset      =  0;
+var magicConstant   = 50;
 //Story
+var time=1, ready=25,start=0;//PENTRU MISCAREA MONSTRIILOR 
 var StoryModeFinished = false; //daca s-a terminat storyul.
 var last_level_completed = false; //mai aveam nevoie si de variabila asta.
 var move_on         = true;
@@ -35,7 +41,10 @@ var machineGuns_built = 0, first_machineGun = true, second_machineGun = true, th
 var wave1_alert = true, wave2_alert = true, wave3_alert = true;
 
 //Achievements
-var time_passed_perBattle = 0; var totalCredits = 0; var totalScore = 0; var fun_activated = true; // TIMP, CREDITS, SCOR, FUN
+var time_passed_perBattle = 0;
+var totalCredits = 0;
+var totalScore = 0;
+var fun_activated = true; // TIMP, CREDITS, SCOR, FUN
 
 var enemies_defeated_perBattle  =   0;
 var first_enemy_defeated        = false;
@@ -68,6 +77,9 @@ function resetValues() {
     userScore       =  20;
     turrets         = [];
     userLevel       =  0;
+    score           = 0;
+    rate            = 50;
+    loopOffset      = 0;
 
     //Story
     StoryModeFinished = false; //daca s-a terminat storyul.
@@ -130,9 +142,23 @@ function animate(context, object, offset) {
     if(offset == undefined) {
         //pt turete
         if(checkTurret(object)) {
-            context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0, FRAME_SIZE, FRAME_SIZE,
-            boxSize * object.x, boxSize * object.y, boxSize, boxSize);
-       
+            var frame       = 0;
+            var alpha       = 0;
+            var ANGLE_RATE  = 360 / object.spriteSize;
+
+            while(alpha < object.angle) {
+                frame = frame == 0 ? object.spriteSize - 1 : frame - 1;
+                alpha += ANGLE_RATE;
+            }            
+            
+            if(object.type != SLOW_TURRET.id) {
+                context.drawImage(object.sprite, frame * FRAME_SIZE, 0, FRAME_SIZE, FRAME_SIZE,
+                boxSize * object.x, boxSize * object.y, boxSize, boxSize);
+            } else {
+                context.drawImage(object.sprite, object.frameNumber * FRAME_SIZE, 0, FRAME_SIZE, FRAME_SIZE,
+                boxSize * object.x, boxSize * object.y, boxSize, boxSize);
+            }
+
             if(object.rateNumber == 0) {
             object.frameNumber = (object.frameNumber + 1) % object.spriteSize;
             }
@@ -147,12 +173,17 @@ function animate(context, object, offset) {
 
         // deseneaza stelutele
         // scaleaza dimensiunea stelutei
-        var s_size   = boxSize / 5;
-        var current_s_offset = 0;
+        var s_size   = boxSize / 3;
+        var current_s_x_offset = 0,
+            current_s_y_offset = 0;
         for(var s = 0; s < object.upgradeLevel; ++ s) {
             context.drawImage(images[7], 0, 0, 50, 50, 
-            boxSize * object.x + current_s_offset, boxSize * (object.y+1) - s_size, s_size, s_size);
-            current_s_offset += s_size;
+            boxSize * object.x + current_s_x_offset, boxSize * (object.y+1) - s_size + current_s_y_offset, s_size, s_size);
+            current_s_x_offset += s_size;
+            if(current_s_x_offset == boxSize) {
+                current_s_x_offset = 0;
+                current_s_y_offset = - s_size;
+            }
         }
              
            

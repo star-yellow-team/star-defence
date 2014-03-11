@@ -50,14 +50,12 @@ function drawBackground() {
                     context.drawImage(images[9], i*boxSize, j*boxSize, boxSize, boxSize);
                     break;
                 case 2:
-                    context.fillStyle = "red";
                     // umplem casuta de pe randul i si coloana j
-                    context.fillRect(i*boxSize, j*boxSize, boxSize, boxSize);
+                    context.drawImage(images[12], i*boxSize, j*boxSize, boxSize, boxSize);
                     break;
                 case 3:
-                    context.fillStyle = "blue"
                     // umplem casuta de pe randul i si coloana j
-                    context.fillRect(i*boxSize, j*boxSize, boxSize, boxSize);
+                    context.drawImage(images[13], i*boxSize, j*boxSize, boxSize, boxSize);
                     break;
  		default:
                     // o eroare in harta
@@ -131,6 +129,7 @@ else{
 		$.notify("You`re too greedy and you will receive no more money until you cool down", "error")
 		showMoneyLimitError = false;
 	}
+	userScore = 200;
 }
 if (pause == 0){
     // game logic
@@ -161,10 +160,15 @@ if (pause == 0){
 		if(toAdd == 0) {
 			spawn()
 		}
-		toAdd = (toAdd+1) % rate;
+                if(loopOffset < 20) {
+		    toAdd = (toAdd+1) % (loopOffset > 0 ? Math.floor(loopOffset/3) : rate);
+                } else {
+		    toAdd = (toAdd+1) % (loopOffset > 0 ? Math.floor(loopOffset/7) : rate);
+                }
 	}
 	else
     if(waveFinished()){
+        toAdd = 0;
     	waves_won_perBattle ++; //ACHIEVEMENTS
         generateWave();
         sizeMonsters(); 
@@ -194,6 +198,7 @@ if (pause == 0){
         draw();
         $("#money").html(String(userScore));
         $("#health").html(String(life)+' / 5');
+        $("#score").html(String(score))
     } // end if
 	
     gml = setTimeout(gameLoop, loopInterval);
@@ -211,16 +216,16 @@ function main() {
     switch(user_selection) {
 
         case 'survival':
-            current = 1
+	    current = 1
 	    gameSetup();//'gameSetup' este automat.
 	    gameLoop();
 	    break;
 
         case 'story':
             current_level = 0
-	    gameSetup();
-            curentRound=2; //altfel nu incepe cu level 1.
-            waves_won_perBattle=0; 
+	     gameSetup();
+            curentRound=1; 
+            waves_won_perBattle=-1; 
             story();
             break;
     }
@@ -235,11 +240,12 @@ function startup() {
 	mapNumber = 0;
     }
 
-    resetValues()		
+    $("body").attr("class", "playing")
+    resetValues();		
     auxMaps();		
     wavereset();	
     main();
-    
+
     setTimeout(function() {
                 $("form").hide();
                 $("#dimmer").slideUp("fast");
@@ -260,6 +266,7 @@ function restart() {
     $("#wrapper").hide();
     $("#dimmer").slideUp("fast");
     
+	resetValues();	
     restartTurrets();
     waves_won_perBattle=0;
     restartWaveSystem();
