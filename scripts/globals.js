@@ -28,6 +28,7 @@ var rate	    = 50;
 var loopOffset      =  0;
 var magicConstant   = 50;
 //Story
+var time=1, ready=25,start=0;//PENTRU MISCAREA MONSTRIILOR 
 var StoryModeFinished = false; //daca s-a terminat storyul.
 var last_level_completed = false; //mai aveam nevoie si de variabila asta.
 var move_on         = true;
