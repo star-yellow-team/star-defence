@@ -69,6 +69,9 @@ var FRAME_SIZE                  =   50;
 var FRAME_RATE                  =    3;
 var STAR_SIZE                   =   5;
 
+var auxiliaries                 = [];
+var numberOfAuxiliaries           = 30;
+
 function resetValues() {
     life            =  5;
     waves           = [];
@@ -139,6 +142,7 @@ function sizeMonsters() {
 // destinationX, destinationY, destinationWidth, destinationHeight)
 function animate(context, object, offset) { 
     if(object == undefined) {return;}
+
     if(offset == undefined) {
         //pt turete
         if(checkTurret(object)) {
@@ -187,7 +191,13 @@ function animate(context, object, offset) {
         }
              
            
-    } else {
+        } else if(isNaN(offset)) {
+            //draw auxiliary
+            context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0,FRAME_SIZE, FRAME_SIZE, 
+            boxSize * object.x, boxSize * object.y, dimension, dimension);
+            object.frameNumber += 1;
+            object.frameNumber %= object.spriteSize;
+        } else {
         //deseneaza monstrul
             context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0,FRAME_SIZE, FRAME_SIZE, 
             boxSize * object.x, boxSize * object.y + object.offset, dimension, dimension)            
