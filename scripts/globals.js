@@ -138,6 +138,7 @@ function sizeMonsters() {
 // destinationX, destinationY, destinationWidth, destinationHeight)
 function animate(context, object, offset) { 
     if(object == undefined) {return;}
+
     if(offset == undefined) {
         //pt turete
         if(checkTurret(object)) {
@@ -186,7 +187,13 @@ function animate(context, object, offset) {
         }
              
            
-    } else {
+        } else if(offset == NaN) {
+            //draw auxiliary
+            context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0,FRAME_SIZE, FRAME_SIZE, 
+            boxSize * object.x, boxSize * object.y, dimension, dimension);
+            object.frameNumber += 1;
+            object.frameNumber %= object.spriteSize;
+        } else {
         //deseneaza monstrul
             context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0,FRAME_SIZE, FRAME_SIZE, 
             boxSize * object.x, boxSize * object.y + object.offset, dimension, dimension)            
