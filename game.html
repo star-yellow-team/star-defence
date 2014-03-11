@@ -49,8 +49,10 @@
                         * images[11]-- DETECTOR_TURRET
                         * images[12]-- START
                         * images[13]-- END
-                        * image[14] -- rock
+                        * images[14]-- rock
+                        * images[15]-- grass
                         */
+
 			function preload() {
 				for (i = 0; i < preload.arguments.length; i++) {
 					images[i] = new Image()
@@ -64,7 +66,7 @@
             preload('images/machinegun.png', 'images/lasergun.png', 'images/simplemonster.png', 'images/UFO.png',
             'images/speedymonster.png','images/powerfulmonster.png', 'images/RAMSIMONSTER.png', 'images/star.png',
             'images/plasmagun.png', 'images/path.png', 'images/slowturret.png', 'images/detector.png',
-            'images/start.png', 'images/tower.png', 'images/rock.png');
+            'images/start.png', 'images/tower.png', 'images/rock.png', 'images/iarba.png');
 			
 			$("#dimmer").css({"opacity":"1"});
 			var audio1 = new Audio('sounds/Plasma.mp3');

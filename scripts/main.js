@@ -112,13 +112,16 @@ function gameSetup() {
 	    //	3 = base
             switch(getElement(i, j, mapNumber)) {
                 case 0:
-                    if(Math.floor((Math.random())*3) % 3 == 0 && _k < numberOfAuxiliaries ) {
-                    auxiliaries.push(new Auxiliary(i, j, images[14], 3)) 
-                    ++ _k;
+                    if(Math.floor((Math.random())*2) % 2 == 0 && _k < numberOfAuxiliaries ) {
+                        if(Math.floor(Math.random()*2)%2== 0) {
+                            auxiliaries.push(new Auxiliary(i, j, images[14], 3)) 
+                        } else {
+                            auxiliaries.push(new Auxiliary(i, j, images[15], 30)) 
+                        }
+                        ++ _k;
                     }
                     break;
                 default:
-                    // o eroare in harta
                     break;
             } //switch
 
