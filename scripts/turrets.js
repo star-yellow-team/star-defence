@@ -361,7 +361,12 @@ function detectEnemy(tureta)
 				ok = false;	
 				if(tureta.type != SLOW_TURRET.id)
 				{
-	    	           	    waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-13));
+                                    if(loopOffset < 20) {
+	    	           	        waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-13));
+                                    } else {
+	    	           	        waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-15));
+                                    }
+
                                     tureta.calculateAngle(waves[i])
         	            	    tureta.isAttacking=true;
 				    ok=false;
