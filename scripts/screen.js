@@ -77,11 +77,12 @@ function sizeScreen() {
     $("#wrapper").css("margin-left",xMin - 5);
     $("#gameCanvas").css("margin-top",yMin - 5);
     
-    $("#bar-wrapper").css("height",2 * boxSize); 
+    $("#bar-wrapper").css("height",4 * boxSize); 
     $("#bar-wrapper").css("width",2 * boxSize); 
     $("#bar-wrapper").css("font-size",font100);
     $("#health-wrapper").css("background-size",boxSize / 2);
     $("#money-wrapper").css("background-size",boxSize / 2);
+    $("#score-wrapper").css("background-size",boxSize / 2);
 	
     $("#title").css("font-size",font100);
     $("#hover").css("font-size",font100 * 100 / 150);
@@ -99,6 +100,9 @@ function sizeScreen() {
     
     $("#money-wrapper").css("height",boxSize); 
     $("#money-wrapper").css("width",2 * boxSize); 
+    
+    $("#score-wrapper").css("height",boxSize); 
+    $("#score-wrapper").css("width",2 * boxSize); 
     
     $("#menu-wrapper").css("width",2 * boxSize); 
     $("#menu-wrapper").css("margin-top",yMin - 5);
