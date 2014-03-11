@@ -276,8 +276,7 @@ Monster.prototype.slowMonster = function(param, tureta) {
 
 
 /**
- *  Functia isAlive()
- *
+ *  @name isAlive
  *  @return {boolean} daca monstrul e in viata
  *  
  *  @example
@@ -352,7 +351,6 @@ Monster.prototype.moveTo = function(newX,newY) {
     
     if((xDiff != 0 || yDiff != 0) && this.reachedDestination() && this.current < path_x.length - 1) {
         this.moveTo(path_y[this.current+1], path_x[this.current + 1]);
-        console.log("reached" + this.type)
     }
 
 

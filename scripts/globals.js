@@ -141,9 +141,23 @@ function animate(context, object, offset) {
     if(offset == undefined) {
         //pt turete
         if(checkTurret(object)) {
-            context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0, FRAME_SIZE, FRAME_SIZE,
-            boxSize * object.x, boxSize * object.y, boxSize, boxSize);
-       
+            var frame       = 0;
+            var alpha       = 0;
+            var ANGLE_RATE  = 360 / object.spriteSize;
+
+            while(alpha < object.angle) {
+                frame = frame == 0 ? object.spriteSize - 1 : frame - 1;
+                alpha += ANGLE_RATE;
+            }            
+            
+            if(object.type != SLOW_TURRET.id) {
+                context.drawImage(object.sprite, frame * FRAME_SIZE, 0, FRAME_SIZE, FRAME_SIZE,
+                boxSize * object.x, boxSize * object.y, boxSize, boxSize);
+            } else {
+                context.drawImage(object.sprite, object.frameNumber * FRAME_SIZE, 0, FRAME_SIZE, FRAME_SIZE,
+                boxSize * object.x, boxSize * object.y, boxSize, boxSize);
+            }
+
             if(object.rateNumber == 0) {
             object.frameNumber = (object.frameNumber + 1) % object.spriteSize;
             }
