@@ -190,16 +190,16 @@ function searchPoints(harta, element)
 
 function addElement(element, x, y, harta)
 {
-	if(element >=11 && element <= 15)
+	/*if(element >=11 && element <= 15)
 	{
 		searchPoints(harta,element);
 		console.log("py: " + Pointsy[0]);
 		dist = Math.sqrt( (Pointsy[0]-x)*(Pointsy[0]-x) + (Pointsx[0]-y)*(Pointsx[0]-y));
 		console.log("dist= " + dist);
-		if(dist < 40)
+		if(dist < 4)
 			return false;	
 	}
-	
+	*/
 	if(matrix[y][x][harta] != 0)
 		return false;
 	
