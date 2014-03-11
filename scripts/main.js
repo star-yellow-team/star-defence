@@ -236,11 +236,12 @@ function startup() {
 	mapNumber = 0;
     }
 
+    $("body").attr("class", "playing")
     resetValues();		
     auxMaps();		
     wavereset();	
     main();
-    
+
     setTimeout(function() {
                 $("form").hide();
                 $("#dimmer").slideUp("fast");
