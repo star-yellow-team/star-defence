@@ -23,10 +23,40 @@ var dimension       =  0;
 var offset          =  0;
 var userLevel       =  0;
 var toAdd	    =  0;
-var rate	    = 50;
+var rate	    = 25;
 
 var loopOffset      =  0;
 var magicConstant   = 50;
+
+//magic function
+function calculateRate() {
+    var rate = 50;
+    switch(loopOffset) {
+        case 0:
+            break;
+        case 10:
+            rate = 4;
+            break;
+        case 20:
+            rate = 3;
+            break;
+        case 30:
+            rate = 6;
+            break;
+        case 40:
+            rate = 5;
+            break;
+        case 50:
+            rate = 1;
+            break;
+        default:
+            console.log('error')
+            break;
+    }
+
+    return rate;
+}
+
 //Story
 var StoryModeFinished = false; //daca s-a terminat storyul.
 var last_level_completed = false; //mai aveam nevoie si de variabila asta.
@@ -140,19 +170,21 @@ function animate(context, object, offset) {
     if(object == undefined) {return;}
     if(offset == undefined) {
         //pt turete
-        if(checkTurret(object)) {
-            var frame       = 0;
-            var alpha       = 0;
-            var ANGLE_RATE  = 360 / object.spriteSize;
-
-            while(alpha < object.angle) {
-                frame = frame == 0 ? object.spriteSize - 1 : frame - 1;
-                alpha += ANGLE_RATE;
-            }            
+        if(checkTurret(object)) {        
             
-            if(object.type != SLOW_TURRET.id) {
+            if(object.spriteFollow) {
+                var frame       = 0;
+                var alpha       = 0;
+                var ANGLE_RATE  = 360 / object.spriteSize;
+
+                while(alpha < object.angle) {
+                    frame = frame == 0 ? object.spriteSize - 1 : frame - 1;
+                    alpha += ANGLE_RATE;
+                }
+
                 context.drawImage(object.sprite, frame * FRAME_SIZE, 0, FRAME_SIZE, FRAME_SIZE,
                 boxSize * object.x, boxSize * object.y, boxSize, boxSize);
+
             } else {
                 context.drawImage(object.sprite, object.frameNumber * FRAME_SIZE, 0, FRAME_SIZE, FRAME_SIZE,
                 boxSize * object.x, boxSize * object.y, boxSize, boxSize);
@@ -164,6 +196,7 @@ function animate(context, object, offset) {
 
             object.rateNumber += 1
             object.rateNumber %= object.rate
+
         } else {
             object.frameNumber = 0;
             context.drawImage(object.sprite, 0, 0, FRAME_SIZE, FRAME_SIZE,
@@ -175,6 +208,7 @@ function animate(context, object, offset) {
         var s_size   = boxSize / 3;
         var current_s_x_offset = 0,
             current_s_y_offset = 0;
+
         for(var s = 0; s < object.upgradeLevel; ++ s) {
             context.drawImage(images[7], 0, 0, 50, 50, 
             boxSize * object.x + current_s_x_offset, boxSize * (object.y+1) - s_size + current_s_y_offset, s_size, s_size);

@@ -244,12 +244,13 @@ Monster.prototype.redoMonster = function()
 /**
  * Functia care incetineste un monstru
  *
- * @param {int}     param ??????
+ * @param {int}     index Indicele turetei de slow in vectorul
+ *                  turrets
  * @param {Turret}  turret referinta catre tureta
  *
  * */
-Monster.prototype.slowMonster = function(param, tureta) {
-    this.slowingTurret=param;
+Monster.prototype.slowMonster = function(index, tureta) {
+    this.slowingTurret=index;
 
     switch(this.type) {
         case SIMPLE_MONSTER.id:
@@ -271,7 +272,6 @@ Monster.prototype.slowMonster = function(param, tureta) {
             console.log("there`s an error with slow");
     }
 
-    return param;
 }
 
 
@@ -309,7 +309,8 @@ Monster.prototype.moveTo = function(newX,newY) {
         this.current        += 1;
         this.pace           = (Math.abs(this.destinationX - this.x) + 
                                     Math.abs(this.destinationY - this.y)) / 
-                                        magicConstant;
+                                        magicConstant; 
+	
     }
 
     var xDiff = 0,
@@ -350,6 +351,13 @@ Monster.prototype.moveTo = function(newX,newY) {
     }
     
     if((xDiff != 0 || yDiff != 0) && this.reachedDestination() && this.current < path_x.length - 1) {
+       if(goala() == false) {
+        if(toAdd == 0) {
+                spawn()
+        }
+        
+        toAdd = (toAdd+1) % calculateRate();
+        }
         this.moveTo(path_y[this.current+1], path_x[this.current + 1]);
     }
 
