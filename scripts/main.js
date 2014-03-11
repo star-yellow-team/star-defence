@@ -160,10 +160,15 @@ if (pause == 0){
 		if(toAdd == 0) {
 			spawn()
 		}
-		toAdd = (toAdd+1) % rate;
+                if(loopOffset < 20) {
+		    toAdd = (toAdd+1) % (loopOffset > 0 ? Math.floor(loopOffset/3) : rate);
+                } else {
+		    toAdd = (toAdd+1) % (loopOffset > 0 ? Math.floor(loopOffset/7) : rate);
+                }
 	}
 	else
     if(waveFinished()){
+        toAdd = 0;
     	waves_won_perBattle ++; //ACHIEVEMENTS
         generateWave();
         sizeMonsters(); 
@@ -235,11 +240,12 @@ function startup() {
 	mapNumber = 0;
     }
 
+    $("body").attr("class", "playing")
     resetValues();		
     auxMaps();		
     wavereset();	
     main();
-    
+
     setTimeout(function() {
                 $("form").hide();
                 $("#dimmer").slideUp("fast");
