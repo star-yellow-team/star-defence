@@ -11,7 +11,7 @@ var hover;
 var hoverY;
 var hoverX;
 var currentMousePos = { x: -1, y: -1 };
-var maxOffset = 50;
+var maxOffset = 30;
 var minOffset = 9;
 
 // Handler pentru forward si backward
