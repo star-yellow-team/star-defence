@@ -130,9 +130,7 @@ function gameSetup() {
                             case 4:
                                 auxiliaries.push(new Auxiliary(i, j, images[18], 3, 2)) 
                                 break;
-                        }
-
-                        addElement(123, i, j, mapNumber);
+                        }       
                         ++ _k;
                     }
                     break;
