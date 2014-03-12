@@ -311,6 +311,16 @@ Turret.prototype.playSound = function(){
 						audio14.play();
 					else if (isPlaying(audio15)==false)
 						audio15.play();
+					else if (isPlaying(audio16)==false)
+						audio16.play();
+					else if (isPlaying(audio17)==false)
+						audio17.play();
+					else if (isPlaying(audio18)==false)
+						audio18.play();
+					else if (isPlaying(audio19)==false)
+						audio19.play();
+					else if (isPlaying(audio20)==false)
+						audio20.play();
 					break;
 		default:	console.log("Invalid turret type!");	
 	}
