@@ -112,7 +112,7 @@ function gameSetup() {
 	    //	3 = base
             switch(getElement(i, j, mapNumber)) {
                 case 0:
-                    if(Math.floor((Math.random())*14) % 14 == 0 && _k < numberOfAuxiliaries ) {
+                    if(Math.floor((Math.random())*2) % 2 == 0 && _k < numberOfAuxiliaries ) {
                         if(Math.floor(Math.random()*2)%2== 0) {
                             auxiliaries.push(new Auxiliary(i, j, images[14], 3, 5)) 
                         } else {
