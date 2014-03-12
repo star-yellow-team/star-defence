@@ -13,15 +13,15 @@ var NUMBER_OF_TURRET_TYPES = 5;
 var MACHINEGUN_TURRET = {
     id:	0,
     name:   "Machinegun turret",
-    damage:	1.2,
+    damage:	1.3,
     range:	2,
-    attackSpeed:    10,
+    attackSpeed:    11,
     slow:   false,
     reveal: false,
     amount:	0,
     damageType:	"Single Monster",
     upgradeLevel:   0,
-    upgradePrice:   30,
+    upgradePrice:   45,
     price:	10,
     kills:	0,
     requirement:    "None",
@@ -45,11 +45,11 @@ var SLOW_TURRET = {
     attackSpeed:	0,
     damageType:	"Entire Area",
     upgradeLevel:	0,
-    upgradePrice:	30,
+    upgradePrice:	45,
     slow:	true,
     reveal:	false,
-    amount:	1.42857,
-    price:	20,
+    amount:	1,
+    price:	30,
     kills:	0,
     level: 0,
     requirement:	"None",
@@ -75,10 +75,10 @@ var PLASMA_TURRET = {
     attackSpeed:    22,
     damageType:	"Splash Damage",
     upgradeLevel:	0,
-    upgradePrice:	40,
+    upgradePrice:	55,
     reveal:	false,
     amount:	0,
-    price:	35,
+    price:	45,
     kills:	0,
     level: 0,
     requirement:	"None",
@@ -96,12 +96,12 @@ var PLASMA_TURRET = {
 var LASER_TURRET = {
         id:	3,
         name:   "Laser turret",
-        damage:	0.3,
+        damage:	0.1,
         range:	2,
         attackSpeed:	1,
         damageType:	"Single Monster",
         upgradeLevel:	0,
-        upgradePrice:	45,
+        upgradePrice:	55,
         slow:	false,
         reveal:	false,
         amount:	0,
@@ -125,17 +125,17 @@ var DETECTOR_TURRET = {
     damage:	0,
     range:	3,
     attackSpeed:	0,
-    damageType:	"Single Monster",
+    damageType:		"Entire Area",
     upgradeLevel:	0,
-    upgradePrice:	30,
+    upgradePrice:	40,
     slow:	false,
     reveal:	true,
     amount:	0,
-    price:	25,
+    price:	35,
     kills:	0,
     detection: "Yes",
     requirement:	"Pass level 8",
-    level: 100000,
+    level: 		0,
     description:	"Reveals invisible enemies within range",
     isAttacking:	false,
     contor:	0,
@@ -392,7 +392,7 @@ function detectEnemy(tureta)
 						//$.notify("You`re too greedy and you will receive no more money until you cool down", "error")	
 						//showMoneyLimitError = false;
 					} else {
-						userScore  += (waves[i].type + 3)*(waves[i].type + 3);
+						userScore  += (waves[i].type + 2)*(waves[i].type + 3);
 						//showMoneyLimitError = true;
 					}
 					
@@ -427,10 +427,10 @@ function Upgrade(x, y)
 			{
 				switch(turrets[i].upgradeLevel)	{
 					case 0:		turrets[i].range+=1; 			userScore=userScore-turrets[i].upgradePrice;		break;
-					case 1:		turrets[i].damage+=0.3;			userScore=userScore-turrets[i].upgradePrice;		break;
+					case 1:		turrets[i].damage+=0.1;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 2:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
-					case 3:		turrets[i].damage+=0.3;			userScore=userScore-turrets[i].upgradePrice;		break;
-					case 4:		turrets[i].attackSpeed-=3;		userScore=userScore-turrets[i].upgradePrice;		break;
+					case 3:		turrets[i].damage+=0.1;			userScore=userScore-turrets[i].upgradePrice;		break;
+					case 4:		turrets[i].attackSpeed-=2;		userScore=userScore-turrets[i].upgradePrice;		break;
 					default:	$("#highlight").show();
 								$("#highlight").notify("Maximum Turret Tech Level Reached","error",{ position:"bottom left" });
 								$("#highlight").hide();
@@ -449,10 +449,10 @@ function Upgrade(x, y)
 			{
 				switch(turrets[i].upgradeLevel)	{
 					case 0:		turrets[i].range+=1; 			userScore=userScore-turrets[i].upgradePrice;		break;
-					case 1:		turrets[i].amount=1.66666;		userScore=userScore-turrets[i].upgradePrice;		break;
+					case 1:		turrets[i].amount=1.1;		userScore=userScore-turrets[i].upgradePrice;		break;
 					case 2:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
-					case 3:		turrets[i].amount=2;			userScore=userScore-turrets[i].upgradePrice;		break;
-					case 4:		turrets[i].amount=2.5;			userScore=userScore-turrets[i].upgradePrice;		break;
+					case 3:		turrets[i].amount=1.2;			userScore=userScore-turrets[i].upgradePrice;		break;
+					case 4:		turrets[i].amount=1.3;			userScore=userScore-turrets[i].upgradePrice;		break;
 					default:	$("#highlight").show();
 								$("#highlight").notify("Maximum Turret Tech Level Reached","error",{ position:"bottom left" });
 								$("#highlight").hide();}
@@ -469,11 +469,11 @@ function Upgrade(x, y)
 			if (userScore-turrets[i].upgradePrice>=0)
 			{
 				switch(turrets[i].upgradeLevel)	{
-					case 0:		turrets[i].damage+=3; 			userScore=userScore-turrets[i].upgradePrice; 		break;
+					case 0:		turrets[i].damage+=2; 			userScore=userScore-turrets[i].upgradePrice; 		break;
 					case 1:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
-					case 2:		turrets[i].damage+=5;			userScore=userScore-turrets[i].upgradePrice;		break;
+					case 2:		turrets[i].damage+=2;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 3:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
-					case 4:		turrets[i].attackSpeed-=7;		userScore=userScore-turrets[i].upgradePrice;		break;
+					case 4:		turrets[i].attackSpeed-=3;		userScore=userScore-turrets[i].upgradePrice;		break;
 					default:	$("#highlight").show();
 								$("#highlight").notify("Maximum Turret Tech Level Reached","error",{ position:"bottom left" });
 								$("#highlight").hide();}
@@ -491,10 +491,10 @@ function Upgrade(x, y)
 			{
 				switch(turrets[i].upgradeLevel)	{
 					case 0:		turrets[i].range+=1; 			userScore=userScore-turrets[i].upgradePrice;		break;
-					case 1:		turrets[i].damage+=0.2;			userScore=userScore-turrets[i].upgradePrice;		break;
+					case 1:		turrets[i].damage+=0.1;			userScore=userScore-turrets[i].upgradePrice;		break;
 					case 2:		turrets[i].range+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
-					case 3:		turrets[i].damage+=0.5;			userScore=userScore-turrets[i].upgradePrice;		break;
-					case 4:		turrets[i].damage+=1;			userScore=userScore-turrets[i].upgradePrice;		break;
+					case 3:		turrets[i].damage+=0.2;			userScore=userScore-turrets[i].upgradePrice;		break;
+					case 4:		turrets[i].damage+=0.3;			userScore=userScore-turrets[i].upgradePrice;		break;
 					default:	$("#highlight").show();
 								$("#highlight").notify("Maximum Turret Tech Level Reached","error",{ position:"bottom left" });
 								$("#highlight").hide();}
@@ -555,40 +555,40 @@ function Verify(x, y)
 		case MACHINEGUN_TURRET.id:
 				switch(turrets[i].upgradeLevel)	{
 					case 0:		check.damage=1.2;	check.range=3;	check.attackSpeed=10;	check.upgradeLevel=1; 		break;
-					case 1:		check.damage=1.5;	check.range=3;	check.attackSpeed=10;	check.upgradeLevel=2;		break;
-					case 2:		check.damage=1.5;	check.range=4;	check.attackSpeed=10;	check.upgradeLevel=3;		break;
-					case 3:		check.damage=1.8;	check.range=4;	check.attackSpeed=10;	check.upgradeLevel=4;		break;
-					case 4:		check.damage=1.8;	check.range=4;	check.attackSpeed=7;	check.upgradeLevel=5;		break;
+					case 1:		check.damage=1.3;	check.range=3;	check.attackSpeed=10;	check.upgradeLevel=2;		break;
+					case 2:		check.damage=1.3;	check.range=4;	check.attackSpeed=10;	check.upgradeLevel=3;		break;
+					case 3:		check.damage=1.4;	check.range=4;	check.attackSpeed=10;	check.upgradeLevel=4;		break;
+					case 4:		check.damage=1.4;	check.range=4;	check.attackSpeed=7;	check.upgradeLevel=5;		break;
 					default:	return 0;	
 				}
 				break;
 		case SLOW_TURRET.id:
 				switch(turrets[i].upgradeLevel)	{
-					case 0:		check.amount=1.42857;	check.range=3;	check.upgradeLevel=1;		break;
-					case 1:		check.amount=1.66666;	check.range=3;	check.upgradeLevel=2;		break;
-					case 2:		check.amount=1.66666;	check.range=4;	check.upgradeLevel=3;		break;
-					case 3:		check.amount=2;		check.range=4;	check.upgradeLevel=4;		break;
-					case 4:		check.amount=2.5;	check.range=4;	check.upgradeLevel=5;		break;
+					case 0:		check.amount=1	;	check.range=3;	check.upgradeLevel=1;		break;
+					case 1:		check.amount=1.1;	check.range=3;	check.upgradeLevel=2;		break;
+					case 2:		check.amount=1.1;	check.range=4;	check.upgradeLevel=3;		break;
+					case 3:		check.amount=1.2;	check.range=4;	check.upgradeLevel=4;		break;
+					case 4:		check.amount=1.3;	check.range=4;	check.upgradeLevel=5;		break;
 					default:	return 0;		
 				}
 				break;	
 		case PLASMA_TURRET.id:
 				switch(turrets[i].upgradeLevel)	{
-					case 0:		check.damage=5;	check.range=2;	check.attackSpeed=22;	check.upgradeLevel=1; 		break;
-					case 1:		check.damage=5;	check.range=3;	check.attackSpeed=22;	check.upgradeLevel=2;		break;
-					case 2:		check.damage=10;	check.range=3;	check.attackSpeed=22;	check.upgradeLevel=3;		break;
-					case 3:		check.damage=10;	check.range=4;	check.attackSpeed=22;	check.upgradeLevel=4;		break;
-					case 4:		check.damage=10;	check.range=4;	check.attackSpeed=15;	check.upgradeLevel=5;		break;
+					case 0:		check.damage=4;		check.range=2;	check.attackSpeed=22;	check.upgradeLevel=1; 		break;
+					case 1:		check.damage=4;		check.range=3;	check.attackSpeed=22;	check.upgradeLevel=2;		break;
+					case 2:		check.damage=6;		check.range=3;	check.attackSpeed=22;	check.upgradeLevel=3;		break;
+					case 3:		check.damage=6;		check.range=4;	check.attackSpeed=22;	check.upgradeLevel=4;		break;
+					case 4:		check.damage=6;		check.range=4;	check.attackSpeed=19;	check.upgradeLevel=5;		break;
 					default:	return 0;		
 				}
 				break;
 		case LASER_TURRET.id:
 				switch(turrets[i].upgradeLevel)	{
-					case 0:		check.damage=0.3;	check.range=3;	check.attackSpeed=1;	check.upgradeLevel=1;		break;
-					case 1:		check.damage=0.5;	check.range=3;	check.attackSpeed=1;	check.upgradeLevel=2;		break;
-					case 2:		check.damage=0.5;	check.range=4;	check.attackSpeed=1;	check.upgradeLevel=3;		break;
-					case 3:		check.damage=1.0;	check.range=4;	check.attackSpeed=1;	check.upgradeLevel=4;		break;
-					case 4:		check.damage=2.0;	check.range=4;	check.attackSpeed=1;	check.upgradeLevel=5;		break;
+					case 0:		check.damage=0.1;	check.range=3;	check.attackSpeed=1;	check.upgradeLevel=1;		break;
+					case 1:		check.damage=0.2;	check.range=3;	check.attackSpeed=1;	check.upgradeLevel=2;		break;
+					case 2:		check.damage=0.2;	check.range=4;	check.attackSpeed=1;	check.upgradeLevel=3;		break;
+					case 3:		check.damage=0.4;	check.range=4;	check.attackSpeed=1;	check.upgradeLevel=4;		break;
+					case 4:		check.damage=0.7;	check.range=4;	check.attackSpeed=1;	check.upgradeLevel=5;		break;
 					default:	return 0;		
 				}
 				break;
@@ -598,7 +598,7 @@ function Verify(x, y)
 					case 1:		check.range=4;	check.upgradeLevel=2;		break;
 					case 2:		check.range=5;	check.upgradeLevel=3;		break;
 					case 3:		check.range=6;	check.upgradeLevel=4;		break;
-					case 4:		check.range=7;	check.upgradeLevel=5;		break;
+					case 4:		check.range=8;	check.upgradeLevel=5;		break;
 					default:	return 0;		
 				}
 				break;
