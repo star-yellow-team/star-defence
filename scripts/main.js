@@ -112,12 +112,25 @@ function gameSetup() {
 	    //	3 = base
             switch(getElement(i, j, mapNumber)) {
                 case 0:
-                    if(Math.floor((Math.random())*2) % 2 == 0 && _k < numberOfAuxiliaries ) {
-                        if(Math.floor(Math.random()*2)%2== 0) {
-                            auxiliaries.push(new Auxiliary(i, j, images[14], 3)) 
-                        } else {
-                            auxiliaries.push(new Auxiliary(i, j, images[15], 30)) 
-                        }
+                    if(Math.floor((Math.random())*14) % 14 == 0 && _k < numberOfAuxiliaries ) {
+                        var ct = Math.floor(Math.random()*NUMBER_OF_AUXILIARIES);
+                        switch(ct % NUMBER_OF_AUXILIARIES) {
+                            case 0:
+                                auxiliaries.push(new Auxiliary(i, j, images[14], 3, 1))
+                                break;
+                            case 1:
+                                auxiliaries.push(new Auxiliary(i, j, images[15], 30, 1)) 
+                                break;
+                            case 2:
+                                auxiliaries.push(new Auxiliary(i, j, images[16], 3, 1)) 
+                                break;
+                            case 3:
+                                auxiliaries.push(new Auxiliary(i, j, images[17], 3, 1)) 
+                                break;
+                            case 4:
+                                auxiliaries.push(new Auxiliary(i, j, images[18], 3, 2)) 
+                                break;
+                        }       
                         ++ _k;
                     }
                     break;

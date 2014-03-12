@@ -70,7 +70,7 @@ var FRAME_RATE                  =    3;
 var STAR_SIZE                   =   5;
 
 var auxiliaries                 = [];
-var numberOfAuxiliaries           = 30;
+var numberOfAuxiliaries           = 40;
 
 function resetValues() {
     life            =  5;
@@ -195,8 +195,13 @@ function animate(context, object, offset) {
             //draw auxiliary
             context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0,FRAME_SIZE, FRAME_SIZE, 
             boxSize * object.x, boxSize * object.y, dimension, dimension);
-            object.frameNumber += 1;
-            object.frameNumber %= object.spriteSize;
+            
+        if(object.rateNumber == 0) {
+                object.frameNumber = (object.frameNumber + 1) % object.spriteSize;
+            }
+
+            object.rateNumber += 1
+            object.rateNumber %= object.rate
         } else {
         //deseneaza monstrul
             context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0,FRAME_SIZE, FRAME_SIZE, 
