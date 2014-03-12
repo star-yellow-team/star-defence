@@ -83,7 +83,7 @@ var PLASMA_TURRET = {
     level: 0,
     requirement:	"None",
     level: 0,
-    description:	"Strong turret against swarms of small units",
+    description:	"Strong turret against swarms of weak enemies",
     isAttacking:	false,
     contor:	0,
     x:	0,
