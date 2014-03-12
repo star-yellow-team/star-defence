@@ -190,25 +190,27 @@ function searchPoints(harta, element)
 
 function addElement(element, x, y, harta)
 {
-	/*if(element >=11 && element <= 15)
+	if(element >=11 && element <= 15)
 	{
-		searchPoints(harta,element);
-		console.log("py: " + Pointsy[0]);
+		searchPoints(harta,2);
 		dist = Math.sqrt( (Pointsy[0]-x)*(Pointsy[0]-x) + (Pointsx[0]-y)*(Pointsx[0]-y));
-		console.log("dist= " + dist);
-		if(dist < 4)
+		if(dist < 4) {
+		    $(".ghostImage").notify("You cannot put it so close to base","error");
 			return false;	
+                }
 	}
-	*/
-	if(matrix[y][x][harta] != 0)
+	
+	if(matrix[y][x][harta] != 0) {
+		$(".ghostImage").notify("You cannot put it there :))","error");
 		return false;
+        }
 	
 	
 	if(y < 0 || y >= MAX_Y)
 		return false;
 	if(x < 0 || x >= MAX_X)
 		return false;
-	if(element==11||element==12||element ==13||element==14||element==15)turrets_placed_perBattle++; //ACHIEVEMENTS
+	if(element==11||element==12||element ==13||element==14||element==15) turrets_placed_perBattle++; //ACHIEVEMENTS
 	matrix[y][x][harta] = element;
 	return true;
 }

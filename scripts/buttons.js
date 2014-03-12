@@ -152,7 +152,7 @@ function drawTurret(turretNumber) {
                 var auxiliaryIndex = 0;
                 for(; auxiliaryIndex < auxiliaries.length; ++ auxiliaryIndex) {
                     if(auxiliaries[auxiliaryIndex].x == placeX && auxiliaries[auxiliaryIndex].y == placeY) {
-			$(".ghostImage").notify("You cannot put it there :))","error");
+                        $(".ghostImage").notify("You cannot put it there :))","error");
                         return false;
                     }
                 }
@@ -167,9 +167,7 @@ function drawTurret(turretNumber) {
                         		turret.y = placeY;
                         		turrets.push(turret);
 								userScore -= turret.price; 
-							} else {
-			                                    $(".ghostImage").notify("You cannot put it there :))","error");
-                                                        }
+							} 
 						} else if (userScore - turret.price < 0)
 							$(".ghostImage").notify("You do not have enough money","error");
 						else
@@ -185,9 +183,7 @@ function drawTurret(turretNumber) {
     	                    	turret.y = placeY;
         	                	turrets.push(turret);
 								userScore -= turret.price; 
-							} else {
-			                                    $(".ghostImage").notify("You cannot put it there :))","error");
-                                                        }
+							}
 						} else if (userScore - turret.price < 0)
 							$(".ghostImage").notify("You do not have enough money","error");
 						else
@@ -203,9 +199,7 @@ function drawTurret(turretNumber) {
                         	turret.y = placeY;
                         	turrets.push(turret);
 							userScore -= turret.price;
-							} else {
-			                                    $(".ghostImage").notify("You cannot put it there :))","error");
-                                                        }
+							} 
 						} else if (userScore - turret.price < 0)
 							$(".ghostImage").notify("You do not have enough money","error");
 						else
@@ -221,9 +215,7 @@ function drawTurret(turretNumber) {
                         	turret.y = placeY;
                         	turrets.push(turret);
 							userScore -= turret.price;
-							} else {
-			                                    $(".ghostImage").notify("You cannot put it there :))","error");
-                                                        }
+							} 
 						} else if (userScore - turret.price < 0)
 							$(".ghostImage").notify("You do not have enough money","error");
 						else
@@ -239,9 +231,7 @@ function drawTurret(turretNumber) {
                         	turret.y = placeY;
                         	turrets.push(turret);
 							userScore -= turret.price;
-							} else {
-			                                    $(".ghostImage").notify("You cannot put it there :))","error");
-                                                        }
+							}
 						} else if (userScore - turret.price < 0)
 							$(".ghostImage").notify("You do not have enough money","error");
 						else
