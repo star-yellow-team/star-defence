@@ -182,7 +182,6 @@ function searchPoints(harta, element)
 		for( var j = 0; j < MAX_X; j++)
 			if( matrix[i][j][harta] == element )
 			{
-				console.log("mere");
 				Pointsx.push(i);
 				Pointsy.push(j);
 			}
