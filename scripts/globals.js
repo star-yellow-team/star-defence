@@ -70,7 +70,7 @@ var FRAME_RATE                  =    3;
 var STAR_SIZE                   =   5;
 
 var auxiliaries                 = [];
-var numberOfAuxiliaries           = 40;
+var numberOfAuxiliaries         = 40;
 
 function resetValues() {
     life            =  5;
