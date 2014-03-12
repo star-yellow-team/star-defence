@@ -276,6 +276,15 @@ function Turret(type)
     }
 }
 
+Turret.prototype.playSound = function(){
+	switch(this.type)	{
+		case 0:		audio2.play(); 				break;
+		case 2:		audio1.play();				break;
+		case 3:		audio3.play();				break;
+		default:	console.log("Invalid turret type!");	
+	}
+}
+
 Turret.prototype.canAttack = function() {
     var s = this.attackSpeed * 50 / loopInterval
     var t = s > loopOffset ? s - loopOffset : 1; 
@@ -371,12 +380,13 @@ function detectEnemy(tureta)
         	            	    tureta.isAttacking=true;
 				    ok=false;
 				}
-				switch(tureta.type)	{
+				tureta.playSound();
+				/*switch(tureta.type)	{
 					case 0:		audio2.play(); 				break;
 					case 2:		audio1.play();				break;
 					case 3:		audio3.play();				break;
 					default:	console.log("Invalid turret type!");	
-				}
+				}*/
 				if(tureta.type == PLASMA_TURRET.id)
 				{
 					for (var j = waves.length-1; j >= 0; j--)
