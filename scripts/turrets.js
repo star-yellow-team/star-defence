@@ -7,7 +7,7 @@
 //numar maxim de tipuri de turete
 var NUMBER_OF_TURRET_TYPES = 5;
 
-
+function isPlaying(audelem) { return !audelem.paused; }
 
 //Tipuri de turete
 var MACHINEGUN_TURRET = {
@@ -277,10 +277,41 @@ function Turret(type)
 }
 
 Turret.prototype.playSound = function(){
+	var r = Math.floor((Math.random()*5)+1);
 	switch(this.type)	{
-		case 0:		audio2.play(); 				break;
-		case 2:		audio1.play();				break;
-		case 3:		audio3.play();				break;
+		case 0:		if (isPlaying(audio6)==false)
+						audio6.play();
+					else if (isPlaying(audio7)==false)
+						audio7.play();
+					else if (isPlaying(audio8)==false)
+						audio8.play();
+					else if (isPlaying(audio9)==false)
+						audio9.play();
+					else if (isPlaying(audio10)==false)
+						audio10.play();
+					break;
+		case 2:		if (isPlaying(audio1)==false)
+						audio1.play();
+					else if (isPlaying(audio2)==false)
+						audio2.play();
+					else if (isPlaying(audio3)==false)
+						audio3.play();
+					else if (isPlaying(audio4)==false)
+						audio4.play();
+					else if (isPlaying(audio5)==false)
+						audio5.play();
+					break;
+		case 3:		if (isPlaying(audio11)==false)
+						audio11.play();
+					else if (isPlaying(audio12)==false)
+						audio12.play();
+					else if (isPlaying(audio13)==false)
+						audio13.play();
+					else if (isPlaying(audio14)==false)
+						audio14.play();
+					else if (isPlaying(audio15)==false)
+						audio15.play();
+					break;
 		default:	console.log("Invalid turret type!");	
 	}
 }
