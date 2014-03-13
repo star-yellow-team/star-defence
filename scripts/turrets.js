@@ -414,7 +414,7 @@ function detectEnemy(tureta)
                                     if(loopOffset < 20) {
 	    	           	        waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-13));
                                     } else {
-	    	           	        waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-20));
+	    	           	        waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-35));
                                     }
 
                                     tureta.calculateAngle(waves[i])
