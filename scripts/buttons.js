@@ -222,20 +222,21 @@ function drawTurret(turretNumber) {
 							$(".ghostImage").notify("You are not experienced enough","error");
                         break;
                     case 15:
-                        var turret = new Turret(DETECTOR_TURRET.id);
+                        /* var turret = new Turret(DETECTOR_TURRET.id);
 						if(userScore - turret.price >= 0 && userLevel >= turret.level)
-                        {
+                         {
 							if (addElement(turretNumber, placeX, placeY, mapNumber) == true) {
     							unstick();
 							turret.x = placeX;
-                        	turret.y = placeY;
-                        	turrets.push(turret);
+                         	turret.y = placeY;
+                         	turrets.push(turret);
 							userScore -= turret.price;
 							}
 						} else if (userScore - turret.price < 0)
 							$(".ghostImage").notify("You do not have enough money","error");
 						else
 							$(".ghostImage").notify("You are not experienced enough","error");
+                        */
                         break;
 
                     default:
@@ -291,6 +292,7 @@ function description(turret) {
 function hideHover() {
 	$("#hover").hide();
 }
+
 
 function removeDescription(turret) {
 	$("#description").show();

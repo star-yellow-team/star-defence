@@ -35,8 +35,9 @@ var move_on         = true;
 var current_level   = 1;
 var user_selection  = 0//prompt("Cum se deruleaza jocul?","story");
 
-var bonusTime = 100;
-var bonusContor = 100;
+var bonusTime           = 100;
+var bonusContor         = 100;
+var RANDOM_BONUS_PRICE  = 15;
 
 //StoryTelling
 var coming_soon = true;
