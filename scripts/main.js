@@ -286,7 +286,7 @@ function main() {
             story();
             break;
     }
-
+	sizeScreen();
 }
 
 user_selection  = 'survival';
