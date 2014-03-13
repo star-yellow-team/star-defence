@@ -70,7 +70,7 @@ var SLOW_TURRET = {
 var PLASMA_TURRET = {
     id:	2,
     name:   "Plasma turret",
-    damage:	2,
+    damage:	3,
     range:	2,
     attackSpeed:    22,
     damageType:	"Splash Damage",
@@ -425,8 +425,8 @@ function detectEnemy(tureta)
 				if(tureta.type == PLASMA_TURRET.id)
 				{
 					for (var j = waves.length-1; j >= 0; j--)
-						if(distanta(waves[i], waves[j]) <= 0.1)
-							waves[j].doDamage(tureta.damage/3);
+						if(distanta(waves[i], waves[j]) <= 1.5)
+							waves[j].doDamage(tureta.damage);
 				}
 				if(tureta.type == SLOW_TURRET.id)
 					waves[i].slowMonster(turretIndex, tureta);	
@@ -620,11 +620,11 @@ function Verify(x, y)
 				break;	
 		case PLASMA_TURRET.id:
 				switch(turrets[i].upgradeLevel)	{
-					case 0:		check.damage=4;		check.range=2;	check.attackSpeed=22;	check.upgradeLevel=1; 		break;
-					case 1:		check.damage=4;		check.range=3;	check.attackSpeed=22;	check.upgradeLevel=2;		break;
-					case 2:		check.damage=6;		check.range=3;	check.attackSpeed=22;	check.upgradeLevel=3;		break;
-					case 3:		check.damage=6;		check.range=4;	check.attackSpeed=22;	check.upgradeLevel=4;		break;
-					case 4:		check.damage=6;		check.range=4;	check.attackSpeed=19;	check.upgradeLevel=5;		break;
+					case 0:		check.damage=5;		check.range=2;	check.attackSpeed=22;	check.upgradeLevel=1; 		break;
+					case 1:		check.damage=5;		check.range=3;	check.attackSpeed=22;	check.upgradeLevel=2;		break;
+					case 2:		check.damage=7;		check.range=3;	check.attackSpeed=22;	check.upgradeLevel=3;		break;
+					case 3:		check.damage=7;		check.range=4;	check.attackSpeed=22;	check.upgradeLevel=4;		break;
+					case 4:		check.damage=7;		check.range=4;	check.attackSpeed=19;	check.upgradeLevel=5;		break;
 					default:	return 0;		
 				}
 				break;
