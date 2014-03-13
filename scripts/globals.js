@@ -35,6 +35,9 @@ var move_on         = true;
 var current_level   = 1;
 var user_selection  = 0//prompt("Cum se deruleaza jocul?","story");
 
+var bonusTime = 100;
+var bonusContor = 100;
+
 //StoryTelling
 var coming_soon = true;
 var machineGuns_built = 0, first_machineGun = true, second_machineGun = true, third_machineGun = true;
