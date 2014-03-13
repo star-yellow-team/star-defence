@@ -46,31 +46,30 @@ randomAchivementsList = [
 "Try as much as you can to slow the monsters",
 "Don't like how things started? Space to pause and click restart",
 "You have other suggestions? Tell us"
-
 ]
 
-function randomAchivement() {
-    $.notify(randomAchivementsList[Math.floor(Math.random()*randomAchivementsList.length) % randomAchivementsList.length], {position:"bottom left"})
-}
+    function randomAchivement() {
+        $.notify(randomAchivementsList[Math.floor(Math.random()*randomAchivementsList.length) % randomAchivementsList.length], {position:"bottom left"})
+    }
 
-function updateAchievements()//Se apeleaza in functia gameLoop(), din main.js.
-{
-	//FOR FUN. Keeping the game with jokes and alive.
-	if(fun_activated == true)
-	{	
-		$.notify.defaults({ className: "info" }); //Pentru fun punem si noi cu info.
-		$.notify.defaults({ globalPosition: "bottom left" }); //Si bottom center sa apara.
-		switch(time_passed_perBattle)
-		{	
-			case 50:
-				$.notify("You smell good!");
-				break;
-			case 1000: //echivalentul a 5 secunde. 20 = 1 sec.
-				$.notify("You like the game, don't you? Here's some more credits! \n +100 credits.");
-				score +=100;
-				break;
-			case 800: 
-				$.notify("Beware the bugs!", "warn");
+    function updateAchievements()//Se apeleaza in functia gameLoop(), din main.js.
+    {
+            //FOR FUN. Keeping the game with jokes and alive.
+            if(fun_activated == true)
+            {	
+                    $.notify.defaults({ className: "info" }); //Pentru fun punem si noi cu info.
+                    $.notify.defaults({ globalPosition: "bottom left" }); //Si bottom center sa apara.
+                    switch(time_passed_perBattle)
+                    {	
+                            case 50:
+                                    $.notify("You smell good!");
+                                    break;
+                            case 1000: //echivalentul a 5 secunde. 20 = 1 sec.
+                                    $.notify("You like the game, don't you? Here's some more credits! \n +100 credits.");
+                                    score +=100;
+                                    break;
+                            case 800: 
+                                    $.notify("Beware the bugs!", "warn");
 				break;
 			case 2000:
 				$.notify("You have been playing the game for 1 minute! Here's some credits for your love! \n +200 credits.");

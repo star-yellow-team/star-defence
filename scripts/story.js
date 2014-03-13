@@ -122,7 +122,7 @@ if (pause == 0){
     // desenam
     draw();
     $("#money").html(String(userScore));
-    $("#health").html(String(life)+' / 5');
+    $("#health").html(String(life));
     $("#score").html(String(score));
 }
     gml = setTimeout(story, loopInterval);

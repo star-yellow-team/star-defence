@@ -28,6 +28,7 @@ function makeLevel(level)
     {
               
         case 1:
+            userScore = 80;
             addMonsters_onWave(0,5);
             break;
         
@@ -58,8 +59,8 @@ function makeLevel(level)
         case 6:
             addMonsters_onWave(1,1); 
             addMonsters_onWave(1,1);
-			addMonsters_onWave(3,10);
-			addMonsters_onWave(2,5);
+            addMonsters_onWave(3,10);
+            addMonsters_onWave(2,5);
             break;
 
         case 7:
