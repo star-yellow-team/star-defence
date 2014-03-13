@@ -87,17 +87,17 @@ input:focus {
 	outline: none;
 }
 
-input:hover {
-	background-color:rgba(0,0,0,0.75);
-	color:cyan;
-	border:2.5px solid cyan;
-	box-shadow: 0px 0px 10px cyan 0px 0px 5px cyan inset;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	background-size: 25px;
-	padding:20px;
-	border-radius:12.5px;
-	outline: none;
-	z-index:999;
+.btselected, input:hover {
+	background-color:rgba(0,0,0,0.75) !important;
+	color:cyan !important;
+	border:2.5px solid cyan !important;
+	box-shadow: 0px 0px 10px cyan 0px 0px 5px cyan inset !important;
+	font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+	background-size: cover;
+	padding:20px !important;
+	border-radius:12.5px !important;
+	outline: none !important;
+	z-index:999 !important;
 }
 
 #play {

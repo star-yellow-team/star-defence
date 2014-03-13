@@ -402,7 +402,11 @@ $("#upgrade").mouseenter(function(e) {
 
 $("#remove").mouseenter(function(e) {
     entered = true;
+<<<<<<< HEAD
+})
+
 mapNumber = 0;
 user_selection = survival;
 =======
 })
+>>>>>>> 78e9433157ecb0253cdd80beaecdedb6f6667d73

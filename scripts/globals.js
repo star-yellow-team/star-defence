@@ -33,7 +33,7 @@ var StoryModeFinished = false; //daca s-a terminat storyul.
 var last_level_completed = false; //mai aveam nevoie si de variabila asta.
 var move_on         = true;
 var current_level   = 1;
-var user_selection  = 0//prompt("Cum se deruleaza jocul?","story");
+var user_selection  = 'survival'//prompt("Cum se deruleaza jocul?","story");
 
 var bonusTime           = 100;
 var bonusContor         = 100;
