@@ -404,5 +404,4 @@ $("#remove").mouseenter(function(e) {
     entered = true;
 mapNumber = 0;
 user_selection = survival;
-=======
 })
