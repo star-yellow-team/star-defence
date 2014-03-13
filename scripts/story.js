@@ -9,7 +9,7 @@ function updateStoryTelling()
 	userScore+=score;
 	score-=score;
 	
-	if(coming_soon==true)$.notify("The great, immersive story is coming soon!", {position:"top center"});
+	if(coming_soon==true)$.notify("The great, immersive story is coming soon!");
 	coming_soon=false;
 	
 	//Machine Guns
@@ -42,7 +42,7 @@ function updateStoryTelling()
 	{
 		case 0:
 		if(wave1_alert==true){
-		$.notify("Commander! Warning! \n Enemies incoming!","info");
+		$.notify("Commander! Warning! Enemies incoming!","info");
 		wave1_alert = false;
 		}
 		break;
