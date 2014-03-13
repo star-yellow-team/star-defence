@@ -605,11 +605,11 @@ function Verify(x, y)
 	switch(turrets[i].type)	{
 		case MACHINEGUN_TURRET.id:
 				switch(turrets[i].upgradeLevel)	{
-					case 0:		check.damage=1.2;	check.range=3;	check.attackSpeed=10;	check.upgradeLevel=1; 		break;
-					case 1:		check.damage=1.3;	check.range=3;	check.attackSpeed=10;	check.upgradeLevel=2;		break;
-					case 2:		check.damage=1.3;	check.range=4;	check.attackSpeed=10;	check.upgradeLevel=3;		break;
-					case 3:		check.damage=1.4;	check.range=4;	check.attackSpeed=10;	check.upgradeLevel=4;		break;
-					case 4:		check.damage=1.4;	check.range=4;	check.attackSpeed=7;	check.upgradeLevel=5;		break;
+					case 0:		check.damage=1.3;	check.range=3;	check.attackSpeed=11;	check.upgradeLevel=1; 		break;
+					case 1:		check.damage=1.3;	check.range=3;	check.attackSpeed=11;	check.upgradeLevel=2;		break;
+					case 2:		check.damage=1.3;	check.range=4;	check.attackSpeed=11;	check.upgradeLevel=3;		break;
+					case 3:		check.damage=1.4;	check.range=4;	check.attackSpeed=11;	check.upgradeLevel=4;		break;
+					case 4:		check.damage=1.4;	check.range=4;	check.attackSpeed=9;	check.upgradeLevel=5;		break;
 					default:	return 0;	
 				}
 				break;
