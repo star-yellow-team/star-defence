@@ -96,7 +96,7 @@ var PLASMA_TURRET = {
 var LASER_TURRET = {
         id:	3,
         name:   "Laser turret",
-        damage:	0.1,
+        damage:	0.5,
         range:	2,
         attackSpeed:	1,
         damageType:	"Single Monster",
@@ -630,11 +630,11 @@ function Verify(x, y)
 				break;
 		case LASER_TURRET.id:
 				switch(turrets[i].upgradeLevel)	{
-					case 0:		check.damage=0.1;	check.range=3;	check.attackSpeed=1;	check.upgradeLevel=1;		break;
-					case 1:		check.damage=0.2;	check.range=3;	check.attackSpeed=1;	check.upgradeLevel=2;		break;
-					case 2:		check.damage=0.2;	check.range=4;	check.attackSpeed=1;	check.upgradeLevel=3;		break;
-					case 3:		check.damage=0.4;	check.range=4;	check.attackSpeed=1;	check.upgradeLevel=4;		break;
-					case 4:		check.damage=0.7;	check.range=4;	check.attackSpeed=1;	check.upgradeLevel=5;		break;
+					case 0:		check.damage=0.5;	check.range=3;	check.attackSpeed=1;	check.upgradeLevel=1;		break;
+					case 1:		check.damage=0.6;	check.range=3;	check.attackSpeed=1;	check.upgradeLevel=2;		break;
+					case 2:		check.damage=0.6;	check.range=4;	check.attackSpeed=1;	check.upgradeLevel=3;		break;
+					case 3:		check.damage=0.8;	check.range=4;	check.attackSpeed=1;	check.upgradeLevel=4;		break;
+					case 4:		check.damage=1.1;	check.range=4;	check.attackSpeed=1;	check.upgradeLevel=5;		break;
 					default:	return 0;		
 				}
 				break;
