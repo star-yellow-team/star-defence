@@ -304,6 +304,20 @@ function removeDescription(turret) {
 	$("#description").html("Remove an existing turret. You get half the money back!");
 }
 
+function bonusDescription(turret) {
+	$("#description").show();
+	$("#hover").show();
+	$("#title").html("Bonus!");
+	$("#hover").children("p").hide();
+	$("#hover").children("hr").hide();
+	$("#description").show();
+	$("#price").show();
+	$("#hover").children("hr:first").show();
+	$("#hover").children("p:eq(1)").show();
+	$("#price").html("15");
+	$("#description").html("Try your luck with a random bonus!");
+}
+
 $("#contextMenu").css("width","0");
 contextm = 0;
 	
