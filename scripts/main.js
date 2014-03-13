@@ -169,13 +169,15 @@ var turretIndex
  * */
 function gameLoop() {
 shortcuts();
-if(bonusContor == 0) {
-    bonuses[Math.floor(Math.random()*bonuses.length) % bonuses.length].effect();
-    bonusTime *= 2 + 1;
-    bonusContor = bonusTime; 
-}
+if(pause == 0) {
+    if(bonusContor == 0) {
+        bonuses[Math.floor(Math.random()*bonuses.length) % bonuses.length].effect();
+        bonusTime *= 2 + 1;
+        bonusContor = bonusTime; 
+    }
 
--- bonusContor;
+    -- bonusContor;
+}
 
 if(userScore < 200)
 	showMoneyLimitError = true;
