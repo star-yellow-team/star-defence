@@ -289,6 +289,9 @@ function main() {
 
 }
 
+user_selection  = 'survival';
+mapNumber = 0;
+
 function startup() {	
     if (mapNumber === "") {
 	mapNumber = 0;

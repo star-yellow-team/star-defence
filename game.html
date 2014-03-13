@@ -71,8 +71,8 @@
             preload('images/machinegun.png', 'images/lasergun.png', 'images/simplemonster.png', 'images/UFO.png',
             'images/speedymonster.png','images/powerfulmonster.png', 'images/RAMSIMONSTER.png', 'images/star.png',
             'images/plasmagun.png', 'images/path.png', 'images/slowturret.png', 'images/detector.png',
-            'images/start.png', 'images/tower.png', 'images/rock.png', 'images/iarba.png', 'images/star2.png', 
-            'images/fire.png', 'images/alien.png');
+            'images/start.png', 'images/tower.png', ' ', ' ', ' ', 
+            ' ', ' ');
 			
 			$("#dimmer").css({"opacity":"1"});
 			var audio1 = new Audio('sounds/Plasma.mp3');			audio1.volume = 0.05;
@@ -103,13 +103,13 @@
         
         <form id="startup">
         	<div id="gm">
-        		<input type="button" class="imgbt" value="survival" onclick="user_selection = 'survival'">
-        		<input type="button" class="imgbt" value="story" onclick="user_selection = 'story'">
+        		<input type="button" class="imgbt" value="survival" onclick="user_selection = 'survival'; $(this).parent().children('input').removeClass('btselected'); $(this).addClass('btselected');">
+        		<input type="button" class="imgbt" value="story" onclick="user_selection = 'story'; $(this).parent().children('input').removeClass('btselected'); $(this).addClass('btselected');">
             </div>
             <div id="mp">
-        		<input type="button" class="imgbt" value="1" onclick="mapNumber = 0">
-        		<input type="button" class="imgbt" value="2" onclick="mapNumber = 1">
-        		<input type="button" class="imgbt" value="3" onclick="mapNumber = 2">
+        		<input type="button" style="background-image:url(images/1.png); background-size:cover;" class="imgbt" onclick="mapNumber = 0; $(this).parent().children('input').removeClass('btselected'); $(this).addClass('btselected');">
+        		<input type="button" style="background-image:url(images/2.png); background-size:cover;" class="imgbt" onclick="mapNumber = 1; $(this).parent().children('input').removeClass('btselected'); $(this).addClass('btselected');">
+        		<input type="button" style="background-image:url(images/3.png); background-size:cover;" class="imgbt" onclick="mapNumber = 2; $(this).parent().children('input').removeClass('btselected'); $(this).addClass('btselected');">
             </div>                            
 			<input type="button" value="Proceed" onClick="startup()" autofocus>
         </form>
