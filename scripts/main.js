@@ -201,8 +201,7 @@ if (pause == 0){
     takeLife();
     
     if(gameOver()) {	
-        $.notify("You lasted untill level: " + userLevel +" and had the score: " + score);
-        sleep(5000)
+        finishedMessage = "You lasted untill level: " + userLevel +" and had the score: " + score
         location.reload();
         return 0;
     }
@@ -305,7 +304,11 @@ function startup() {
     if (mapNumber === "") {
 	mapNumber = 0;
     }
-
+    
+    if(finishedMessage != "") {
+        $.notify(finishedMessage)
+        finishedMessage = ""
+    }
     $("body").attr("class", "playing")
     resetValues();		
     auxMaps();		
