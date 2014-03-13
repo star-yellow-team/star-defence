@@ -15,7 +15,7 @@ var nrmax_path      =  0;
 var curentRound     = -1;
 var boxSize         =  0;
 
-var achivementTime  = 100;  
+var achivementTime  = 300;  
 var achivementContor  = achivementTime;
 
 //userScore = bani
