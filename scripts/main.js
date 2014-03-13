@@ -99,6 +99,7 @@ function draw() {
 
 // se apeleaza inaintea tuturor functiilor
 function gameSetup() {
+    findPath(mapNumber)
     curentRound = 1;
     life = 5;
 
@@ -147,13 +148,11 @@ function gameSetup() {
      	
     switch(user_selection) {
 	case 'survival':
-        	findPath(mapNumber)
 		generateWave();	
 		sizeMonsters();
 		break;
 			
         case 'story':
-        	findPath(mapNumber);
 		activateStoryMode();
 		break;
     }
