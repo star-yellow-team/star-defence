@@ -256,6 +256,12 @@ input#ff:hover {
 	background-color:transparent !important;
 }
 
+#remove {
+	background-image:url(../images/remove.png);
+	background-size:cover;
+	background-color:transparent !important;
+}
+
 /* Menu */
 .button {
 	background:none;
