@@ -11,6 +11,29 @@ Chestiile fun apar JOS STANGA.
 DEFAULTUL este success cu top left.
 */
 
+randomAchivementsList = [
+"Upgrading turrets can increase your chances",
+"Slow turrets can help you alot! You should try!",
+"Monsters move too slowly? Try fast forward :)",
+"Use turret's context menu to upgrade or remove it",
+"Removing turrets gives you half of its price back",
+"You can remove a turret to place it farther if a monster passed it",
+"Try to put turrets around corners",
+"Try random bonus if you are feeling lucky!",
+"Random bonus can give you score, money, life or it can kill monsters",
+"Don't worry if you lose one life.",
+"Killing monsters gives you money and score",
+"Don't forget you're fighting for a good cause",
+"You're a true saviour for the aliens",
+"Kill'em!",
+"Uhuuu... You're looking good",
+"Want to take a break? Place a"
+]
+
+function randomAchivement() {
+
+}
+
 function updateAchievements()//Se apeleaza in functia gameLoop(), din main.js.
 {
 	//FOR FUN. Keeping the game with jokes and alive.
