@@ -587,12 +587,13 @@ function Upgrade(x, y)
 
 function Verify(x, y)
 {	 
+        var check;
 	for (i in turrets)
 	{
 		if (x==turrets[i].x && y==turrets[i].y)
 	{
 	if (turrets[i].upgradeLevel < 5)
-		var check = new Turret(turrets[i].type);
+		check = new Turret(turrets[i].type);
 	else
 		check = -1;
 	if (check != -1)

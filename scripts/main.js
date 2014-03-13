@@ -244,7 +244,7 @@ if (pause == 0){
 
         draw();
         $("#money").html(String(userScore));
-        $("#health").html(String(life)+' / 5');
+        $("#health").html(String(life));
         $("#score").html(String(score))
     } // end if
 	

@@ -25,32 +25,32 @@
 
 //  monstru de baza
 var SIMPLE_MONSTER = {
-    id :    0,
-    health: 40,
-    speed:  1,
-    damage: 0, 
-    color:  'orange',
-    point: 2,
-    slowingTurret:	0,
-    visible: true,
-    sprite: images[2],
-    spriteSize: 4,
-    rate:   3
+    id :            0,
+    health:         40,
+    speed:          1,
+    damage:         0, 
+    color:          'orange',
+    point:          2,
+    slowingTurret:  0,
+    visible:        true,
+    sprite:         images[2],
+    spriteSize:     4,
+    rate:           3
 }
 
 //  monstru rapid
 var SPEEDY_MONSTER = {
-    id :    1,
-    health: 70,
-    speed:  2.5,
-    damage: 0,
-    color:  'blue',
-    point: 3,
-    slowingTurret:	0,
-    visible: true,
-    sprite: images[4],
-    spriteSize: 3,
-    rate: 3 
+    id :            1,
+    health:         70,
+    speed:          2.5,
+    damage:         0,
+    color:          'blue',
+    point:          3,
+    slowingTurret:  0,
+    visible:        true,
+    sprite:         images[4],
+    spriteSize:     3,
+    rate:           3 
 }
 
 // monstru si mai rapid
