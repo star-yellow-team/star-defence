@@ -102,17 +102,20 @@
         <div id="restart" onClick="restart()"></div>
         
         <form id="startup">
-        	<input type="number" name="map" id="map" placeholder="Map Number"><br/>
-            <h2 style="margin:0px;">Game Mode</h2><br/>
-        	<input type="radio" class="gamemode" name="gamemode" value="story"><p style="margin-right:10px;">Story</p>
-        	<input type="radio" class="gamemode" name="gamemode" value="survival" checked="checked"><p>Survival</p>
-            <br/>
-            <br/>
+        	<div id="gm">
+        		<input type="button" class="imgbt" value="survival" onclick="user_selection = 'survival'">
+        		<input type="button" class="imgbt" value="story" onclick="user_selection = 'story'">
+            </div>
+            <div id="mp">
+        		<input type="button" class="imgbt" value="1" onclick="mapNumber = 0">
+        		<input type="button" class="imgbt" value="2" onclick="mapNumber = 1">
+        		<input type="button" class="imgbt" value="3" onclick="mapNumber = 2">
+            </div>                            
 			<input type="button" value="Proceed" onClick="startup()" autofocus>
         </form>
         
 		<!-- Game Canvas is set to 100% of body -->
-        <div id="wrapper">
+        <div id="wrapper"><script type="text/javascript">$("#wrapper").fadeOut(0);</script>
         	<canvas id="gameCanvas" >
         	</canvas>
             <div id="menu-wrapper">
@@ -180,7 +183,7 @@
         <script type="text/javascript" src="scripts/maps.js"></script>
         <script type="text/javascript" src="scripts/path_finding.js"></script>
         <script type="text/javascript" src="scripts/monster.js"></script>
-	<script type="text/javascript" src="scripts/waves.js"></script>
+		<script type="text/javascript" src="scripts/waves.js"></script>
         <script type="text/javascript" src="scripts/turrets.js"></script>
         <script type="text/javascript" src="scripts/auxiliary.js"></script>
         <script type="text/javascript" src="scripts/bonus.js"></script>
@@ -191,8 +194,6 @@
         <script type="text/javascript" src="scripts/main.js"></script>
 
 		<script type="text/javascript">
-			$("#wrapper").fadeOut(0);
-		
 			$("#loading").animate({"opacity":"0","top":"100"});
 			$("#loading").hide();
 			

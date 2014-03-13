@@ -289,10 +289,7 @@ function main() {
 
 }
 
-function startup() {
-    mapNumber = document.getElementById("map").value;
-    user_selection = $('input[name="gamemode"]:checked').val();
-	
+function startup() {	
     if (mapNumber === "") {
 	mapNumber = 0;
     }
