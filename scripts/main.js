@@ -133,7 +133,7 @@ function gameSetup() {
                                 aux = new Auxiliary(i, j, images[18], 3, 2) 
                                 break;
                         }
-                        if(getElement(i, j) == 0) {
+                        if(addElement(123, i, j, mapNumber)) {
                             auxiliaries.push(aux)
                             ++ _k;
                         }
