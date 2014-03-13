@@ -91,9 +91,14 @@ if (pause == 0){
 				}
 	turret.isAttaking = false;
     }
+	if(loopOffset < 20) {
+	    time = (time+1) % (loopOffset > 0 ? Math.floor(loopOffset/3) : rate);
+        } else {
+	    time = (time+1) % (loopOffset > 0 ? Math.floor(loopOffset/7) : rate);
+        }
 	
-	if(time==ready) {start++; time=0;}
-	else time++;
+        if(time==0) {start++; time=0;}
+	
 	
 	if(waveFinished())
 	{
