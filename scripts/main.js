@@ -276,10 +276,7 @@ var gml;
  *  Ea incepe jocul
  * */
 function main() {
-    if(finishedMessage != "") {
-        $.notify(finishedMessage)
-        finishedMessage = ""
-    }
+
     playing   = 1
     switch(user_selection) {
 
@@ -308,6 +305,10 @@ function startup() {
 	mapNumber = 0;
     }
     
+    if(finishedMessage != "") {
+        $.notify(finishedMessage)
+        finishedMessage = ""
+    }
     $("body").attr("class", "playing")
     resetValues();		
     auxMaps();		
