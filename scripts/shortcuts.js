@@ -18,7 +18,7 @@ $(window).keyup(function(e) {
     if (e.keyCode == 52 && playing == 1)
         stick(14);
     if (e.keyCode == 53 && playing == 1)
-        stick(15);
+        randomBonus()//stick(15);
     if (e.keyCode == 27 && playing == 1) {
         unstick();
         rmenu();
