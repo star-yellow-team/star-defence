@@ -119,9 +119,23 @@ function sizeScreen() {
 	
     $("form").children("input").css("font-size",font100*150/100);
     $("form").css("font-size",font100*150/100);
-    $("form").children("input").css("padding",boxSize / 2);
 	$(".gamemode").css("width",boxSize/2);
 	$(".gamemode").css("height",boxSize/2);
+	
+	$("#gm").children("input").css("width",6 * boxSize);
+	$("#gm").children("input").css("height",4 * boxSize);
+	
+	$("#mp").children("input").css("width",6 * boxSize);
+	$("#mp").children("input").css("height",4 * boxSize);
+	
+	$("#gm").children("input").css("margin-right",boxSize);
+	$("#gm").children("input:last").css("margin-right",0);
+	
+	$("#mp").children("input").css("margin-right",boxSize);
+	$("#mp").children("input:last").css("margin-right",0);
+	
+	$("#gm").css("margin-bottom",2 * boxSize);
+	$("#mp").css("margin-bottom",2 * boxSize);
 	
     $("form").css("top",(screenHeight-$("form").height()) / 2);
     $("form").css("left",(screenWidth-$("form").width()) / 2);
