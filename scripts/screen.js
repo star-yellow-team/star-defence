@@ -163,6 +163,7 @@ function sizeScreen() {
 	$("#rw").css("margin-top",MAX_Y*boxSize/2 - $("#turret-menu").height()/2 - boxSize);
 	$("#ff").css("margin-top",MAX_Y*boxSize/2 - $("#turret-menu").height()/2 - boxSize);
 	$("#gm").children("input").css("font-size",1.5 * boxSize);
+	$("#gm").children("input").css("padding",0);
 }
 
 // o apelam pentru prima oara
