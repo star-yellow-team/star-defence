@@ -40,7 +40,13 @@ randomAchivementsList = [
 "More turrets, faster",
 "Use the space efficiently",
 "Enjoy the game",
-"Like the game? Check our page https://www.facebook.com/pages/Star-Defence/1452147018352978"
+"Like the game? Check our page https://www.facebook.com/pages/Star-Defence/1452147018352978",
+"Don't have mercy with the monsters",
+"How about showing your true skills now",
+"Try as much as you can to slow the monsters",
+"Don't like how things started? Space to pause and click restart",
+"You have other suggestions? Tell us"
+
 ]
 
 function randomAchivement() {

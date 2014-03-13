@@ -6,8 +6,6 @@
 * */
 function updateStoryTelling()
 {
-	userScore+=score;
-	score-=score;
 	
 	if(coming_soon==true)$.notify("The great, immersive story is coming soon!");
 	coming_soon=false;
