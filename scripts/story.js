@@ -6,10 +6,8 @@
 * */
 function updateStoryTelling()
 {
-	userScore+=score;
-	score-=score;
 	
-	if(coming_soon==true)$.notify("The great, immersive story is coming soon!", {position:"top center"});
+	if(coming_soon==true)$.notify("The great, immersive story is coming soon!");
 	coming_soon=false;
 	
 	//Machine Guns
@@ -42,7 +40,7 @@ function updateStoryTelling()
 	{
 		case 0:
 		if(wave1_alert==true){
-		$.notify("Commander! Warning! \n Enemies incoming!","info");
+		$.notify("Commander! Warning! Enemies incoming!","info");
 		wave1_alert = false;
 		}
 		break;
@@ -72,7 +70,7 @@ else{
 			location.reload();
 		}
 $("#money").html(String(userScore));
-$("#health").html(String(life)+' / 5');
+$("#health").html(String(life));
 
 if(StoryModeFinished == true) return 0; //Asta o sa existe si in main.js de pe github.
 
@@ -124,7 +122,7 @@ if (pause == 0){
     // desenam
     draw();
     $("#money").html(String(userScore));
-    $("#health").html(String(life)+' / 5');
+    $("#health").html(String(life));
     $("#score").html(String(score));
 }
     gml = setTimeout(story, loopInterval);

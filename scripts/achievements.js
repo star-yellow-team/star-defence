@@ -11,24 +11,65 @@ Chestiile fun apar JOS STANGA.
 DEFAULTUL este success cu top left.
 */
 
-function updateAchievements()//Se apeleaza in functia gameLoop(), din main.js.
-{
-	//FOR FUN. Keeping the game with jokes and alive.
-	if(fun_activated == true)
-	{	
-		$.notify.defaults({ className: "info" }); //Pentru fun punem si noi cu info.
-		$.notify.defaults({ globalPosition: "bottom left" }); //Si bottom center sa apara.
-		switch(time_passed_perBattle)
-		{	
-			case 50:
-				$.notify("You smell good!");
-				break;
-			case 1000: //echivalentul a 5 secunde. 20 = 1 sec.
-				$.notify("You like the game, don't you? Here's some more credits! \n +100 credits.");
-				score +=100;
-				break;
-			case 800: 
-				$.notify("Beware the bugs!", "warn");
+randomAchivementsList = [
+"Upgrading turrets can increase your chances",
+"Slow turrets can help you alot! You should try!",
+"Monsters move too slowly? Try fast forward :)",
+"Use turret's context menu to upgrade or remove it",
+"Removing turrets gives you half of its price back",
+"You can remove a turret to place it farther if a monster passed it",
+"Try to put turrets around corners",
+"Try random bonus if you are feeling lucky!",
+"Random bonus can give you score, money, life or it can kill monsters",
+"Don't worry if you lose one life.",
+"Killing monsters gives you money and score",
+"Don't forget you're fighting for a good cause",
+"You're a true saviour for the aliens",
+"Kill'em!",
+"Uhuuu... You're looking good",
+"Want to take a break? Press space :)",
+"Wrong turret? Press Esc",
+"Try using 1,2,3,4,5 as hotkeys for selecting turrets",
+"Do your best to save them",
+"Mooore turrets, the aliens need their planet intact",
+"What a lovely planet, isn't it?",
+"See that fire? Stop the monsters from doing more!",
+"Just look at the aliens waving at you :)",
+"Smile, there will be more of them comming",
+"Relax, you're doing just fine.",
+"More turrets, faster",
+"Use the space efficiently",
+"Enjoy the game",
+"Like the game? Check our page https://www.facebook.com/pages/Star-Defence/1452147018352978",
+"Don't have mercy with the monsters",
+"How about showing your true skills now",
+"Try as much as you can to slow the monsters",
+"Don't like how things started? Space to pause and click restart",
+"You have other suggestions? Tell us"
+]
+
+    function randomAchivement() {
+        $.notify(randomAchivementsList[Math.floor(Math.random()*randomAchivementsList.length) % randomAchivementsList.length], {position:"bottom left"})
+    }
+
+    function updateAchievements()//Se apeleaza in functia gameLoop(), din main.js.
+    {
+            //FOR FUN. Keeping the game with jokes and alive.
+            if(fun_activated == true)
+            {	
+                    $.notify.defaults({ className: "info" }); //Pentru fun punem si noi cu info.
+                    $.notify.defaults({ globalPosition: "bottom left" }); //Si bottom center sa apara.
+                    switch(time_passed_perBattle)
+                    {	
+                            case 50:
+                                    $.notify("You smell good!");
+                                    break;
+                            case 1000: //echivalentul a 5 secunde. 20 = 1 sec.
+                                    $.notify("You like the game, don't you? Here's some more credits! \n +100 credits.");
+                                    score +=100;
+                                    break;
+                            case 800: 
+                                    $.notify("Beware the bugs!", "warn");
 				break;
 			case 2000:
 				$.notify("You have been playing the game for 1 minute! Here's some credits for your love! \n +200 credits.");
