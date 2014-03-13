@@ -414,7 +414,7 @@ function detectEnemy(tureta)
                                     if(loopOffset < 20) {
 	    	           	        waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-13));
                                     } else {
-	    	           	        waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-15));
+	    	           	        waves[i].doDamage(tureta.damage + tureta.damage*loopOffset/(magicConstant-20));
                                     }
 
                                     tureta.calculateAngle(waves[i])
@@ -422,12 +422,6 @@ function detectEnemy(tureta)
 				    ok=false;
 				}
 				tureta.playSound();
-				/*switch(tureta.type)	{
-					case 0:		audio2.play(); 				break;
-					case 2:		audio1.play();				break;
-					case 3:		audio3.play();				break;
-					default:	console.log("Invalid turret type!");	
-				}*/
 				if(tureta.type == PLASMA_TURRET.id)
 				{
 					for (var j = waves.length-1; j >= 0; j--)

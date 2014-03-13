@@ -42,7 +42,7 @@ var wave1_alert = true, wave2_alert = true, wave3_alert = true;
 
 //Achievements
 var time_passed_perBattle = 0;
-var totalCredits = 0;
+var score = 0;
 var totalScore = 0;
 var fun_activated = true; // TIMP, CREDITS, SCOR, FUN
 
@@ -97,7 +97,7 @@ function resetValues() {
 
     //Achievements
     time_passed_perBattle = 0;
-    totalCredits = 0;
+    score = 0;
     totalScore = 0;
     fun_activated = true; // TIMP, CREDITS, SCOR, FUN
     enemies_defeated_perBattle  =   0;

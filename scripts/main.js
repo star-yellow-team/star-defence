@@ -117,16 +117,16 @@ function gameSetup() {
                         var aux;
                         switch(ct % NUMBER_OF_AUXILIARIES) {
                             case 0:
-                                aux = new Auxiliary(i, j, images[14], 3, 1)
+                                aux = new Auxiliary(i, j, images[14], 3, 3)
                                 break;
                             case 1:
                                 aux = new Auxiliary(i, j, images[15], 30, 1)
                                 break;
                             case 2:
-                                aux = new Auxiliary(i, j, images[16], 3, 1) 
+                                aux = new Auxiliary(i, j, images[16], 3, 2) 
                                 break;
                             case 3:
-                                aux = new Auxiliary(i, j, images[17], 3, 1) 
+                                aux = new Auxiliary(i, j, images[17], 3, 3) 
                                 break;
                             case 4:
                                 aux = new Auxiliary(i, j, images[18], 3, 2) 

@@ -202,7 +202,7 @@ Monster.prototype.doDamage      = function(amount) {
     amount = Math.abs(amount); // poate nenecesar, dar am vrut sa fiu sigur
     this.health -= amount;
 
-    if(this.isAlive()==false) { enemies_defeated_perBattle++; totalCredits ++;} //ACHIEVEMENTS
+    if(this.isAlive()==false) { enemies_defeated_perBattle++; score ++;} //ACHIEVEMENTS
 
     return this.isAlive()
 }

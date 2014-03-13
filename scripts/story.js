@@ -6,8 +6,8 @@
 * */
 function updateStoryTelling()
 {
-	userScore+=totalCredits;
-	totalCredits-=totalCredits;
+	userScore+=score;
+	score-=score;
 	
 	if(coming_soon==true)$.notify("The great, immersive story is coming soon!", {position:"top center"});
 	coming_soon=false;

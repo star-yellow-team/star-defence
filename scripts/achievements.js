@@ -25,14 +25,14 @@ function updateAchievements()//Se apeleaza in functia gameLoop(), din main.js.
 				break;
 			case 1000: //echivalentul a 5 secunde. 20 = 1 sec.
 				$.notify("You like the game, don't you? Here's some more credits! \n +100 credits.");
-				totalCredits +=100;
+				score +=100;
 				break;
 			case 800: 
 				$.notify("Beware the bugs!", "warn");
 				break;
 			case 2000:
 				$.notify("You have been playing the game for 1 minute! Here's some credits for your love! \n +200 credits.");
-				totalCredits += 200; 
+				score += 200; 
 				break;
 		}
 		$.notify.defaults({ className: "success" }); //pun la loc defaultul.
@@ -44,11 +44,11 @@ function updateAchievements()//Se apeleaza in functia gameLoop(), din main.js.
 	{
 		case 1:
 			if(first_enemy_defeated == false)
-			{first_enemy_defeated = true; $.notify("Congrats! You killed  you first enemy! \n + 50 credits."); totalCredits += 50; }
+			{first_enemy_defeated = true; $.notify("Congrats! You killed  you first enemy! \n + 50 credits."); score += 50; }
 			break;
 		case 10:
 			if(first_10_enemies_defeated == false)
-			{first_10_enemies_defeated = true; $.notify("You have defeated 10 enemies! \n + 100 credits."); totalCredits += 100; }
+			{first_10_enemies_defeated = true; $.notify("You have defeated 10 enemies! \n + 100 credits."); score += 100; }
 			break;
 		case 50:
 			if(first_50_enemies_defeated == false)
@@ -108,7 +108,7 @@ function updateAchievements()//Se apeleaza in functia gameLoop(), din main.js.
 	}
 	
 	//CREDITS________________________________________________________________________________________________________
-	switch(totalCredits)//Se aduna credits cand un monstru este omorat, deci la isAlive().
+	switch(score)//Se aduna credits cand un monstru este omorat, deci la isAlive().
 	{
 		case 100:
 			if(first_100_credits == false)
