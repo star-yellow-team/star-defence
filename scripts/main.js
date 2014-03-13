@@ -200,8 +200,10 @@ if (pause == 0){
     updateAchievements();
     takeLife();
     
-    if(gameOver()) {
-	location.reload();
+    if(gameOver()) {	
+        $.notify("You lasted untill level: " + userLevel +" and had the score: " + score);
+        sleep(5000)
+        location.reload();
         return 0;
     }
 	

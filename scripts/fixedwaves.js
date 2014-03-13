@@ -87,6 +87,9 @@ function makeLevel(level)
             break;
         case 11:
             last_level_completed=true;
+            $.notify("You finished story. You really helped the aliens. Congratulations");
+            sleep(5000)
+            location.reload();
             break;
     }
 }
