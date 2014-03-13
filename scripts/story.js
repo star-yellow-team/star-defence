@@ -70,7 +70,7 @@ else{
 			location.reload();
 		}
 $("#money").html(String(userScore));
-$("#health").html(String(life)+' / 5');
+$("#health").html(String(life));
 
 if(StoryModeFinished == true) return 0; //Asta o sa existe si in main.js de pe github.
 
