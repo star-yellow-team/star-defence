@@ -170,13 +170,21 @@ var turretIndex
 function gameLoop() {
 shortcuts();
 if(pause == 0) {
+    // partea cu sfaturile random
+    if(achivementContor == 0) {
+        randomAchivement();
+        achivementContor = achivementTime;
+    }
+    -- achivementContor;
+
+    // partea cu bonusuri
     if(bonusContor == 0) {
         bonuses[Math.floor(Math.random()*bonuses.length) % bonuses.length].effect();
         bonusTime *= 2 + 1;
         bonusContor = bonusTime; 
     }
-
     -- bonusContor;
+
 }
 
 if(userScore < 200)

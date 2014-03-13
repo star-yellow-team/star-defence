@@ -14,6 +14,10 @@ var path_y          = [];
 var nrmax_path      =  0;
 var curentRound     = -1;
 var boxSize         =  0;
+
+var achivementTime  = 100;  
+var achivementContor  = achivementTime;
+
 //userScore = bani
 var userScore       =  20;
 //score = nr monstri omorati

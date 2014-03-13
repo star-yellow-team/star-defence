@@ -27,11 +27,24 @@ randomAchivementsList = [
 "You're a true saviour for the aliens",
 "Kill'em!",
 "Uhuuu... You're looking good",
-"Want to take a break? Place a"
+"Want to take a break? Press space :)",
+"Wrong turret? Press Esc",
+"Try using 1,2,3,4,5 as hotkeys for selecting turrets",
+"Do your best to save them",
+"Mooore turrets, the aliens need their planet intact",
+"What a lovely planet, isn't it?",
+"See that fire? Stop the monsters from doing more!",
+"Just look at the aliens waving at you :)",
+"Smile, there will be more of them comming",
+"Relax, you're doing just fine.",
+"More turrets, faster",
+"Use the space efficiently",
+"Enjoy the game",
+"Like the game? Check our page https://www.facebook.com/pages/Star-Defence/1452147018352978"
 ]
 
 function randomAchivement() {
-
+    $.notify(randomAchivementsList[Math.floor(Math.random()*randomAchivementsList.length) % randomAchivementsList.length], {position:"bottom left"})
 }
 
 function updateAchievements()//Se apeleaza in functia gameLoop(), din main.js.
