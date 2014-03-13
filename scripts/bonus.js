@@ -8,22 +8,22 @@
  * */
 var LIFE_BONUS = {
     
+    description:    "You are lucky. Here is some bonus life for you!",
     effect:         function() {
                         life += 1; 
                         $.notify(this.description, "info")
-                    },
-    description:    "You are lucky. Here is some bonus life for you!"
+                    }
 };
 
 /**
  * @name Bonus that gives score
  * */
 var SCORE_BONUS = {
-
+    description: "You're a true hope for the poor aliens",
     effect:     function() {
                     score += 20; 
                     $.notify(this.description, "info")
-                },
+                }
 };
 
 /**
@@ -31,6 +31,7 @@ var SCORE_BONUS = {
  * */
 var MONEY_BONUS = {
     
+    description:   "You're playing good. Here some cash.",
     effect :        function() {
                         if(userScore < 175) {
                             userScore += 25; 
@@ -40,8 +41,7 @@ var MONEY_BONUS = {
                         }
                         
                         $.notify(this.description, "info")
-                    },
-    description:   "You're playing good. Here some cash." 
+                    }
 };
 
 /**
@@ -49,11 +49,11 @@ var MONEY_BONUS = {
  * */
 var KILL_BONUS = {
     
+    description: "Here's a good bonus. We killed some monsters for you.",
     effect:     function() {
                     waves.length = 0;
                     $.notify(this.description, "info")
-                },
-    description: "Here's a good bonus. We killed some monsters for you."
+                }
 };
 
 var bonuses = [LIFE_BONUS, SCORE_BONUS, MONEY_BONUS, KILL_BONUS]
