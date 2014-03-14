@@ -315,6 +315,7 @@ function bonusDescription(turret) {
 	$("#hover").children("hr:first").show();
 	$("#hover").children("p:eq(1)").show();
 	$("#price").html("15");
+	$("#price").css("color","orange");
 	$("#description").html("Try your luck with a random bonus!");
 }
 
