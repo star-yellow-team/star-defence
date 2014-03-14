@@ -585,9 +585,10 @@ function Upgrade(x, y)
 	return 1;
 }
 
+
 function Verify(x, y)
 {	 
-        var check;
+        var check = -1;
 	for (i in turrets)
 	{
 		if (x==turrets[i].x && y==turrets[i].y)
