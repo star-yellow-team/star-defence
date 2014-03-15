@@ -486,6 +486,7 @@ function Upgrade(x, y)
 				$("#highlight").show();
 				$("#highlight").notify("You do not have enough money","error",{ position:"bottom left" });
 				$("#highlight").hide();
+				unstick();
 			}
 		}
 		case SLOW_TURRET.id:
@@ -507,6 +508,7 @@ function Upgrade(x, y)
 				$("#highlight").show();
 				$("#highlight").notify("You do not have enough money","error",{ position:"bottom left" });
 				$("#highlight").hide();
+				unstick();
 			}
 		}	
 		case PLASMA_TURRET.id:
@@ -528,6 +530,7 @@ function Upgrade(x, y)
 				$("#highlight").show();
 				$("#highlight").notify("You do not have enough money","error",{ position:"bottom left" });
 				$("#highlight").hide();
+				unstick();
 			}
 		}
 		case LASER_TURRET.id:
@@ -549,6 +552,7 @@ function Upgrade(x, y)
 				$("#highlight").show();
 				$("#highlight").notify("You do not have enough money","error",{ position:"bottom left" });
 				$("#highlight").hide();
+				unstick();
 			}
 		}
 		case DETECTOR_TURRET.id:
@@ -570,6 +574,7 @@ function Upgrade(x, y)
 				$("#highlight").show();
 				$("#highlight").notify("You do not have enough money","error",{ position:"bottom left" });
 				$("#highlight").hide();
+				unstick();
 			}
 		}
 		default:

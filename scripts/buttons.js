@@ -168,10 +168,14 @@ function drawTurret(turretNumber) {
                         		turrets.push(turret);
 								userScore -= turret.price; 
 							} 
-						} else if (userScore - turret.price < 0)
+						} else if (userScore - turret.price < 0){
 							$(".ghostImage").notify("You do not have enough money","error");
-						else
+							unstick();
+						}
+						else{
 							$(".ghostImage").notify("You are not experienced enough","error");
+							unstick();
+						}
                         break;
                     case 12:
                         var turret = new Turret(SLOW_TURRET.id);
@@ -184,10 +188,14 @@ function drawTurret(turretNumber) {
         	                	turrets.push(turret);
 								userScore -= turret.price; 
 							}
-						} else if (userScore - turret.price < 0)
+						} else if (userScore - turret.price < 0){
 							$(".ghostImage").notify("You do not have enough money","error");
-						else
+							unstick();
+						}
+						else{
 							$(".ghostImage").notify("You are not experienced enough","error");
+							unstick();
+						}
                         break;
                     case 13:
                         var turret = new Turret(LASER_TURRET.id);
@@ -200,10 +208,14 @@ function drawTurret(turretNumber) {
                         	turrets.push(turret);
 							userScore -= turret.price;
 							} 
-						} else if (userScore - turret.price < 0)
+						} else if (userScore - turret.price < 0){
 							$(".ghostImage").notify("You do not have enough money","error");
-						else
+							unstick();
+						}
+						else{
 							$(".ghostImage").notify("You are not experienced enough","error");
+							unstick();
+						}
                         break;  
                     case 14:
                         var turret = new Turret(PLASMA_TURRET.id);
@@ -216,10 +228,14 @@ function drawTurret(turretNumber) {
                         	turrets.push(turret);
 							userScore -= turret.price;
 							} 
-						} else if (userScore - turret.price < 0)
+						} else if (userScore - turret.price < 0){
 							$(".ghostImage").notify("You do not have enough money","error");
-						else
+							unstick();
+						}
+						else{
 							$(".ghostImage").notify("You are not experienced enough","error");
+							unstick();
+						}
                         break;
                     case 15:
                         /* var turret = new Turret(DETECTOR_TURRET.id);
