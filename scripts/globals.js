@@ -203,7 +203,7 @@ function animate(context, object, offset) {
                  
          //deseneaza range-ul turetei
             context.beginPath();
-            context.fillStyle = "rgba(0, 0, 255, 0.3)"
+            context.fillStyle = "rgba(0, 255, 0, 0.3)"
             context.arc((object.x+1/2)*boxSize,(object.y+1/2)*boxSize,(object.range-1/2)*boxSize,0,2*Math.PI);
             context.fill();  
         } else if(isNaN(offset)) {
