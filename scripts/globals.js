@@ -148,8 +148,27 @@ function sizeMonsters() {
     
 }
 
+/**
+ * @name drawTurretRange
+ * @param {Context} context Context-ul 2d al canvas-ului
+ * @param {Turret} object Tureta
+ * @description Deseneaza range-ul turetei
+ * */
+function drawTurretRange(context, object) {
+    context.beginPath();
+    context.fillStyle = "rgba(0, 255, 0, 0.3)"
+    context.arc((object.x+1/2)*boxSize,(object.y+1/2)*boxSize,(object.range-1/2)*boxSize,0,2*Math.PI);
+    context.fill();
+}
+
 // draw image to screen drawImage(imageObject, sourceX, sourceY, sourceWidth, sourceHeight,
 // destinationX, destinationY, destinationWidth, destinationHeight)
+/**
+ * @name animate
+ * @param {Context} context Context-ul 2d al canvas-ului
+ * @param {Turret|Auxiliary|Monster} object obiectul de desenat
+ * @description Deseneaza animatia obiectului
+ * */
 function animate(context, object, offset) { 
     if(object == undefined) {return;}
 
@@ -165,10 +184,14 @@ function animate(context, object, offset) {
                 alpha += ANGLE_RATE;
             }            
             
+            
+
             if(object.type != SLOW_TURRET.id) {
+                drawTurretRange(context, object);
                 context.drawImage(object.sprite, frame * FRAME_SIZE, 0, FRAME_SIZE, FRAME_SIZE,
                 boxSize * object.x, boxSize * object.y, boxSize, boxSize);
             } else {
+                drawTurretRange(context, object);
                 context.drawImage(object.sprite, object.frameNumber * FRAME_SIZE, 0, FRAME_SIZE, FRAME_SIZE,
                 boxSize * object.x, boxSize * object.y, boxSize, boxSize);
             }
@@ -181,6 +204,7 @@ function animate(context, object, offset) {
             object.rateNumber %= object.rate
           
         } else {
+            drawTurretRange(context, object);
             object.frameNumber = 0;
             context.drawImage(object.sprite, 0, 0, FRAME_SIZE, FRAME_SIZE,
             boxSize * object.x, boxSize * object.y, boxSize, boxSize);
@@ -201,11 +225,7 @@ function animate(context, object, offset) {
                 }
             }
                  
-         //deseneaza range-ul turetei
-            context.beginPath();
-            context.fillStyle = "rgba(0, 255, 0, 0.3)"
-            context.arc((object.x+1/2)*boxSize,(object.y+1/2)*boxSize,(object.range-1/2)*boxSize,0,2*Math.PI);
-            context.fill();  
+             
         } else if(isNaN(offset)) {
             //draw auxiliary
             context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0,FRAME_SIZE, FRAME_SIZE, 
