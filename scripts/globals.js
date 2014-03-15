@@ -179,28 +179,33 @@ function animate(context, object, offset) {
 
             object.rateNumber += 1
             object.rateNumber %= object.rate
+          
         } else {
             object.frameNumber = 0;
             context.drawImage(object.sprite, 0, 0, FRAME_SIZE, FRAME_SIZE,
             boxSize * object.x, boxSize * object.y, boxSize, boxSize);
         }
 
-        // deseneaza stelutele
-        // scaleaza dimensiunea stelutei
-        var s_size   = boxSize / 3;
-        var current_s_x_offset = 0,
-            current_s_y_offset = 0;
-        for(var s = 0; s < object.upgradeLevel; ++ s) {
-            context.drawImage(images[7], 0, 0, 50, 50, 
-            boxSize * object.x + current_s_x_offset, boxSize * (object.y+1) - s_size + current_s_y_offset, s_size, s_size);
-            current_s_x_offset += s_size;
-            if(current_s_x_offset == boxSize) {
-                current_s_x_offset = 0;
-                current_s_y_offset = - s_size;
+            // deseneaza stelutele
+            // scaleaza dimensiunea stelutei
+            var s_size   = boxSize / 3;
+            var current_s_x_offset = 0,
+                current_s_y_offset = 0;
+            for(var s = 0; s < object.upgradeLevel; ++ s) {
+                context.drawImage(images[7], 0, 0, 50, 50, 
+                boxSize * object.x + current_s_x_offset, boxSize * (object.y+1) - s_size + current_s_y_offset, s_size, s_size);
+                current_s_x_offset += s_size;
+                if(current_s_x_offset == boxSize) {
+                    current_s_x_offset = 0;
+                    current_s_y_offset = - s_size;
+                }
             }
-        }
-             
-           
+                 
+         //deseneaza range-ul turetei
+            context.beginPath();
+            context.fillStyle = "rgba(0, 0, 255, 0.3)"
+            context.arc((object.x+1/2)*boxSize,(object.y+1/2)*boxSize,(object.range-1/2)*boxSize,0,2*Math.PI);
+            context.fill();  
         } else if(isNaN(offset)) {
             //draw auxiliary
             context.drawImage(object.sprite, object.frameNumber*FRAME_SIZE, 0,FRAME_SIZE, FRAME_SIZE, 
