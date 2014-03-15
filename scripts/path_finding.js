@@ -113,6 +113,11 @@ function findPath ()
 	var auxX = spawn_x;
 	var auxY = spawn_y;
 	
+	//aici vor fi variabile care ma ajuta sa determin random path
+	var vctx = [];
+	var vcty = [];	
+	//..............
+	
 	while(auxX != base_x || auxY != base_y)
 	{
 		switch(path_matrix[auxX][auxY] + 1)
@@ -140,20 +145,54 @@ function findPath ()
 			default:
 				console.log("eroare construire vector drum");		
 		}
-		/*
-		console.log(auxX + " " + auxY);
-		deletePoints(true);
-		searchPoints(mapNumber,path_matrix[auxX][auxY] + 1);
-		console.log("lungime puncte:" + Pointsx.length);
-		var rand = Math.random()*Pointsx.length;
-		rand = Math.round(rand);
-		console.log(rand);
-		path_x[path_matrix[auxX][auxY] + 1] = Pointsy[rand];
-		path_y[path_matrix[auxX][auxY] + 1] = Pointsx[rand];
-		console.log("puncte " + Pointsx[rand] + " " + Pointsy[rand]);
-		auxX = Pointsy[rand];
-		auxY = Pointsx[rand];
-		*/
+		
+		/*random path
+		
+			//Se blocheaza tot jocul daca apesi restart
+			//inca nu pare sa fie random
+		
+		var qwerty = 0;
+		if(path_matrix[auxX][auxY+1] > path_matrix[auxX][auxY])
+		{
+			vctx[qwerty] = auxX;
+			vcty[qwerty] = auxY+1;
+			qwerty++;
+		}
+		
+		if(path_matrix[auxX][auxY-1] > path_matrix[auxX][auxY])
+		{
+			vctx[qwerty] = auxX;
+			vcty[qwerty] = auxY-1;
+			qwerty++;
+		}
+		
+		if(path_matrix[auxX+1][auxY] > path_matrix[auxX][auxY])
+		{
+			vctx[qwerty] = auxX+1;
+			vcty[qwerty] = auxY;
+			qwerty++;
+		}
+		
+		if(path_matrix[auxX-1][auxY] > path_matrix[auxX][auxY])
+		{
+			vctx[qwerty] = auxX-1;
+			vcty[qwerty] = auxY;
+			qwerty++;
+		}
+		
+		var ind = Math.random() * qwerty;
+		ind = Math.round(ind);
+		if(ind > 0)
+		{
+			ind --;	
+		}
+		console.log("ind= " + ind + " qwerty= " + qwerty);
+		path_x[ path_matrix[vctx[ind]][vcty[ind]] ] = vctx[ind];
+		path_y[ path_matrix[vctx[ind]][vcty[ind]] ] = vcty[ind];
+		auxX = vctx[ind];
+		auxY = vcty[ind];
+		qwerty = 0;
+		//end random path*/
 	}
 	
 	
