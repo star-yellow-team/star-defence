@@ -301,56 +301,93 @@ Monster.prototype.isAlive = function() {
  *  var monster = new Monster(0,0,0)
  *  monster.moveTo(0,0);
  * */
-Monster.prototype.moveTo = function(newX,newY) {
-
-    if(newX != this.destinationX || newY != this.destinationY) {
-        this.destinationX   = newX;
-        this.destinationY   = newY;
-        this.current        += 1;
-        this.pace           = (Math.abs(this.destinationX - this.x) + 
-                                    Math.abs(this.destinationY - this.y)) / 
-                                        magicConstant;
-    }
-
+Monster.prototype.moveTo = function(newX,newY, moveX, moveY) {
     var xDiff = 0,
         yDiff = 0;
 
-    if(this.x != this.destinationX) {
-        if(this.x < this.destinationX) {
-            this.x += (this.pace)*this.speed+loopOffset/magicConstant;
-            if(this.x > this.destinationX) {
-                xDiff = this.x-this.destinationX;
-                this.x = this.destinationX;
-            }
-        } else {
-            this.x -= (this.pace)*this.speed+loopOffset/magicConstant;
+    if(newX != this.destinationX || newY != this.destinationY) {
+            this.destinationX   = newX;
+            this.destinationY   = newY;
+            this.current        += 1;
+            this.pace           = (Math.abs(this.destinationX - this.x) + 
+                                        Math.abs(this.destinationY - this.y)) / 
+                                            magicConstant;
+    }
+    var move = (this.pace)*this.speed+loopOffset/magicConstant;
+
+    if(moveX != undefined && moveY != undefined) {
+        if(this.x != this.destinationX) {
             if(this.x < this.destinationX) {
-                xDiff = this.x-this.destinationX;
-                this.x = this.destinationX;
+                this.x += moveX;
+                if(this.x > this.destinationX) {
+                    xDiff = this.x - this.destinationX;
+                    this.x= this.destinationX;
+                }
+            } else {
+                this.x -= moveX;
+                if(this.x < this.destinationX) {
+                    xDiff = this.destinationX-this.destinationY;
+                    this.x= this.destinationX;
+                }
             }
-            
+
         }
-    }
-    
-    if(this.y != this.destinationY) {
-        if(this.y < this.destinationY) {
-            this.y += (this.pace)*this.speed+loopOffset/magicConstant;
-            if(this.y > this.destinationY) {
-                yDiff = this.y-this.destinationY;
-                this.y = this.destinationY;
-            }
-        } else {
-            this.y -= (this.pace)*this.speed+loopOffset/magicConstant;
+
+        if(this.y != this.destinationY) {
             if(this.y < this.destinationY) {
-                yDiff = this.y-this.destinationY;
-                this.y = this.destinationY;
+                this.y += moveY;
+                if(this.y > this.destinationY) {
+                    yDiff = this.y - this.destinationY;
+                    this.y= this.destinationY;
+                }
+            } else {
+                this.y -= moveY;
+                if(this.y < this.destinationY) {
+                    yDiff = this.destinationY-this.destinationY;
+                    this.y= this.destinationY;
+                }
             }
-            
+
+        }    
+    } else {
+
+            if(this.x != this.destinationX) {
+            if(this.x < this.destinationX) {
+                this.x += move;
+                if(this.x > this.destinationX) {
+                    xDiff = this.x-this.destinationX;
+                    this.x = this.destinationX;
+                }
+            } else {
+                this.x -= move;
+                if(this.x < this.destinationX) {
+                    xDiff = this.destinationX - this.x;
+                    this.x = this.destinationX;
+                }
+                
+            }
         }
-    }
-    
+        
+        if(this.y != this.destinationY) {
+            if(this.y < this.destinationY) {
+                this.y += move;
+                if(this.y > this.destinationY) {
+                    yDiff = this.y-this.destinationY;
+                    this.y = this.destinationY;
+                }
+            } else {
+                this.y -= move;
+                if(this.y < this.destinationY) {
+                    yDiff = this.destinationY - this.y;
+                    this.y = this.destinationY;
+                }
+                
+            }
+        }
+    }   
+
     if((xDiff != 0 || yDiff != 0) && this.reachedDestination() && this.current < path_x.length - 1) {
-        this.moveTo(path_y[this.current+1], path_x[this.current + 1]);
+        this.moveTo(path_y[this.current+1], path_x[this.current + 1], xDiff, yDiff);
     }
 
 

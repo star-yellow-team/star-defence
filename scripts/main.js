@@ -304,7 +304,7 @@ user_selection  = 'survival';
 mapNumber = 0;
 
 function startup() {
-    if(toLoad != 0) {
+    if(toLoad > 0) {
         setTimeout(startup, 50);
         $("#loading").show();
         return;
