@@ -303,7 +303,14 @@ function main() {
 user_selection  = 'survival';
 mapNumber = 0;
 
-function startup() {	
+function startup() {
+    if(toLoad != 0) {
+        setTimeout(startup, 50);
+        $("#loading").show();
+        return;
+    }
+
+    $("#loading").hide()
     if (mapNumber === "") {
 	mapNumber = 0;
     }
@@ -334,7 +341,7 @@ function restart() {
     $("#wrapper").hide();
     $("#dimmer").slideUp("fast");
     
-	resetValues();	
+    resetValues();	
     restartTurrets();
     waves_won_perBattle=0;
     restartWaveSystem();
