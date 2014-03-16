@@ -15,6 +15,7 @@ var nrmax_path      =  0;
 var curentRound     = -1;
 var boxSize         =  0;
 
+var playing = 0;
 var finishedMessage = ""
 
 var achivementTime  = 300;  

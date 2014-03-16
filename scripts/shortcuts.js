@@ -1,6 +1,5 @@
 // JavaScript Document
 var pause = 0;
-var playing = 0;
 
 function shortcuts(){};
 $("#paused").hide();
