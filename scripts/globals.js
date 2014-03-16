@@ -157,7 +157,7 @@ function sizeMonsters() {
  * */
 function drawTurretRange(context, object) {
     context.beginPath();
-    context.fillStyle = "rgba(0, 255, 0, 0.3)"
+    context.fillStyle = "rgba(0, 255, 0, 0.15)"
     context.arc((object.x+1/2)*boxSize,(object.y+1/2)*boxSize,(object.range-1/2)*boxSize,0,2*Math.PI);
     context.fill();
 }
