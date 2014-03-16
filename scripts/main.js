@@ -127,7 +127,7 @@ function gameSetup() {
                                 aux = new Auxiliary(i, j, images[16], 3, 2) 
                                 break;
                             case 3:
-                                aux = new Auxiliary(i, j, images[17], 3, 3) 
+                                aux = new Auxiliary(i, j, images[17], 120, 1) 
                                 break;
                             case 4:
                                 aux = new Auxiliary(i, j, images[18], 3, 2) 
