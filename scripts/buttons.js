@@ -40,56 +40,60 @@ $("#ff").on("mouseup", function(e) {
 
 // Aducem ghostImageul albastru la mouse, stickuit pe grid
 $(document).mousemove(function(event) {
-		$(hover).show();
-		if (event.pageX < xMin) {
-			boxX = xMin;
-		} else if (event.pageX >= xMax) {
-			boxX = xMax;
-		} else {
-			boxX = xMin + Math.round((event.pageX - xMin - boxSize / 2) / boxSize) * boxSize;
-		}
-		if (event.pageY < yMin) {
-			boxY = yMin;
-		} else if (event.pageY >= yMax) {
-			boxY = yMax;
-		} else {
-			boxY = yMin + Math.round((event.pageY - yMin - boxSize / 2) / boxSize) * boxSize;
-		}
-                
-                $(hover).css("left",boxX);
-       	        $(hover).css("top",boxY);
-		
-                if (event.pageY + $("#hover").width() < screenHeight)
-			hoverY = event.pageY - 5;
-		else	
-			hoverY = event.pageY - $("#hover").height() - 5;
-		if (event.pageX + $("#hover").width() < screenWidth)
-			hoverX = event.pageX + 5;
-		else	
-			hoverX = event.pageX - $("#hover").width() - 25;
-		$("#hover").css("top",hoverY);
-		$("#hover").css("left",hoverX);
-		
-	
-		// Calculare Pozitie pe harta
-		placeX = Math.round((boxX - xMin - 5) / boxSize);
-		placeY = Math.round((boxY - yMin - 5) / boxSize);
-                
-                if(event.target != undefined && contextm == 1 && event.target.id == "gameCanvas") {
-                    rmenu(false);
-                }
+    if(playing == 0) {
+        return false;
+    }	
 
-                if (getElement(placeX, placeY) != 0 && getElement(placeX, placeY) != 1 && getElement(placeX, placeY) != 2 && 
-                    getElement(placeX, placeY) != 3 && contextm == 0 && getElement(placeX, placeY) != 123 && playing == 1) {
-			$("#highlight").show();
-			$("#highlight").css("top",boxY);
-			$("#contextMenu").css("top",boxY);
-			$("#highlight").css("left",boxX);
-			$("#contextMenu").css("left",boxX+boxSize);
-		        return false;
-                } else if(contextm != 1) {
-                    $("#highlight").hide()
-                }
+    $(hover).show();
+    if (event.pageX < xMin) {
+        boxX = xMin;
+    } else if (event.pageX >= xMax) {
+        boxX = xMax;
+    } else {
+        boxX = xMin + Math.round((event.pageX - xMin - boxSize / 2) / boxSize) * boxSize;
+    }
+    if (event.pageY < yMin) {
+        boxY = yMin;
+    } else if (event.pageY >= yMax) {
+        boxY = yMax;
+    } else {
+        boxY = yMin + Math.round((event.pageY - yMin - boxSize / 2) / boxSize) * boxSize;
+    }
+    
+    $(hover).css("left",boxX);
+    $(hover).css("top",boxY);
+    
+    if (event.pageY + $("#hover").width() < screenHeight)
+        hoverY = event.pageY - 5;
+    else	
+        hoverY = event.pageY - $("#hover").height() - 5;
+    if (event.pageX + $("#hover").width() < screenWidth)
+        hoverX = event.pageX + 5;
+    else	
+        hoverX = event.pageX - $("#hover").width() - 25;
+    $("#hover").css("top",hoverY);
+    $("#hover").css("left",hoverX);
+    
+
+    // Calculare Pozitie pe harta
+    placeX = Math.round((boxX - xMin - 5) / boxSize);
+    placeY = Math.round((boxY - yMin - 5) / boxSize);
+    
+    if(event.target != undefined && contextm == 1 && event.target.id == "gameCanvas") {
+        rmenu(false);
+    }
+
+    if (getElement(placeX, placeY) != 0 && getElement(placeX, placeY) != 1 && getElement(placeX, placeY) != 2 && 
+        getElement(placeX, placeY) != 3 && contextm == 0 && getElement(placeX, placeY) != 123 && playing == 1) {
+        $("#highlight").show();
+        $("#highlight").css("top",boxY);
+        $("#contextMenu").css("top",boxY);
+        $("#highlight").css("left",boxX);
+        $("#contextMenu").css("left",boxX+boxSize);
+        return false;
+    } else if(contextm != 1) {
+        $("#highlight").hide()
+    }
 });
 
 // Determina care ghost image se ataseaza cursorului
