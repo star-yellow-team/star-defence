@@ -152,7 +152,8 @@ function Turret(type)
         this.isSlowed   = false;
         this.frameNumber= 0;         
         this.rateNumber = 0;
-        this.angle     = 0;
+        this.angle      = 0;
+        this.drawRange  = false;
 
 	switch(type)	{
 		case MACHINEGUN_TURRET.id:

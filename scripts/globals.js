@@ -156,6 +156,9 @@ function sizeMonsters() {
  * @description Deseneaza range-ul turetei
  * */
 function drawTurretRange(context, object) {
+    if(!object.drawRange) {
+        return false;
+    }
     context.beginPath();
     context.fillStyle = "rgba(0, 255, 0, 0.15)"
     context.arc((object.x+1/2)*boxSize,(object.y+1/2)*boxSize,(object.range-1/2)*boxSize,0,2*Math.PI);

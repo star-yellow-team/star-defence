@@ -1,4 +1,5 @@
 /**
+ *
  * @author Adrian
  * Animeaza meniul si se ocupa de ghostImage-ul turetei pe care o plasez
  * lungimea si inaltimea documentului.
@@ -13,6 +14,18 @@ var hoverX;
 var currentMousePos = { x: -1, y: -1 };
 var maxOffset = 20;
 var minOffset = 9;
+var turret;
+
+//helper care ia tureta
+function getTurret(placeX, placeY) {
+
+    for(tIndex = 0; tIndex < turrets.length; ++ tIndex) {
+        if(turrets[tIndex].x == placeX && turrets[tIndex].y == placeY) {
+            turret = turrets[tIndex];
+        }            
+    }
+
+}
 
 // Handler pentru forward si backward
 $("#rw").on("mouseup", function (e) {
@@ -79,12 +92,20 @@ $(document).mousemove(function(event) {
     placeX = Math.round((boxX - xMin - 5) / boxSize);
     placeY = Math.round((boxY - yMin - 5) / boxSize);
     
+    if(event.target.id == "gameCanvas" && turret != undefined) {
+        turret.drawRange = false;
+    }
     if(event.target != undefined && contextm == 1 && event.target.id == "gameCanvas") {
         rmenu(false);
+        getTurret(placeX, placeY);
+        turret.drawRange = false;
     }
 
     if (getElement(placeX, placeY) != 0 && getElement(placeX, placeY) != 1 && getElement(placeX, placeY) != 2 && 
         getElement(placeX, placeY) != 3 && contextm == 0 && getElement(placeX, placeY) != 123 && playing == 1) {
+        getTurret(placeX, placeY);
+        turret.drawRange = true;
+
         $("#highlight").show();
         $("#highlight").css("top",boxY);
         $("#contextMenu").css("top",boxY);
@@ -132,13 +153,14 @@ function removeTurret() {
 	var plX = Math.round((parseInt($("#highlight").css("left")) - xMin) / boxSize);
 	var i =0, j = 0;
         deleteElement(plX, plY, mapNumber);
-	
+        	
         
 	for (i in turrets)
 		if(turrets[i].x == plX && turrets[i].y == plY) {
 			for (j = waves.length-1; j >= 0; j--)
 				waves[j].redoMonster();
 			userScore += (turrets[i].price + turrets[i].upgradeLevel * turrets[i].upgradePrice) / 2;
+                        turrets[i].drawRange = false;
         		turrets.splice(i, 1);
 		}
 
@@ -344,6 +366,7 @@ contextm = 0;
 	
 var entered = false;
 
+
 function cmenu() {
 	plY = Math.round((parseInt($("#highlight").css("top")) - yMin) / boxSize);
 	plX = Math.round((parseInt($("#highlight").css("left")) - xMin) / boxSize);
@@ -355,10 +378,13 @@ function cmenu() {
 	else 
 		upgr = 1
 		
+        getTurret(plX, plY);
+    
 	if (contextm == 0) {
 		if (upgr == 1) {
 			$('#contextMenu').animate({ "min-width": 2 * boxSize + 10} , 200);
 			$('#upgrade').show();
+                        turret.drawRange = true;
 		} else {
 			//$('#contextMenu').animate({ "min-width": boxSize + 10} , 200);
 			//$('#upgrade').hide();
@@ -367,10 +393,12 @@ function cmenu() {
 	} else {
 		$('#contextMenu').animate({ "min-width": 0} , 200);
 		contextm = 0;
+                turret.drawRange = false;
 	}
 	
         setTimeout(function(){
             if(!entered) {
+                turret.drawRange = false;
                 rmenu(true)
             }
         }, 4000);
@@ -391,6 +419,8 @@ function upgrade() {
 	plY = Math.round((parseInt($("#highlight").css("top")) - yMin) / boxSize);
 	plX = Math.round((parseInt($("#highlight").css("left")) - xMin) / boxSize);
 	Upgrade(plX,plY);
+        getTurret(plX, plY);
+        turret.drawRange = false;
 	rmenu(false);
 }
 
