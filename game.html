@@ -7,13 +7,13 @@
         
         <link rel="icon" 
       		type="image/png" 
-      		href="images/favicon.png">
+      		href="{{url_for('static', filename='images/favicon.png')}}">
             
         <link href="stylesheets/style.css" rel="stylesheet" type="text/css">
         
         <!-- Importing jQuery from Google as it probably already is cached in the browser memory -->
-        <script type="text/javascript" src="scripts/jquery.js"></script>
-        <script type="text/javascript" src="scripts/notify.js"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='scripts/jquery.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='scripts/notify.js')}}"></script>
         
         <script type="text/javascript">
 		// function load() {
@@ -65,18 +65,35 @@
 			function preload() {
 				for (i = 0; i < preload.arguments.length; i++) {
 					images[i] = new Image()
-					images[i].src = preload.arguments[i]
+					images[i].src = preload.arguments[i] 
 				        images[i].onload = function() {
                                             -- toLoad;
                                         	}
                                 }
 			}
             
-            preload('images/machinegun.png', 'images/lasergun.png', 'images/simplemonster.png', 'images/UFO.png',
-            'images/speedymonster.png','images/powerfulmonster.png', 'images/RAMSIMONSTER.png', 'images/star.png',
-            'images/plasmagun.png', 'images/path.png', 'images/slowturret.png', 'images/detector.png',
-            'images/start.png', 'images/tower.png', 'images/rock.png', 'images/iarba.png', 'images/star2.png', 
-            'images/fire.png', 'images/alien.png');
+            // url_for("static", filename="images/")
+            preload(
+                    '{{url_for("static", filename="images/machinegun.png"}})', 
+                    'url_for("static", filename="images/lasergun.png"',
+                    'url_for("static", filename="images/simplemonster.png"',
+                    'url_for("static", filename="images/UFO.png"',
+                    'url_for("static", filename="images/speedymonster.png"',
+                    'url_for("static", filename="images/powerfulmonster.png"',
+                    'url_for("static", filename="images/RAMSI.png"', 
+                    'url_for("static", filename="images/star.png"', 
+                    'url_for("static", filename="images/plasmagun.png"', 
+                    'url_for("static", filename="images/path.png"', 
+                    'url_for("static", filename="images/slowturret.png"', 
+                    'url_for("static", filename="images/detector.png"', 
+                    'url_for("static", filename="images/star.png"', 
+                    'url_for("static", filename="images/tower.png"',
+                    'url_for("static", filename="images/rock.png"', 
+                    'url_for("static", filename="images/iarba.png"', 
+                    'url_for("static", filename="images/star2.png"',  
+                    'url_for("static", filename="images/fire.png"', 
+                    'url_for("static", filename="images/alien.png"', 
+                    );
 			
 			$("#dimmer").css({"opacity":"1"});
 			var audio1 = new Audio('sounds/Plasma.mp3');
@@ -170,9 +187,9 @@
         		<input type="button" class="imgbt" value="story" onclick="user_selection = 'story'; $(this).parent().children('input').removeClass('btselected'); $(this).addClass('btselected');">
             </div>
             <div id="mp">
-        		<input type="button" style="background-image:url(images/1.png); background-size:cover;" class="imgbt" onclick="mapNumber = 0; $(this).parent().children('input').removeClass('btselected'); $(this).addClass('btselected');">
-        		<input type="button" style="background-image:url(images/2.png); background-size:cover;" class="imgbt" onclick="mapNumber = 1; $(this).parent().children('input').removeClass('btselected'); $(this).addClass('btselected');">
-        		<input type="button" style="background-image:url(images/3.png); background-size:cover;" class="imgbt" onclick="mapNumber = 2; $(this).parent().children('input').removeClass('btselected'); $(this).addClass('btselected');">
+        		<input type="button" style="background-image:url({{url_for('static', filename='images/1.png')}}); background-size:cover;" class="imgbt" onclick="mapNumber = 0; $(this).parent().children('input').removeClass('btselected'); $(this).addClass('btselected');">
+        		<input type="button" style="background-image:url({{url_for('static', filename='images/2.png')}}); background-size:cover;" class="imgbt" onclick="mapNumber = 1; $(this).parent().children('input').removeClass('btselected'); $(this).addClass('btselected');">
+        		<input type="button" style="background-image:url({{url_for('static', filename='images/3.png')}}); background-size:cover;" class="imgbt" onclick="mapNumber = 2; $(this).parent().children('input').removeClass('btselected'); $(this).addClass('btselected');">
             </div>                            
 			<input type="button" value="Proceed" onClick="startup()" autofocus>
         </form>

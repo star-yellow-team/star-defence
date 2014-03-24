@@ -1,0 +1,556 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* TABLE OF CONTENTS
+*
+*  1. CSS Importing
+*    1.1. Fonts
+*      1.1.1. Share Tech
+*  2. General CSS Styling
+*  3. Game Context
+*  4. Menu
+*  5. Ghost Image and Turret Buttons
+*/
+
+/* CSS Importing */
+  /* Fonts */
+    /* Share Tech */    @import url(http://fonts.googleapis.com/css?family=Share+Tech);
+
+
+/* General CSS Styling */
+
+#loading {
+	font-size:500%;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	position:fixed;
+	top:calc(50% - 200px);
+	color:lightblue;
+	font-variant:small-caps;
+	width:100%;
+	text-align:center;
+	z-index:1000;
+}
+
+.gamemode {
+	border-radius:100px;
+	background-color:none;
+	padding:0px;
+	margin:0px;
+}
+
+#paused {
+	font-size:500%;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	position:fixed;
+	top:calc(50% - 200px);
+	color:grey;
+	font-variant:small-caps;
+	text-align:center;
+	z-index:1000;
+}
+
+#misc {
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
+form {
+	position:fixed;
+	color:lightblue;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	text-align:center;
+	z-index:1001
+}
+
+form input {
+	background-color:rgba(0,0,0,0.75);
+	color:lightblue;
+	border:2.5px solid lightblue;
+	box-shadow: 0px 0px 10px lightblue, 0px 0px 5px lightblue inset;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background-size: 25px;
+	padding:20px;
+	border-radius:12.5px;
+	font-variant:small-caps;
+}
+
+input:focus {
+	background-color:rgba(0,0,0,0.75);
+	color:lightblue;
+	border:2.5px solid lightblue;
+	box-shadow: 0px 0px 10px lightblue, 0px 0px 5px lightblue inset;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background-size: 25px;
+	border-radius:12.5px;
+	outline: none;
+}
+
+.btselected, input:hover {
+	background-color:rgba(0,0,0,0.75) !important;
+	color:cyan !important;
+	border:2.5px solid cyan !important;
+	box-shadow: 0px 0px 10px cyan 0px 0px 5px cyan inset !important;
+	font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+	background-size: cover;
+	border-radius:12.5px !important;
+	outline: none !important;
+	z-index:999 !important;
+}
+
+#play {
+	position:absolute;
+	background-image:url(../images/play.png);
+	background-size:cover;
+	z-index: 1002;
+}
+
+#play:hover {
+	background-image:url(../images/playhover.png);
+}
+
+#restart {
+	position:absolute;
+	background-image:url(../images/restart.png);
+	background-size:cover;
+	z-index: 1002;
+}
+
+#restart:hover {
+	background-image:url(../images/restarthover.png);
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	padding: 0px;
+	width:100%;
+	height:100%;
+	/*background: -webkit-linear-gradient(#000300, #001F00, #000300); /* For Safari /
+	background: -o-linear-gradient(#000300, #001F00, #000300); /* For Opera 11.1 to 12.0 /
+	background: -moz-linear-gradient(#000300, #001F00, #000300); /* For Firefox 3.6 to 15 /
+	background: linear-gradient(#000300, #001F00, #000300); /* Standard syntax */
+	margin:auto;
+	background-image:url(../images/bkg.png);
+	background-size:cover;
+}
+
+.playing {
+    padding: 0px;
+    width:100%;
+    height:100%;
+    /*
+    background: -webkit-linear-gradient(#000300, #001F00, #000300); /* For Safari 
+    background: -o-linear-gradient(#000300, #001F00, #000300); /* For Opera 11.1 to 12.0 
+    background: -moz-linear-gradient(#000300, #001F00, #000300); /* For Firefox 3.6 to 15/
+    background: linear-gradient(#000300, #001F00, #000300); /* Standard syntax  
+*/
+    margin:auto;
+    background-image:url(../images/bkg1.png);
+    background-size:cover;
+}
+
+
+#wrapper {
+	margin:auto;
+	height:100%;
+	display:table;
+}
+
+#innerWrapper {
+	display:table-cell;
+	vertical-align:middle;
+	padding:auto;
+}
+
+input#ff, #rw {
+	background-color:rgba(0,0,0,0.75);
+	color:lightblue;
+	border:2.5px solid lightblue;
+	box-shadow: 0px 0px 10px lightblue, 0px 0px 5px lightblue inset;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	padding:20px;
+	border-radius:12.5px;
+	padding: 0px;
+	position:relative;
+	float:right;
+}
+
+input#rw {
+	float:left;
+}
+
+input#rw:hover {
+	background-color:rgba(0,0,0,0.75);
+	color:cyan;
+	border:2.5px solid cyan;
+	box-shadow: 0px 0px 10px cyan 0px 0px 5px cyan inset;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background-size: 25px;
+	border-radius:12.5px;
+	outline: none;
+	z-index:999;
+}
+
+input#ff:hover {
+	background-color:rgba(0,0,0,0.75);
+	color:cyan;
+	border:2.5px solid cyan;
+	box-shadow: 0px 0px 10px cyan 0px 0px 5px cyan inset;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background-size: 25px;
+	border-radius:12.5px;
+	outline: none;
+	z-index:999;
+}	
+
+/* Game Context */
+#menu-wrapper {
+	border: 5px solid #4C4C4C;
+	border-top-right-radius:15px;
+	border-bottom-right-radius:15px;
+	border-left: none;
+	position:relative;
+	float:right;
+	background-color:#003D00;
+	background: -webkit-linear-gradient(#000300, #000300, darkblue, #000300, #000300); /* For Safari */
+	background: -o-linear-gradient(#000300, #000300, darkblue, #000300, #000300); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#000300, #000300, darkblue, #000300, #000300); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#000300, #000300, darkblue, #000300, #000300); /* Standard syntax */
+	box-shadow: 0px 0px 250px black;
+}
+
+#bar-wrapper {
+	background-color:#000300;
+	vertical-align:central;
+	font-family: 'Share Tech', sans-serif;
+	font-size:100%;
+	display: table;
+	height: 400px;
+	#position: relative;
+	overflow: hidden;
+}
+
+#gameCanvas {
+    width:  100%;
+	height: 100%;
+    margin: auto;
+	border: 5px solid #4C4C4C;
+	border-right: none;
+	border-radius: 15px;
+	border-top-right-radius:0px;
+	border-bottom-right-radius:0px;
+	position:relative;
+	float:left;
+	background-color:rgba(0,0,0,0.75);
+	background-size:cover;
+	box-shadow: 0px 0px 250px black;
+}
+
+#upgrade {
+	background-image:url(../images/upgrade.png);
+	background-size:cover;
+	background-color:transparent !important;
+}
+
+#remove {
+	background-image:url(../images/remove.png);
+	background-size:cover;
+	background-color:transparent !important;
+}
+
+/* Menu */
+.button {
+	background:none;
+	border:none;
+	width:100px;
+	height:100px;
+	margin:0px;
+	padding:0px;
+	background-size:cover;
+}
+
+#turret {
+	background-color:blue;
+}
+
+#second {
+	background-color:red;
+}
+
+#third {
+	background-color:lime;
+}
+
+#ui-menu {
+	background-color:darkgrey;
+	position:relative;
+	float:right;
+}
+
+#turret-menu {
+}
+
+#bar-wrapper, #bar-wrapper p, #barwrapper tr, #bar-wrapper tr td {
+	padding:0px;
+	margin:0px;
+}
+
+#health-wrapper {
+	border-bottom: 2px solid lightblue;
+	color:white;
+	text-align:right;
+	display: table-cell;
+	vertical-align: middle;
+	background-image:url(../images/heart.png);
+	background-repeat:no-repeat;
+	background-position:left center;
+	padding-right:5px;
+}
+
+#money-wrapper {
+	color:white;
+	text-align:right;
+	display: table-cell;
+	vertical-align: middle;
+	background-image:url(../images/money.png);
+	background-repeat:no-repeat;
+	background-position:left center;
+	padding-right:5px;
+	border-bottom: 2px solid lightblue;
+}
+
+#level-wrapper {
+    color:lightblue;
+    text-align:center;
+    display: table-cell;
+    vertical-align: middle;
+    background-repeat:no-repeat;
+    background-position:left center;
+    padding-right:5px;
+    font-variant:small-caps;
+}
+
+#score-wrapper {
+    color:white;
+    text-align:right;
+    display: table-cell;
+    vertical-align: middle;
+    background-image:url(../images/score.png);
+    background-repeat:no-repeat;
+    background-position:left center;
+    background-size:30%;
+    padding-right:5px;
+    border-bottom: 2px solid lightblue;
+}
+
+#buttonsWrapper {
+	height:100px;
+	display:table-cell;
+	vertical-align:central;
+}
+
+/* Ghost Images and Turret Buttons */
+.ghostImage {
+	width:100px;
+	height:100px;
+	opacity:0.5;
+	position:absolute;
+	box-shadow: 0px 0px 25px green inset;
+	background-size:cover;
+}
+
+#machinegun, #machinegun_turret {
+}
+
+#slow, #slow_turret {
+}
+
+#laser, #laser_turret {
+}
+
+#plasma, #plasma_turret {
+}
+
+#detector, #detector_turret {
+}
+
+#remove, #remove_turret {
+	background-color:darkgreen;
+	position:relative;
+	float:left;
+}
+
+#upgrade {
+	position:relative;
+	float:left;
+	background-color:orange;
+}
+
+#highlight {
+	background-color:white;
+}
+
+#hover {
+	background-color:rgba(0,0,0,0.75);
+	border-radius:15px;
+	box-shadow:0px 0px 10px black;
+	color:white;
+	position:fixed;
+	overflow:hidden;
+	padding:10px;
+}
+
+#hover p {
+	font-size:100%;
+	padding:0px;
+	margin:0px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+#title {
+	font-size:150%;
+	font-family: 'Share Tech', sans-serif;
+}
+
+#slowt {
+	background-image:url(../images/snowflake.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	background-size:inherit;
+	color:cyan;
+}
+
+#reveal {
+	background-image:url(../images/eye.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	background-size:inherit;
+	color:lightgreen;
+}
+
+#price {
+	background-image:url(../images/money.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	background-size:inherit;
+	color: orange;
+}
+
+.notifyjs-bootstrap-success {
+	background-color:rgba(0,0,0,0.75) !important;
+	color:lime !important;
+	text-shadow:0px 0px 1px lime !important;
+	border:2.5px solid lime !important;
+	box-shadow: 0px 0px 10px lime, 0px 0px 5px lime inset;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background-image:url(../images/tick.png) !important;
+	background-size: 25px;
+	padding-left:30px !important;
+	border-radius:12.5px !important;
+}
+
+.notifyjs-bootstrap-info {
+	background-color:rgba(0,0,0,0.75) !important;
+	color:cyan !important;
+	text-shadow:0px 0px 1px cyan !important;
+	border:2.5px solid cyan !important;
+	box-shadow: 0px 0px 10px cyan, 0px 0px 5px cyan inset;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background-image:url(../images/info.png) !important;
+	background-size: 25px;
+	padding-left:30px !important;
+	border-radius:12.5px !important;
+}
+
+.notifyjs-bootstrap-warn {
+	background-color:rgba(0,0,0,0.75) !important;
+	color:yellow !important;
+	text-shadow:0px 0px 1px yellow !important;
+	border:2.5px solid yellow !important;
+	box-shadow: 0px 0px 10px yellow, 0px 0px 5px yellow inset;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background-image:url(../images/warn.png) !important;
+	background-size: 25px;
+	padding-left:30px !important;
+	border-radius:12.5px !important;
+}
+
+.notifyjs-bootstrap-error {
+	background-color:rgba(0,0,0,0.75) !important;
+	color:red !important;
+	text-shadow:0px 0px 1px red !important;
+	border:2.5px solid red !important;
+	box-shadow: 0px 0px 10px red, 0px 0px 5px red inset;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background-image:url(../images/error.png) !important;
+	background-size: 25px;
+	padding-left:30px !important;
+	border-radius:12.5px !important;
+}
+
+#contextMenu {
+	background-color:rgba(0,10,0,0.5);
+	position:absolute;
+	overflow:hidden;
+}
+
+#dimmer {
+	width:100%;
+	height:100%;
+	background-color:rgba(0,0,0,0.75);
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:1000;
+}
+
+.gamemode {
+	display:inline-block;
+	margin:0px;
+	margin-top:-15px;
+}
+
+form p {
+	display:inline-block;
+	margin:0px;
+	margin-top:-15px;
+}
+
+h2 {
+	margin:0px;
+}
+	
+
+@keyframes rotate {
+	0% {
+		transform:rotate(0deg);
+		-webkit-transform:rotate(0deg);
+	}
+	50% {
+		transform:rotate(180deg);
+		-webkit-transform:rotate(180deg);
+	}
+	100% {
+		transform:rotate(359deg);
+		-webkit-transform:rotate(359deg);
+	}
+}
+@-webkit-keyframes rotate {
+	0% {
+		transform:rotate(0deg);
+		-webkit-transform:rotate(0deg);
+	}
+	50% {
+		transform:rotate(180deg);
+		-webkit-transform:rotate(180deg);
+	}
+	100% {
+		transform:rotate(359deg);
+		-webkit-transform:rotate(359deg);
+	}
+}
