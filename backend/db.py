@@ -10,7 +10,7 @@ USER        = os.environ.get('USER')
 PASSWORD    = os.environ.get('PASSWORD')
 DB_LINK     = 'host=%s port=%d dbname=%s user=%s password=%s sslmode=require' % \
                 (HOST, PORT, DB, USER, PASSWORD)
-
+print DB_LINK
 
 """
 Verifica daca numele si parola sunt
