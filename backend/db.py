@@ -32,7 +32,7 @@ def sign_in_user(name, password):
         crypter.update(password)
         password = crypter.hexdigest()
     
-        cursor.execute("SELECT * FROM USERS WHERE name = ? AND PASSWORD = ?", (name, password))
+        cursor.execute("SELECT * FROM USERS WHERE name = %s AND PASSWORD = %s", (name, password))
         
         if len(cursor.fetchall()) == 0:
             return False
@@ -69,15 +69,15 @@ def sign_up_user(name, password):
     ok      = False
 
     try:
-        conn    = psycopg2.connect(DB_LINK)
-        cursor  = conn.cursor()
+        conn        = psycopg2.connect(DB_LINK)
+        cursor      = conn.cursor()
     
         crypter.update(password)
-        password = crypter.hexdigest()
+        password    = crypter.hexdigest()
         
-        cursor.execute("INSERT INTO USERS(NAME, PASSWORD) VALUES(?,?)", (name, password))
+        cursor.execute("INSERT INTO USERS(NAME, PASSWORD) VALUES(%s,%s)", (name, password))
         conn.commit()
-        ok      = True
+        ok          = True
     except Exception as e:
         print e
         ok = False
@@ -108,9 +108,9 @@ def new_score(name, score):
         cursor  = conn.cursor()
        
         cursor.execute('pragma foreign_keys = ON') 
-        cursor.execute('select id from users where name = ?', (name, ))
+        cursor.execute('select id from users where name = %s', (name, ))
         u_id = cursor.fetchone()[0]
-        cursor.execute('INSERT INTO SCORES(USER_ID, VALUE) VALUES(?,?)', (u_id, score))
+        cursor.execute('INSERT INTO SCORES(USER_ID, VALUE) VALUES(%s,%s)', (u_id, score))
         conn.commit()
         ok = True
     except Exception as e:
