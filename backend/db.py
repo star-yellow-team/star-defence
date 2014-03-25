@@ -8,7 +8,7 @@ DB          = os.environ.get('DB')
 PORT        = int(os.environ.get('PORT'))
 USER        = os.environ.get('USER')
 PASSWORD    = os.environ.get('PASSWORD')
-DB_LINK     = 'host=%s port=%d dbname=%s user=%s password=%s' % \
+DB_LINK     = 'host=%s port=%d dbname=%s user=%s password=%s sslmode=require' % \
                 (HOST, PORT, DB, USER, PASSWORD)
 
 
