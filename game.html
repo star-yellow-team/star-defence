@@ -9,7 +9,7 @@
       		type="image/png" 
       		href="{{url_for('static', filename='images/favicon.png')}}">
             
-        <link href="stylesheets/style.css" rel="stylesheet" type="text/css">
+        <link href="{{url_for('static', filename='stylesheets/style.css')}}" rel="stylesheet" type="text/css">
         
         <!-- Importing jQuery from Google as it probably already is cached in the browser memory -->
         <script type="text/javascript" src="{{url_for('static', filename='scripts/jquery.js')}}"></script>
@@ -36,10 +36,9 @@
         <h1 id="paused">PauseD</h1>
         
         <script type="text/javascript">
-		<!--//--><![CDATA[//><!--
 
 			var images = new Array();
-                        var toLoad = 24;
+                        var toLoad = 21;
                         /**
                         * images[0] -- MACHINEGUN_TURRET
                         * images[1] -- LASER_TURRET
@@ -72,110 +71,112 @@
                                 }
 			}
             
-            // url_for("static", filename="images/")
             preload(
-                    '{{url_for("static", filename="images/machinegun.png"}})', 
-                    'url_for("static", filename="images/lasergun.png"',
-                    'url_for("static", filename="images/simplemonster.png"',
-                    'url_for("static", filename="images/UFO.png"',
-                    'url_for("static", filename="images/speedymonster.png"',
-                    'url_for("static", filename="images/powerfulmonster.png"',
-                    'url_for("static", filename="images/RAMSI.png"', 
-                    'url_for("static", filename="images/star.png"', 
-                    'url_for("static", filename="images/plasmagun.png"', 
-                    'url_for("static", filename="images/path.png"', 
-                    'url_for("static", filename="images/slowturret.png"', 
-                    'url_for("static", filename="images/detector.png"', 
-                    'url_for("static", filename="images/star.png"', 
-                    'url_for("static", filename="images/tower.png"',
-                    'url_for("static", filename="images/rock.png"', 
-                    'url_for("static", filename="images/iarba.png"', 
-                    'url_for("static", filename="images/star2.png"',  
-                    'url_for("static", filename="images/fire.png"', 
-                    'url_for("static", filename="images/alien.png"', 
+                    '{{url_for("static", filename="images/machinegun.png")}}', 
+                    '{{url_for("static", filename="images/lasergun.png")}}',
+                    '{{url_for("static", filename="images/simplemonster.png")}}',
+                    '{{url_for("static", filename="images/UFO.png")}}',
+                    '{{url_for("static", filename="images/star.png")}}', 
+                    '{{url_for("static", filename="images/speedymonster.png")}}',
+                    '{{url_for("static", filename="images/powerfulmonster.png")}}',
+                    '{{url_for("static", filename="images/RAMSI.png")}}', 
+                    '{{url_for("static", filename="images/plasmagun.png")}}', 
+                    '{{url_for("static", filename="images/path.png")}}', 
+                    '{{url_for("static", filename="images/slowturret.png")}}', 
+                    '{{url_for("static", filename="images/detector.png")}}', 
+                    '{{url_for("static", filename="images/start.png")}}', 
+                    '{{url_for("static", filename="images/tower.png")}}',
+                    '{{url_for("static", filename="images/rock.png")}}', 
+                    '{{url_for("static", filename="images/iarba.png")}}', 
+                    '{{url_for("static", filename="images/star2.png")}}',  
+                    '{{url_for("static", filename="images/fire.png")}}', 
+                    '{{url_for("static", filename="images/alien.png")}}'
                     );
-			
+		
+                        var plasmaSrc       = '{{url_for('static', filename='sounds/Plasma.mp3')}}'
+                        var machinegunSrc   = '{{url_for('static', filename='sounds/Machinegun.ogg')}}'
+                        var laserSrc        = '{{url_for('static', filename='sounds/Laser.mp3')}}'
+
 			$("#dimmer").css({"opacity":"1"});
-			var audio1 = new Audio('sounds/Plasma.mp3');
+			var audio1 = new Audio(plasmaSrc);
 			audio1.volume = 0.05;
 		        audio1.addEventListener('canplaythrough', function() {--toLoad;})
                 	
-                        var audio2 = new Audio('sounds/Plasma.mp3');
+                        var audio2 = new Audio(plasmaSrc);
 			audio2.volume = 0.05;
                         audio2.addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio3 = new Audio('sounds/Plasma.mp3');
+			var audio3 = new Audio(plasmaSrc);
     			audio3.volume = 0.05;
                         audio3.addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio4 = new Audio('sounds/Plasma.mp3');			
+			var audio4 = new Audio(plasmaSrc);			
                         audio4.volume = 0.05;
                         audio4.addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio5 = new Audio('sounds/Plasma.mp3');
+			var audio5 = new Audio(plasmaSrc);
 			audio5.volume = 0.05;
                         audio5.addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio6 = new Audio('sounds/Machinegun.ogg');
+			var audio6 = new Audio(plasmaSrc);
             		audio6.volume = 0.05;
                         audio6.addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio7 = new Audio('sounds/Machinegun.ogg');		
+			var audio7 = new Audio(machinegunSrc);		
                         audio7.volume = 0.05;
                         audio7.addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio8 = new Audio('sounds/Machinegun.ogg');
+			var audio8 = new Audio(machinegunSrc);
             		audio8.volume = 0.05;
                         audio8.addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio9 = new Audio('sounds/Machinegun.ogg');
+			var audio9 = new Audio(machinegunSrc);
             		audio9.volume = 0.05;
                         audio9.addEventListener('canplaythrough', function() {-- toLoad;});
 
-			var audio10 = new Audio('sounds/Machinegun.ogg');
+			var audio10 = new Audio(machinegunSrc);
         		audio10.volume = 0.05;
                         audio10.addEventListener('canplaythrough', function() {-- toLoad;});
 
-			var audio11 = new Audio('sounds/Laser.mp3');
+			var audio11 = new Audio(laserSrc);
 			audio11.volume = 0.05;
                         audio11.addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio12 = new Audio('sounds/Laser.mp3');			
+			var audio12 = new Audio(laserSrc);			
                         audio12.volume = 0.05;
                         audio12.addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio13 = new Audio('sounds/Laser.mp3');
+			var audio13 = new Audio(laserSrc);
     			audio13.volume = 0.05;
                         audio13.addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio14 = new Audio('sounds/Laser.mp3');
+			var audio14 = new Audio(laserSrc);
     			audio14.volume = 0.05;
                         audio14.addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio15 = new Audio('sounds/Laser.mp3');	
+			var audio15 = new Audio(laserSrc);	
             		audio15.volume = 0.05;
                         audio15.addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio16 = new Audio('sounds/Laser.mp3');
+			var audio16 = new Audio(laserSrc);
     			audio16.volume = 0.05;
                         audio16.addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio17 = new Audio('sounds/Laser.mp3');
+			var audio17 = new Audio(laserSrc);
 			audio17.volume = 0.05;
                         audio17.addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio18 = new Audio('sounds/Laser.mp3');
+			var audio18 = new Audio(laserSrc);
 			audio18.volume = 0.05;
                         audio18.addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio19 = new Audio('sounds/Laser.mp3');
+			var audio19 = new Audio(laserSrc);
 	    		audio19.volume = 0.05;
                         audio19.addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio20 = new Audio('sounds/Laser.mp3');
+			var audio20 = new Audio(laserSrc);
 			audio20.volume = 0.05;
                         audio20.addEventListener('canplaythrough', function() {-- toLoad;})
-		//--><!]]>
 		</script>
 
         <div id="play" onClick="pausegame()"></div>
@@ -256,22 +257,22 @@
             <p><span style="font-weight:bold;">Requirements: </span><span id="requirement">Requirements</p>
         </div>
 
-	    <!-- Scripts are loading after page load to avoid changing unexisting objects -->
-        <script type="text/javascript" src="scripts/globals.js"></script>
-        <script type="text/javascript" src="scripts/achievements.js"></script>
-        <script type="text/javascript" src="scripts/fixedwaves.js"></script> 
-        <script type="text/javascript" src="scripts/maps.js"></script>
-        <script type="text/javascript" src="scripts/path_finding.js"></script>
-        <script type="text/javascript" src="scripts/monster.js"></script>
-		<script type="text/javascript" src="scripts/waves.js"></script>
-        <script type="text/javascript" src="scripts/turrets.js"></script>
-        <script type="text/javascript" src="scripts/auxiliary.js"></script>
-        <script type="text/javascript" src="scripts/bonus.js"></script>
-        <script type="text/javascript" src="scripts/screen.js"></script>
-        <script type="text/javascript" src="scripts/buttons.js"></script>
-        <script type="text/javascript" src="scripts/shortcuts.js"></script>
-        <script type="text/javascript" src="scripts/story.js"></script>
-        <script type="text/javascript" src="scripts/main.js"></script>
+	<!-- Scripts are loading after page load to avoid changing unexisting objects -->
+        <script type="text/javascript" src="{{url_for('static', filename='scripts/globals.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='scripts/achievements.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='scripts/fixedwaves.js')}}"></script> 
+        <script type="text/javascript" src="{{url_for('static', filename='scripts/maps.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='scripts/path_finding.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='scripts/monster.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static', filename='scripts/waves.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='scripts/turrets.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='scripts/auxiliary.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='scripts/bonus.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='scripts/screen.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='scripts/buttons.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='scripts/shortcuts.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='scripts/story.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='scripts/main.js')}}"></script>
 
 		<script type="text/javascript">
 			$("#loading").animate({"opacity":"0","top":"100"});
