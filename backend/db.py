@@ -1,8 +1,16 @@
-import sqlite3
+import psycopg2
 import sha
 import uuid
+import os
 
-DB_LINK = 'db.sql'
+HOST = os.environ.get('HOST')
+DB          = os.environ.get('DB')
+PORT        = int(os.environ.get('PORT'))
+USER        = os.environ.get('USER')
+PASSWORD    = os.environ.get('PASSWORD')
+DB_LINK     = 'host=%s port=%d dbname=%s user=%s password=%s' % \
+                (HOST, PORT, DB, USER, PASSWORD)
+
 
 """
 Verifica daca numele si parola sunt
@@ -18,7 +26,7 @@ def sign_in_user(name, password):
     crypter = sha.sha()
 
     try:
-        conn = sqlite3.connect(DB_LINK)
+        conn = psycopg2.connect(DB_LINK)
         cursor = conn.cursor()
     
         crypter.update(password)
@@ -31,7 +39,7 @@ def sign_in_user(name, password):
         else:
              return True 
 
-    except sqlite3.Error as e:
+    except Exception as e:
         print e
     finally:
         if conn is not None:
@@ -41,6 +49,7 @@ def sign_in_user(name, password):
 
     return False
         
+
 def get_guest_name():
     return 'guest' + str(uuid.uuid1())[:20]    
 
@@ -60,7 +69,7 @@ def sign_up_user(name, password):
     ok      = False
 
     try:
-        conn    = sqlite3.connect(DB_LINK)
+        conn    = psycopg2.connect(DB_LINK)
         cursor  = conn.cursor()
     
         crypter.update(password)
@@ -69,7 +78,7 @@ def sign_up_user(name, password):
         cursor.execute("INSERT INTO USERS(NAME, PASSWORD) VALUES(?,?)", (name, password))
         conn.commit()
         ok      = True
-    except sqlite3.Error as e:
+    except Exception as e:
         print e
         ok = False
         conn.rollback()
@@ -81,6 +90,7 @@ def sign_up_user(name, password):
         return ok
 
     return False
+
 
 """
 Adauga scorul pentru utilizator.
@@ -94,7 +104,7 @@ def new_score(name, score):
     ok      = False 
 
     try:
-        conn    = sqlite3.connect('db.sql')
+        conn    = psycopg2.connect(DB_LINK)
         cursor  = conn.cursor()
        
         cursor.execute('pragma foreign_keys = ON') 
@@ -103,7 +113,7 @@ def new_score(name, score):
         cursor.execute('INSERT INTO SCORES(USER_ID, VALUE) VALUES(?,?)', (u_id, score))
         conn.commit()
         ok = True
-    except sqlite3.Error as e:
+    except Exception as e:
         print e
         conn.rollback()
         ok = False
