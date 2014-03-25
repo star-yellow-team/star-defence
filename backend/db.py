@@ -5,7 +5,7 @@ import os
 
 HOST = os.environ.get('HOST')
 DB          = os.environ.get('DB')
-PORT        = int(os.environ.get('PORT'))
+PORT        = int(os.environ.get('PORT'), 80)
 USER        = os.environ.get('USER')
 PASSWORD    = os.environ.get('PASSWORD')
 DB_LINK     = 'host=%s port=%d dbname=%s user=%s password=%s sslmode=require' % \
