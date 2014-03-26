@@ -7,6 +7,7 @@ from twisted.web.server import Site
 
 app = flask.Flask(__name__, template_folder=".")
 
+@app.template_filter()
 def get_ws_address():
      return os.environ.get('WS_HOST')
 
