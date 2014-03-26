@@ -36,11 +36,11 @@ class EchoServerProtocol(WebSocketServerProtocol):
 
 def start_echo_server():
     factory = WebSocketServerFactory('ws://0.0.0.0:9000',
-                                     debug = True)
+                                     debug = False)
     factory.protocol = EchoServerProtocol
 
     thread = EchoThread()    
-    thread.start()
+#    thread.start()
 
     listenWS(factory)
     print 'listening'
