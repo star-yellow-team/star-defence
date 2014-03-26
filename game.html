@@ -93,90 +93,53 @@
                     '{{url_for("static", filename="images/alien.png")}}'
                     );
 		
-                        var plasmaSrc       = '{{url_for('static', filename='sounds/Plasma.mp3')}}'
-                        var machinegunSrc   = '{{url_for('static', filename='sounds/Machinegun.ogg')}}'
-                        var laserSrc        = '{{url_for('static', filename='sounds/Laser.mp3')}}'
+                        var plasmaSrc1       = '{{url_for('static', filename='sounds/Plasma.mp3')}}'
+						var plasmaSrc2       = '{{url_for('static', filename='sounds/Plasma.wav')}}'
+						var plasmaSrc3       = '{{url_for('static', filename='sounds/Plasma.ogg')}}'
+                        var machinegunSrc1   = '{{url_for('static', filename='sounds/Machinegun.mp3')}}'
+						var machinegunSrc2   = '{{url_for('static', filename='sounds/Machinegun.wav')}}'
+						var machinegunSrc3   = '{{url_for('static', filename='sounds/Machinegun.ogg')}}'
+                        var laserSrc1        = '{{url_for('static', filename='sounds/Laser.mp3')}}'
+						var laserSrc2        = '{{url_for('static', filename='sounds/Laser.wav')}}'
+						var laserSrc3        = '{{url_for('static', filename='sounds/Laser.ogg')}}'
 
 			$("#dimmer").css({"opacity":"1"});
-			var audio1 = new Audio(plasmaSrc);
-			audio1.volume = 0.05;
-		        audio1.addEventListener('canplaythrough', function() {--toLoad;})
-                	
-                        var audio2 = new Audio(plasmaSrc);
-			audio2.volume = 0.05;
-                        audio2.addEventListener('canplaythrough', function() {-- toLoad;})
+			var sounds = new Array();
+			sounds[0] = new Audio(plasmaSrc1);
+			sounds[0].volume = 0.05;
+		    sounds[0].addEventListener('canplaythrough', function() {--toLoad;})
 
-			var audio3 = new Audio(plasmaSrc);
-    			audio3.volume = 0.05;
-                        audio3.addEventListener('canplaythrough', function() {-- toLoad;})
+			sounds[1] = new Audio(plasmaSrc2);
+    		sounds[1].volume = 0.05;
+            sounds[1].addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio4 = new Audio(plasmaSrc);			
-                        audio4.volume = 0.05;
-                        audio4.addEventListener('canplaythrough', function() {-- toLoad;})
+			sounds[2] = new Audio(plasmaSrc3);
+			sounds[2] = 0.05;
+            sounds[2].addEventListener('canplaythrough', function() {-- toLoad;})
+				
+			sounds[3] = new Audio(machinegunSrc1);
+            sounds[3].volume = 0.05;
+            sounds[3].addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio5 = new Audio(plasmaSrc);
-			audio5.volume = 0.05;
-                        audio5.addEventListener('canplaythrough', function() {-- toLoad;})
+			sounds[4] = new Audio(machinegunSrc2);
+            sounds[4].volume = 0.05;
+            sounds[4].addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio6 = new Audio(machinegunSrc);
-            		audio6.volume = 0.05;
-                        audio6.addEventListener('canplaythrough', function() {-- toLoad;})
+			sounds[5] = new Audio(machinegunSrc3);
+			sounds[5].volume = 0.05;
+            sounds[5].addEventListener('canplaythrough', function() {-- toLoad;});
+			
+			sounds[6] = new Audio(laserSrc1);
+			sounds[6].volume = 0.05;
+            sounds[6].addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio7 = new Audio(machinegunSrc);		
-                        audio7.volume = 0.05;
-                        audio7.addEventListener('canplaythrough', function() {-- toLoad;})
+			sounds[7] = new Audio(laserSrc2);
+    		sounds[7].volume = 0.05;
+            sounds[7].addEventListener('canplaythrough', function() {-- toLoad;})
 
-			var audio8 = new Audio(machinegunSrc);
-            		audio8.volume = 0.05;
-                        audio8.addEventListener('canplaythrough', function() {-- toLoad;})
-
-			var audio9 = new Audio(machinegunSrc);
-            		audio9.volume = 0.05;
-                        audio9.addEventListener('canplaythrough', function() {-- toLoad;});
-
-			var audio10 = new Audio(machinegunSrc);
-        		audio10.volume = 0.05;
-                        audio10.addEventListener('canplaythrough', function() {-- toLoad;});
-
-			var audio11 = new Audio(laserSrc);
-			audio11.volume = 0.05;
-                        audio11.addEventListener('canplaythrough', function() {-- toLoad;})
-
-			var audio12 = new Audio(laserSrc);			
-                        audio12.volume = 0.05;
-                        audio12.addEventListener('canplaythrough', function() {-- toLoad;})
-
-			var audio13 = new Audio(laserSrc);
-    			audio13.volume = 0.05;
-                        audio13.addEventListener('canplaythrough', function() {-- toLoad;})
-
-			var audio14 = new Audio(laserSrc);
-    			audio14.volume = 0.05;
-                        audio14.addEventListener('canplaythrough', function() {-- toLoad;})
-
-			var audio15 = new Audio(laserSrc);	
-            		audio15.volume = 0.05;
-                        audio15.addEventListener('canplaythrough', function() {-- toLoad;})
-
-			var audio16 = new Audio(laserSrc);
-    			audio16.volume = 0.05;
-                        audio16.addEventListener('canplaythrough', function() {-- toLoad;})
-
-			var audio17 = new Audio(laserSrc);
-			audio17.volume = 0.05;
-                        audio17.addEventListener('canplaythrough', function() {-- toLoad;})
-
-			var audio18 = new Audio(laserSrc);
-			audio18.volume = 0.05;
-                        audio18.addEventListener('canplaythrough', function() {-- toLoad;})
-
-			var audio19 = new Audio(laserSrc);
-	    		audio19.volume = 0.05;
-                        audio19.addEventListener('canplaythrough', function() {-- toLoad;})
-
-			var audio20 = new Audio(laserSrc);
-			audio20.volume = 0.05;
-                        audio20.addEventListener('canplaythrough', function() {-- toLoad;})
+			sounds[8] = new Audio(laserSrc3);
+    		sounds[8].volume = 0.05;
+            sounds[8].addEventListener('canplaythrough', function() {-- toLoad;})
 		</script>
 
         <div id="play" onClick="pausegame()"></div>
@@ -258,13 +221,14 @@
         </div>
 
 	<!-- Scripts are loading after page load to avoid changing unexisting objects -->
+		<script type="text/javascript" src="{{url_for('static', filename='scripts/modernizr.js')}}"></script>
         <script type="text/javascript" src="{{url_for('static', filename='scripts/globals.js')}}"></script>
         <script type="text/javascript" src="{{url_for('static', filename='scripts/achievements.js')}}"></script>
         <script type="text/javascript" src="{{url_for('static', filename='scripts/fixedwaves.js')}}"></script> 
         <script type="text/javascript" src="{{url_for('static', filename='scripts/maps.js')}}"></script>
         <script type="text/javascript" src="{{url_for('static', filename='scripts/path_finding.js')}}"></script>
         <script type="text/javascript" src="{{url_for('static', filename='scripts/monster.js')}}"></script>
-	<script type="text/javascript" src="{{url_for('static', filename='scripts/waves.js')}}"></script>
+		<script type="text/javascript" src="{{url_for('static', filename='scripts/waves.js')}}"></script>
         <script type="text/javascript" src="{{url_for('static', filename='scripts/turrets.js')}}"></script>
         <script type="text/javascript" src="{{url_for('static', filename='scripts/auxiliary.js')}}"></script>
         <script type="text/javascript" src="{{url_for('static', filename='scripts/bonus.js')}}"></script>
