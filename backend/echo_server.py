@@ -6,6 +6,14 @@ import time
 
 clients = [] 
 
+def register(ws):
+    for client in clients:
+        if ws == client:
+            return false
+
+    clients.append(ws)
+    return True
+
 
 class EchoThread(Thread):
     def run(self):

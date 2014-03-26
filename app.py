@@ -1,11 +1,19 @@
 import flask
+from flask_sockets import Sockets
 import os
 import backend.echo_server
 from twisted.internet   import reactor, threads
 from twisted.web.wsgi   import WSGIResource
 from twisted.web.server import Site
 
-app = flask.Flask(__name__, template_folder=".")
+app     = flask.Flask(__name__, template_folder=".")
+sockets = Sockets(app)
+
+@sockets.route('/wsi')
+def send(ws):
+    register(ws)
+    print len(clients)
+    ws.send('hi there')
 
 @app.template_filter()
 def get_ws_address():
@@ -26,8 +34,13 @@ app.jinja_env.globals.update(ws_address=get_ws_address)
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 80))
     #app.run(host='0.0.0.0', port=port, debug=False)
+    #thread = EchoThread()
+    #thread.start() 
     backend.echo_server.start_echo_server()
     resource = WSGIResource(reactor, reactor.getThreadPool(), app)
     site = Site(resource)
     reactor.listenTCP(port, site)
     reactor.run()
+
+
+
