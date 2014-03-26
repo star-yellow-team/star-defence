@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <script type="text/javascript" charset="utf-8" src="{{url_for('static', filename='scripts/jquery.js')}}">
+        </script>
+         <script type="text/javascript" charset="utf-8">
+            var address = {{ws_address()}}
+            var webSocket = new WebSocket(address);
+            if(webSocket == undefined) {
+                webSocket = new MozWebSocket(address);
+            }
+           
+            webSocket.onmessage = function(e) {
+                $("#messages").append('<p>'+e.data+"</p>");
+            }
+         </script>
+        <title>Hello_ws</title>
+    </head>
+
+    <body>
+        <div id="messages" >
+            
+        </div>
+        
+    </body>
+    
+</html>

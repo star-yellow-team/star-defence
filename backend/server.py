@@ -1,5 +1,6 @@
 from twisted.internet import reactor, threads
-from autobahn.twisted.websocket import WebSocketServerFactory, WebSocketServerProtocol, listenWS
+from autobahn.twisted.websocket import WebSocketServerFactory,\
+    WebSocketServerProtocol, listenWS
 from player import Player
 from threading import Thread
 import db
@@ -7,28 +8,31 @@ import db
 # vector containing all players
 players = []
 
+
 # returneaza un jucator dupa numele sau
 def get_player_by_name(_name):
     for player in players:
         if player.name == _name:
             return player
 
+
 # returneaza un jucator dupa socket
 def get_player_by_socket(ws):
     for player in players:
         if player.ws is ws:
             return player
-   
+
     return None
 
 
 def get_players_by_game(game):
     _players = []
-    
+
     for player in players:
         if player.game_id == game:
+
             _players.append(player)
-    
+
     return _players
 
 
@@ -41,8 +45,8 @@ def handle_notification(ws, notification):
     if notification['code'] == 0:
         # clientul cere sa preia notificarile
         # de la server
-        # nu se intampla nimic pentru ca 
-        # server-ul automat trimite 
+        # nu se intampla nimic pentru ca
+        # server-ul automat trimite
         # notificarile
         pass
 
@@ -51,27 +55,34 @@ def handle_notification(ws, notification):
         ok = db.sign_up_user(notification['user'], notification['password'])
 
         if ok:
-            player.add_notification(Notification({'code':-1, 'success':True, 'message':'no errors'}))
+            player.add_notification(Notification({'code': -1,\
+                 'success': True, 'message': 'no errors'}))
         else:
-            player.add_notification(Notification({'code':-1, 'success':False, 'message':'Error while signing up'}))
-                
+            player.add_notification(Notification({'code': -1,\
+                'success': False, 'message': 'Error while signing up'}))
+
     elif notification['code'] == 2:
        # sign in user
         ok = db.sign_in_user(notification['user'], notification['passowrd'])
 
         if ok:
-            player.add_notification(Notification({'code':-1, 'success':True, 'message':'no errors'}))
+            player.add_notification(Notification({'code':-1, 'success':True,\
+                'message':'no errors'}))
         else:
-            player.add_notification(Notification({'code':-1, 'success':False, 'message':'Error while signing up'}))    
+            player.add_notification(Notification({'code':-1, 'success':False,\
+                'message':'Error while signing up'}))    
 
     elif notification['code'] == 3:
         name = db.get_guest_name()
         ok = sign_up_user(name, 'guest')
 
         if ok:
-            player.add_notification(Notification({'code':-1, 'success':True, 'message':'no errors'}))
+            player.add_notification(Notification({'code':-1, 'success':True, \
+                'message':'no errors'}))
+
         else:
-            player.add_notification(Notification({'code':-1, 'success':False, 'message':'Error while signing up'}))
+            player.add_notification(Notification({'code':-1, 'success':False, \
+                'message':'Error while signing up'}))
                  
 
     elif notification['code'] == 4:
@@ -135,7 +146,8 @@ class StatusUpdater(Thread):
             for player in players:
                 # if sau while?!
                 if len(player.notifications > 0):
-                    reactor.deferToThread(player.ws.sendMessage, payload=player.notifications.pop().to_json())
+                    reactor.deferToThread(player.ws.sendMessage,\
+                    payload=player.notifications.pop().to_json())
 
 
 

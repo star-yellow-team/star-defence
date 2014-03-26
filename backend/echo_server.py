@@ -25,17 +25,19 @@ class EchoServerProtocol(WebSocketServerProtocol):
 
     def onMessage(self, msg, binary):
         self.sendMessage(msg, binary)
- 
- 
-if __name__ == '__main__':
-    factory = WebSocketServerFactory("ws://localhost:9000", debug = False)
+
+def start_echo_server():
+    factory = WebSocketServerFactory("ws://localhost:9000",\
+                                     debug = False)
     factory.protocol = EchoServerProtocol
 
     thread = EchoThread()    
     thread.start()
 
     listenWS(factory)
-    reactor.run()
+    print 'listening'
 
-    
+ 
+if __name__ == '__main__':
+    start_echo_server()    
 
