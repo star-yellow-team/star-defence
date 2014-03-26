@@ -36,7 +36,7 @@ class EchoServerProtocol(WebSocketServerProtocol):
 
 def start_echo_server():
     factory = WebSocketServerFactory('ws://0.0.0.0:9000',
-                                     debug = False)
+                                     debug = True)
     factory.protocol = EchoServerProtocol
 
     thread = EchoThread()    
