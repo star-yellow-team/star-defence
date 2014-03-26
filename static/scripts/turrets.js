@@ -279,51 +279,87 @@ function Turret(type)
 
 Turret.prototype.playSound = function(){
 	var r = Math.floor((Math.random()*5)+1);
-	switch(this.type)	{
-		case 0:		if (isPlaying(audio6)==false)
-						audio6.play();
-					else if (isPlaying(audio7)==false)
-						audio7.play();
-					else if (isPlaying(audio8)==false)
-						audio8.play();
-					else if (isPlaying(audio9)==false)
-						audio9.play();
-					else if (isPlaying(audio10)==false)
-						audio10.play();
-					break;
-		case 2:		if (isPlaying(audio1)==false)
-						audio1.play();
-					else if (isPlaying(audio2)==false)
-						audio2.play();
-					else if (isPlaying(audio3)==false)
-						audio3.play();
-					else if (isPlaying(audio4)==false)
-						audio4.play();
-					else if (isPlaying(audio5)==false)
-						audio5.play();
-					break;
-		case 3:		if (isPlaying(audio11)==false)
-						audio11.play();
-					else if (isPlaying(audio12)==false)
-						audio12.play();
-					else if (isPlaying(audio13)==false)
-						audio13.play();
-					else if (isPlaying(audio14)==false)
-						audio14.play();
-					else if (isPlaying(audio15)==false)
-						audio15.play();
-					else if (isPlaying(audio16)==false)
-						audio16.play();
-					else if (isPlaying(audio17)==false)
-						audio17.play();
-					else if (isPlaying(audio18)==false)
-						audio18.play();
-					else if (isPlaying(audio19)==false)
-						audio19.play();
-					else if (isPlaying(audio20)==false)
-						audio20.play();
-					break;
-		default:	console.log("Invalid turret type!");	
+	if (Modernizr.audio) {
+		if (Modernizr.audio.wav) {
+			$("#audiofile").val
+			switch(this.type)	{
+				case 0:		if (isPlaying(sounds[4])==false)
+								sounds[4].play();
+							else {
+								sounds[4].pause();
+								sounds[4].currentTime = 0;
+								sounds[4].play();	}
+							break;
+				case 2:		if (isPlaying(sounds[1])==false)
+								sounds[1].play();
+							else {
+								sounds[1].pause();
+								sounds[1].currentTime = 0;
+								sounds[1].play();	}
+							break;
+			case 3:		if (isPlaying(sounds[7])==false)
+							sounds[7].play();
+						else {
+								sounds[7].pause();
+								sounds[7].currentTime = 0;
+								sounds[7].play();	}
+							break;
+			default:	console.log("Invalid turret type!");	
+		}
+		if (Modernizr.audio.mp3) {
+			$("#audiofile").val
+			switch(this.type)	{
+				case 0:		if (isPlaying(sounds[3])==false)
+								sounds[3].play();
+							else {
+								sounds[3].pause();
+								sounds[3].currentTime = 0;
+								sounds[3].play();	}
+							break;
+				case 2:		if (isPlaying(sounds[0])==false)
+								sounds[0].play();
+							else {
+								sounds[0].pause();
+								sounds[0].currentTime = 0;
+								sounds[0].play();	}
+							break;
+			case 3:		if (isPlaying(sounds[6])==false)
+							sounds[6].play();
+						else {
+								sounds[6].pause();
+								sounds[6].currentTime = 0;
+								sounds[6].play();	}
+							break;
+			default:	console.log("Invalid turret type!");	
+		}
+		}
+		if (Modernizr.audio.ogg) {
+			$("#audiofile").val
+			switch(this.type)	{
+				case 0:		if (isPlaying(sounds[5])==false)
+								sounds[5].play();
+							else {
+								sounds[5].pause();
+								sounds[5].currentTime = 0;
+								sounds[5].play();	}
+							break;
+				case 2:		if (isPlaying(sounds[2])==false)
+								sounds[2].play();
+							else {
+								sounds[2].pause();
+								sounds[2].currentTime = 0;
+								sounds[2].play();	}
+							break;
+			case 3:		if (isPlaying(sounds[8])==false)
+							sounds[8].play();
+						else {
+								sounds[8].pause();
+								sounds[8].currentTime = 0;
+								sounds[8].play();	}
+							break;
+			default:	console.log("Invalid turret type!");	
+		}
+		}
 	}
 }
 
