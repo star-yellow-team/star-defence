@@ -27,7 +27,7 @@ class EchoServerProtocol(WebSocketServerProtocol):
         self.sendMessage(msg, binary)
 
 def start_echo_server():
-    factory = WebSocketServerFactory('ws://localhost:9000',
+    factory = WebSocketServerFactory('ws://0.0.0.0:9000',
                                      debug = False)
     factory.protocol = EchoServerProtocol
 
@@ -39,5 +39,5 @@ def start_echo_server():
 
  
 if __name__ == '__main__':
-    start_echo_server()    
+    start_echo_server()
 
