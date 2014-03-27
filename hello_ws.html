@@ -4,7 +4,7 @@
         <script type="text/javascript" charset="utf-8" src="{{url_for('static', filename='scripts/jquery.js')}}">
         </script>
          <script type="text/javascript" charset="utf-8">
-            var address = "ws://" + location.host +":9000"
+            var address = "ws://" + location.host+'/wsi'
             var webSocket = new WebSocket(address);
             if(webSocket == undefined) {
                 webSocket = new MozWebSocket(address);
@@ -13,11 +13,29 @@
             webSocket.onmessage = function(e) {
                 $("#messages").append('<p>'+e.data+"</p>");
             }
+            $(function() {
+                $("#sender").submit(function(e) {
+                    e.preventDefault();
+                    var text = $("#text").val()
+                    webSocket.send(text)
+                })
+            })
+            
          </script>
         <title>Hello_ws</title>
     </head>
 
     <body>
+        <form id="sender" action="" method="get" accept-charset="utf-8">
+            <p>
+                <input type="textarea" name="text" id="text" value="">
+            </p>
+            
+            <p>
+                <input type="submit" value="Send message &rarr;">
+            </p>
+        </form>
+        
         <div id="messages" >
             
         </div>
