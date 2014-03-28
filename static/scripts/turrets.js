@@ -281,7 +281,7 @@ Turret.prototype.playSound = function(){
 	var r = Math.floor((Math.random()*5)+1);
 	if (Modernizr.audio) {
 		if (Modernizr.audio.wav) {
-			$("#audiofile").val
+			//$("#audiofile").val
 			switch(this.type)	{
 				case 0:		if (isPlaying(sounds[4])==false)
 								sounds[4].play();
@@ -305,9 +305,9 @@ Turret.prototype.playSound = function(){
 								sounds[7].play();	}
 							break;
 			default:	console.log("Invalid turret type!");	
-		}
+		}}
 		if (Modernizr.audio.mp3) {
-			$("#audiofile").val
+			//$("#audiofile").val
 			switch(this.type)	{
 				case 0:		if (isPlaying(sounds[3])==false)
 								sounds[3].play();
