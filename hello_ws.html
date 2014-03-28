@@ -13,26 +13,27 @@
             webSocket.onmessage = function(e) {
                 $("#messages").append('<p>'+e.data+"</p>");
             }
-            $(function() {
+            
+            function fix() {
                 $("#sender").submit(function(e) {
                     e.preventDefault();
                     var text = $("#text").val()
                     webSocket.send(text)
+                    return false;
                 })
-            })
-            
+            }
          </script>
         <title>Hello_ws</title>
     </head>
 
-    <body>
+    <body onload="fix()">
         <form id="sender" action="" method="get" accept-charset="utf-8">
             <p>
                 <input type="textarea" name="text" id="text" value="">
             </p>
             
             <p>
-                <input type="submit" value="Send message &rarr;">
+                <input id="sub" type="submit" value="Send message &rarr;">
             </p>
         </form>
         

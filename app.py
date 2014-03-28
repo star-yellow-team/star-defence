@@ -1,7 +1,7 @@
 import flask
 from flask_sockets import Sockets
 import os
-#import backend.echo_server
+import gevent
 from twisted.internet   import reactor, threads
 from twisted.web.wsgi   import WSGIResource
 from twisted.web.server import Site
@@ -10,14 +10,40 @@ from datetime import datetime
 app     = flask.Flask(__name__, template_folder=".")
 sockets = Sockets(app)
 
+class Updater(object):
+    def __init__(self):
+        self.clients    = []
+        self.ct         = 0
+
+    def register(self, client):
+        if client not in self.clients:
+            self.clients.append(client)
+            return True
+        return False
+
+    def run(self):
+        while True:
+            gevent.sleep(3)
+            self.ct += 1   
+            for client in self.clients:
+                client.send('Contor from server: ' + str(self.ct))
+
+    def start(self):
+        gevent.spawn(self.run)
+
+updater = Updater()
+updater.start()
+
 @sockets.route('/wsi')
 def send(ws):
     while True:
+        updater.register(ws)
         message = ws.receive()
         if message is not None:
             message = 'Response from server: ' + message \
             + ' at time: ' + str(datetime.now())
         ws.send(message)
+
 
 @app.template_filter()
 def get_ws_address():
