@@ -1,39 +1,51 @@
-from twisted.internet import reactor, threads
-from autobahn.twisted.websocket import WebSocketServerFactory,\
-    WebSocketServerProtocol, listenWS
 from player import Player
 from threading import Thread
 import db
 
-# vector containing all players
+# vector cu jucatori
 players = []
+# lock pentru jucatori
+players_lock = threading.Lock()
+
+# vectorulcu jocuri
+games   = []
+# lock pentru jocuri
+games_lock = threading.Lock()
 
 
 # returneaza un jucator dupa numele sau
 def get_player_by_name(_name):
-    for player in players:
-        if player.name == _name:
-            return player
+    with players_lock:
+        for player in players:
+            if player.name == _name:
+                return player
 
 
 # returneaza un jucator dupa socket
 def get_player_by_socket(ws):
-    for player in players:
-        if player.ws is ws:
-            return player
+    with players_lock:
+        for player in players:
+            if player.ws is ws:
+                return player
 
     return None
 
 
 def get_players_by_game(game):
-    _players = []
+    with players_lock:
+        _players = []
 
-    for player in players:
-        if player.game_id == game:
+        for player in players:
+            if player.game_id == game:
 
-            _players.append(player)
+                _players.append(player)
 
-    return _players
+        return _players
+
+def create_player(ws):
+    with players_lock:    
+        p = Player(ws)
+        players.append(p)
 
 
 def handle_notification(ws, notification):
@@ -88,80 +100,24 @@ def handle_notification(ws, notification):
     elif notification['code'] == 4:
         # trimitere cerere joc
         pass
+
     elif notification['code'] == 5:
         # primire cerere joc
         pass
+
     elif notification['code'] == 6:
-        # alegere harta
-        
+        # alegere harta        
         pass
+
     elif notification['code'] == 7:
         # trimitere modificare harta
-
         pass
+
     elif notification['code'] == 8:
         # trimite mesaj
         pass
+
     else:
         # iesire jucator din joc
         pass
-
-
-class PlayerProtocol(WebSocketServerProtocol):
- 
-    def onOpen(self):
-        # creeaza un nou jucator
-        players.append(Player(self))
-
-
-    def onMessage(self, msg, binary):
-        _msg = json.loads(msg)
-        notification = Notification(_msg)
-        handle_notification(self, notification)
-
-
-    # DONE. TODO -- TEST
-    def onClose(self, wasClean, code, reason):
-        #check if player is playing, announce opponent
-        #remove player
-        player = get_player_by_socket(self)
-
-        if player.is_playing:
-            _players = get_players_by_game(player.game_id)
-
-            if _players[0] is not player:
-                _players[0].add_notification(Notification({'code':-6,'message':'Adversarul a iesit din joc'}))
-            else:
-               _players[0].add_notification(Notification({'code':-6,'message':'Adversarul a iesit din joc'}))
-  
-        players.remove(self)
-
-
-
-class StatusUpdater(Thread):
-    
-    def run(self):
-        while True:
-
-            for player in players:
-                # if sau while?!
-                if len(player.notifications > 0):
-                    reactor.deferToThread(player.ws.sendMessage,\
-                    payload=player.notifications.pop().to_json())
-
-
-
- 
-if __name__ == '__main__':
-    factory = WebSocketServerFactory("ws://localhost:9000", debug = False)
-    factory.protocol = PlayerProtocol
-
-    updater = StatusUpdater()
-    updater.start()
-
-    listenWS(factory)
-    reactor.run()
-
-
-
 

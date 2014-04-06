@@ -13,7 +13,7 @@ class Player(object):
         self.name           = ""
         self.is_playing     = False        
         self.game_id        = -240513
-        self.ws             = socket
+        self.ws             = socket         
 
     def add_notification(self, notif):
         self.notifications.push(notif)
