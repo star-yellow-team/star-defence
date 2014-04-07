@@ -7,7 +7,7 @@
 //numar maxim de tipuri de turete
 var NUMBER_OF_TURRET_TYPES = 5;
 
-function isPlaying(audelem) { return !audelem.paused; }
+function isPlaying(audelem) { if(audelem) {return false;} else return !audelem.paused; }
 
 //Tipuri de turete
 var MACHINEGUN_TURRET = {
@@ -286,21 +286,18 @@ Turret.prototype.playSound = function(){
 				case 0:		if (isPlaying(sounds[4])==false)
 								sounds[4].play();
 							else {
-								sounds[4].pause();
 								sounds[4].currentTime = 0;
 								sounds[4].play();	}
 							break;
 				case 2:		if (isPlaying(sounds[1])==false)
 								sounds[1].play();
 							else {
-								sounds[1].pause();
 								sounds[1].currentTime = 0;
 								sounds[1].play();	}
 							break;
 			case 3:		if (isPlaying(sounds[7])==false)
 							sounds[7].play();
 						else {
-								sounds[7].pause();
 								sounds[7].currentTime = 0;
 								sounds[7].play();	}
 							break;
@@ -312,21 +309,18 @@ Turret.prototype.playSound = function(){
 				case 0:		if (isPlaying(sounds[3])==false)
 								sounds[3].play();
 							else {
-								sounds[3].pause();
 								sounds[3].currentTime = 0;
 								sounds[3].play();	}
 							break;
 				case 2:		if (isPlaying(sounds[0])==false)
 								sounds[0].play();
 							else {
-								sounds[0].pause();
 								sounds[0].currentTime = 0;
 								sounds[0].play();	}
 							break;
 			case 3:		if (isPlaying(sounds[6])==false)
 							sounds[6].play();
 						else {
-								sounds[6].pause();
 								sounds[6].currentTime = 0;
 								sounds[6].play();	}
 							break;
@@ -339,21 +333,18 @@ Turret.prototype.playSound = function(){
 				case 0:		if (isPlaying(sounds[5])==false)
 								sounds[5].play();
 							else {
-								sounds[5].pause();
 								sounds[5].currentTime = 0;
 								sounds[5].play();	}
 							break;
 				case 2:		if (isPlaying(sounds[2])==false)
 								sounds[2].play();
 							else {
-								sounds[2].pause();
 								sounds[2].currentTime = 0;
 								sounds[2].play();	}
 							break;
 			case 3:		if (isPlaying(sounds[8])==false)
 							sounds[8].play();
 						else {
-								sounds[8].pause();
 								sounds[8].currentTime = 0;
 								sounds[8].play();	}
 							break;
